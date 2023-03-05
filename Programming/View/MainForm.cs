@@ -16,71 +16,76 @@ namespace Programming.View
         public MainForm()
         {
             InitializeComponent();
-            string[] enums = { "Colour","EducationForm","Genre","Manufactures","Season","Weekday"};
+            var enums = { "Color",
+                "EducationForm",
+                "Genre",
+                "Manufacturers",
+                "Season",
+                "Weekday"};
             EnumsListBox.Items.AddRange(enums);
         }
 
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ValuesListBox.Items.Clear();
-            IntValues.Text = "";
-            var ElementNumber = EnumsListBox.SelectedIndex;
-            switch (ElementNumber)
+            IntValues.Text = String.Empty();
+            var elementNumber = EnumsListBox.SelectedItem;
+            switch (elementNumber)
             {
-                case 0:
+                case "Color":
+                {
+                    var values = Enum.GetValues(typeof(Color));
+                    foreach (var item in values)
                     {
-                        var values = Enum.GetValues(typeof(Colour));
-                        foreach (var item in values)
-                        {
-                            ValuesListBox.Items.Add(item);
-                        }
-                        break;
+                        ValuesListBox.Items.Add(item);
                     }
-                case 1:
+                    break;    
+                }
+                case "EducationForm":
+                {
+                    var values = Enum.GetValues(typeof(EducationForm));
+                    foreach (var item in values)
                     {
-                        var values = Enum.GetValues(typeof(EducationForm));
-                        foreach (var item in values)
-                        {
-                            ValuesListBox.Items.Add(item);
-                        }
-                        break;
+                        ValuesListBox.Items.Add(item);
                     }
-                case 2:
+                    break;
+                }
+                case "Genre":
+                {
+                    var values = Enum.GetValues(typeof(Genre));
+                    foreach (var item in values)
                     {
-                        var values = Enum.GetValues(typeof(Genre));
-                        foreach (var item in values)
-                        {
-                            ValuesListBox.Items.Add(item);
-                        }
-                        break;
+                        ValuesListBox.Items.Add(item);
                     }
-                case 3:
+                    break;
+                }
+                case "Manufacturer":
+                {
+                    var values = Enum.GetValues(typeof(Manufacturer));
+                    foreach (var item in values)
                     {
-                        var values = Enum.GetValues(typeof(Manufactures));
-                        foreach (var item in values)
-                        {
-                            ValuesListBox.Items.Add(item);
-                        }
-                        break;
+                        ValuesListBox.Items.Add(item);
                     }
-                case 4:
+                    break;
+                }
+                case "Season":
+                {
+                    var values = Enum.GetValues(typeof(Season));
+                    foreach (var item in values)
                     {
-                        var values = Enum.GetValues(typeof(Season));
-                        foreach (var item in values)
-                        {
-                            ValuesListBox.Items.Add(item);
-                        }
-                        break;
+                        ValuesListBox.Items.Add(item);
                     }
-                case 5:
+                    break;
+                }
+                case "WeekDay":
+                {
+                    var values = Enum.GetValues(typeof(WeekDay));
+                    foreach (var item in values)
                     {
-                        var values = Enum.GetValues(typeof(Weekday));
-                        foreach (var item in values)
-                        {
-                            ValuesListBox.Items.Add(item);
-                        }
-                        break;
+                        ValuesListBox.Items.Add(item);
                     }
+                    break;
+                }
             }
         }
 
@@ -91,12 +96,12 @@ namespace Programming.View
 
         private void ParseButton_Click(object sender, EventArgs e)
         {
-            string day = Days.Text;
-            Weekday b;
-            var Check = Enum.TryParse(day,out b);
-            if (Check)
+            var day = Days.Text;
+            WeekDay seasonCheck;
+            var check = Enum.TryParse(day,out seasonCheck);
+            if (check)
             {
-                Weekday Answer = (Weekday) Enum.Parse(typeof(Weekday), day,ignoreCase: true);
+                WeekDay Answer = (WeekDay) Enum.Parse(typeof(WeekDay), day,ignoreCase: true);
                 AnswerLabel.Text = $"«Это день недели ({Answer} = {(int)Answer+1})";
             }
             else
@@ -107,35 +112,35 @@ namespace Programming.View
 
         private void SeasonButton_Click(object sender, EventArgs e)
         {
-            SeasonAnswer.Text = "";
+            SeasonAnswer.Text = String.Empty();
             SeasonHandleBox.BackColor = ColorTranslator.FromHtml("#FFFFFF");
-            switch (SeasonBox.SelectedIndex)
+            switch (SeasonBox.SelectedItem)
             {
-                case 0:
-                    {
+                case "Winter":
+                {
                         SeasonAnswer.Text = "Бррр! Холодно!";
                         break;
-                    }
-                case 1:
-                    {
+                }
+                case "Spring":
+                {
                         SeasonHandleBox.BackColor = ColorTranslator.FromHtml("#559c45");
                         break;
-                    }
-                case 2:
-                    {
+                }
+                case "Summer":
+                {
                         SeasonAnswer.Text = "Ура! Солнце!";
                         break;
-                    }
-                case 3:
-                    {
+                }
+                case "Autumn":
+                {
                         SeasonHandleBox.BackColor = ColorTranslator.FromHtml("#e29c45");
                         break;
-                    }
+                }
                 default:
-                    {
+                {
                         SeasonAnswer.Text = "Это не время года";
                         break;
-                    }
+                }
             }
         }
     }

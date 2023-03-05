@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Enums
 {
-        public enum Genre
+    public enum Genre
         {
             Comedy,
             Drama,

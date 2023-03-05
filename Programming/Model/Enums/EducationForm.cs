@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Enums
 {
-        public enum EducationForm
+    public enum EducationForm
         {
-            Full_Time, 
-            Part_Time, 
+            FullTime, 
+            PartTime, 
             Evening, 
             Remote
         }

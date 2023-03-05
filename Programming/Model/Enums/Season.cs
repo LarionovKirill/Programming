@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Enums
 {
-        public enum Season
+    public enum Season
         {
             Winter,
             Spring,

@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Enums
 {
-        public enum Colour
+    public enum Manufacturer
         {
-            Red,
-            Green,
-            Blue,
-            White,
-            Black,
-            Orange,
-            Yellow
+            Xiaomi,
+            Apple,
+            Samsung,
+            Honor,
+            Realme,
+            OnePlus
         }
 }
