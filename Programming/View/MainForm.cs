@@ -16,12 +16,15 @@ namespace Programming.View
         public MainForm()
         {
             InitializeComponent();
-            var enums = { "Color",
+            var enums = 
+            { 
+                "Color",
                 "EducationForm",
                 "Genre",
                 "Manufacturers",
                 "Season",
-                "Weekday"};
+                "Weekday"
+            };
             EnumsListBox.Items.AddRange(enums);
         }
 
