@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Programming.Model.Enums
-{
+{/// <summary>
+/// Хранит перечилсение производителей.
+/// </summary>
     public enum Manufacturer
     {
         Xiaomi,

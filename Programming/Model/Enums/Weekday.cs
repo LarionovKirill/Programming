@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Programming.Model.Enums
-{
+{/// <summary>
+/// Хранит перечисление дней недели.
+/// </summary>
     public enum WeekDay
     {
         Monday,

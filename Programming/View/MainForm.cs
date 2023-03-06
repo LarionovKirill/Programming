@@ -16,8 +16,8 @@ namespace Programming.View
         public MainForm()
         {
             InitializeComponent();
-            var enums = new []
-            { 
+            var enums = new[]
+            {
                 "Color",
                 "EducationForm",
                 "Genre",
@@ -28,6 +28,11 @@ namespace Programming.View
             enumsListBox.Items.AddRange(enums);
         }
 
+        /// <summary>
+        /// Обрабатывает нажатие и создает список перечислений.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             valuesListBox.Items.Clear();
@@ -92,11 +97,21 @@ namespace Programming.View
             }
         }
 
+        /// <summary>
+        /// Выдает числовое значение перечисления.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             intValues.Text = valuesListBox.SelectedIndex.ToString();
         }
 
+        /// <summary>
+        /// Проверяет, что написанное значение это день недели.    
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ParseButton_Click(object sender, EventArgs e)
         {
             var day = days.Text;
@@ -113,6 +128,11 @@ namespace Programming.View
             }
         }
 
+        /// <summary>
+        /// Проверяет, что выбранное значение это время года.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SeasonButton_Click(object sender, EventArgs e)
         {
             seasonAnswer.Text = String.Empty;

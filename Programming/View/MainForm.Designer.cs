@@ -65,7 +65,7 @@ namespace Programming.View
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(956, 564);
+            this.tabControl1.Size = new System.Drawing.Size(829, 538);
             this.tabControl1.TabIndex = 0;
             // 
             // Enums
@@ -76,7 +76,7 @@ namespace Programming.View
             this.Enums.Location = new System.Drawing.Point(4, 25);
             this.Enums.Name = "Enums";
             this.Enums.Padding = new System.Windows.Forms.Padding(3);
-            this.Enums.Size = new System.Drawing.Size(948, 535);
+            this.Enums.Size = new System.Drawing.Size(821, 509);
             this.Enums.TabIndex = 0;
             this.Enums.Text = "Enums";
             this.Enums.UseVisualStyleBackColor = true;
@@ -87,9 +87,9 @@ namespace Programming.View
             this.seasonHandleBox.Controls.Add(this.seasonLabel);
             this.seasonHandleBox.Controls.Add(this.seasonAnswer);
             this.seasonHandleBox.Controls.Add(this.seasonButton);
-            this.seasonHandleBox.Location = new System.Drawing.Point(493, 323);
+            this.seasonHandleBox.Location = new System.Drawing.Point(433, 323);
             this.seasonHandleBox.Name = "seasonHandleBox";
-            this.seasonHandleBox.Size = new System.Drawing.Size(447, 204);
+            this.seasonHandleBox.Size = new System.Drawing.Size(378, 171);
             this.seasonHandleBox.TabIndex = 16;
             this.seasonHandleBox.TabStop = false;
             this.seasonHandleBox.Text = "Season Handle";
@@ -102,7 +102,7 @@ namespace Programming.View
             "Spring",
             "Summer",
             "Autumn"});
-            this.seasonBox.Location = new System.Drawing.Point(6, 60);
+            this.seasonBox.Location = new System.Drawing.Point(9, 60);
             this.seasonBox.Name = "seasonBox";
             this.seasonBox.Size = new System.Drawing.Size(212, 24);
             this.seasonBox.TabIndex = 10;
@@ -142,7 +142,7 @@ namespace Programming.View
             this.weekdayParsingBox.Controls.Add(this.weekdayLabel);
             this.weekdayParsingBox.Location = new System.Drawing.Point(8, 323);
             this.weekdayParsingBox.Name = "weekdayParsingBox";
-            this.weekdayParsingBox.Size = new System.Drawing.Size(466, 204);
+            this.weekdayParsingBox.Size = new System.Drawing.Size(419, 171);
             this.weekdayParsingBox.TabIndex = 15;
             this.weekdayParsingBox.TabStop = false;
             this.weekdayParsingBox.Text = "Weekday Parsing";
@@ -192,7 +192,7 @@ namespace Programming.View
             this.enumerationsBox.Controls.Add(this.intValues);
             this.enumerationsBox.Location = new System.Drawing.Point(8, 18);
             this.enumerationsBox.Name = "enumerationsBox";
-            this.enumerationsBox.Size = new System.Drawing.Size(932, 299);
+            this.enumerationsBox.Size = new System.Drawing.Size(803, 299);
             this.enumerationsBox.TabIndex = 14;
             this.enumerationsBox.TabStop = false;
             this.enumerationsBox.Text = "Enumerations";
@@ -201,16 +201,16 @@ namespace Programming.View
             // 
             this.valuesListBox.FormattingEnabled = true;
             this.valuesListBox.ItemHeight = 16;
-            this.valuesListBox.Location = new System.Drawing.Point(236, 43);
+            this.valuesListBox.Location = new System.Drawing.Point(223, 43);
             this.valuesListBox.Name = "valuesListBox";
-            this.valuesListBox.Size = new System.Drawing.Size(157, 132);
+            this.valuesListBox.Size = new System.Drawing.Size(157, 228);
             this.valuesListBox.TabIndex = 1;
             this.valuesListBox.SelectedIndexChanged += new System.EventHandler(this.ValuesListBox_SelectedIndexChanged);
             // 
             // chooseValue
             // 
             this.chooseValue.AutoSize = true;
-            this.chooseValue.Location = new System.Drawing.Point(233, 23);
+            this.chooseValue.Location = new System.Drawing.Point(220, 23);
             this.chooseValue.Name = "chooseValue";
             this.chooseValue.Size = new System.Drawing.Size(100, 17);
             this.chooseValue.TabIndex = 4;
@@ -222,7 +222,7 @@ namespace Programming.View
             this.enumsListBox.ItemHeight = 16;
             this.enumsListBox.Location = new System.Drawing.Point(26, 43);
             this.enumsListBox.Name = "enumsListBox";
-            this.enumsListBox.Size = new System.Drawing.Size(156, 132);
+            this.enumsListBox.Size = new System.Drawing.Size(161, 228);
             this.enumsListBox.TabIndex = 0;
             this.enumsListBox.SelectedIndexChanged += new System.EventHandler(this.EnumsListBox_SelectedIndexChanged);
             // 
@@ -238,7 +238,7 @@ namespace Programming.View
             // intValue
             // 
             this.intValue.AutoSize = true;
-            this.intValue.Location = new System.Drawing.Point(491, 23);
+            this.intValue.Location = new System.Drawing.Point(422, 23);
             this.intValue.Name = "intValue";
             this.intValue.Size = new System.Drawing.Size(67, 17);
             this.intValue.TabIndex = 3;
@@ -246,7 +246,7 @@ namespace Programming.View
             // 
             // intValues
             // 
-            this.intValues.Location = new System.Drawing.Point(494, 43);
+            this.intValues.Location = new System.Drawing.Point(425, 43);
             this.intValues.Multiline = true;
             this.intValues.Name = "intValues";
             this.intValues.Size = new System.Drawing.Size(148, 28);
@@ -260,7 +260,7 @@ namespace Programming.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(956, 564);
+            this.ClientSize = new System.Drawing.Size(829, 538);
             this.Controls.Add(this.tabControl1);
             this.Name = "MainForm";
             this.Text = "MainForm";
