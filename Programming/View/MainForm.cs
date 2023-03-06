@@ -104,8 +104,8 @@ namespace Programming.View
             var check = Enum.TryParse(day,out seasonCheck);
             if (check)
             {
-                WeekDay Answer = (WeekDay) Enum.Parse(typeof(WeekDay), day,ignoreCase: true);
-                answerLabel.Text = $"«Это день недели ({Answer} = {(int)Answer+1})";
+                WeekDay answer = (WeekDay) Enum.Parse(typeof(WeekDay), day,ignoreCase: true);
+                answerLabel.Text = $"«Это день недели ({answer} = {(int)answer+1})";
             }
             else
             {

@@ -87,9 +87,9 @@ namespace Programming.View
             this.seasonHandleBox.Controls.Add(this.seasonLabel);
             this.seasonHandleBox.Controls.Add(this.seasonAnswer);
             this.seasonHandleBox.Controls.Add(this.seasonButton);
-            this.seasonHandleBox.Location = new System.Drawing.Point(556, 350);
+            this.seasonHandleBox.Location = new System.Drawing.Point(493, 323);
             this.seasonHandleBox.Name = "seasonHandleBox";
-            this.seasonHandleBox.Size = new System.Drawing.Size(349, 153);
+            this.seasonHandleBox.Size = new System.Drawing.Size(447, 204);
             this.seasonHandleBox.TabIndex = 16;
             this.seasonHandleBox.TabStop = false;
             this.seasonHandleBox.Text = "Season Handle";
@@ -140,9 +140,9 @@ namespace Programming.View
             this.weekdayParsingBox.Controls.Add(this.days);
             this.weekdayParsingBox.Controls.Add(this.answerLabel);
             this.weekdayParsingBox.Controls.Add(this.weekdayLabel);
-            this.weekdayParsingBox.Location = new System.Drawing.Point(29, 350);
+            this.weekdayParsingBox.Location = new System.Drawing.Point(8, 323);
             this.weekdayParsingBox.Name = "weekdayParsingBox";
-            this.weekdayParsingBox.Size = new System.Drawing.Size(354, 158);
+            this.weekdayParsingBox.Size = new System.Drawing.Size(466, 204);
             this.weekdayParsingBox.TabIndex = 15;
             this.weekdayParsingBox.TabStop = false;
             this.weekdayParsingBox.Text = "Weekday Parsing";
@@ -190,9 +190,9 @@ namespace Programming.View
             this.enumerationsBox.Controls.Add(this.enumaration);
             this.enumerationsBox.Controls.Add(this.intValue);
             this.enumerationsBox.Controls.Add(this.intValues);
-            this.enumerationsBox.Location = new System.Drawing.Point(29, 18);
+            this.enumerationsBox.Location = new System.Drawing.Point(8, 18);
             this.enumerationsBox.Name = "enumerationsBox";
-            this.enumerationsBox.Size = new System.Drawing.Size(707, 299);
+            this.enumerationsBox.Size = new System.Drawing.Size(932, 299);
             this.enumerationsBox.TabIndex = 14;
             this.enumerationsBox.TabStop = false;
             this.enumerationsBox.Text = "Enumerations";

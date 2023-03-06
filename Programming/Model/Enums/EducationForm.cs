@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace Programming.Model.Enums
 {
     public enum EducationForm
-        {
-            FullTime, 
-            PartTime, 
-            Evening, 
-            Remote
-        }
+    {
+        FullTime, 
+        PartTime, 
+        Evening, 
+        Remote
+    }
 }

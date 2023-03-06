@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace Programming.Model.Enums
 {
     public enum Color
-        {
-            Red,
-            Green,
-            Blue,
-            White,
-            Black,
-            Orange,
-            Yellow
-        }
+    {
+        Red,
+        Green,
+        Blue,
+        White,
+        Black,
+        Orange,
+        Yellow
+    }
 }

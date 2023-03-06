@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 namespace Programming.Model.Enums
 {
     public enum Manufacturer
-        {
-            Xiaomi,
-            Apple,
-            Samsung,
-            Honor,
-            Realme,
-            OnePlus
-        }
+    {
+        Xiaomi,
+        Apple,
+        Samsung,
+        Honor,
+        Realme,
+        OnePlus
+    }
 }
