@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Programming.Model.Enums
-{/// <summary>
-/// Хранит перечисление форм обучения.
-/// </summary>
+{
+    /// <summary>
+    /// Хранит перечисление форм обучения.
+    /// </summary>
     public enum EducationForm
     {
         FullTime, 
