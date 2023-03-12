@@ -44,75 +44,59 @@ namespace Programming.View
             }
         }
 
+        /// <summary>
+        /// Обрабатывает нажатие и создает список перечислений.
+        /// </summary>
+        /// <param name="sender">
+        /// Предоставляет ссылку на объект, вызвавший событие. 
+        /// </param>
+        /// <param name="e">
+        /// Передает объект, относящийся к обрабатываемому событию.
+        /// </param>
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var enumsDict = new Dictionary<int, Enum>
+            {
+                [0] = new Model.Enums.Color(),
+                [1] = new EducationForm(),
+                [2] = new Genre(),
+                [3] = new Manufacturer(),
+                [4] = new Season(),
+                [5] = new WeekDay(),
+            };
             valuesListBox.Items.Clear();
             intValues.Text = String.Empty;
-            var elementNumber = enumsListBox.SelectedItem;
-            switch (elementNumber)
+            var elementNumber = enumsListBox.SelectedIndex;
+            var a = enumsDict[elementNumber].GetType();
+            foreach (var item in Enum.GetValues(a))
             {
-                case "Color":
-                {
-                    var values = Enum.GetValues(typeof(Model.Enums.Color));
-                    foreach (var item in values)
-                    {
-                        valuesListBox.Items.Add(item);
-                    }
-                    break;    
-                }
-                case "EducationForm":
-                {
-                    var values = Enum.GetValues(typeof(EducationForm));
-                    foreach (var item in values)
-                    {
-                        valuesListBox.Items.Add(item);
-                    }
-                    break;
-                }
-                case "Genre":
-                {
-                    var values = Enum.GetValues(typeof(Genre));
-                    foreach (var item in values)
-                    {
-                        valuesListBox.Items.Add(item);
-                    }
-                    break;
-                }
-                case "Manufacturer":
-                {
-                    var values = Enum.GetValues(typeof(Manufacturer));
-                    foreach (var item in values)
-                    {
-                        valuesListBox.Items.Add(item);
-                    }
-                    break;
-                }
-                case "Season":
-                {
-                    var values = Enum.GetValues(typeof(Season));
-                    foreach (var item in values)
-                    {
-                        valuesListBox.Items.Add(item);
-                    }
-                    break;
-                }
-                case "WeekDay":
-                {
-                    var values = Enum.GetValues(typeof(WeekDay));
-                    foreach (var item in values)
-                    {
-                        valuesListBox.Items.Add(item);
-                    }
-                    break;
-                }
+                valuesListBox.Items.Add(item);
             }
         }
 
+        /// <summary>
+        /// Выдает числовое значение перечисления.
+        /// </summary>
+        /// <param name="sender">
+        /// Предоставляет ссылку на объект, вызвавший событие. 
+        /// </param>
+        /// <param name="e">
+        /// Передает объект, относящийся к обрабатываемому событию.
+        /// </param>
         private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             intValues.Text = valuesListBox.SelectedIndex.ToString();
         }
 
+         /// <summary>
+        /// Проверяет, что написанное значение это день недели.    
+        /// </summary>
+        /// <param name="sender">
+        /// Предоставляет ссылку на объект, вызвавший событие. 
+        /// </param>
+        /// <param name="e">
+        /// Передает объект, относящийся к обрабатываемому событию.
+        /// </param>
         private void ParseButton_Click(object sender, EventArgs e)
         {
             var day = days.Text;
@@ -129,6 +113,15 @@ namespace Programming.View
             }
         }
 
+        /// <summary>
+        /// Проверяет, что выбранное значение это время года.
+        /// </summary>
+        /// <param name="sender">
+        /// Предоставляет ссылку на объект, вызвавший событие. 
+        /// </param>
+        /// <param name="e">
+        /// Передает объект, относящийся к обрабатываемому событию.
+        /// </param>
         private void SeasonButton_Click(object sender, EventArgs e)
         {
             seasonAnswer.Text = String.Empty;
@@ -163,6 +156,15 @@ namespace Programming.View
             }
         }
 
+        /// <summary>
+        /// Заполняет TextBox при нажатии элемента из ListBox
+        /// </summary>
+        /// <param name="sender">
+        /// Предоставляет ссылку на объект, вызвавший событие. 
+        /// </param>
+        /// <param name="e">
+        /// Передает объект, относящийся к обрабатываемому событию.
+        /// </param>
         private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = RectangleListBox.SelectedIndex;
