@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace Programming.Model
 {
+    /// <summary>
+    /// Хранит описание песни и ее рейтинг.
+    /// </summary>
     class Song
     {
         private String Author;
         private String Title;
         private double Rating;
 
+        /// <summary>
+        /// Свойство для поля Author.
+        /// </summary>
         public String author
         {
             set
@@ -24,6 +30,9 @@ namespace Programming.Model
             }
         }
 
+        /// <summary>
+        /// Свойство для поля Title.
+        /// </summary>
         public String title
         {
             set
@@ -36,6 +45,9 @@ namespace Programming.Model
             }
         }
 
+        /// <summary>
+        /// Свойство для поля Rating.
+        /// </summary>
         public double rating
         {
             set
@@ -55,11 +67,20 @@ namespace Programming.Model
             }
         }
 
+        /// <summary>
+        /// Конструктор по умолчанию.
+        /// </summary>
         public Song()
         {
             
         }
 
+        /// <summary>
+        /// Конструктор с параметрами.
+        /// </summary>
+        /// <param name="Author">Устанавливает значение для поля Author</param>
+        /// <param name="Title">Устанавливает значение для поля Title</param>
+        /// <param name="Rating">Устанавливает значение для поля Rating</param>
         public Song(String Author, String Title, double Rating)
         {
             this.author = Author;

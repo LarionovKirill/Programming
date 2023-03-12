@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace Programming.Model
 {
+    /// <summary>
+    /// Класс хранит в себе поля: номер, имя, фамилия.
+    /// </summary>
     class Contact
     {
         private int Number;
         private String Name;
         private String Surename;
 
+        /// <summary>
+        /// Свойство для поля Number.
+        /// </summary>
         public int number
         {
             set 
@@ -30,6 +36,9 @@ namespace Programming.Model
                 return Number;
             }
         }
+        /// <summary>
+        /// Свойство для поля Name.
+        /// </summary>
         public String name 
         {
             set
@@ -41,6 +50,9 @@ namespace Programming.Model
                 return Name;
             }
         }
+        /// <summary>
+        /// Свойство для поля Surename.
+        /// </summary>
         public String surename 
         {
             set
@@ -52,12 +64,25 @@ namespace Programming.Model
                 return Surename;
             }
         }
-
+        /// <summary>
+        /// Конструктор по умолчанию.
+        /// </summary>
         public Contact()
         {
             
         }
-
+        /// <summary>
+        /// Констурктор с параметрами.
+        /// </summary>
+        /// <param name="Number">
+        /// Устанавливет значение для поля Number.
+        /// </param>
+        /// <param name="Name">
+        /// Устанавливет значение для поля Name.
+        /// </param>
+        /// <param name="Surename">
+        /// Устанавливет значение для поля Surename.
+        /// </param>
         public Contact(int Number, String Name, String Surename)
         {
             this.name = Name;

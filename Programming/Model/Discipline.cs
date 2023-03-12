@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace Programming.Model
 {
+    /// <summary>
+    /// Класс хранит данные о предмете, оценке и учителе.
+    /// </summary>
     class Discipline
     {
         private String Subject;
         private int Mark;
         private String Teacher;
 
+        /// <summary>
+        /// Свойство для поля Mark.
+        /// </summary>
         public int mark
         {
             set
@@ -31,6 +37,9 @@ namespace Programming.Model
             }
         }
 
+        /// <summary>
+        /// Свойство для поля Subject.
+        /// </summary>
         public String subject
         {
             set 
@@ -43,6 +52,9 @@ namespace Programming.Model
             }
         }
 
+        /// <summary>
+        /// Свойство для поля Teacher.
+        /// </summary>
         public String teacher
         {
             set 
@@ -55,11 +67,26 @@ namespace Programming.Model
             }
         }
 
+        /// <summary>
+        /// Конструктор по умолчанию.
+        /// </summary>
         public Discipline()
         {
             
         }
 
+        /// <summary>
+        /// Конструктор с параметрами
+        /// </summary>
+        /// <param name="Subject">
+        /// Устанавливет значение для поля Subject.
+        /// </param>
+        /// <param name="Mark">
+        /// Устанавливет значение для поля Mark.
+        /// </param>
+        /// <param name="Teacher">
+        /// Устанавливет значение для поля Teacher.
+        /// </param>
         public Discipline(String Subject, int Mark, String Teacher)
         {
             this.mark = Mark;

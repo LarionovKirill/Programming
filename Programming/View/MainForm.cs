@@ -40,7 +40,7 @@ namespace Programming.View
                 _rectangles[i].length = random.Next(1,51);
                 _rectangles[i].width = random.Next(1, 51);
                 color = (Model.Enums.Color)random.Next(countOfColors);
-                _rectangles[i].colour = color.ToString();
+                _rectangles[i].color = color.ToString();
             }
         }
 
@@ -170,7 +170,7 @@ namespace Programming.View
             int index = RectangleListBox.SelectedIndex;
             LengthTextBox.Text = _rectangles[index].length.ToString();
             WidthTextBox.Text = _rectangles[index].width.ToString();
-            ColorTextBox.Text = _rectangles[index].colour.ToString();
+            ColorTextBox.Text = _rectangles[index].color.ToString();
         }
     }
 }

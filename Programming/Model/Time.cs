@@ -6,19 +6,25 @@ using System.Threading.Tasks;
 
 namespace Programming.Model
 {
+    /// <summary>
+    /// Хранит данные о времени.
+    /// </summary>
     class Time
     {
-        private int Hours;
-        private int Minutes;
-        private int Seconds;
+        private int Hour;
+        private int Minute;
+        private int Second;
 
-        public int hours
+        /// <summary>
+        /// Свойство для поля Hour.
+        /// </summary>
+        public int hour
         {
             set
             {
                 if (value >= 0 && value <= 23)
                 {
-                    Hours = value;
+                    Hour = value;
                 }
                 else
                 {
@@ -27,17 +33,20 @@ namespace Programming.Model
             }
             get
             {
-                return Hours;
+                return Hour;
             }
         }
 
-        public int minutes
+        /// <summary>
+        /// Свойство для поля Minute.
+        /// </summary>
+        public int minute
         {
             set
             {
                 if (value >= 0 && value <= 60)
                 {
-                    Minutes = value;
+                    Minute = value;
                 }
                 else
                 {
@@ -46,17 +55,20 @@ namespace Programming.Model
             }
             get
             {
-                return Minutes;
+                return Minute;
             }
         }
 
-        public int seconds
+        /// <summary>
+        /// Свойство для поля Second.
+        /// </summary>
+        public int second
         {
             set
             {
                 if (value >= 0 && value <= 60)
                 {
-                    Seconds = value;
+                    Second = value;
                 }
                 else
                 {
@@ -65,20 +77,29 @@ namespace Programming.Model
             }
             get
             {
-                return Seconds;
+                return Second;
             }
         }
 
+        /// <summary>
+        /// Конструктор по умолчанию.
+        /// </summary>
         public Time()
         {
 
         }
 
+        /// <summary>
+        /// Конструктор с параметрами.
+        /// </summary>
+        /// <param name="Hour">Устанавливает значение в поле Hour.</param>
+        /// <param name="Minute">Устанавливает значение в поле Minute.</param>
+        /// <param name="Second">Устанавливает значение в поле Second.</param>
         public Time(int Hour, int Minute, int Second)
         {
-            this.hours = Hour;
-            this.minutes = Minute;
-            this.seconds = Second;
+            this.hour = Hour;
+            this.minute = Minute;
+            this.second = Second;
         }
     }
 }

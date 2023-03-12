@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace Programming.Model
 {
+    /// <summary>
+    /// Содержит описание прямоугольника.
+    /// </summary>
     class Rectangle
     {
         private double Length;
         private double Width;
-        private String Colour;
+        private String Color;
 
+        /// <summary>
+        /// Свойсвто для поля Length.
+        /// </summary>
         public double length
         {
             set
@@ -31,6 +37,9 @@ namespace Programming.Model
             }
         }
 
+        /// <summary>
+        /// Свойство для поля Width.
+        /// </summary>
         public double width
         {
             set
@@ -50,26 +59,38 @@ namespace Programming.Model
             }
         }
 
-        public String colour
+        /// <summary>
+        /// Свойство для поля Color.
+        /// </summary>
+        public String color
         {
             set
             {
-                Colour = value;
+                Color = value;
             }
             get
             {
-                return Colour;
+                return Color;
             }
         }
 
+        /// <summary>
+        /// Конструктор по умолчанию.
+        /// </summary>
         public Rectangle()
         { 
 
         }
 
-        public Rectangle(double Length, double Width,String Colour)
+        /// <summary>
+        /// Конструктор с параметрами.
+        /// </summary>
+        /// <param name="Length">Устанавливает значение для поля Length</param>
+        /// <param name="Width">Устанавливает значение для поля Width</param>
+        /// <param name="Color">Устанавливает значение для поля Color</param>
+        public Rectangle(double Length, double Width,String Color)
         {
-            this.colour = Colour;
+            this.color = Color;
             this.length = Length;
             this.width = Width;
         }

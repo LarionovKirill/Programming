@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Programming.Model
 {
+    /// <summary>
+    /// Хранит данные о фильме и его параметрах.
+    /// </summary>
     class Films
     {
         private String Title;
@@ -14,6 +17,9 @@ namespace Programming.Model
         private String Genre;
         private double Rating;
 
+        /// <summary>
+        /// Свойство для поля Title.
+        /// </summary>
         public String title
         {
             set 
@@ -26,6 +32,9 @@ namespace Programming.Model
             }
         }
 
+        /// <summary>
+        /// Свойство для поля Duration.
+        /// </summary>
         public int duration
         {
             set 
@@ -45,7 +54,10 @@ namespace Programming.Model
             }
         }
 
-        public int year_of_release
+        /// <summary>
+        /// Свойство для поля YearOfRelease.
+        /// </summary>
+        public int yearOfRelease
         {
             set
             {
@@ -64,6 +76,9 @@ namespace Programming.Model
             }
         }
 
+        /// <summary>
+        /// Свойство для поля Genre.
+        /// </summary>
         public String genre
         {
             set 
@@ -76,6 +91,9 @@ namespace Programming.Model
             }
         }
 
+        /// <summary>
+        /// Свойство для поля Rating.
+        /// </summary>
         public double rating
         {
             set
@@ -95,16 +113,27 @@ namespace Programming.Model
             }
         }
 
+        /// <summary>
+        /// Конструктор по умолчанию.
+        /// </summary>
         public Films()
         { 
         
         }
 
+        /// <summary>
+        /// Конструктор с параметрами.
+        /// </summary>
+        /// <param name="Title">Устанавливет значение для поля Title.</param>
+        /// <param name="Duration">Устанавливет значение для поля Duration.</param>
+        /// <param name="YearOfRelease">Устанавливет значение для поля YearOfRelease.</param>
+        /// <param name="Genre">Устанавливет значение для поля Genre.</param>
+        /// <param name="Rating">Устанавливет значение для поля Rating.</param>
         public Films(String Title, int Duration, int YearOfRelease, String Genre, double Rating)
         {
             this.duration = Duration;
             this.title = Title;
-            this.year_of_release = YearOfRelease;
+            this.yearOfRelease = YearOfRelease;
             this.genre = Genre;
             this.rating = Rating;
         }
