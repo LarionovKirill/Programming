@@ -172,5 +172,29 @@ namespace Programming.View
             WidthTextBox.Text = _rectangles[index].width.ToString();
             ColorTextBox.Text = _rectangles[index].color.ToString();
         }
+
+        /// <summary>
+        /// Ищет прямоугольник с максимальной шириной и устанавливает его в поле.
+        /// </summary>
+        /// <param name="sender">
+        /// Предоставляет ссылку на объект, вызвавший событие. 
+        /// </param>
+        /// <param name="e">
+        /// Передает объект, относящийся к обрабатываемому событию.
+        /// </param>
+        private void FindRectangleWithMaxWidth(object sender, EventArgs e)
+        {
+            int maxRectanlgeIndex = 0;
+            double maxWidth = 0d;
+            for (int i = 0; i < countRactangles;i++)
+            {
+                if (_rectangles[i].width > maxWidth)
+                {
+                    maxRectanlgeIndex = i;
+                    maxWidth = _rectangles[i].width;
+                }
+            }
+            RectangleListBox.SelectedIndex = maxRectanlgeIndex;
+        }
     }
 }

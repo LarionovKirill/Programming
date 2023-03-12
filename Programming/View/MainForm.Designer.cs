@@ -50,6 +50,8 @@ namespace Programming.View
             this.intValue = new System.Windows.Forms.Label();
             this.intValues = new System.Windows.Forms.TextBox();
             this.Classes = new System.Windows.Forms.TabPage();
+            this.FilmsGroupBox = new System.Windows.Forms.GroupBox();
+            this.FimsListBox = new System.Windows.Forms.ListBox();
             this.RectangleGroupBox = new System.Windows.Forms.GroupBox();
             this.FindRectanglesButton = new System.Windows.Forms.Button();
             this.ColorLabel = new System.Windows.Forms.Label();
@@ -60,17 +62,15 @@ namespace Programming.View
             this.LengthTextBox = new System.Windows.Forms.TextBox();
             this.RectangleListBox = new System.Windows.Forms.ListBox();
             this.weekdayBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.FilmsGroupBox = new System.Windows.Forms.GroupBox();
-            this.FimsListBox = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.Enums.SuspendLayout();
             this.seasonHandleBox.SuspendLayout();
             this.weekdayParsingBox.SuspendLayout();
             this.enumerationsBox.SuspendLayout();
             this.Classes.SuspendLayout();
+            this.FilmsGroupBox.SuspendLayout();
             this.RectangleGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weekdayBindingSource)).BeginInit();
-            this.FilmsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -280,6 +280,25 @@ namespace Programming.View
             this.Classes.Text = "Classes";
             this.Classes.UseVisualStyleBackColor = true;
             // 
+            // FilmsGroupBox
+            // 
+            this.FilmsGroupBox.Controls.Add(this.FimsListBox);
+            this.FilmsGroupBox.Location = new System.Drawing.Point(472, 32);
+            this.FilmsGroupBox.Name = "FilmsGroupBox";
+            this.FilmsGroupBox.Size = new System.Drawing.Size(411, 323);
+            this.FilmsGroupBox.TabIndex = 1;
+            this.FilmsGroupBox.TabStop = false;
+            this.FilmsGroupBox.Text = "Films";
+            // 
+            // FimsListBox
+            // 
+            this.FimsListBox.FormattingEnabled = true;
+            this.FimsListBox.ItemHeight = 16;
+            this.FimsListBox.Location = new System.Drawing.Point(22, 29);
+            this.FimsListBox.Name = "FimsListBox";
+            this.FimsListBox.Size = new System.Drawing.Size(189, 276);
+            this.FimsListBox.TabIndex = 2;
+            // 
             // RectangleGroupBox
             // 
             this.RectangleGroupBox.Controls.Add(this.FindRectanglesButton);
@@ -305,6 +324,7 @@ namespace Programming.View
             this.FindRectanglesButton.TabIndex = 7;
             this.FindRectanglesButton.Text = "Find";
             this.FindRectanglesButton.UseVisualStyleBackColor = true;
+            this.FindRectanglesButton.Click += new System.EventHandler(this.FindRectangleWithMaxWidth);
             // 
             // ColorLabel
             // 
@@ -368,25 +388,6 @@ namespace Programming.View
             // 
             this.weekdayBindingSource.DataSource = typeof(Programming.Model.Enums.WeekDay);
             // 
-            // FilmsGroupBox
-            // 
-            this.FilmsGroupBox.Controls.Add(this.FimsListBox);
-            this.FilmsGroupBox.Location = new System.Drawing.Point(472, 32);
-            this.FilmsGroupBox.Name = "FilmsGroupBox";
-            this.FilmsGroupBox.Size = new System.Drawing.Size(411, 323);
-            this.FilmsGroupBox.TabIndex = 1;
-            this.FilmsGroupBox.TabStop = false;
-            this.FilmsGroupBox.Text = "Films";
-            // 
-            // FimsListBox
-            // 
-            this.FimsListBox.FormattingEnabled = true;
-            this.FimsListBox.ItemHeight = 16;
-            this.FimsListBox.Location = new System.Drawing.Point(22, 29);
-            this.FimsListBox.Name = "FimsListBox";
-            this.FimsListBox.Size = new System.Drawing.Size(189, 276);
-            this.FimsListBox.TabIndex = 2;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -404,10 +405,10 @@ namespace Programming.View
             this.enumerationsBox.ResumeLayout(false);
             this.enumerationsBox.PerformLayout();
             this.Classes.ResumeLayout(false);
+            this.FilmsGroupBox.ResumeLayout(false);
             this.RectangleGroupBox.ResumeLayout(false);
             this.RectangleGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weekdayBindingSource)).EndInit();
-            this.FilmsGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
