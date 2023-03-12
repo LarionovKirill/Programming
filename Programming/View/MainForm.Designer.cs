@@ -366,6 +366,7 @@ namespace Programming.View
             this.WidthTextBox.Name = "WidthTextBox";
             this.WidthTextBox.Size = new System.Drawing.Size(112, 22);
             this.WidthTextBox.TabIndex = 2;
+            this.WidthTextBox.TextChanged += new System.EventHandler(this.WidthTextChanged);
             // 
             // LengthTextBox
             // 
@@ -373,6 +374,7 @@ namespace Programming.View
             this.LengthTextBox.Name = "LengthTextBox";
             this.LengthTextBox.Size = new System.Drawing.Size(112, 22);
             this.LengthTextBox.TabIndex = 1;
+            this.LengthTextBox.TextChanged += new System.EventHandler(this.LengthTextChanged);
             // 
             // RectangleListBox
             // 

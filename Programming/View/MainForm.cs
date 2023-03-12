@@ -196,5 +196,51 @@ namespace Programming.View
             }
             RectangleListBox.SelectedIndex = maxRectanlgeIndex;
         }
+
+        /// <summary>
+        /// Проверяет изменения длины в TextBox.
+        /// </summary>
+        /// <param name="sender">
+        /// Предоставляет ссылку на объект, вызвавший событие. 
+        /// </param>
+        /// <param name="e">
+        /// Передает объект, относящийся к обрабатываемому событию.
+        /// </param>
+        private void LengthTextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int index = RectangleListBox.SelectedIndex;
+                _rectangles[index].length = double.Parse(LengthTextBox.Text);
+                LengthTextBox.BackColor = System.Drawing.Color.White;
+            }
+            catch
+            {
+                LengthTextBox.BackColor = System.Drawing.Color.LightPink;
+            }
+        }
+
+        /// <summary>
+        /// Проверяет изменения ширины в TextBox.
+        /// </summary>
+        /// <param name="sender">
+        /// Предоставляет ссылку на объект, вызвавший событие. 
+        /// </param>
+        /// <param name="e">
+        /// Передает объект, относящийся к обрабатываемому событию.
+        /// </param>
+        private void WidthTextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int index = RectangleListBox.SelectedIndex;
+                _rectangles[index].width = double.Parse(WidthTextBox.Text);
+                WidthTextBox.BackColor = System.Drawing.Color.White;
+            }
+            catch
+            {
+                WidthTextBox.BackColor = System.Drawing.Color.LightPink;
+            }
+        }
     }
 }
