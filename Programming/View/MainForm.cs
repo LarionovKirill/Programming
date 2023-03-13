@@ -43,7 +43,7 @@ namespace Programming.View
             {
                 ///Заполнеение прямоугольников
                 _rectangles[i] = new Model.Rectangle();
-                RectangleListBox.Items.Add($"Rectangle {i+1}");
+                rectangleListBox.Items.Add($"Rectangle {i+1}");
                 _rectangles[i].length = random.Next(1,51);
                 _rectangles[i].width = random.Next(1, 51);
                 color = (Model.Enums.Color)random.Next(countOfColors);
@@ -51,7 +51,7 @@ namespace Programming.View
 
                 //Заполнение фильмов
                 _films[i] = new Films();
-                FilmsListBox.Items.Add($"Film {i + 1}");
+                filmsListBox.Items.Add($"Film {i + 1}");
                 _films[i].yearOfRelease = random.Next(1900, 2024);
                 genre = (Genre)random.Next(countOfGenre);
                 _films[i].genre = genre.ToString();
@@ -59,8 +59,8 @@ namespace Programming.View
                 _films[i].duration = random.Next(80, 300);
                 _films[i].title = Convert.ToChar(random.Next(65, 133)).ToString();
             }
-            FilmsListBox.SelectedIndex = 0;
-            RectangleListBox.SelectedIndex = 0;
+            filmsListBox.SelectedIndex = 0;
+            rectangleListBox.SelectedIndex = 0;
 
         }
 
@@ -187,10 +187,10 @@ namespace Programming.View
         /// </param>
         private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = RectangleListBox.SelectedIndex;
-            LengthTextBox.Text = _rectangles[index].length.ToString();
-            WidthTextBox.Text = _rectangles[index].width.ToString();
-            ColorTextBox.Text = _rectangles[index].color.ToString();
+            int index = rectangleListBox.SelectedIndex;
+            lengthTextBox.Text = _rectangles[index].length.ToString();
+            widthTextBox.Text = _rectangles[index].width.ToString();
+            colorTextBox.Text = _rectangles[index].color.ToString();
         }
 
         /// <summary>
@@ -214,7 +214,7 @@ namespace Programming.View
                     maxWidth = _rectangles[i].width;
                 }
             }
-            RectangleListBox.SelectedIndex = maxRectanlgeIndex;
+            rectangleListBox.SelectedIndex = maxRectanlgeIndex;
         }
 
         /// <summary>
@@ -230,13 +230,13 @@ namespace Programming.View
         {
             try
             {
-                int index = RectangleListBox.SelectedIndex;
-                _rectangles[index].length = double.Parse(LengthTextBox.Text);
-                LengthTextBox.BackColor = System.Drawing.Color.White;
+                int index = rectangleListBox.SelectedIndex;
+                _rectangles[index].length = double.Parse(lengthTextBox.Text);
+                lengthTextBox.BackColor = System.Drawing.Color.White;
             }
             catch
             {
-                LengthTextBox.BackColor = System.Drawing.Color.LightPink;
+                lengthTextBox.BackColor = System.Drawing.Color.LightPink;
             }
         }
 
@@ -253,13 +253,13 @@ namespace Programming.View
         {
             try
             {
-                int index = RectangleListBox.SelectedIndex;
-                _rectangles[index].width = double.Parse(WidthTextBox.Text);
-                WidthTextBox.BackColor = System.Drawing.Color.White;
+                int index = rectangleListBox.SelectedIndex;
+                _rectangles[index].width = double.Parse(widthTextBox.Text);
+                widthTextBox.BackColor = System.Drawing.Color.White;
             }
             catch
             {
-                WidthTextBox.BackColor = System.Drawing.Color.LightPink;
+                widthTextBox.BackColor = System.Drawing.Color.LightPink;
             }
         }
 
@@ -276,12 +276,12 @@ namespace Programming.View
         {
             try
             {
-                bool check = Enum.IsDefined(typeof(Model.Enums.Color),ColorTextBox.Text);
+                bool check = Enum.IsDefined(typeof(Model.Enums.Color),colorTextBox.Text);
                 if (check)
                 {
-                    int index = RectangleListBox.SelectedIndex;
-                    _rectangles[index].color = ColorTextBox.Text;
-                    ColorTextBox.BackColor = System.Drawing.Color.White;
+                    int index = rectangleListBox.SelectedIndex;
+                    _rectangles[index].color = colorTextBox.Text;
+                    colorTextBox.BackColor = System.Drawing.Color.White;
                 }
                 else 
                 {
@@ -290,7 +290,7 @@ namespace Programming.View
             }
             catch
             {
-                ColorTextBox.BackColor = System.Drawing.Color.LightPink;
+                colorTextBox.BackColor = System.Drawing.Color.LightPink;
             }
         }
 
@@ -314,12 +314,12 @@ namespace Programming.View
         /// </param>
         private void FilmsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = FilmsListBox.SelectedIndex;
-            TitleTextBox.Text = _films[index].title.ToString();
-            GenreTextBox.Text = _films[index].genre.ToString();
-            DurationTextBox.Text = _films[index].duration.ToString();
-            YearOfReleaseTextBox.Text = _films[index].yearOfRelease.ToString();
-            RatingTextBox.Text = _films[index].rating.ToString();
+            int index = filmsListBox.SelectedIndex;
+            titleTextBox.Text = _films[index].title.ToString();
+            genreTextBox.Text = _films[index].genre.ToString();
+            durationTextBox.Text = _films[index].duration.ToString();
+            yearOfReleaseTextBox.Text = _films[index].yearOfRelease.ToString();
+            ratingTextBox.Text = _films[index].rating.ToString();
         }
 
         /// <summary>
@@ -343,7 +343,7 @@ namespace Programming.View
                     maxRating = _films[i].rating;
                 }
             }
-            FilmsListBox.SelectedIndex = maxRatingIndex;
+            filmsListBox.SelectedIndex = maxRatingIndex;
         }
 
 
@@ -360,13 +360,13 @@ namespace Programming.View
         {
             try
             {
-                int index = FilmsListBox.SelectedIndex;
-                _films[index].title = TitleTextBox.Text;
-                TitleTextBox.BackColor = System.Drawing.Color.White;
+                int index = filmsListBox.SelectedIndex;
+                _films[index].title = titleTextBox.Text;
+                titleTextBox.BackColor = System.Drawing.Color.White;
             }
             catch
             {
-                TitleTextBox.BackColor = System.Drawing.Color.LightPink;
+                titleTextBox.BackColor = System.Drawing.Color.LightPink;
             }
         }
 
@@ -383,13 +383,13 @@ namespace Programming.View
         {
             try
             {
-                int index = FilmsListBox.SelectedIndex;
-                _films[index].rating = double.Parse(RatingTextBox.Text);
-                RatingTextBox.BackColor = System.Drawing.Color.White;
+                int index = filmsListBox.SelectedIndex;
+                _films[index].rating = double.Parse(ratingTextBox.Text);
+                ratingTextBox.BackColor = System.Drawing.Color.White;
             }
             catch
             {
-                RatingTextBox.BackColor = System.Drawing.Color.LightPink;
+                ratingTextBox.BackColor = System.Drawing.Color.LightPink;
             }
         }
 
@@ -406,12 +406,12 @@ namespace Programming.View
         {
             try
             {
-                bool check = Enum.IsDefined(typeof(Genre), GenreTextBox.Text);
+                bool check = Enum.IsDefined(typeof(Genre), genreTextBox.Text);
                 if (check)
                 {
-                    int index = FilmsListBox.SelectedIndex;
-                    _films[index].genre = GenreTextBox.Text;
-                    GenreTextBox.BackColor = System.Drawing.Color.White;
+                    int index = filmsListBox.SelectedIndex;
+                    _films[index].genre = genreTextBox.Text;
+                    genreTextBox.BackColor = System.Drawing.Color.White;
                 }
                 else
                 {
@@ -420,7 +420,7 @@ namespace Programming.View
             }
             catch
             {
-                GenreTextBox.BackColor = System.Drawing.Color.LightPink;
+                genreTextBox.BackColor = System.Drawing.Color.LightPink;
             }
         }
 
@@ -437,13 +437,13 @@ namespace Programming.View
         {
             try
             {
-                int index = FilmsListBox.SelectedIndex;
-                _films[index].yearOfRelease = int.Parse(YearOfReleaseTextBox.Text);
-                YearOfReleaseTextBox.BackColor = System.Drawing.Color.White;
+                int index = filmsListBox.SelectedIndex;
+                _films[index].yearOfRelease = int.Parse(yearOfReleaseTextBox.Text);
+                yearOfReleaseTextBox.BackColor = System.Drawing.Color.White;
             }
             catch
             {
-                YearOfReleaseTextBox.BackColor = System.Drawing.Color.LightPink;
+                yearOfReleaseTextBox.BackColor = System.Drawing.Color.LightPink;
             }
         }
 
@@ -460,13 +460,13 @@ namespace Programming.View
         {
             try
             {
-                int index = FilmsListBox.SelectedIndex;
-                _films[index].duration = int.Parse(DurationTextBox.Text);
-                DurationTextBox.BackColor = System.Drawing.Color.White;
+                int index = filmsListBox.SelectedIndex;
+                _films[index].duration = int.Parse(durationTextBox.Text);
+                durationTextBox.BackColor = System.Drawing.Color.White;
             }
             catch
             {
-                DurationTextBox.BackColor = System.Drawing.Color.LightPink;
+                durationTextBox.BackColor = System.Drawing.Color.LightPink;
             }
         }
     }
