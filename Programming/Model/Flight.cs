@@ -11,12 +11,12 @@ namespace Programming.Model
     /// </summary>
     class Flight
     {
-        private string DeparturePoint;
-        private string Destination;
-        private int FlightTime;
+        private string _departurePoint;
+        private string _destination;
+        private int _flightTime;
 
         /// <summary>
-        /// Свойство для поля FlightTime.
+        /// Свойство для поля _flightTime.
         /// </summary>
         public int flight_time
         {
@@ -24,7 +24,7 @@ namespace Programming.Model
             {
                 if (value > 0 && value < 800)
                 {
-                    FlightTime = value;
+                    _flightTime = value;
                 }
                 else
                 {
@@ -33,37 +33,37 @@ namespace Programming.Model
             }
             get
             {
-                return FlightTime;
+                return _flightTime;
             }
         }
 
         /// <summary>
-        /// Свойсвто для поля Destination.
+        /// Свойсвто для поля _destination.
         /// </summary>
         public string destination
         {
             set
             {
-                Destination = value;
+                _destination = value;
             }
             get
             {
-                return Destination;
+                return _destination;
             }
         }
 
         /// <summary>
-        /// Свойство для поля DeparturePoint.
+        /// Свойство для поля _departurePoint.
         /// </summary>
         public string departurePoint
         {
             set
             {
-                DeparturePoint = value;
+                _departurePoint = value;
             }
             get
             {
-                return DeparturePoint;
+                return _departurePoint;
             }
         }
 
@@ -78,14 +78,14 @@ namespace Programming.Model
         /// <summary>
         /// Конструктор с параметрами.
         /// </summary>
-        /// <param name="DeparturePoint">Устанавливет значение для поля DeparturePoint.</param>
-        /// <param name="Destination">Устанавливет значение для поля Destination.</param>
-        /// <param name="FlightTime">Устанавливет значение для поля FlightTime.</param>
-        public Flight(string DeparturePoint , string Destination, int FlightTime)
+        /// <param name="_departurePoint">Устанавливет значение для поля _departurePoint.</param>
+        /// <param name="_destination">Устанавливет значение для поля _destination.</param>
+        /// <param name="_flightTime">Устанавливет значение для поля _flightTime.</param>
+        public Flight(string _departurePoint , string _destination, int _flightTime)
         {
-            this.departurePoint = DeparturePoint;
-            this.destination = Destination;
-            this.flight_time = FlightTime;
+            this.departurePoint = _departurePoint;
+            this.destination = _destination;
+            this.flight_time = _flightTime;
         }
     }
 }

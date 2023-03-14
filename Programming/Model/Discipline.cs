@@ -11,12 +11,12 @@ namespace Programming.Model
     /// </summary>
     class Discipline
     {
-        private string Subject;
-        private int Mark;
-        private string Teacher;
+        private string _subject;
+        private int _mark;
+        private string _teacher;
 
         /// <summary>
-        /// Свойство для поля Mark.
+        /// Свойство для поля _mark.
         /// </summary>
         public int mark
         {
@@ -24,7 +24,7 @@ namespace Programming.Model
             {
                 if (value >= 2 && value <= 5)
                 {
-                    Mark = value;
+                    _mark = value;
                 }
                 else
                 {
@@ -33,37 +33,37 @@ namespace Programming.Model
             }
             get
             {
-                return Mark;
+                return _mark;
             }
         }
 
         /// <summary>
-        /// Свойство для поля Subject.
+        /// Свойство для поля _subject.
         /// </summary>
         public string subject
         {
             set 
             {
-                Subject = value;
+                _subject = value;
             }
             get
             {
-                return Subject;
+                return _subject;
             }
         }
 
         /// <summary>
-        /// Свойство для поля Teacher.
+        /// Свойство для поля _teacher.
         /// </summary>
         public string teacher
         {
             set 
             {
-                Teacher = value;
+                _teacher = value;
             }
             get
             {
-                return Teacher;
+                return _teacher;
             }
         }
 
@@ -78,20 +78,20 @@ namespace Programming.Model
         /// <summary>
         /// Конструктор с параметрами
         /// </summary>
-        /// <param name="Subject">
-        /// Устанавливет значение для поля Subject.
+        /// <param name="_subject">
+        /// Устанавливет значение для поля _subject.
         /// </param>
-        /// <param name="Mark">
-        /// Устанавливет значение для поля Mark.
+        /// <param name="_mark">
+        /// Устанавливет значение для поля _mark.
         /// </param>
-        /// <param name="Teacher">
-        /// Устанавливет значение для поля Teacher.
+        /// <param name="_teacher">
+        /// Устанавливет значение для поля _teacher.
         /// </param>
-        public Discipline(string Subject, int Mark, string Teacher)
+        public Discipline(string _subject, int _mark, string _teacher)
         {
-            this.mark = Mark;
-            this.subject = Subject;
-            this.teacher = Teacher;
+            this.mark = _mark;
+            this.subject = _subject;
+            this.teacher = _teacher;
         }
     }
 }

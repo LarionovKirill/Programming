@@ -11,12 +11,12 @@ namespace Programming.Model
     /// </summary>
     class Contact
     {
-        private int Number;
-        private string Name;
-        private string Surename;
+        private int _number;
+        private string _name;
+        private string _surename;
 
         /// <summary>
-        /// Свойство для поля Number.
+        /// Свойство для поля _number.
         /// </summary>
         public int number
         {
@@ -24,7 +24,7 @@ namespace Programming.Model
             {
                 try
                 {
-                    Number = Convert.ToInt32(value);
+                    _number = Convert.ToInt32(value);
                 }
                 catch 
                 {
@@ -33,37 +33,37 @@ namespace Programming.Model
             }
             get
             {
-                return Number;
+                return _number;
             }
         }
 
         /// <summary>
-        /// Свойство для поля Name.
+        /// Свойство для поля _name.
         /// </summary>
         public string name 
         {
             set
             {
-                Name = value;
+                _name = value;
             }
             get
             {
-                return Name;
+                return _name;
             }
         }
 
         /// <summary>
-        /// Свойство для поля Surename.
+        /// Свойство для поля _surename.
         /// </summary>
         public string surename 
         {
             set
             {
-                Surename = value;
+                _surename = value;
             }
             get
             {
-                return Surename;
+                return _surename;
             }
         }
 
@@ -78,20 +78,20 @@ namespace Programming.Model
         /// <summary>
         /// Констурктор с параметрами.
         /// </summary>
-        /// <param name="Number">
-        /// Устанавливет значение для поля Number.
+        /// <param name="_number">
+        /// Устанавливет значение для поля _number.
         /// </param>
-        /// <param name="Name">
-        /// Устанавливет значение для поля Name.
+        /// <param name="_name">
+        /// Устанавливет значение для поля _name.
         /// </param>
-        /// <param name="Surename">
-        /// Устанавливет значение для поля Surename.
+        /// <param name="_surename">
+        /// Устанавливет значение для поля _surename.
         /// </param>
-        public Contact(int Number, string Name, string Surename)
+        public Contact(int _number, string _name, string _surename)
         {
-            this.name = Name;
-            this.number = Number;
-            this.surename = Surename;
+            this.name = _name;
+            this.number = _number;
+            this.surename = _surename;
         }
     }
 }

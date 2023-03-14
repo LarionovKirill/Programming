@@ -11,42 +11,42 @@ namespace Programming.Model
     /// </summary>
     class Song
     {
-        private string Author;
-        private string Title;
-        private double Rating;
+        private string _author;
+        private string _title;
+        private double _rating;
 
         /// <summary>
-        /// Свойство для поля Author.
+        /// Свойство для поля _author.
         /// </summary>
         public string author
         {
             set
             {
-                Author = value;
+                _author = value;
             }
             get
             {
-                return Author;
+                return _author;
             }
         }
 
         /// <summary>
-        /// Свойство для поля Title.
+        /// Свойство для поля _title.
         /// </summary>
         public string title
         {
             set
             {
-                Title = value;
+                _title = value;
             }
             get
             {
-                return Title;
+                return _title;
             }
         }
 
         /// <summary>
-        /// Свойство для поля Rating.
+        /// Свойство для поля _rating.
         /// </summary>
         public double rating
         {
@@ -54,7 +54,7 @@ namespace Programming.Model
             {
                 if (value >= 0 && value <= 10)
                 {
-                    Rating = value;
+                    _rating = value;
                 }
                 else
                 {
@@ -63,7 +63,7 @@ namespace Programming.Model
             }
             get
             {
-                return Rating;
+                return _rating;
             }
         }
 
@@ -78,14 +78,14 @@ namespace Programming.Model
         /// <summary>
         /// Конструктор с параметрами.
         /// </summary>
-        /// <param name="Author">Устанавливает значение для поля Author</param>
-        /// <param name="Title">Устанавливает значение для поля Title</param>
-        /// <param name="Rating">Устанавливает значение для поля Rating</param>
-        public Song(string Author, string Title, double Rating)
+        /// <param name="_author">Устанавливает значение для поля _author</param>
+        /// <param name="_title">Устанавливает значение для поля _title</param>
+        /// <param name="_rating">Устанавливает значение для поля _rating</param>
+        public Song(string _author, string _title, double _rating)
         {
-            this.author = Author;
-            this.title = Title;
-            this.rating = Rating;
+            this.author = _author;
+            this.title = _title;
+            this.rating = _rating;
         }
     }
 }

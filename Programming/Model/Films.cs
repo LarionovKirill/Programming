@@ -11,29 +11,29 @@ namespace Programming.Model
     /// </summary>
     class Films
     {
-        private string Title;
-        private int Duration;
-        private int YearOfRelease;
-        private string Genre;
-        private double Rating;
+        private string _title;
+        private int _duration;
+        private int _yearOfRelease;
+        private string _genre;
+        private double _rating;
 
         /// <summary>
-        /// Свойство для поля Title.
+        /// Свойство для поля _title.
         /// </summary>
         public string title
         {
             set 
             {
-                Title = value;
+                _title = value;
             }
             get
             {
-                return Title;
+                return _title;
             }
         }
 
         /// <summary>
-        /// Свойство для поля Duration.
+        /// Свойство для поля _duration.
         /// </summary>
         public int duration
         {
@@ -41,7 +41,7 @@ namespace Programming.Model
             {
                 if (value > 0 && value < 300)
                 {
-                    Duration = value;
+                    _duration = value;
                 }
                 else
                 {
@@ -50,12 +50,12 @@ namespace Programming.Model
             }
             get
             {
-                return Duration;
+                return _duration;
             }
         }
 
         /// <summary>
-        /// Свойство для поля YearOfRelease.
+        /// Свойство для поля _yearOfRelease.
         /// </summary>
         public int yearOfRelease
         {
@@ -63,7 +63,7 @@ namespace Programming.Model
             {
                 if (value >= 1900 && value <= 2023)
                 {
-                    YearOfRelease = value;
+                    _yearOfRelease = value;
                 }
                 else
                 {
@@ -72,27 +72,27 @@ namespace Programming.Model
             }
             get
             {
-                return YearOfRelease;
+                return _yearOfRelease;
             }
         }
 
         /// <summary>
-        /// Свойство для поля Genre.
+        /// Свойство для поля _genre.
         /// </summary>
         public string genre
         {
             set 
             {
-                Genre = value;
+                _genre = value;
             }
             get 
             {
-                return Genre;
+                return _genre;
             }
         }
 
         /// <summary>
-        /// Свойство для поля Rating.
+        /// Свойство для поля _rating.
         /// </summary>
         public double rating
         {
@@ -100,7 +100,7 @@ namespace Programming.Model
             {
                 if (value >= 0 && value <= 10)
                 {
-                    Rating = value;
+                    _rating = value;
                 }
                 else
                 {
@@ -109,7 +109,7 @@ namespace Programming.Model
             }
             get 
             {
-                return Rating;
+                return _rating;
             }
         }
 
@@ -124,18 +124,18 @@ namespace Programming.Model
         /// <summary>
         /// Конструктор с параметрами.
         /// </summary>
-        /// <param name="Title">Устанавливет значение для поля Title.</param>
-        /// <param name="Duration">Устанавливет значение для поля Duration.</param>
-        /// <param name="YearOfRelease">Устанавливет значение для поля YearOfRelease.</param>
-        /// <param name="Genre">Устанавливет значение для поля Genre.</param>
-        /// <param name="Rating">Устанавливет значение для поля Rating.</param>
-        public Films(string Title, int Duration, int YearOfRelease, string Genre, double Rating)
+        /// <param name="_title">Устанавливет значение для поля _title.</param>
+        /// <param name="_duration">Устанавливет значение для поля _duration.</param>
+        /// <param name="_yearOfRelease">Устанавливет значение для поля _yearOfRelease.</param>
+        /// <param name="_genre">Устанавливет значение для поля _genre.</param>
+        /// <param name="_rating">Устанавливет значение для поля _rating.</param>
+        public Films(string _title, int _duration, int _yearOfRelease, string _genre, double _rating)
         {
-            this.duration = Duration;
-            this.title = Title;
-            this.yearOfRelease = YearOfRelease;
-            this.genre = Genre;
-            this.rating = Rating;
+            this.duration = _duration;
+            this.title = _title;
+            this.yearOfRelease = _yearOfRelease;
+            this.genre = _genre;
+            this.rating = _rating;
         }
 
     }

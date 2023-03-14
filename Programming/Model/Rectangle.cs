@@ -11,12 +11,12 @@ namespace Programming.Model
     /// </summary>
     class Rectangle
     {
-        private double Length;
-        private double Width;
-        private string Color;
+        private double _length;
+        private double _width;
+        private string _color;
 
         /// <summary>
-        /// Свойсвто для поля Length.
+        /// Свойсвто для поля _length.
         /// </summary>
         public double length
         {
@@ -24,7 +24,7 @@ namespace Programming.Model
             {
                 if (value > 0)
                 {
-                    Length = value;
+                    _length = value;
                 }
                 else
                 {
@@ -33,12 +33,12 @@ namespace Programming.Model
             }
             get
             {
-                return Length;
+                return _length;
             }
         }
 
         /// <summary>
-        /// Свойство для поля Width.
+        /// Свойство для поля _width.
         /// </summary>
         public double width
         {
@@ -46,7 +46,7 @@ namespace Programming.Model
             {
                 if (value > 0)
                 {
-                    Width = value;
+                    _width = value;
                 }
                 else
                 {
@@ -55,22 +55,22 @@ namespace Programming.Model
             }
             get
             {
-                return Width;
+                return _width;
             }
         }
 
         /// <summary>
-        /// Свойство для поля Color.
+        /// Свойство для поля _color.
         /// </summary>
         public string color
         {
             set
             {
-                Color = value;
+                _color = value;
             }
             get
             {
-                return Color;
+                return _color;
             }
         }
 
@@ -85,14 +85,14 @@ namespace Programming.Model
         /// <summary>
         /// Конструктор с параметрами.
         /// </summary>
-        /// <param name="Length">Устанавливает значение для поля Length</param>
-        /// <param name="Width">Устанавливает значение для поля Width</param>
-        /// <param name="Color">Устанавливает значение для поля Color</param>
-        public Rectangle(double Length, double Width,string Color)
+        /// <param name="_length">Устанавливает значение для поля _length</param>
+        /// <param name="_width">Устанавливает значение для поля _width</param>
+        /// <param name="_color">Устанавливает значение для поля _color</param>
+        public Rectangle(double _length, double _width,string _color)
         {
-            this.color = Color;
-            this.length = Length;
-            this.width = Width;
+            this.color = _color;
+            this.length = _length;
+            this.width = _width;
         }
     }
 }

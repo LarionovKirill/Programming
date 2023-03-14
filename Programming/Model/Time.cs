@@ -11,12 +11,12 @@ namespace Programming.Model
     /// </summary>
     class Time
     {
-        private int Hour;
-        private int Minute;
-        private int Second;
+        private int _hour;
+        private int _minute;
+        private int _second;
 
         /// <summary>
-        /// Свойство для поля Hour.
+        /// Свойство для поля _hour.
         /// </summary>
         public int hour
         {
@@ -24,7 +24,7 @@ namespace Programming.Model
             {
                 if (value >= 0 && value <= 23)
                 {
-                    Hour = value;
+                    _hour = value;
                 }
                 else
                 {
@@ -33,12 +33,12 @@ namespace Programming.Model
             }
             get
             {
-                return Hour;
+                return _hour;
             }
         }
 
         /// <summary>
-        /// Свойство для поля Minute.
+        /// Свойство для поля _minute.
         /// </summary>
         public int minute
         {
@@ -46,7 +46,7 @@ namespace Programming.Model
             {
                 if (value >= 0 && value < 60)
                 {
-                    Minute = value;
+                    _minute = value;
                 }
                 else
                 {
@@ -55,12 +55,12 @@ namespace Programming.Model
             }
             get
             {
-                return Minute;
+                return _minute;
             }
         }
 
         /// <summary>
-        /// Свойство для поля Second.
+        /// Свойство для поля _second.
         /// </summary>
         public int second
         {
@@ -68,7 +68,7 @@ namespace Programming.Model
             {
                 if (value >= 0 && value <= 60)
                 {
-                    Second = value;
+                    _second = value;
                 }
                 else
                 {
@@ -77,7 +77,7 @@ namespace Programming.Model
             }
             get
             {
-                return Second;
+                return _second;
             }
         }
 
@@ -92,14 +92,14 @@ namespace Programming.Model
         /// <summary>
         /// Конструктор с параметрами.
         /// </summary>
-        /// <param name="Hour">Устанавливает значение в поле Hour.</param>
-        /// <param name="Minute">Устанавливает значение в поле Minute.</param>
-        /// <param name="Second">Устанавливает значение в поле Second.</param>
-        public Time(int Hour, int Minute, int Second)
+        /// <param name="_hour">Устанавливает значение в поле _hour.</param>
+        /// <param name="_minute">Устанавливает значение в поле _minute.</param>
+        /// <param name="_second">Устанавливает значение в поле _second.</param>
+        public Time(int _hour, int _minute, int _second)
         {
-            this.hour = Hour;
-            this.minute = Minute;
-            this.second = Second;
+            this.hour = _hour;
+            this.minute = _minute;
+            this.second = _second;
         }
     }
 }
