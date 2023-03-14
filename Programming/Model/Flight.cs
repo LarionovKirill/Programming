@@ -11,8 +11,8 @@ namespace Programming.Model
     /// </summary>
     class Flight
     {
-        private String DeparturePoint;
-        private String Destination;
+        private string DeparturePoint;
+        private string Destination;
         private int FlightTime;
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойсвто для поля Destination.
         /// </summary>
-        public String destination
+        public string destination
         {
             set
             {
@@ -55,7 +55,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля DeparturePoint.
         /// </summary>
-        public String departurePoint
+        public string departurePoint
         {
             set
             {
@@ -81,7 +81,7 @@ namespace Programming.Model
         /// <param name="DeparturePoint">Устанавливет значение для поля DeparturePoint.</param>
         /// <param name="Destination">Устанавливет значение для поля Destination.</param>
         /// <param name="FlightTime">Устанавливет значение для поля FlightTime.</param>
-        public Flight(String DeparturePoint , String Destination, int FlightTime)
+        public Flight(string DeparturePoint , string Destination, int FlightTime)
         {
             this.departurePoint = DeparturePoint;
             this.destination = Destination;

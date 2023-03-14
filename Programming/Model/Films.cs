@@ -11,16 +11,16 @@ namespace Programming.Model
     /// </summary>
     class Films
     {
-        private String Title;
+        private string Title;
         private int Duration;
         private int YearOfRelease;
-        private String Genre;
+        private string Genre;
         private double Rating;
 
         /// <summary>
         /// Свойство для поля Title.
         /// </summary>
-        public String title
+        public string title
         {
             set 
             {
@@ -79,7 +79,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля Genre.
         /// </summary>
-        public String genre
+        public string genre
         {
             set 
             {
@@ -129,7 +129,7 @@ namespace Programming.Model
         /// <param name="YearOfRelease">Устанавливет значение для поля YearOfRelease.</param>
         /// <param name="Genre">Устанавливет значение для поля Genre.</param>
         /// <param name="Rating">Устанавливет значение для поля Rating.</param>
-        public Films(String Title, int Duration, int YearOfRelease, String Genre, double Rating)
+        public Films(string Title, int Duration, int YearOfRelease, string Genre, double Rating)
         {
             this.duration = Duration;
             this.title = Title;

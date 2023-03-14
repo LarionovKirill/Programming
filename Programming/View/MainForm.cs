@@ -85,7 +85,7 @@ namespace Programming.View
                 [5] = new WeekDay(),
             };
             valuesListBox.Items.Clear();
-            intValues.Text = String.Empty;
+            intValues.Text = string.Empty;
             var elementNumber = enumsListBox.SelectedIndex;
             var a = enumsDict[elementNumber].GetType();
             foreach (var item in Enum.GetValues(a))
@@ -144,7 +144,7 @@ namespace Programming.View
         /// </param>
         private void SeasonButton_Click(object sender, EventArgs e)
         {
-            seasonAnswer.Text = String.Empty;
+            seasonAnswer.Text = string.Empty;
             seasonHandleBox.BackColor = ColorTranslator.FromHtml("#FFFFFF");
             switch (seasonBox.SelectedItem)
             {

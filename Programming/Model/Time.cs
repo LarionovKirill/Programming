@@ -44,7 +44,7 @@ namespace Programming.Model
         {
             set
             {
-                if (value >= 0 && value <= 60)
+                if (value >= 0 && value < 60)
                 {
                     Minute = value;
                 }

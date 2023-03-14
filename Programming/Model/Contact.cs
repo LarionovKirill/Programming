@@ -12,8 +12,8 @@ namespace Programming.Model
     class Contact
     {
         private int Number;
-        private String Name;
-        private String Surename;
+        private string Name;
+        private string Surename;
 
         /// <summary>
         /// Свойство для поля Number.
@@ -36,10 +36,11 @@ namespace Programming.Model
                 return Number;
             }
         }
+
         /// <summary>
         /// Свойство для поля Name.
         /// </summary>
-        public String name 
+        public string name 
         {
             set
             {
@@ -50,10 +51,11 @@ namespace Programming.Model
                 return Name;
             }
         }
+
         /// <summary>
         /// Свойство для поля Surename.
         /// </summary>
-        public String surename 
+        public string surename 
         {
             set
             {
@@ -64,6 +66,7 @@ namespace Programming.Model
                 return Surename;
             }
         }
+
         /// <summary>
         /// Конструктор по умолчанию.
         /// </summary>
@@ -71,6 +74,7 @@ namespace Programming.Model
         {
             
         }
+
         /// <summary>
         /// Констурктор с параметрами.
         /// </summary>
@@ -83,7 +87,7 @@ namespace Programming.Model
         /// <param name="Surename">
         /// Устанавливет значение для поля Surename.
         /// </param>
-        public Contact(int Number, String Name, String Surename)
+        public Contact(int Number, string Name, string Surename)
         {
             this.name = Name;
             this.number = Number;

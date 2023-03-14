@@ -11,9 +11,9 @@ namespace Programming.Model
     /// </summary>
     class Discipline
     {
-        private String Subject;
+        private string Subject;
         private int Mark;
-        private String Teacher;
+        private string Teacher;
 
         /// <summary>
         /// Свойство для поля Mark.
@@ -40,7 +40,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля Subject.
         /// </summary>
-        public String subject
+        public string subject
         {
             set 
             {
@@ -55,7 +55,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля Teacher.
         /// </summary>
-        public String teacher
+        public string teacher
         {
             set 
             {
@@ -87,7 +87,7 @@ namespace Programming.Model
         /// <param name="Teacher">
         /// Устанавливет значение для поля Teacher.
         /// </param>
-        public Discipline(String Subject, int Mark, String Teacher)
+        public Discipline(string Subject, int Mark, string Teacher)
         {
             this.mark = Mark;
             this.subject = Subject;

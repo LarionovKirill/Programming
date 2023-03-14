@@ -11,14 +11,14 @@ namespace Programming.Model
     /// </summary>
     class Song
     {
-        private String Author;
-        private String Title;
+        private string Author;
+        private string Title;
         private double Rating;
 
         /// <summary>
         /// Свойство для поля Author.
         /// </summary>
-        public String author
+        public string author
         {
             set
             {
@@ -33,7 +33,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля Title.
         /// </summary>
-        public String title
+        public string title
         {
             set
             {
@@ -81,7 +81,7 @@ namespace Programming.Model
         /// <param name="Author">Устанавливает значение для поля Author</param>
         /// <param name="Title">Устанавливает значение для поля Title</param>
         /// <param name="Rating">Устанавливает значение для поля Rating</param>
-        public Song(String Author, String Title, double Rating)
+        public Song(string Author, string Title, double Rating)
         {
             this.author = Author;
             this.title = Title;

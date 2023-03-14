@@ -13,7 +13,7 @@ namespace Programming.Model
     {
         private double Length;
         private double Width;
-        private String Color;
+        private string Color;
 
         /// <summary>
         /// Свойсвто для поля Length.
@@ -62,7 +62,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля Color.
         /// </summary>
-        public String color
+        public string color
         {
             set
             {
@@ -88,7 +88,7 @@ namespace Programming.Model
         /// <param name="Length">Устанавливает значение для поля Length</param>
         /// <param name="Width">Устанавливает значение для поля Width</param>
         /// <param name="Color">Устанавливает значение для поля Color</param>
-        public Rectangle(double Length, double Width,String Color)
+        public Rectangle(double Length, double Width,string Color)
         {
             this.color = Color;
             this.length = Length;
