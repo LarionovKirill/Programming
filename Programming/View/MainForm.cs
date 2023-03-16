@@ -14,7 +14,6 @@ namespace Programming.View
 {
     public partial class MainForm : Form
     {
-        Random random = new Random();
         const int countItems = 5;
         Model.Rectangle[] _rectangles = new Model.Rectangle[countItems];
         Films[] _films = new Films[countItems];
@@ -37,7 +36,7 @@ namespace Programming.View
             Genre genre;
             int countOfGenre = Enum.GetNames(typeof(Genre)).Length;
             int countOfColors = Enum.GetNames(typeof(Model.Enums.Color)).Length;
-
+            Random random = new Random();
             //Заполнение listbox 
             for (int i = 0; i < countItems; i++)
             {
