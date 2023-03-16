@@ -20,22 +20,12 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _title.
         /// </summary>
-        public string title
-        {
-            set 
-            {
-                _title = value;
-            }
-            get
-            {
-                return _title;
-            }
-        }
+        public string Title { get; set; }
 
         /// <summary>
         /// Свойство для поля _duration.
         /// </summary>
-        public int duration
+        public int Duration
         {
             set 
             {
@@ -57,7 +47,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _yearOfRelease.
         /// </summary>
-        public int yearOfRelease
+        public int YearOfRelease
         {
             set
             {
@@ -79,22 +69,12 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _genre.
         /// </summary>
-        public string genre
-        {
-            set 
-            {
-                _genre = value;
-            }
-            get 
-            {
-                return _genre;
-            }
-        }
+        public string Genre { get; set; }
 
         /// <summary>
         /// Свойство для поля _rating.
         /// </summary>
-        public double rating
+        public double Rating
         {
             set
             {
@@ -131,11 +111,11 @@ namespace Programming.Model
         /// <param name="_rating">Устанавливет значение для поля _rating.</param>
         public Films(string _title, int _duration, int _yearOfRelease, string _genre, double _rating)
         {
-            this.duration = _duration;
-            this.title = _title;
-            this.yearOfRelease = _yearOfRelease;
-            this.genre = _genre;
-            this.rating = _rating;
+            this.Duration = _duration;
+            this.Title = _title;
+            this.YearOfRelease = _yearOfRelease;
+            this.Genre = _genre;
+            this.Rating = _rating;
         }
 
     }

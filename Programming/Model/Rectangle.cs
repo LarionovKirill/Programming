@@ -18,7 +18,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойсвто для поля _length.
         /// </summary>
-        public double length
+        public double Length
         {
             set
             {
@@ -40,7 +40,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _width.
         /// </summary>
-        public double width
+        public double Width
         {
             set
             {
@@ -62,17 +62,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _color.
         /// </summary>
-        public string color
-        {
-            set
-            {
-                _color = value;
-            }
-            get
-            {
-                return _color;
-            }
-        }
+        public string Color { get; set; }
 
         /// <summary>
         /// Конструктор по умолчанию.
@@ -90,9 +80,9 @@ namespace Programming.Model
         /// <param name="_color">Устанавливает значение для поля _color</param>
         public Rectangle(double _length, double _width,string _color)
         {
-            this.color = _color;
-            this.length = _length;
-            this.width = _width;
+            this.Color = _color;
+            this.Length = _length;
+            this.Width = _width;
         }
     }
 }

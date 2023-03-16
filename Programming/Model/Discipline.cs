@@ -18,7 +18,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _mark.
         /// </summary>
-        public int mark
+        public int Mark
         {
             set
             {
@@ -40,32 +40,13 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _subject.
         /// </summary>
-        public string subject
-        {
-            set 
-            {
-                _subject = value;
-            }
-            get
-            {
-                return _subject;
-            }
-        }
+        public string Subject { get; set; }
+
 
         /// <summary>
         /// Свойство для поля _teacher.
         /// </summary>
-        public string teacher
-        {
-            set 
-            {
-                _teacher = value;
-            }
-            get
-            {
-                return _teacher;
-            }
-        }
+        public string Teacher { get; set; }
 
         /// <summary>
         /// Конструктор по умолчанию.
@@ -89,9 +70,9 @@ namespace Programming.Model
         /// </param>
         public Discipline(string _subject, int _mark, string _teacher)
         {
-            this.mark = _mark;
-            this.subject = _subject;
-            this.teacher = _teacher;
+            this.Mark = _mark;
+            this.Subject = _subject;
+            this.Teacher = _teacher;
         }
     }
 }

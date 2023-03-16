@@ -18,7 +18,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _hour.
         /// </summary>
-        public int hour
+        public int Hour
         {
             set
             {
@@ -40,7 +40,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _minute.
         /// </summary>
-        public int minute
+        public int Minute
         {
             set
             {
@@ -62,7 +62,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _second.
         /// </summary>
-        public int second
+        public int Second
         {
             set
             {
@@ -97,9 +97,9 @@ namespace Programming.Model
         /// <param name="_second">Устанавливает значение в поле _second.</param>
         public Time(int _hour, int _minute, int _second)
         {
-            this.hour = _hour;
-            this.minute = _minute;
-            this.second = _second;
+            this.Hour = _hour;
+            this.Minute = _minute;
+            this.Second = _second;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _number.
         /// </summary>
-        public int number
+        public int Number
         {
             set 
             {
@@ -40,32 +40,12 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _name.
         /// </summary>
-        public string name 
-        {
-            set
-            {
-                _name = value;
-            }
-            get
-            {
-                return _name;
-            }
-        }
+        public string Name { get; set; }
 
         /// <summary>
         /// Свойство для поля _surename.
         /// </summary>
-        public string surename 
-        {
-            set
-            {
-                _surename = value;
-            }
-            get
-            {
-                return _surename;
-            }
-        }
+        public string Surename { get; set;}
 
         /// <summary>
         /// Конструктор по умолчанию.
@@ -89,9 +69,9 @@ namespace Programming.Model
         /// </param>
         public Contact(int _number, string _name, string _surename)
         {
-            this.name = _name;
-            this.number = _number;
-            this.surename = _surename;
+            this.Name = _name;
+            this.Number = _number;
+            this.Surename = _surename;
         }
     }
 }

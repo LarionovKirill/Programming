@@ -18,37 +18,17 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _author.
         /// </summary>
-        public string author
-        {
-            set
-            {
-                _author = value;
-            }
-            get
-            {
-                return _author;
-            }
-        }
+        public string Author { get; set; }
 
         /// <summary>
         /// Свойство для поля _title.
         /// </summary>
-        public string title
-        {
-            set
-            {
-                _title = value;
-            }
-            get
-            {
-                return _title;
-            }
-        }
+        public string Title { get; set; }
 
         /// <summary>
         /// Свойство для поля _rating.
         /// </summary>
-        public double rating
+        public double Rating
         {
             set
             {
@@ -83,9 +63,9 @@ namespace Programming.Model
         /// <param name="_rating">Устанавливает значение для поля _rating</param>
         public Song(string _author, string _title, double _rating)
         {
-            this.author = _author;
-            this.title = _title;
-            this.rating = _rating;
+            this.Author = _author;
+            this.Title = _title;
+            this.Rating = _rating;
         }
     }
 }

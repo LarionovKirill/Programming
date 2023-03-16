@@ -18,7 +18,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _flightTime.
         /// </summary>
-        public int flight_time
+        public int Flight_time
         {
             set
             {
@@ -40,32 +40,12 @@ namespace Programming.Model
         /// <summary>
         /// Свойсвто для поля _destination.
         /// </summary>
-        public string destination
-        {
-            set
-            {
-                _destination = value;
-            }
-            get
-            {
-                return _destination;
-            }
-        }
+        public string Destination { get; set; }
 
         /// <summary>
         /// Свойство для поля _departurePoint.
         /// </summary>
-        public string departurePoint
-        {
-            set
-            {
-                _departurePoint = value;
-            }
-            get
-            {
-                return _departurePoint;
-            }
-        }
+        public string DeparturePoint { get; set; }
 
         /// <summary>
         /// Конструктор по умолчанию.
@@ -83,9 +63,9 @@ namespace Programming.Model
         /// <param name="_flightTime">Устанавливет значение для поля _flightTime.</param>
         public Flight(string _departurePoint , string _destination, int _flightTime)
         {
-            this.departurePoint = _departurePoint;
-            this.destination = _destination;
-            this.flight_time = _flightTime;
+            this.DeparturePoint = _departurePoint;
+            this.Destination = _destination;
+            this.Flight_time = _flightTime;
         }
     }
 }
