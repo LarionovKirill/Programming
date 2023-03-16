@@ -22,8 +22,8 @@ namespace Programming.View
         public MainForm()
         {
             InitializeComponent();
-            var enums = new []
-            { 
+            var enums = new[]
+            {
                 "Color",
                 "EducationForm",
                 "Genre",
@@ -37,14 +37,14 @@ namespace Programming.View
             Genre genre;
             int countOfGenre = Enum.GetNames(typeof(Genre)).Length;
             int countOfColors = Enum.GetNames(typeof(Model.Enums.Color)).Length;
-           
+
             //Заполнение listbox 
             for (int i = 0; i < countItems; i++)
             {
                 ///Заполнеение прямоугольников
                 _rectangles[i] = new Model.Rectangle();
-                rectangleListBox.Items.Add($"Rectangle {i+1}");
-                _rectangles[i].length = random.Next(1,51);
+                rectangleListBox.Items.Add($"Rectangle {i + 1}");
+                _rectangles[i].length = random.Next(1, 51);
                 _rectangles[i].width = random.Next(1, 51);
                 color = (Model.Enums.Color)random.Next(countOfColors);
                 _rectangles[i].color = color.ToString();
@@ -55,7 +55,7 @@ namespace Programming.View
                 _films[i].yearOfRelease = random.Next(1900, 2024);
                 genre = (Genre)random.Next(countOfGenre);
                 _films[i].genre = genre.ToString();
-                _films[i].rating = random.Next(1, 11) * GetDouble();
+                _films[i].rating = random.Next(1, 101) / 10d;
                 _films[i].duration = random.Next(80, 300);
                 _films[i].title = Convert.ToChar(random.Next(65, 133)).ToString();
             }
@@ -75,20 +75,20 @@ namespace Programming.View
         /// </param>
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var enumsDict = new Dictionary<int, Enum>
+            var enums = new Dictionary<string, Type>
             {
-                [0] = new Model.Enums.Color(),
-                [1] = new EducationForm(),
-                [2] = new Genre(),
-                [3] = new Manufacturer(),
-                [4] = new Season(),
-                [5] = new WeekDay(),
+                [nameof(Model.Enums.Color)] = typeof(Model.Enums.Color),
+                [nameof(EducationForm)] = typeof(EducationForm),
+                [nameof(Genre)] = typeof(Genre),
+                [nameof(Manufacturer)] = typeof(Manufacturer),
+                [nameof(Season)] = typeof(Season),
+                [nameof(WeekDay)] = typeof(WeekDay),
             };
             valuesListBox.Items.Clear();
             intValues.Text = string.Empty;
-            var elementNumber = enumsListBox.SelectedIndex;
-            var a = enumsDict[elementNumber].GetType();
-            foreach (var item in Enum.GetValues(a))
+            var element = enumsListBox.SelectedItem.ToString();
+            var output = enums[element];
+            foreach (var item in Enum.GetValues(output))
             {
                 valuesListBox.Items.Add(item);
             }
@@ -108,7 +108,7 @@ namespace Programming.View
             intValues.Text = valuesListBox.SelectedIndex.ToString();
         }
 
-         /// <summary>
+        /// <summary>
         /// Проверяет, что написанное значение это день недели.    
         /// </summary>
         /// <param name="sender">
@@ -121,11 +121,11 @@ namespace Programming.View
         {
             var day = days.Text;
             WeekDay seasonCheck;
-            var check = Enum.TryParse(day,out seasonCheck);
+            var check = Enum.TryParse(day, out seasonCheck);
             if (check)
             {
-                WeekDay аnswer = (WeekDay) Enum.Parse(typeof(WeekDay), day,ignoreCase: true);
-                answerLabel.Text = $"«Это день недели ({аnswer} = {(int)аnswer+1})";
+                WeekDay аnswer = (WeekDay)Enum.Parse(typeof(WeekDay), day, ignoreCase: true);
+                answerLabel.Text = $"«Это день недели ({аnswer} = {(int)аnswer + 1})";
             }
             else
             {
@@ -148,31 +148,31 @@ namespace Programming.View
             seasonHandleBox.BackColor = ColorTranslator.FromHtml("#FFFFFF");
             switch (seasonBox.SelectedItem)
             {
-                case "Winter":
-                {
-                        seasonAnswer.Text = "Бррр! Холодно!";
-                        break;
-                }
-                case "Spring":
-                {
-                        seasonHandleBox.BackColor = ColorTranslator.FromHtml("#559c45");
-                        break;
-                }
-                case "Summer":
-                {
-                        seasonAnswer.Text = "Ура! Солнце!";
-                        break;
-                }
-                case "Autumn":
-                {
-                        seasonHandleBox.BackColor = ColorTranslator.FromHtml("#e29c45");
-                        break;
-                }
-                default:
-                {
-                        seasonAnswer.Text = "Это не время года";
-                        break;
-                }
+            case "Winter":
+            {
+                seasonAnswer.Text = "Бррр! Холодно!";
+                break;
+            }
+            case "Spring":
+            {
+                seasonHandleBox.BackColor = ColorTranslator.FromHtml("#559c45");
+                break;
+            }
+            case "Summer":
+            {
+                seasonAnswer.Text = "Ура! Солнце!";
+                break;
+            }
+            case "Autumn":
+            {
+                seasonHandleBox.BackColor = ColorTranslator.FromHtml("#e29c45");
+                break;
+            }
+            default:
+            {
+                seasonAnswer.Text = "Это не время года";
+                break;
+            }
             }
         }
 
@@ -274,33 +274,17 @@ namespace Programming.View
         /// </param>
         private void ColorTextChanged(object sender, EventArgs e)
         {
-            try
+            bool check = Enum.IsDefined(typeof(Model.Enums.Color), colorTextBox.Text);
+            if (check)
             {
-                bool check = Enum.IsDefined(typeof(Model.Enums.Color),colorTextBox.Text);
-                if (check)
-                {
-                    int index = rectangleListBox.SelectedIndex;
-                    _rectangles[index].color = colorTextBox.Text;
-                    colorTextBox.BackColor = System.Drawing.Color.White;
-                }
-                else 
-                {
-                    throw new ArgumentException();
-                }
+                int index = rectangleListBox.SelectedIndex;
+                _rectangles[index].color = colorTextBox.Text;
+                colorTextBox.BackColor = System.Drawing.Color.White;
             }
-            catch
+            else
             {
                 colorTextBox.BackColor = System.Drawing.Color.LightPink;
             }
-        }
-
-        /// <summary>
-        /// Возвращает случайное значение от 0,1 до 1
-        /// </summary>
-        /// <returns></returns>
-        double GetDouble()
-        {
-            return random.Next(1, 11) / 10d;
         }
 
         /// <summary>
@@ -404,23 +388,17 @@ namespace Programming.View
         /// </param>
         private void GenreTextChanged(object sender, EventArgs e)
         {
-            try
+            bool check = Enum.IsDefined(typeof(Genre), genreTextBox.Text);
+            if (check)
             {
-                bool check = Enum.IsDefined(typeof(Genre), genreTextBox.Text);
-                if (check)
-                {
-                    int index = filmsListBox.SelectedIndex;
-                    _films[index].genre = genreTextBox.Text;
-                    genreTextBox.BackColor = System.Drawing.Color.White;
-                }
-                else
-                {
-                    throw new ArgumentException();
-                }
+                int index = filmsListBox.SelectedIndex;
+                _films[index].genre = genreTextBox.Text;
+                genreTextBox.BackColor = System.Drawing.Color.White;
             }
-            catch
+            else
             {
                 genreTextBox.BackColor = System.Drawing.Color.LightPink;
+                throw new ArgumentException();
             }
         }
 
