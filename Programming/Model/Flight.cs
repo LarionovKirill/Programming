@@ -11,8 +11,19 @@ namespace Programming.Model
     /// </summary>
     class Flight
     {
+        /// <summary>
+        /// Хранит пункт отправки.
+        /// </summary>
         private string _departurePoint;
+
+        /// <summary>
+        /// Хранит пункт назначения. 
+        /// </summary>
         private string _destination;
+
+        /// <summary>
+        /// Хранит время полёта.
+        /// </summary>
         private int _flightTime;
 
         /// <summary>

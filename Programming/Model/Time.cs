@@ -11,8 +11,19 @@ namespace Programming.Model
     /// </summary>
     class Time
     {
+        /// <summary>
+        /// Хранит кол-во часов.
+        /// </summary>
         private int _hour;
+
+        /// <summary>
+        /// Хранит кол-во минут.
+        /// </summary>
         private int _minute;
+
+        /// <summary>
+        /// Хранит кол-во секунд.
+        /// </summary>
         private int _second;
 
         /// <summary>
@@ -66,7 +77,7 @@ namespace Programming.Model
         {
             set
             {
-                if (value >= 0 && value <= 60)
+                if (value >= 0 && value < 60)
                 {
                     _second = value;
                 }

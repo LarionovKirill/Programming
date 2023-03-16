@@ -11,8 +11,19 @@ namespace Programming.Model
     /// </summary>
     class Contact
     {
+        /// <summary>
+        /// Хранит номер человека.
+        /// </summary>
         private int _number;
+
+        /// <summary>
+        /// Хранит имя человека.
+        /// </summary>
         private string _name;
+
+        /// <summary>
+        /// Хранит фамилию человека.
+        /// </summary>
         private string _surename;
 
         /// <summary>

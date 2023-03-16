@@ -11,8 +11,19 @@ namespace Programming.Model
     /// </summary>
     class Rectangle
     {
+        /// <summary>
+        /// Хранит длину прямоугольника.
+        /// </summary>
         private double _length;
+
+        /// <summary>
+        /// Хранит ширину прямоугольника.
+        /// </summary>
         private double _width;
+
+        /// <summary>
+        /// Хранит цвет прямоугольника.
+        /// </summary>
         private string _color;
 
         /// <summary>

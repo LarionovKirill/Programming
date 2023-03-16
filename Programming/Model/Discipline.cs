@@ -11,8 +11,19 @@ namespace Programming.Model
     /// </summary>
     class Discipline
     {
+        /// <summary>
+        /// Хранит название предмета.
+        /// </summary>
         private string _subject;
+
+        /// <summary>
+        /// Хранит оценку.
+        /// </summary>
         private int _mark;
+
+        /// <summary>
+        /// Хранит имя учителя.
+        /// </summary>
         private string _teacher;
 
         /// <summary>

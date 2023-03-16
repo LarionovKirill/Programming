@@ -11,10 +11,29 @@ namespace Programming.Model
     /// </summary>
     class Films
     {
+        /// <summary>
+        /// Хранит название фильма.
+        /// </summary>
         private string _title;
+
+        /// <summary>
+        /// Хранит продолжительность фильма.
+        /// </summary>
         private int _duration;
+
+        /// <summary>
+        /// Хранит год выпуска фильма.
+        /// </summary>
         private int _yearOfRelease;
+
+        /// <summary>
+        /// Хранит жанр фильма.
+        /// </summary>
         private string _genre;
+
+        /// <summary>
+        /// Хранит рейтинг фильма.
+        /// </summary>
         private double _rating;
 
         /// <summary>

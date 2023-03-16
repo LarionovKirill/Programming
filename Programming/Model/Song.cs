@@ -11,8 +11,19 @@ namespace Programming.Model
     /// </summary>
     class Song
     {
+        /// <summary>
+        /// Хранит автора песни.
+        /// </summary>
         private string _author;
+
+        /// <summary>
+        /// Хранит название песни.
+        /// </summary>
         private string _title;
+
+        /// <summary>
+        /// Хранит рейтинг песни. 
+        /// </summary>
         private double _rating;
 
         /// <summary>
