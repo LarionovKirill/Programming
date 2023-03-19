@@ -7,15 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Programming.Model.Enums;
+
 using Programming.Model;
+using Programming.Model.Enums;
 
 namespace Programming.View
 {
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// Количество элементов для генерирования объектов.
+        /// </summary>
         const int countItems = 5;
+
+        /// <summary>
+        /// Массив элементов класса Reactangle.
+        /// </summary>
         Model.Rectangle[] _rectangles = new Model.Rectangle[countItems];
+
+        /// <summary>
+        /// Массив элементов класса Film.
+        /// </summary>
         Films[] _films = new Films[countItems];
 
         public MainForm()
@@ -302,7 +314,7 @@ namespace Programming.View
             int index = filmsListBox.SelectedIndex;
             Films currentFilm = new Films();
             currentFilm = _films[index];
-            titleTextBox.Text = currentFilm.Title.ToString();
+            titleTextBox.Text = currentFilm.Title.ToString();   
             genreTextBox.Text = currentFilm.Genre.ToString();
             durationTextBox.Text = currentFilm.Duration.ToString();
             yearOfReleaseTextBox.Text = currentFilm.YearOfRelease.ToString();
