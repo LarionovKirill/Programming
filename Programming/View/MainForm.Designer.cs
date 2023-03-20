@@ -114,9 +114,9 @@ namespace Programming.View
             this.seasonHandleBox.Controls.Add(this.seasonLabel);
             this.seasonHandleBox.Controls.Add(this.seasonAnswer);
             this.seasonHandleBox.Controls.Add(this.seasonButton);
-            this.seasonHandleBox.Location = new System.Drawing.Point(556, 350);
+            this.seasonHandleBox.Location = new System.Drawing.Point(474, 350);
             this.seasonHandleBox.Name = "seasonHandleBox";
-            this.seasonHandleBox.Size = new System.Drawing.Size(349, 153);
+            this.seasonHandleBox.Size = new System.Drawing.Size(441, 177);
             this.seasonHandleBox.TabIndex = 16;
             this.seasonHandleBox.TabStop = false;
             this.seasonHandleBox.Text = "Season Handle";
@@ -169,7 +169,7 @@ namespace Programming.View
             this.weekdayParsingBox.Controls.Add(this.weekdayLabel);
             this.weekdayParsingBox.Location = new System.Drawing.Point(29, 350);
             this.weekdayParsingBox.Name = "weekdayParsingBox";
-            this.weekdayParsingBox.Size = new System.Drawing.Size(354, 158);
+            this.weekdayParsingBox.Size = new System.Drawing.Size(427, 177);
             this.weekdayParsingBox.TabIndex = 15;
             this.weekdayParsingBox.TabStop = false;
             this.weekdayParsingBox.Text = "Weekday Parsing";
@@ -219,7 +219,7 @@ namespace Programming.View
             this.enumerationsBox.Controls.Add(this.intValues);
             this.enumerationsBox.Location = new System.Drawing.Point(29, 18);
             this.enumerationsBox.Name = "enumerationsBox";
-            this.enumerationsBox.Size = new System.Drawing.Size(707, 299);
+            this.enumerationsBox.Size = new System.Drawing.Size(886, 326);
             this.enumerationsBox.TabIndex = 14;
             this.enumerationsBox.TabStop = false;
             this.enumerationsBox.Text = "Enumerations";
@@ -228,16 +228,16 @@ namespace Programming.View
             // 
             this.valuesListBox.FormattingEnabled = true;
             this.valuesListBox.ItemHeight = 16;
-            this.valuesListBox.Location = new System.Drawing.Point(236, 43);
+            this.valuesListBox.Location = new System.Drawing.Point(253, 43);
             this.valuesListBox.Name = "valuesListBox";
-            this.valuesListBox.Size = new System.Drawing.Size(157, 132);
+            this.valuesListBox.Size = new System.Drawing.Size(175, 212);
             this.valuesListBox.TabIndex = 1;
             this.valuesListBox.SelectedIndexChanged += new System.EventHandler(this.ValuesListBox_SelectedIndexChanged);
             // 
             // chooseValue
             // 
             this.chooseValue.AutoSize = true;
-            this.chooseValue.Location = new System.Drawing.Point(233, 23);
+            this.chooseValue.Location = new System.Drawing.Point(250, 23);
             this.chooseValue.Name = "chooseValue";
             this.chooseValue.Size = new System.Drawing.Size(100, 17);
             this.chooseValue.TabIndex = 4;
@@ -249,7 +249,7 @@ namespace Programming.View
             this.enumsListBox.ItemHeight = 16;
             this.enumsListBox.Location = new System.Drawing.Point(26, 43);
             this.enumsListBox.Name = "enumsListBox";
-            this.enumsListBox.Size = new System.Drawing.Size(156, 132);
+            this.enumsListBox.Size = new System.Drawing.Size(175, 212);
             this.enumsListBox.TabIndex = 0;
             this.enumsListBox.SelectedIndexChanged += new System.EventHandler(this.EnumsListBox_SelectedIndexChanged);
             // 
@@ -265,7 +265,7 @@ namespace Programming.View
             // intValue
             // 
             this.intValue.AutoSize = true;
-            this.intValue.Location = new System.Drawing.Point(491, 23);
+            this.intValue.Location = new System.Drawing.Point(536, 23);
             this.intValue.Name = "intValue";
             this.intValue.Size = new System.Drawing.Size(67, 17);
             this.intValue.TabIndex = 3;
@@ -273,7 +273,7 @@ namespace Programming.View
             // 
             // intValues
             // 
-            this.intValues.Location = new System.Drawing.Point(494, 43);
+            this.intValues.Location = new System.Drawing.Point(539, 43);
             this.intValues.Multiline = true;
             this.intValues.Name = "intValues";
             this.intValues.Size = new System.Drawing.Size(148, 28);

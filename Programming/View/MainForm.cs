@@ -30,6 +30,9 @@ namespace Programming.View
         /// </summary>
         Films[] _films = new Films[countItems];
 
+        /// <summary>
+        /// Главный метод, который запускается с программой.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
