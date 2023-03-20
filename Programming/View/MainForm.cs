@@ -162,31 +162,31 @@ namespace Programming.View
             seasonHandleBox.BackColor = ColorTranslator.FromHtml("#FFFFFF");
             switch (seasonBox.SelectedItem)
             {
-            case "Winter":
-            {
-                seasonAnswer.Text = "Бррр! Холодно!";
-                break;
-            }
-            case "Spring":
-            {
-                seasonHandleBox.BackColor = ColorTranslator.FromHtml("#559c45");
-                break;
-            }
-            case "Summer":
-            {
-                seasonAnswer.Text = "Ура! Солнце!";
-                break;
-            }
-            case "Autumn":
-            {
-                seasonHandleBox.BackColor = ColorTranslator.FromHtml("#e29c45");
-                break;
-            }
-            default:
-            {
-                seasonAnswer.Text = "Это не время года";
-                break;
-            }
+                case "Winter":
+                {
+                    seasonAnswer.Text = "Бррр! Холодно!";
+                    break;
+                }
+                case "Spring":
+                {
+                    seasonHandleBox.BackColor = ColorTranslator.FromHtml("#559c45");
+                    break;
+                }
+                case "Summer":
+                {
+                    seasonAnswer.Text = "Ура! Солнце!";
+                    break;
+                }
+                case "Autumn":
+                {
+                    seasonHandleBox.BackColor = ColorTranslator.FromHtml("#e29c45");
+                    break;
+                }
+                default:
+                {
+                    seasonAnswer.Text = "Это не время года";
+                    break;
+                }
             }
         }
 
@@ -313,7 +313,7 @@ namespace Programming.View
         private void FilmsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = filmsListBox.SelectedIndex;
-            titleTextBox.Text = _films[index].Title.ToString();   
+            titleTextBox.Text = _films[index].Title.ToString();
             genreTextBox.Text = _films[index].Genre.ToString();
             durationTextBox.Text = _films[index].Duration.ToString();
             yearOfReleaseTextBox.Text = _films[index].YearOfRelease.ToString();
