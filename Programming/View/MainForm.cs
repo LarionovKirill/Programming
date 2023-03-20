@@ -47,8 +47,6 @@ namespace Programming.View
             };
             enumsListBox.Items.AddRange(enums);
             enumsListBox.SelectedIndex = 0;
-            Model.Enums.Color color;
-            Genre genre;
             int countOfGenre = Enum.GetNames(typeof(Genre)).Length;
             int countOfColors = Enum.GetNames(typeof(Model.Enums.Color)).Length;
             Random random = new Random();
@@ -56,6 +54,7 @@ namespace Programming.View
             for (int i = 0; i < countItems; i++)
             {
                 ///Заполнеение прямоугольников
+                Model.Enums.Color color;
                 _rectangles[i] = new Model.Rectangle();
                 rectangleListBox.Items.Add($"Rectangle {i + 1}");
                 _rectangles[i].Length = random.Next(1, 51);
@@ -64,6 +63,7 @@ namespace Programming.View
                 _rectangles[i].Color = color.ToString();
 
                 //Заполнение фильмов
+                Genre genre;
                 _films[i] = new Films();
                 filmsListBox.Items.Add($"Film {i + 1}");
                 _films[i].YearOfRelease = random.Next(1900, 2024);
