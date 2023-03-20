@@ -103,14 +103,14 @@ namespace Programming.Model
         /// <summary>
         /// Конструктор с параметрами.
         /// </summary>
-        /// <param name="_hour">Устанавливает значение в поле _hour.</param>
-        /// <param name="_minute">Устанавливает значение в поле _minute.</param>
-        /// <param name="_second">Устанавливает значение в поле _second.</param>
-        public Time(int _hour, int _minute, int _second)
+        /// <param name="hour">Устанавливает значение в поле _hour.</param>
+        /// <param name="minute">Устанавливает значение в поле _minute.</param>
+        /// <param name="second">Устанавливает значение в поле _second.</param>
+        public Time(int hour, int minute, int second)
         {
-            this.Hour = _hour;
-            this.Minute = _minute;
-            this.Second = _second;
+            this.Hour = hour;
+            this.Minute = minute;
+            this.Second = second;
         }
     }
 }

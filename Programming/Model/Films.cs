@@ -123,18 +123,18 @@ namespace Programming.Model
         /// <summary>
         /// Конструктор с параметрами.
         /// </summary>
-        /// <param name="_title">Устанавливет значение для поля _title.</param>
-        /// <param name="_duration">Устанавливет значение для поля _duration.</param>
-        /// <param name="_yearOfRelease">Устанавливет значение для поля _yearOfRelease.</param>
-        /// <param name="_genre">Устанавливет значение для поля _genre.</param>
-        /// <param name="_rating">Устанавливет значение для поля _rating.</param>
-        public Films(string _title, int _duration, int _yearOfRelease, string _genre, double _rating)
+        /// <param name="title">Устанавливет значение для поля _title.</param>
+        /// <param name="duration">Устанавливет значение для поля _duration.</param>
+        /// <param name="yearOfRelease">Устанавливет значение для поля _yearOfRelease.</param>
+        /// <param name="genre">Устанавливет значение для поля _genre.</param>
+        /// <param name="rating">Устанавливет значение для поля _rating.</param>
+        public Films(string title, int duration, int yearOfRelease, string genre, double rating)
         {
-            this.Duration = _duration;
-            this.Title = _title;
-            this.YearOfRelease = _yearOfRelease;
-            this.Genre = _genre;
-            this.Rating = _rating;
+            this.Duration = duration;
+            this.Title = title;
+            this.YearOfRelease = yearOfRelease;
+            this.Genre = genre;
+            this.Rating = rating;
         }
 
     }

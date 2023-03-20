@@ -69,14 +69,14 @@ namespace Programming.Model
         /// <summary>
         /// Конструктор с параметрами.
         /// </summary>
-        /// <param name="_author">Устанавливает значение для поля _author</param>
-        /// <param name="_title">Устанавливает значение для поля _title</param>
-        /// <param name="_rating">Устанавливает значение для поля _rating</param>
-        public Song(string _author, string _title, double _rating)
+        /// <param name="author">Устанавливает значение для поля _author</param>
+        /// <param name="title">Устанавливает значение для поля _title</param>
+        /// <param name="rating">Устанавливает значение для поля _rating</param>
+        public Song(string author, string title, double rating)
         {
-            this.Author = _author;
-            this.Title = _title;
-            this.Rating = _rating;
+            this.Author = author;
+            this.Title = title;
+            this.Rating = rating;
         }
     }
 }

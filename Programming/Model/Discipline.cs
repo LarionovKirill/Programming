@@ -70,20 +70,20 @@ namespace Programming.Model
         /// <summary>
         /// Конструктор с параметрами
         /// </summary>
-        /// <param name="_subject">
+        /// <param name="subject">
         /// Устанавливет значение для поля _subject.
         /// </param>
-        /// <param name="_mark">
+        /// <param name="mark">
         /// Устанавливет значение для поля _mark.
         /// </param>
-        /// <param name="_teacher">
+        /// <param name="teacher">
         /// Устанавливет значение для поля _teacher.
         /// </param>
-        public Discipline(string _subject, int _mark, string _teacher)
+        public Discipline(string subject, int mark, string teacher)
         {
-            this.Mark = _mark;
-            this.Subject = _subject;
-            this.Teacher = _teacher;
+            this.Mark = mark;
+            this.Subject = subject;
+            this.Teacher = teacher;
         }
     }
 }

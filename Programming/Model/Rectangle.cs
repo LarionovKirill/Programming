@@ -86,14 +86,14 @@ namespace Programming.Model
         /// <summary>
         /// Конструктор с параметрами.
         /// </summary>
-        /// <param name="_length">Устанавливает значение для поля _length</param>
-        /// <param name="_width">Устанавливает значение для поля _width</param>
-        /// <param name="_color">Устанавливает значение для поля _color</param>
-        public Rectangle(double _length, double _width,string _color)
+        /// <param name="length">Устанавливает значение для поля _length</param>
+        /// <param name="width">Устанавливает значение для поля _width</param>
+        /// <param name="color">Устанавливает значение для поля _color</param>
+        public Rectangle(double length, double width,string color)
         {
-            this.Color = _color;
-            this.Length = _length;
-            this.Width = _width;
+            this.Color = color;
+            this.Length = length;
+            this.Width = width;
         }
     }
 }

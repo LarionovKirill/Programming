@@ -69,14 +69,14 @@ namespace Programming.Model
         /// <summary>
         /// Конструктор с параметрами.
         /// </summary>
-        /// <param name="_departurePoint">Устанавливет значение для поля _departurePoint.</param>
-        /// <param name="_destination">Устанавливет значение для поля _destination.</param>
-        /// <param name="_flightTime">Устанавливет значение для поля _flightTime.</param>
-        public Flight(string _departurePoint , string _destination, int _flightTime)
+        /// <param name="departurePoint">Устанавливет значение для поля _departurePoint.</param>
+        /// <param name="destination">Устанавливет значение для поля _destination.</param>
+        /// <param name="flightTime">Устанавливет значение для поля _flightTime.</param>
+        public Flight(string departurePoint , string destination, int flightTime)
         {
-            this.DeparturePoint = _departurePoint;
-            this.Destination = _destination;
-            this.Flight_time = _flightTime;
+            this.DeparturePoint = departurePoint;
+            this.Destination = destination;
+            this.Flight_time = flightTime;
         }
     }
 }

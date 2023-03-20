@@ -69,20 +69,20 @@ namespace Programming.Model
         /// <summary>
         /// Констурктор с параметрами.
         /// </summary>
-        /// <param name="_number">
+        /// <param name="number">
         /// Устанавливет значение для поля _number.
         /// </param>
-        /// <param name="_name">
+        /// <param name="name">
         /// Устанавливет значение для поля _name.
         /// </param>
-        /// <param name="_surename">
+        /// <param name="surename">
         /// Устанавливет значение для поля _surename.
         /// </param>
-        public Contact(int _number, string _name, string _surename)
+        public Contact(int number, string name, string surename)
         {
-            this.Name = _name;
-            this.Number = _number;
-            this.Surename = _surename;
+            this.Name = name;
+            this.Number = number;
+            this.Surename = surename;
         }
     }
 }
