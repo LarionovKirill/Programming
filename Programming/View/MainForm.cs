@@ -202,11 +202,9 @@ namespace Programming.View
         private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = rectangleListBox.SelectedIndex;
-            Model.Rectangle currentRectangle = new Model.Rectangle();
-            currentRectangle = _rectangles[index];
-            lengthTextBox.Text = currentRectangle.Length.ToString();
-            widthTextBox.Text = currentRectangle.Width.ToString();
-            colorTextBox.Text = currentRectangle.Color.ToString();
+            lengthTextBox.Text = _rectangles[index].Length.ToString();
+            widthTextBox.Text = _rectangles[index].Width.ToString();
+            colorTextBox.Text = _rectangles[index].Color.ToString();
         }
 
         /// <summary>
@@ -315,13 +313,11 @@ namespace Programming.View
         private void FilmsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = filmsListBox.SelectedIndex;
-            Films currentFilm = new Films();
-            currentFilm = _films[index];
-            titleTextBox.Text = currentFilm.Title.ToString();   
-            genreTextBox.Text = currentFilm.Genre.ToString();
-            durationTextBox.Text = currentFilm.Duration.ToString();
-            yearOfReleaseTextBox.Text = currentFilm.YearOfRelease.ToString();
-            ratingTextBox.Text = currentFilm.Rating.ToString();
+            titleTextBox.Text = _films[index].Title.ToString();   
+            genreTextBox.Text = _films[index].Genre.ToString();
+            durationTextBox.Text = _films[index].Duration.ToString();
+            yearOfReleaseTextBox.Text = _films[index].YearOfRelease.ToString();
+            ratingTextBox.Text = _films[index].Rating.ToString();
         }
 
         /// <summary>
