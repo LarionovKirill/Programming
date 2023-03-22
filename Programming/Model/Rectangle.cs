@@ -37,6 +37,7 @@ namespace Programming.Model
                 {
                     Validator checker = new Validator();
                     checker.AssertOnPositiveValue(value);
+                    _length = value;
                 }
                 catch (Exception ex)
                 {
@@ -66,6 +67,7 @@ namespace Programming.Model
                 {
                     Validator checker = new Validator();
                     checker.AssertOnPositiveValue(value);
+                    _width = value;
                 }
                 catch (Exception ex)
                 {

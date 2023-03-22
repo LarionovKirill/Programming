@@ -29,17 +29,25 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _flightTime.
         /// </summary>
-        public int Flight_time
+        public int FlightTime
         {
             set
             {
-                if (value > 0 && value < 800)
+                try
                 {
+                    Validator checker = new Validator();
+                    checker.AssertValueInRange(value, 0, 800);
                     _flightTime = value;
                 }
-                else
+                catch (Exception ex)
                 {
-                    throw new ArgumentException();
+                    int index = ex.StackTrace.IndexOf("set") + 4;
+                    string error = string.Empty;
+                    for (int i = index; i < index + 10; i++)
+                    {
+                        error += ex.StackTrace[i];
+                    }
+                    throw new ArgumentException("Исключение вызвано свойством поля " + error);
                 }
             }
             get
@@ -76,7 +84,7 @@ namespace Programming.Model
         {
             this.DeparturePoint = departurePoint;
             this.Destination = destination;
-            this.Flight_time = flightTime;
+            this.FlightTime = flightTime;
         }
     }
 }

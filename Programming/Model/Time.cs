@@ -33,13 +33,21 @@ namespace Programming.Model
         {
             set
             {
-                if (value >= 0 && value <= 23)
+                try
                 {
+                    Validator checker = new Validator();
+                    checker.AssertValueInRange(value, 0, 23);
                     _hour = value;
                 }
-                else
+                catch (Exception ex)
                 {
-                    throw new ArgumentException();
+                    int index = ex.StackTrace.IndexOf("set") + 4;
+                    string error = string.Empty;
+                    for (int i = index; i < index + 4; i++)
+                    {
+                        error += ex.StackTrace[i];
+                    }
+                    throw new ArgumentException("Исключение вызвано свойством поля " + error);
                 }
             }
             get
@@ -55,13 +63,21 @@ namespace Programming.Model
         {
             set
             {
-                if (value >= 0 && value < 60)
+                try
                 {
+                    Validator checker = new Validator();
+                    checker.AssertValueInRange(value, 0, 59);
                     _minute = value;
                 }
-                else
+                catch (Exception ex)
                 {
-                    throw new ArgumentException();
+                    int index = ex.StackTrace.IndexOf("set") + 4;
+                    string error = string.Empty;
+                    for (int i = index; i < index + 6; i++)
+                    {
+                        error += ex.StackTrace[i];
+                    }
+                    throw new ArgumentException("Исключение вызвано свойством поля " + error);
                 }
             }
             get
@@ -77,13 +93,21 @@ namespace Programming.Model
         {
             set
             {
-                if (value >= 0 && value < 60)
+                try
                 {
+                    Validator checker = new Validator();
+                    checker.AssertValueInRange(value, 0, 59);
                     _second = value;
                 }
-                else
+                catch (Exception ex)
                 {
-                    throw new ArgumentException();
+                    int index = ex.StackTrace.IndexOf("set") + 4;
+                    string error = string.Empty;
+                    for (int i = index; i < index + 6; i++)
+                    {
+                        error += ex.StackTrace[i];
+                    }
+                    throw new ArgumentException("Исключение вызвано свойством поля " + error);
                 }
             }
             get

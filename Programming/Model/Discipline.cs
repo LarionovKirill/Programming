@@ -33,13 +33,21 @@ namespace Programming.Model
         {
             set
             {
-                if (value >= 2 && value <= 5)
+                try
                 {
+                    Validator checker = new Validator();
+                    checker.AssertValueInRange(value, 2, 5);
                     _mark = value;
                 }
-                else
+                catch (Exception ex)
                 {
-                    throw new ArgumentException();
+                    int index = ex.StackTrace.IndexOf("set") + 4;
+                    string error = string.Empty;
+                    for (int i = index; i < index + 4; i++)
+                    {
+                        error += ex.StackTrace[i];
+                    }
+                    throw new ArgumentException("Исключение вызвано свойством поля " + error);
                 }
             }
             get

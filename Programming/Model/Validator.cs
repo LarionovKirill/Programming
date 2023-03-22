@@ -31,5 +31,33 @@ namespace Programming.Model
                 throw new ArgumentException();
             }
         }
+
+        /// <summary>
+        /// Проверяет, соответствует ли введенное значение диапазону.
+        /// </summary>
+        /// <param name="value">Введенное значение.</param>
+        /// <param name="min">Нижняя граница диапазона.</param>
+        /// <param name="max">Верхняя граница диапазона.</param>
+        public void AssertValueInRange(int value, int min, int max)
+        {
+            if (value < min || value > max)
+            {
+                throw new ArgumentException();
+            }
+        }
+
+        /// <summary>
+        /// Проверяет, соответствует ли введенное значение диапазону.
+        /// </summary>
+        /// <param name="value">Введенное значение.</param>
+        /// <param name="min">Нижняя граница диапазона.</param>
+        /// <param name="max">Верхняя граница диапазона.</param>
+        public void AssertValueInRange(double value, int min, int max)
+        {
+            if (value < min || value > max)
+            {
+                throw new ArgumentException();
+            }
+        }
     }
 }
