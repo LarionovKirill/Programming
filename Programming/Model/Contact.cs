@@ -24,7 +24,7 @@ namespace Programming.Model
         /// <summary>
         /// Хранит фамилию человека.
         /// </summary>
-        private string _surename;
+        private string _surname;
 
         /// <summary>
         /// Свойство для поля _number.
@@ -51,12 +51,60 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _name.
         /// </summary>
-        public string Name { get; set; }
+        public string Name 
+        { 
+            set
+            {
+                try
+                {
+                    AssertStringContainsOnlyLetters(value);
+                    _name = value;
+                }
+                catch (Exception ex)
+                {
+                    int index = ex.StackTrace.IndexOf("set")+4;
+                    string error = string.Empty;
+                    for (int i = index; i < index + 4; i++)
+                    {
+                        error += ex.StackTrace[i];
+                    }
+                    throw new ArgumentException("Исключение вызвано свойством поля " + error);
+                }
+            }
+            get
+            {
+                return _name;
+            }
+        }
 
         /// <summary>
-        /// Свойство для поля _surename.
+        /// Свойство для поля _surname.
         /// </summary>
-        public string Surename { get; set;}
+        public string Surname 
+        {
+            set
+            {
+                try
+                {
+                    AssertStringContainsOnlyLetters(value);
+                    _surname = value;
+                }
+                catch (Exception ex)
+                {
+                    int index = ex.StackTrace.IndexOf("set") + 4;
+                    string error = string.Empty;
+                    for (int i = index; i < index + 7; i++)
+                    {
+                        error += ex.StackTrace[i];
+                    }
+                    throw new ArgumentException("Исключение вызвано свойством поля " + error);
+                }
+            }
+            get
+            {
+                return _surname;
+            }
+        }
 
         /// <summary>
         /// Конструктор по умолчанию.
@@ -75,14 +123,30 @@ namespace Programming.Model
         /// <param name="name">
         /// Устанавливет значение для поля _name.
         /// </param>
-        /// <param name="surename">
-        /// Устанавливет значение для поля _surename.
+        /// <param name="surname">
+        /// Устанавливет значение для поля _surname.
         /// </param>
-        public Contact(int number, string name, string surename)
+        public Contact(int number, string name, string surname)
         {
             this.Name = name;
             this.Number = number;
-            this.Surename = surename;
+            this.Surname = surname;
+        }
+
+        /// <summary>
+        /// Проверяет, состоит ли строка только из английских букв.
+        /// </summary>
+        /// <param name="value">Передаваемая на проверку строка.</param>
+        /// <returns></returns>
+        private void AssertStringContainsOnlyLetters(string value)
+        {
+            for (int i = 0; i < value.Length; i++)
+            {
+                if ((int)'A' > (int)value[i] || (int)'z' < (int)value[i])
+                {
+                    throw new ArgumentException();
+                }
+            }
         }
     }
 }

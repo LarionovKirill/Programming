@@ -73,6 +73,8 @@ namespace Programming.View
             this.lengthTextBox = new System.Windows.Forms.TextBox();
             this.rectangleListBox = new System.Windows.Forms.ListBox();
             this.weekdayBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.TestButton = new System.Windows.Forms.Button();
+            this.TestBox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.Enums.SuspendLayout();
             this.seasonHandleBox.SuspendLayout();
@@ -211,6 +213,8 @@ namespace Programming.View
             // 
             // enumerationsBox
             // 
+            this.enumerationsBox.Controls.Add(this.TestBox);
+            this.enumerationsBox.Controls.Add(this.TestButton);
             this.enumerationsBox.Controls.Add(this.valuesListBox);
             this.enumerationsBox.Controls.Add(this.chooseValue);
             this.enumerationsBox.Controls.Add(this.enumsListBox);
@@ -509,6 +513,23 @@ namespace Programming.View
             // 
             this.weekdayBindingSource.DataSource = typeof(Programming.Model.Enums.WeekDay);
             // 
+            // TestButton
+            // 
+            this.TestButton.Location = new System.Drawing.Point(591, 235);
+            this.TestButton.Name = "TestButton";
+            this.TestButton.Size = new System.Drawing.Size(75, 23);
+            this.TestButton.TabIndex = 6;
+            this.TestButton.Text = "button1";
+            this.TestButton.UseVisualStyleBackColor = true;
+            this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
+            // 
+            // TestBox
+            // 
+            this.TestBox.Location = new System.Drawing.Point(575, 198);
+            this.TestBox.Name = "TestBox";
+            this.TestBox.Size = new System.Drawing.Size(100, 22);
+            this.TestBox.TabIndex = 7;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -580,5 +601,7 @@ namespace Programming.View
         private System.Windows.Forms.Button findFilmsButton;
         private System.Windows.Forms.Label ratingLabel;
         private System.Windows.Forms.TextBox ratingTextBox;
+        private System.Windows.Forms.TextBox TestBox;
+        private System.Windows.Forms.Button TestButton;
     }
 }

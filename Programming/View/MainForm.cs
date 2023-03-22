@@ -461,5 +461,12 @@ namespace Programming.View
                 durationTextBox.BackColor = System.Drawing.Color.LightPink;
             }
         }
+
+        //Удалить потом. Это для проверки.
+        private void TestButton_Click(object sender, EventArgs e)
+        {
+            Contact contact = new Contact();
+            contact.Surname = TestBox.Text;
+        }
     }
 }
