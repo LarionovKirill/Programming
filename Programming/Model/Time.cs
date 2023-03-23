@@ -33,14 +33,9 @@ namespace Programming.Model
         {
             set
             {
-                if (value >= 0 && value <= 23)
-                {
-                    _hour = value;
-                }
-                else
-                {
-                    throw new ArgumentException();
-                }
+                Validator checker = new Validator();
+                checker.AssertValueInRange(value, 0, 23, nameof(Hour));
+                _hour = value;
             }
             get
             {
@@ -55,14 +50,9 @@ namespace Programming.Model
         {
             set
             {
-                if (value >= 0 && value < 60)
-                {
-                    _minute = value;
-                }
-                else
-                {
-                    throw new ArgumentException();
-                }
+                Validator checker = new Validator();
+                checker.AssertValueInRange(value, 0, 59, nameof(Minute));
+                _minute = value;
             }
             get
             {
@@ -77,14 +67,9 @@ namespace Programming.Model
         {
             set
             {
-                if (value >= 0 && value < 60)
-                {
-                    _second = value;
-                }
-                else
-                {
-                    throw new ArgumentException();
-                }
+                Validator checker = new Validator();
+                checker.AssertValueInRange(value, 0, 59, nameof(Second));
+                _second = value;
             }
             get
             {

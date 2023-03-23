@@ -33,14 +33,9 @@ namespace Programming.Model
         {
             set
             {
-                if (value >= 2 && value <= 5)
-                {
-                    _mark = value;
-                }
-                else
-                {
-                    throw new ArgumentException();
-                }
+                Validator checker = new Validator();
+                checker.AssertValueInRange(value, 2, 5, nameof(Mark));
+                _mark = value;
             }
             get
             {
@@ -81,9 +76,9 @@ namespace Programming.Model
         /// </param>
         public Discipline(string subject, int mark, string teacher)
         {
-            this.Mark = mark;
-            this.Subject = subject;
-            this.Teacher = teacher;
+            Mark = mark;
+            Subject = subject;
+            Teacher = teacher;
         }
     }
 }

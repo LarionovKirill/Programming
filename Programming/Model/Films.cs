@@ -48,14 +48,9 @@ namespace Programming.Model
         {
             set 
             {
-                if (value > 0 && value < 300)
-                {
-                    _duration = value;
-                }
-                else
-                {
-                    throw new ArgumentException();
-                }
+                Validator checker = new Validator();
+                checker.AssertValueInRange(value, 0, 300, nameof(Duration));
+                _duration = value;
             }
             get
             {
@@ -70,14 +65,9 @@ namespace Programming.Model
         {
             set
             {
-                if (value >= 1900 && value <= 2023)
-                {
-                    _yearOfRelease = value;
-                }
-                else
-                {
-                    throw new ArgumentException();
-                }
+                Validator checker = new Validator();
+                checker.AssertValueInRange(value, 1900, 2023, nameof(YearOfRelease));
+                _yearOfRelease = value;
             }
             get
             {
@@ -97,14 +87,9 @@ namespace Programming.Model
         {
             set
             {
-                if (value >= 0 && value <= 10)
-                {
-                    _rating = value;
-                }
-                else
-                {
-                    throw new ArgumentException();
-                }
+                Validator checker = new Validator();
+                checker.AssertValueInRange(value, 0, 10, nameof(Rating));
+                _rating = value;
             }
             get 
             {
@@ -130,11 +115,11 @@ namespace Programming.Model
         /// <param name="rating">Устанавливет значение для поля _rating.</param>
         public Films(string title, int duration, int yearOfRelease, string genre, double rating)
         {
-            this.Duration = duration;
-            this.Title = title;
-            this.YearOfRelease = yearOfRelease;
-            this.Genre = genre;
-            this.Rating = rating;
+            Duration = duration;
+            Title = title;
+            YearOfRelease = yearOfRelease;
+            Genre = genre;
+            Rating = rating;
         }
 
     }

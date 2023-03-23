@@ -27,20 +27,30 @@ namespace Programming.Model
         private string _color;
 
         /// <summary>
+        /// Хранит центр прямоугольника.
+        /// </summary>
+        private Point2D point;
+
+        /// <summary>
+        /// Хранит количество прямоугольников.
+        /// </summary>
+        private static int _allRectanglesCount=0;
+
+        /// <summary>
+        /// Хранит id прямоуголников.
+        /// </summary>
+        private int id; 
+
+        /// <summary>
         /// Свойсвто для поля _length.
         /// </summary>
         public double Length
         {
             set
             {
-                if (value > 0)
-                {
-                    _length = value;
-                }
-                else
-                {
-                    throw new ArgumentException();
-                }
+                Validator checker = new Validator();
+                checker.AssertOnPositiveValue(value, nameof(Length));
+                _length = value;
             }
             get
             {
@@ -55,14 +65,9 @@ namespace Programming.Model
         {
             set
             {
-                if (value > 0)
-                {
-                    _width = value;
-                }
-                else
-                {
-                    throw new ArgumentException();
-                }
+                Validator checker = new Validator();
+                checker.AssertOnPositiveValue(value, nameof(Width));
+                _width = value;
             }
             get
             {
@@ -74,6 +79,27 @@ namespace Programming.Model
         /// Свойство для поля _color.
         /// </summary>
         public string Color { get; set; }
+
+        /// <summary>
+        /// Свойство для поля Center;
+        /// </summary>
+        public Point2D Center { get; set; }
+
+        /// <summary>
+        /// Свойство для поля _allRectanglesCount
+        /// </summary>
+        public static int AllRectanglesCount
+        {
+            get
+            {
+                return _allRectanglesCount;
+            }
+        }
+
+        /// <summary>
+        /// Свойство поля Id.
+        /// </summary>
+        public int Id { get; private set; }
 
         /// <summary>
         /// Конструктор по умолчанию.
@@ -89,11 +115,14 @@ namespace Programming.Model
         /// <param name="length">Устанавливает значение для поля _length</param>
         /// <param name="width">Устанавливает значение для поля _width</param>
         /// <param name="color">Устанавливает значение для поля _color</param>
-        public Rectangle(double length, double width,string color)
+        public Rectangle(double length, double width, string color, Point2D point)
         {
             this.Color = color;
             this.Length = length;
             this.Width = width;
+            this.Center = point;
+            _allRectanglesCount += 1;
+            this.Id = _allRectanglesCount;
         }
     }
 }
