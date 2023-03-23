@@ -12,11 +12,11 @@ namespace Programming.Model
         /// Проверяет, что целое число больше нуля.
         /// </summary>
         /// <param name="value">Проверяемое число.</param>
-        public void AssertOnPositiveValue(int value)
+        public void AssertOnPositiveValue(int value, string propertyName)
         {
             if (value < 0)
             {
-                throw new ArgumentException();
+                throw new ArgumentException("Поле " + propertyName + " должно быть неотрицательным");
             }
         }
 
@@ -24,11 +24,11 @@ namespace Programming.Model
         /// Проверяет, что дробное число больше нуля.
         /// </summary>
         /// <param name="value">Проверяемое число.</param>
-        public void AssertOnPositiveValue(double value)
+        public void AssertOnPositiveValue(double value, string propertyName)
         {
             if (value < 0)
             {
-                throw new ArgumentException();
+                throw new ArgumentException("Поле " + propertyName + " должно быть неотрицательным");
             }
         }
 
@@ -38,11 +38,12 @@ namespace Programming.Model
         /// <param name="value">Введенное значение.</param>
         /// <param name="min">Нижняя граница диапазона.</param>
         /// <param name="max">Верхняя граница диапазона.</param>
-        public void AssertValueInRange(int value, int min, int max)
+        public void AssertValueInRange(int value, int min, int max, string propertyName)
         {
             if (value < min || value > max)
             {
-                throw new ArgumentException();
+                throw new ArgumentException("Поле " + propertyName + " должно быть в диапазоне " +
+                    "от "+ min.ToString() + " до " + max.ToString());
             }
         }
 
@@ -52,11 +53,12 @@ namespace Programming.Model
         /// <param name="value">Введенное значение.</param>
         /// <param name="min">Нижняя граница диапазона.</param>
         /// <param name="max">Верхняя граница диапазона.</param>
-        public void AssertValueInRange(double value, int min, int max)
+        public void AssertValueInRange(double value, int min, int max, string propertyName)
         {
             if (value < min || value > max)
             {
-                throw new ArgumentException();
+                throw new ArgumentException("Поле " + propertyName + " должно быть в диапазоне " +
+                    "от " + min.ToString() + " до " + max.ToString());
             }
         }
     }

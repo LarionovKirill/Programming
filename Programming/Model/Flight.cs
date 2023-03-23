@@ -33,22 +33,9 @@ namespace Programming.Model
         {
             set
             {
-                try
-                {
-                    Validator checker = new Validator();
-                    checker.AssertValueInRange(value, 0, 800);
-                    _flightTime = value;
-                }
-                catch (Exception ex)
-                {
-                    int index = ex.StackTrace.IndexOf("set") + 4;
-                    string error = string.Empty;
-                    for (int i = index; i < index + 10; i++)
-                    {
-                        error += ex.StackTrace[i];
-                    }
-                    throw new ArgumentException("Исключение вызвано свойством поля " + error);
-                }
+                Validator checker = new Validator();
+                checker.AssertValueInRange(value, 0, 800, nameof(FlightTime));
+                _flightTime = value;
             }
             get
             {
@@ -82,9 +69,9 @@ namespace Programming.Model
         /// <param name="flightTime">Устанавливет значение для поля _flightTime.</param>
         public Flight(string departurePoint , string destination, int flightTime)
         {
-            this.DeparturePoint = departurePoint;
-            this.Destination = destination;
-            this.FlightTime = flightTime;
+            DeparturePoint = departurePoint;
+            Destination = destination;
+            FlightTime = flightTime;
         }
     }
 }

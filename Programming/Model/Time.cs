@@ -33,22 +33,9 @@ namespace Programming.Model
         {
             set
             {
-                try
-                {
-                    Validator checker = new Validator();
-                    checker.AssertValueInRange(value, 0, 23);
-                    _hour = value;
-                }
-                catch (Exception ex)
-                {
-                    int index = ex.StackTrace.IndexOf("set") + 4;
-                    string error = string.Empty;
-                    for (int i = index; i < index + 4; i++)
-                    {
-                        error += ex.StackTrace[i];
-                    }
-                    throw new ArgumentException("Исключение вызвано свойством поля " + error);
-                }
+                Validator checker = new Validator();
+                checker.AssertValueInRange(value, 0, 23, nameof(Hour));
+                _hour = value;
             }
             get
             {
@@ -63,22 +50,9 @@ namespace Programming.Model
         {
             set
             {
-                try
-                {
-                    Validator checker = new Validator();
-                    checker.AssertValueInRange(value, 0, 59);
-                    _minute = value;
-                }
-                catch (Exception ex)
-                {
-                    int index = ex.StackTrace.IndexOf("set") + 4;
-                    string error = string.Empty;
-                    for (int i = index; i < index + 6; i++)
-                    {
-                        error += ex.StackTrace[i];
-                    }
-                    throw new ArgumentException("Исключение вызвано свойством поля " + error);
-                }
+                Validator checker = new Validator();
+                checker.AssertValueInRange(value, 0, 59, nameof(Minute));
+                _minute = value;
             }
             get
             {
@@ -93,22 +67,9 @@ namespace Programming.Model
         {
             set
             {
-                try
-                {
-                    Validator checker = new Validator();
-                    checker.AssertValueInRange(value, 0, 59);
-                    _second = value;
-                }
-                catch (Exception ex)
-                {
-                    int index = ex.StackTrace.IndexOf("set") + 4;
-                    string error = string.Empty;
-                    for (int i = index; i < index + 6; i++)
-                    {
-                        error += ex.StackTrace[i];
-                    }
-                    throw new ArgumentException("Исключение вызвано свойством поля " + error);
-                }
+                Validator checker = new Validator();
+                checker.AssertValueInRange(value, 0, 59, nameof(Second));
+                _second = value;
             }
             get
             {

@@ -33,22 +33,9 @@ namespace Programming.Model
         {
             set
             {
-                try
-                {
-                    Validator checker = new Validator();
-                    checker.AssertOnPositiveValue(value);
-                    _length = value;
-                }
-                catch (Exception ex)
-                {
-                    int index = ex.StackTrace.IndexOf("set") + 4;
-                    string error = string.Empty;
-                    for (int i = index; i < index + 6; i++)
-                    {
-                        error += ex.StackTrace[i];
-                    }
-                    throw new ArgumentException("Исключение вызвано свойством поля " + error);
-                }
+                Validator checker = new Validator();
+                checker.AssertOnPositiveValue(value, nameof(Length));
+                _length = value;
             }
             get
             {
@@ -63,22 +50,9 @@ namespace Programming.Model
         {
             set
             {
-                try
-                {
-                    Validator checker = new Validator();
-                    checker.AssertOnPositiveValue(value);
-                    _width = value;
-                }
-                catch (Exception ex)
-                {
-                    int index = ex.StackTrace.IndexOf("set") + 4;
-                    string error = string.Empty;
-                    for (int i = index; i < index + 5; i++)
-                    {
-                        error += ex.StackTrace[i];
-                    }
-                    throw new ArgumentException("Исключение вызвано свойством поля " + error);
-                }
+                Validator checker = new Validator();
+                checker.AssertOnPositiveValue(value, nameof(Width));
+                _width = value;
             }
             get
             {

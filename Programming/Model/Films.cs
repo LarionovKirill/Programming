@@ -48,22 +48,9 @@ namespace Programming.Model
         {
             set 
             {
-                try
-                {
-                    Validator checker = new Validator();
-                    checker.AssertValueInRange(value, 0, 300);
-                    _duration = value;
-                }
-                catch (Exception ex)
-                {
-                    int index = ex.StackTrace.IndexOf("set") + 4;
-                    string error = string.Empty;
-                    for (int i = index; i < index + 8; i++)
-                    {
-                        error += ex.StackTrace[i];
-                    }
-                    throw new ArgumentException("Исключение вызвано свойством поля " + error);
-                }
+                Validator checker = new Validator();
+                checker.AssertValueInRange(value, 0, 300, nameof(Duration));
+                _duration = value;
             }
             get
             {
@@ -78,22 +65,9 @@ namespace Programming.Model
         {
             set
             {
-                try
-                {
-                    Validator checker = new Validator();
-                    checker.AssertValueInRange(value, 1900, 2023);
-                    _yearOfRelease = value;
-                }
-                catch (Exception ex)
-                {
-                    int index = ex.StackTrace.IndexOf("set") + 4;
-                    string error = string.Empty;
-                    for (int i = index; i < index + 13; i++)
-                    {
-                        error += ex.StackTrace[i];
-                    }
-                    throw new ArgumentException("Исключение вызвано свойством поля " + error);
-                }
+                Validator checker = new Validator();
+                checker.AssertValueInRange(value, 1900, 2023, nameof(YearOfRelease));
+                _yearOfRelease = value;
             }
             get
             {
@@ -113,22 +87,9 @@ namespace Programming.Model
         {
             set
             {
-                try
-                {
-                    Validator checker = new Validator();
-                    checker.AssertValueInRange(value, 0, 10);
-                    _rating = value;
-                }
-                catch (Exception ex)
-                {
-                    int index = ex.StackTrace.IndexOf("set") + 4;
-                    string error = string.Empty;
-                    for (int i = index; i < index + 6; i++)
-                    {
-                        error += ex.StackTrace[i];
-                    }
-                    throw new ArgumentException("Исключение вызвано свойством поля " + error);
-                }
+                Validator checker = new Validator();
+                checker.AssertValueInRange(value, 0, 10, nameof(Rating));
+                _rating = value;
             }
             get 
             {
@@ -154,11 +115,11 @@ namespace Programming.Model
         /// <param name="rating">Устанавливет значение для поля _rating.</param>
         public Films(string title, int duration, int yearOfRelease, string genre, double rating)
         {
-            this.Duration = duration;
-            this.Title = title;
-            this.YearOfRelease = yearOfRelease;
-            this.Genre = genre;
-            this.Rating = rating;
+            Duration = duration;
+            Title = title;
+            YearOfRelease = yearOfRelease;
+            Genre = genre;
+            Rating = rating;
         }
 
     }
