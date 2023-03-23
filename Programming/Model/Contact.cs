@@ -67,6 +67,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _surname.
         /// </summary>
+
         public string Surname 
         {
             set
@@ -100,9 +101,11 @@ namespace Programming.Model
         /// </param>
         public Contact(int number, string name, string surname)
         {
-            Name = name;
-            Number = number;
-            Surname = surname;
+
+            this.Name = name;
+            this.Number = number;
+            this.Surname = surname;
+
         }
 
         /// <summary>
@@ -119,6 +122,7 @@ namespace Programming.Model
                         "английских буков") ;
                 }
             }
+
         }
     }
 }
