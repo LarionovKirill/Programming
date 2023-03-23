@@ -61,5 +61,13 @@ namespace Programming.Model
                     "от " + min.ToString() + " до " + max.ToString());
             }
         }
+
+        public void AssertCorretRadii(double radius1, double radius2)
+        {
+            if (radius1 > radius2)
+            {
+                throw new ArgumentException("Неправильная инициализация радиусов кольца");
+            }
+        }
     }
 }
