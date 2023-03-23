@@ -31,6 +31,15 @@ namespace Programming.Model
         /// </summary>
         private Point2D point;
 
+        /// <summary>
+        /// Хранит количество прямоугольников.
+        /// </summary>
+        private static int _allRectanglesCount=0;
+
+        /// <summary>
+        /// Хранит id прямоуголников.
+        /// </summary>
+        private int id; 
 
         /// <summary>
         /// Свойсвто для поля _length.
@@ -77,6 +86,22 @@ namespace Programming.Model
         public Point2D Center { get; set; }
 
         /// <summary>
+        /// Свойство для поля _allRectanglesCount
+        /// </summary>
+        public static int AllRectanglesCount
+        {
+            get
+            {
+                return _allRectanglesCount;
+            }
+        }
+
+        /// <summary>
+        /// Свойство поля Id.
+        /// </summary>
+        public int Id { get; private set; }
+
+        /// <summary>
         /// Конструктор по умолчанию.
         /// </summary>
         public Rectangle()
@@ -96,6 +121,8 @@ namespace Programming.Model
             this.Length = length;
             this.Width = width;
             this.Center = point;
+            _allRectanglesCount += 1;
+            this.Id = _allRectanglesCount;
         }
     }
 }
