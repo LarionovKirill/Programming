@@ -62,6 +62,11 @@ namespace Programming.Model
             }
         }
 
+        /// <summary>
+        /// Проверяет, правильно ли задали радиусы кольца.
+        /// </summary>
+        /// <param name="radius1">Меньший радиус кольца.</param>
+        /// <param name="radius2">Больший радиус кольца.</param>
         public void AssertCorretRadii(double radius1, double radius2)
         {
             if (radius1 > radius2)
