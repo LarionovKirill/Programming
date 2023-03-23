@@ -202,9 +202,10 @@ namespace Programming.View
         private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = rectangleListBox.SelectedIndex;
-            lengthTextBox.Text = _rectangles[index].Length.ToString();
-            widthTextBox.Text = _rectangles[index].Width.ToString();
-            colorTextBox.Text = _rectangles[index].Color.ToString();
+            Model.Rectangle current = _rectangles[index];
+            lengthTextBox.Text = current.Length.ToString();
+            widthTextBox.Text = current.Width.ToString();
+            colorTextBox.Text = current.Color.ToString();
         }
 
         /// <summary>
@@ -313,11 +314,12 @@ namespace Programming.View
         private void FilmsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = filmsListBox.SelectedIndex;
-            titleTextBox.Text = _films[index].Title.ToString();
-            genreTextBox.Text = _films[index].Genre.ToString();
-            durationTextBox.Text = _films[index].Duration.ToString();
-            yearOfReleaseTextBox.Text = _films[index].YearOfRelease.ToString();
-            ratingTextBox.Text = _films[index].Rating.ToString();
+            Films current = _films[index];
+            titleTextBox.Text = current.Title.ToString();
+            genreTextBox.Text = current.Genre.ToString();
+            durationTextBox.Text = current.Duration.ToString();
+            yearOfReleaseTextBox.Text = current.YearOfRelease.ToString();
+            ratingTextBox.Text = current.Rating.ToString();
         }
 
         /// <summary>
