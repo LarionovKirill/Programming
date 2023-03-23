@@ -27,6 +27,12 @@ namespace Programming.Model
         private string _color;
 
         /// <summary>
+        /// Хранит центр прямоугольника.
+        /// </summary>
+        private Point2D point;
+
+
+        /// <summary>
         /// Свойсвто для поля _length.
         /// </summary>
         public double Length
@@ -66,6 +72,11 @@ namespace Programming.Model
         public string Color { get; set; }
 
         /// <summary>
+        /// Свойство для поля Center;
+        /// </summary>
+        public Point2D Center { get; set; }
+
+        /// <summary>
         /// Конструктор по умолчанию.
         /// </summary>
         public Rectangle()
@@ -79,11 +90,12 @@ namespace Programming.Model
         /// <param name="length">Устанавливает значение для поля _length</param>
         /// <param name="width">Устанавливает значение для поля _width</param>
         /// <param name="color">Устанавливает значение для поля _color</param>
-        public Rectangle(double length, double width,string color)
+        public Rectangle(double length, double width, string color, Point2D point)
         {
             this.Color = color;
             this.Length = length;
             this.Width = width;
+            this.Center = point;
         }
     }
 }

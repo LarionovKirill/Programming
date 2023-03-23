@@ -55,12 +55,14 @@ namespace Programming.View
             {
                 ///Заполнеение прямоугольников
                 Model.Enums.Color color;
+                Point2D point = new Point2D(random.Next(0, 100), random.Next(0, 100));
                 _rectangles[i] = new Model.Rectangle();
                 rectangleListBox.Items.Add($"Rectangle {i + 1}");
                 _rectangles[i].Length = random.Next(1, 51);
                 _rectangles[i].Width = random.Next(1, 51);
                 color = (Model.Enums.Color)random.Next(countOfColors);
                 _rectangles[i].Color = color.ToString();
+                _rectangles[i].Center = point;
 
                 //Заполнение фильмов
                 Genre genre;
@@ -206,6 +208,9 @@ namespace Programming.View
             lengthTextBox.Text = current.Length.ToString();
             widthTextBox.Text = current.Width.ToString();
             colorTextBox.Text = current.Color.ToString();
+            xRectangleTextBox.Text = current.Center.X.ToString();
+            yRectangleTextBox.Text = current.Center.Y.ToString();
+
         }
 
         /// <summary>

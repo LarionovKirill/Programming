@@ -72,6 +72,10 @@ namespace Programming.View
             this.widthTextBox = new System.Windows.Forms.TextBox();
             this.lengthTextBox = new System.Windows.Forms.TextBox();
             this.rectangleListBox = new System.Windows.Forms.ListBox();
+            this.xRectangleLabel = new System.Windows.Forms.Label();
+            this.xRectangleTextBox = new System.Windows.Forms.TextBox();
+            this.yRectangleLabel = new System.Windows.Forms.Label();
+            this.yRectangleTextBox = new System.Windows.Forms.TextBox();
             this.weekdayBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.Enums.SuspendLayout();
@@ -419,6 +423,10 @@ namespace Programming.View
             // 
             // rectangleGroupBox
             // 
+            this.rectangleGroupBox.Controls.Add(this.yRectangleLabel);
+            this.rectangleGroupBox.Controls.Add(this.yRectangleTextBox);
+            this.rectangleGroupBox.Controls.Add(this.xRectangleLabel);
+            this.rectangleGroupBox.Controls.Add(this.xRectangleTextBox);
             this.rectangleGroupBox.Controls.Add(this.findRectanglesButton);
             this.rectangleGroupBox.Controls.Add(this.colorLabel);
             this.rectangleGroupBox.Controls.Add(this.widthLabel);
@@ -505,6 +513,40 @@ namespace Programming.View
             this.rectangleListBox.TabIndex = 0;
             this.rectangleListBox.SelectedIndexChanged += new System.EventHandler(this.RectangleListBox_SelectedIndexChanged);
             // 
+            // xRectangleLabel
+            // 
+            this.xRectangleLabel.AutoSize = true;
+            this.xRectangleLabel.Location = new System.Drawing.Point(231, 235);
+            this.xRectangleLabel.Name = "xRectangleLabel";
+            this.xRectangleLabel.Size = new System.Drawing.Size(21, 17);
+            this.xRectangleLabel.TabIndex = 9;
+            this.xRectangleLabel.Text = "X:";
+            // 
+            // xRectangleTextBox
+            // 
+            this.xRectangleTextBox.Location = new System.Drawing.Point(232, 255);
+            this.xRectangleTextBox.Name = "xRectangleTextBox";
+            this.xRectangleTextBox.ReadOnly = true;
+            this.xRectangleTextBox.Size = new System.Drawing.Size(112, 22);
+            this.xRectangleTextBox.TabIndex = 8;
+            // 
+            // yRectangleLabel
+            // 
+            this.yRectangleLabel.AutoSize = true;
+            this.yRectangleLabel.Location = new System.Drawing.Point(231, 309);
+            this.yRectangleLabel.Name = "yRectangleLabel";
+            this.yRectangleLabel.Size = new System.Drawing.Size(21, 17);
+            this.yRectangleLabel.TabIndex = 11;
+            this.yRectangleLabel.Text = "Y:";
+            // 
+            // yRectangleTextBox
+            // 
+            this.yRectangleTextBox.Location = new System.Drawing.Point(232, 329);
+            this.yRectangleTextBox.Name = "yRectangleTextBox";
+            this.yRectangleTextBox.ReadOnly = true;
+            this.yRectangleTextBox.Size = new System.Drawing.Size(112, 22);
+            this.yRectangleTextBox.TabIndex = 10;
+            // 
             // weekdayBindingSource
             // 
             this.weekdayBindingSource.DataSource = typeof(Programming.Model.Enums.WeekDay);
@@ -580,5 +622,9 @@ namespace Programming.View
         private System.Windows.Forms.Button findFilmsButton;
         private System.Windows.Forms.Label ratingLabel;
         private System.Windows.Forms.TextBox ratingTextBox;
+        private System.Windows.Forms.Label yRectangleLabel;
+        private System.Windows.Forms.TextBox yRectangleTextBox;
+        private System.Windows.Forms.Label xRectangleLabel;
+        private System.Windows.Forms.TextBox xRectangleTextBox;
     }
 }
