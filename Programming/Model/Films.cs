@@ -64,7 +64,8 @@ namespace Programming.Model
         {
             set
             {
-                Validator.AssertValueInRange(value, 1900, 2023, nameof(YearOfRelease));
+                DateTime dateTime = DateTime.Now;
+                Validator.AssertValueInRange(value, 1900, dateTime.Year, nameof(YearOfRelease));
                 _yearOfRelease = value;
             }
             get
