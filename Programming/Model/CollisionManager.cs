@@ -51,6 +51,18 @@ namespace Programming.Model
             {
                 return true;
             }
+            //Проверка на то, что кольцо внутри другого.
+            else if (hypotenuse + ring2.OuterRadius < ring1.OuterRadius &&
+                hypotenuse - ring2.InnerRadius < ring1.InnerRadius)
+            {
+                return true;
+            }
+            //Проверка на то, что кольцо внутри другого.
+            else if (hypotenuse + ring1.OuterRadius < ring2.OuterRadius &&
+                hypotenuse - ring1.InnerRadius < ring2.InnerRadius)
+            {
+                return true;
+            }
             else
             {
                 return false;
