@@ -70,8 +70,8 @@ namespace Programming.Model
             {
                 double s1;
                 double s2;
-                s2 = Math.PI * Math.Pow(Radius2, 2);
-                s1 = Math.PI * Math.Pow(Radius1, 2);
+                s2 = Math.PI * Math.Pow(OuterRadius, 2);
+                s1 = Math.PI * Math.Pow(InnerRadius, 2);
                 return s2-s1; 
             }
         }
