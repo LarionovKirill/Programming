@@ -63,7 +63,5 @@ namespace Programming.Model
             X = x;
             Y = y;
         }
-
-
     }
 }
