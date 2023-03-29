@@ -38,8 +38,7 @@ namespace Programming.Model
         {
             private set 
             {
-                Validator validator = new Validator();
-                validator.AssertOnPositiveValue(value, nameof(Radius1));
+                Validator.AssertOnPositiveValue(value, nameof(Radius1));
                 _radius1 = value;
             }
             get
@@ -55,9 +54,8 @@ namespace Programming.Model
         {
             set 
             {
-                Validator validator = new Validator();
-                validator.AssertOnPositiveValue(value, nameof(Radius2));
-                validator.AssertCorretRadii(Radius1, value);
+                Validator.AssertOnPositiveValue(value, nameof(Radius2));
+                Validator.AssertCorretRadii(Radius1, value);
                 _radius2 = value;
             }
             get

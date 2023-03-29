@@ -43,8 +43,7 @@ namespace Programming.Model
         {
             set
             {
-                Validator checker = new Validator();
-                checker.AssertValueInRange(value, 0, 10, nameof(Rating));
+                Validator.AssertValueInRange(value, 0, 10, nameof(Rating));
                 _rating = value;
             }
             get

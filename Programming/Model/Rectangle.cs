@@ -48,8 +48,7 @@ namespace Programming.Model
         {
             set
             {
-                Validator checker = new Validator();
-                checker.AssertOnPositiveValue(value, nameof(Length));
+                Validator.AssertOnPositiveValue(value, nameof(Length));
                 _length = value;
             }
             get
@@ -65,8 +64,7 @@ namespace Programming.Model
         {
             set
             {
-                Validator checker = new Validator();
-                checker.AssertOnPositiveValue(value, nameof(Width));
+                Validator.AssertOnPositiveValue(value, nameof(Width));
                 _width = value;
             }
             get

@@ -28,8 +28,7 @@ namespace Programming.Model
         {
             private set
             {
-                Validator validator = new Validator();
-                validator.AssertOnPositiveValue(value, nameof(X));
+                Validator.AssertOnPositiveValue(value, nameof(X));
                 _x = value;
             }
             get
@@ -45,8 +44,7 @@ namespace Programming.Model
         {
             private set
             {
-                Validator validator = new Validator();
-                validator.AssertOnPositiveValue(value, nameof(Y));
+                Validator.AssertOnPositiveValue(value, nameof(Y));
                 _y = value;
             }
             get

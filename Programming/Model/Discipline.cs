@@ -33,8 +33,7 @@ namespace Programming.Model
         {
             set
             {
-                Validator checker = new Validator();
-                checker.AssertValueInRange(value, 2, 5, nameof(Mark));
+                Validator.AssertValueInRange(value, 2, 5, nameof(Mark));
                 _mark = value;
             }
             get

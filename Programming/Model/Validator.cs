@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Programming.Model
 {
-    class Validator
+    static class Validator
     {
         /// <summary>
         /// Проверяет, что целое число больше нуля.
         /// </summary>
         /// <param name="value">Проверяемое число.</param>
-        public void AssertOnPositiveValue(int value, string propertyName)
+        static public void AssertOnPositiveValue(int value, string propertyName)
         {
             if (value < 0)
             {
@@ -24,7 +24,7 @@ namespace Programming.Model
         /// Проверяет, что дробное число больше нуля.
         /// </summary>
         /// <param name="value">Проверяемое число.</param>
-        public void AssertOnPositiveValue(double value, string propertyName)
+        static public void AssertOnPositiveValue(double value, string propertyName)
         {
             if (value < 0)
             {
@@ -38,7 +38,7 @@ namespace Programming.Model
         /// <param name="value">Введенное значение.</param>
         /// <param name="min">Нижняя граница диапазона.</param>
         /// <param name="max">Верхняя граница диапазона.</param>
-        public void AssertValueInRange(int value, int min, int max, string propertyName)
+        static public void AssertValueInRange(int value, int min, int max, string propertyName)
         {
             if (value < min || value > max)
             {
@@ -53,7 +53,7 @@ namespace Programming.Model
         /// <param name="value">Введенное значение.</param>
         /// <param name="min">Нижняя граница диапазона.</param>
         /// <param name="max">Верхняя граница диапазона.</param>
-        public void AssertValueInRange(double value, int min, int max, string propertyName)
+        static public void AssertValueInRange(double value, int min, int max, string propertyName)
         {
             if (value < min || value > max)
             {
@@ -67,7 +67,7 @@ namespace Programming.Model
         /// </summary>
         /// <param name="radius1">Меньший радиус кольца.</param>
         /// <param name="radius2">Больший радиус кольца.</param>
-        public void AssertCorretRadii(double radius1, double radius2)
+        static public void AssertCorretRadii(double radius1, double radius2)
         {
             if (radius1 > radius2)
             {

@@ -33,8 +33,7 @@ namespace Programming.Model
         {
             set
             {
-                Validator checker = new Validator();
-                checker.AssertValueInRange(value, 0, 23, nameof(Hour));
+                Validator.AssertValueInRange(value, 0, 23, nameof(Hour));
                 _hour = value;
             }
             get
@@ -50,8 +49,7 @@ namespace Programming.Model
         {
             set
             {
-                Validator checker = new Validator();
-                checker.AssertValueInRange(value, 0, 59, nameof(Minute));
+                Validator.AssertValueInRange(value, 0, 59, nameof(Minute));
                 _minute = value;
             }
             get
@@ -67,8 +65,7 @@ namespace Programming.Model
         {
             set
             {
-                Validator checker = new Validator();
-                checker.AssertValueInRange(value, 0, 59, nameof(Second));
+                Validator.AssertValueInRange(value, 0, 59, nameof(Second));
                 _second = value;
             }
             get

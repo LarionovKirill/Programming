@@ -33,8 +33,7 @@ namespace Programming.Model
         {
             set
             {
-                Validator checker = new Validator();
-                checker.AssertValueInRange(value, 0, 800, nameof(FlightTime));
+                Validator.AssertValueInRange(value, 0, 800, nameof(FlightTime));
                 _flightTime = value;
             }
             get

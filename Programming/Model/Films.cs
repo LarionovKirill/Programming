@@ -48,8 +48,7 @@ namespace Programming.Model
         {
             set 
             {
-                Validator checker = new Validator();
-                checker.AssertValueInRange(value, 0, 300, nameof(Duration));
+                Validator.AssertValueInRange(value, 0, 300, nameof(Duration));
                 _duration = value;
             }
             get
