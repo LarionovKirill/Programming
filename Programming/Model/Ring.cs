@@ -19,12 +19,12 @@ namespace Programming.Model
         /// <summary>
         /// Хранит длину меньшего радиуса кольца.
         /// </summary>
-        private double _radius1;
+        private double _innerRadius;
 
         /// <summary>
         /// Хранит длину большего радиуса кольца.
         /// </summary>
-        private double _radius2;
+        private double _outerRadius;
 
         /// <summary>
         /// Свойство поля _center.
@@ -34,33 +34,33 @@ namespace Programming.Model
         /// <summary>
         /// Свойство меньшего радиуса.
         /// </summary>
-        public double Radius1
+        public double InnerRadius
         {
             private set 
             {
-                Validator.AssertOnPositiveValue(value, nameof(Radius1));
-                _radius1 = value;
+                Validator.AssertOnPositiveValue(value, nameof(InnerRadius));
+                _innerRadius = value;
             }
             get
             {
-                return _radius1;
+                return _innerRadius;
             }
         }
 
         /// <summary>
         /// Свойство для большего радиуса.
         /// </summary>
-        public double Radius2
+        public double OuterRadius
         {
             set 
             {
-                Validator.AssertOnPositiveValue(value, nameof(Radius2));
-                Validator.AssertCorretRadii(Radius1, value);
-                _radius2 = value;
+                Validator.AssertOnPositiveValue(value, nameof(OuterRadius));
+                Validator.AssertCorretRadii(InnerRadius, value);
+                _outerRadius = value;
             }
             get
             {
-                return _radius2;
+                return _outerRadius;
             }
         }
 
@@ -85,8 +85,8 @@ namespace Programming.Model
         public Ring(Point2D point, double radius1, double radius2)
         {
             this.Center = point;
-            this.Radius1 = radius1;
-            this.Radius2 = radius2;
+            this.InnerRadius = radius1;
+            this.OuterRadius = radius2;
         }
     }
 }

@@ -16,7 +16,8 @@ namespace Programming.Model
         /// </summary>
         /// <param name="rectangle1">Первый прямоугольник.</param>
         /// <param name="rectangle2">Второй прямоугольник.</param>
-        /// <returns></returns>
+        /// <returns>Если прямоугольники пересекаются, то метод возвращает true,
+        /// иначе false.</returns>
         public static bool IsCollision(Rectangle rectangle1, Rectangle rectangle2)
         {
             double dx = Math.Abs(rectangle1.Center.X - rectangle2.Center.X);
@@ -38,14 +39,15 @@ namespace Programming.Model
         /// </summary>
         /// <param name="ring1">Первый круг.</param>
         /// <param name="ring2">Второй круг.</param>
-        /// <returns></returns>
+        /// <returns>Если кольца пересекаются, то метод возвращает true,
+        /// иначе false.</returns>
         public static bool IsCollision(Ring ring1, Ring ring2)
         {
             double hypotenuse;
             double dx = ring1.Center.X - ring2.Center.X;
             double dy = ring1.Center.Y - ring2.Center.Y;
             hypotenuse = Math.Sqrt(dx*dx + dy*dy);
-            if (hypotenuse < ring1.Radius2 + ring2.Radius2)
+            if (hypotenuse < ring1.OuterRadius + ring2.OuterRadius)
             {
                 return true;
             }
