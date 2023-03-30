@@ -30,6 +30,12 @@ namespace Programming.View
         /// </summary>
         Films[] _films = new Films[countItems];
 
+
+        /// <summary>
+        /// Список прямоугольников класса Rectangle.
+        /// </summary>
+        List<Model.Rectangle> _rectanglesList = new List<Model.Rectangle>();
+
         /// <summary>
         /// Главный метод, который запускается с программой.
         /// </summary>
@@ -75,7 +81,6 @@ namespace Programming.View
             }
             filmsListBox.SelectedIndex = 0;
             rectangleListBox.SelectedIndex = 0;
-
         }
 
         /// <summary>
@@ -465,6 +470,78 @@ namespace Programming.View
             catch
             {
                 durationTextBox.BackColor = System.Drawing.Color.LightPink;
+            }
+        }
+
+        /// <summary>
+        /// Добавляет прямоугольник в ListBox.
+        /// </summary>
+        /// <param name="sender">
+        /// Предоставляет ссылку на объект, вызвавший событие. 
+        /// </param>
+        /// <param name="e">
+        /// Передает объект, относящийся к обрабатываемому событию.
+        /// </param>
+        private void buttonAddRectangle_Click(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            double length = random.Next(1, 101);
+            double width = random.Next(1, 101);
+            Point2D point = new Point2D(random.Next(0, 100), random.Next(0, 100));
+            Model.Rectangle _currentRectangle = new Model.Rectangle(length,
+                width, "Green", point);
+            _rectanglesList.Add(_currentRectangle);
+            rectanglesListBox.Items.Add($"{_currentRectangle.Id}:(X={point.X}" +
+                $"; Y={point.Y}; W={width}; H={length})");
+        }
+
+        /// <summary>
+        /// Удаляет прямоугольник в ListBox.
+        /// </summary>
+        /// <param name="sender">
+        /// Предоставляет ссылку на объект, вызвавший событие. 
+        /// </param>
+        /// <param name="e">
+        /// Передает объект, относящийся к обрабатываемому событию.
+        /// </param>
+        private void buttonRemoveRectangle_Click(object sender, EventArgs e)
+        {
+            var index = rectanglesListBox.SelectedIndex;
+            if (index >= 0)
+            {
+                _rectanglesList.RemoveAt(index);
+                rectanglesListBox.Items.RemoveAt(index);
+            }
+        }
+
+        /// <summary>
+        /// Заполняет TextBox выбранного прямоугольника.
+        /// </summary>
+        /// <param name="sender">
+        /// Предоставляет ссылку на объект, вызвавший событие. 
+        /// </param>
+        /// <param name="e">
+        /// Передает объект, относящийся к обрабатываемому событию.
+        /// </param>
+        private void rectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var index = rectanglesListBox.SelectedIndex;
+            if (index < 0)
+            {
+                widthRectangleTextBox.Text = String.Empty;
+                lengthRectangleTextBox.Text = String.Empty;
+                idTextBox.Text = String.Empty;
+                xTextBox.Text = String.Empty;
+                yTextBox.Text = String.Empty;
+            }
+            else
+            {
+                Model.Rectangle _currentRectangle = _rectanglesList[index];
+                widthRectangleTextBox.Text = _currentRectangle.Width.ToString();
+                lengthRectangleTextBox.Text = _currentRectangle.Length.ToString();
+                idTextBox.Text = _currentRectangle.Id.ToString();
+                xTextBox.Text = _currentRectangle.Center.X.ToString();
+                yTextBox.Text = _currentRectangle.Center.Y.ToString();
             }
         }
     }
