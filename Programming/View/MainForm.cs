@@ -487,23 +487,27 @@ namespace Programming.View
         /// </param>
         private void buttonAddRectangle_Click(object sender, EventArgs e)
         {
+            //Работа с полями прямоугольника.
             Random random = new Random();
             double length = random.Next(1, 101);
             double width = random.Next(1, 101);
-            Point2D point = new Point2D(random.Next(0, 100), random.Next(0, 100));
+            Point2D point = new Point2D(random.Next(0, panelForRectangles.Width),
+                random.Next(0, panelForRectangles.Height));
             Model.Rectangle _currentRectangle = new Model.Rectangle(length,
                 width, "Green", point);
             _rectangles.Add(_currentRectangle);
             string text = CreateStringWithRectangleParameters(_currentRectangle.Id, point.X, 
                 point.Y, width, length);
             rectanglesListBox.Items.Insert(_rectangles.Count - 6,text);
+            //Работа с панелью.
             Panel _currentPanel = new Panel();
-            _currentPanel.Location = new Point(point.X, point.Y);
+            _currentPanel.Location = new Point(point.X+int.Parse(width/2), point.Y+length/2);
             _currentPanel.Width = int.Parse(width.ToString());
             _currentPanel.Height = int.Parse(length.ToString());
             _currentPanel.BackColor = System.Drawing.Color.FromArgb(127, 127, 255, 127);
             _panels.Add(_currentPanel);
             panelForRectangles.Controls.Add(_currentPanel);
+            FindCollisions();
         }
 
         /// <summary>
@@ -718,6 +722,36 @@ namespace Programming.View
     double height)
         {
            return $"{id}:(X ={x}; Y={y}; W={width}; H={height})";
+        }
+
+        /// <summary>
+        /// Находит коллизии прямоугольников на панели и перекрашивает пересекающиеся
+        /// прямоугольники в красный
+        /// </summary>
+        private void FindCollisions()
+        {
+            for (int i = 0; i < _panels.Count; i++)
+            {
+                _panels[i].BackColor = System.Drawing.Color.FromArgb(127, 127, 255, 127);
+            }
+            for (int i = 5; i < _rectangles.Count; i++)
+            {
+                for (int j = 5; j < _rectangles.Count; j++)
+                {
+                    if (_rectangles[i] == _rectangles[j])
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        if (CollisionManager.IsCollision(_rectangles[i], _rectangles[j]))
+                        {
+                            _panels[i - 5].BackColor = System.Drawing.Color.FromArgb(127, 255, 127, 127);
+                            _panels[j - 5].BackColor = System.Drawing.Color.FromArgb(127, 255, 127, 127);
+                        }
+                    }
+                }
+            }
         }
     }
 }

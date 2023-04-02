@@ -24,7 +24,7 @@ namespace Programming.Model
             double dy = Math.Abs(rectangle1.Center.Y - rectangle2.Center.Y);
             double dWidth = Math.Abs(rectangle1.Width - rectangle2.Width);
             double dLength = Math.Abs(rectangle1.Length - rectangle2.Length);
-            if (dx < (dLength / 2) && dy < (dWidth / 2))
+            if (dx < (dWidth / 2) || dy < (dLength / 2))
             {
                 return true;
             }

@@ -14,17 +14,17 @@ namespace Programming.Model
         /// <summary>
         /// Хранит координату X.
         /// </summary>
-        private int _x;
+        private double _x;
 
         /// <summary>
         /// Хранит координату Y.
         /// </summary>
-        private int _y;
+        private double _y;
 
         /// <summary>
         /// Свойство поля _X.
         /// </summary>
-        public int X
+        public double X
         {
              set
             {
@@ -40,7 +40,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойство поля _y.
         /// </summary>
-        public int Y
+        public double Y
         {
              set
             {
@@ -58,7 +58,7 @@ namespace Programming.Model
         /// </summary>
         /// <param name="x">Значение координаты X.</param>
         /// <param name="y">Значение координаты Y.</param>
-        public Point2D(int x, int y)
+        public Point2D(double x, double y)
         {
             X = x;
             Y = y;
