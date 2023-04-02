@@ -499,6 +499,10 @@ namespace Programming.View
             rectanglesListBox.Items.Insert(_rectangles.Count - 6,text);
             Panel _currentPanel = new Panel();
             _currentPanel.Location = new Point(point.X, point.Y);
+            _currentPanel.Width = int.Parse(width.ToString());
+            _currentPanel.Height = int.Parse(length.ToString());
+            _currentPanel.BackColor = System.Drawing.Color.FromArgb(127, 127, 255, 127);
+            _panels.Add(_currentPanel);
         }
 
         /// <summary>
