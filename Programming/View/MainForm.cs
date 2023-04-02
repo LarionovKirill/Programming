@@ -29,11 +29,15 @@ namespace Programming.View
         /// </summary>
         Films[] _films = new Films[countItems];
 
-
         /// <summary>
         /// Список прямоугольников класса Rectangle.
         /// </summary>
         List<Model.Rectangle> _rectangles = new List<Model.Rectangle>();
+
+        /// <summary>
+        /// Список панелей.
+        /// </summary>
+        List<Panel> _panels = new List<Panel>();
 
         /// <summary>
         /// Главный метод, который запускается с программой.
@@ -493,6 +497,8 @@ namespace Programming.View
             string text = CreateStringWithRectangleParameters(_currentRectangle.Id, point.X, 
                 point.Y, width, length);
             rectanglesListBox.Items.Insert(_rectangles.Count - 6,text);
+            Panel _currentPanel = new Panel();
+            _currentPanel.Location = new Point(point.X, point.Y);
         }
 
         /// <summary>
@@ -560,7 +566,7 @@ namespace Programming.View
             {
                 int index = rectanglesListBox.SelectedIndex;
                 Model.Rectangle _currentRectangle = _rectangles[index + 5];
-                _rectangles[index+5].Center.X = double.Parse(xTextBox.Text);
+                _rectangles[index+5].Center.X = int.Parse(xTextBox.Text);
                 xTextBox.BackColor = System.Drawing.Color.White;
                 string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
                  _currentRectangle.Center.X, _currentRectangle.Center.Y,
@@ -597,7 +603,7 @@ namespace Programming.View
             {
                 int index = rectanglesListBox.SelectedIndex;
                 Model.Rectangle _currentRectangle = _rectangles[index + 5];
-                _rectangles[index + 5].Center.Y = double.Parse(yTextBox.Text);
+                _rectangles[index + 5].Center.Y = int.Parse(yTextBox.Text);
                 yTextBox.BackColor = System.Drawing.Color.White;
                 string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
                  _currentRectangle.Center.X, _currentRectangle.Center.Y,
