@@ -503,6 +503,7 @@ namespace Programming.View
             _currentPanel.Height = int.Parse(length.ToString());
             _currentPanel.BackColor = System.Drawing.Color.FromArgb(127, 127, 255, 127);
             _panels.Add(_currentPanel);
+            panelForRectangles.Controls.Add(_currentPanel);
         }
 
         /// <summary>
