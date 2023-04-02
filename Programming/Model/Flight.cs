@@ -29,18 +29,12 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _flightTime.
         /// </summary>
-        public int Flight_time
+        public int FlightTime
         {
             set
             {
-                if (value > 0 && value < 800)
-                {
-                    _flightTime = value;
-                }
-                else
-                {
-                    throw new ArgumentException();
-                }
+                Validator.AssertValueInRange(value, 0, 800, nameof(FlightTime));
+                _flightTime = value;
             }
             get
             {
@@ -74,9 +68,9 @@ namespace Programming.Model
         /// <param name="flightTime">Устанавливет значение для поля _flightTime.</param>
         public Flight(string departurePoint , string destination, int flightTime)
         {
-            this.DeparturePoint = departurePoint;
-            this.Destination = destination;
-            this.Flight_time = flightTime;
+            DeparturePoint = departurePoint;
+            Destination = destination;
+            FlightTime = flightTime;
         }
     }
 }

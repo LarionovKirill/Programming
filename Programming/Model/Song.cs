@@ -43,14 +43,8 @@ namespace Programming.Model
         {
             set
             {
-                if (value >= 0 && value <= 10)
-                {
-                    _rating = value;
-                }
-                else
-                {
-                    throw new ArgumentException();
-                }
+                Validator.AssertValueInRange(value, 0, 10, nameof(Rating));
+                _rating = value;
             }
             get
             {

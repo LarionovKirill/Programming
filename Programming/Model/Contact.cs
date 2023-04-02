@@ -51,12 +51,35 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля _name.
         /// </summary>
-        public string Name { get; set; }
+        public string Name 
+        { 
+            set
+            {
+                AssertStringContainsOnlyLetters(value, nameof(Name));
+                _name = value;
+            }
+            get
+            {
+                return _name;
+            }
+        }
 
         /// <summary>
         /// Свойство для поля _surname.
         /// </summary>
-        public string Surname { get; set;}
+
+        public string Surname 
+        {
+            set
+            {
+                AssertStringContainsOnlyLetters(value, nameof(Surname));
+                _surname = value;
+            }
+            get
+            {
+                return _surname;
+            }
+        }
 
         /// <summary>
         /// Конструктор по умолчанию.
@@ -69,9 +92,7 @@ namespace Programming.Model
         /// <summary>
         /// Констурктор с параметрами.
         /// </summary>
-        /// <param name="number">
-        /// Устанавливет значение для поля _number.
-        /// </param>
+        /// <param name="number">Устанавливет значение для поля _number.</param>
         /// <param name="name">
         /// Устанавливет значение для поля _name.
         /// </param>
@@ -80,9 +101,28 @@ namespace Programming.Model
         /// </param>
         public Contact(int number, string name, string surname)
         {
+
             this.Name = name;
             this.Number = number;
             this.Surname = surname;
+
+        }
+
+        /// <summary>
+        /// Проверяет, состоит ли строка только из английских букв.
+        /// </summary>
+        /// <param name="value">Передаваемая на проверку строка.</param>
+        private void AssertStringContainsOnlyLetters(string value, string propertyName)
+        {
+            for (int i = 0; i < value.Length; i++)
+            {
+                if ('A' > value[i] || 'z' < value[i])
+                {
+                    throw new ArgumentException("Поле " + propertyName + " должно состоять только из " +
+                        "английских буков") ;
+                }
+            }
+
         }
     }
 }
