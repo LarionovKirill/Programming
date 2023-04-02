@@ -23,7 +23,6 @@ namespace Programming.View
         /// <summary>
         /// Массив элементов класса Reactangle.
         /// </summary>
-        Model.Rectangle[] _rectangles = new Model.Rectangle[countItems];
 
         /// <summary>
         /// Массив элементов класса Film.
@@ -34,7 +33,7 @@ namespace Programming.View
         /// <summary>
         /// Список прямоугольников класса Rectangle.
         /// </summary>
-        List<Model.Rectangle> _rectanglesList = new List<Model.Rectangle>();
+        List<Model.Rectangle> _rectangles = new List<Model.Rectangle>();
 
         /// <summary>
         /// Главный метод, который запускается с программой.
@@ -65,7 +64,7 @@ namespace Programming.View
                 double width = random.Next(1, 51);
                 color = (Model.Enums.Color)random.Next(countOfColors);
                 Point2D point = new Point2D(random.Next(0, 100), random.Next(0, 100));
-                _rectangles[i] = new Model.Rectangle(length, width, color.ToString(), point);
+                _rectangles.Add(new Model.Rectangle(length, width, color.ToString(), point));
                 rectangleListBox.Items.Add($"Rectangle {i + 1}");
 
                 //Заполнение фильмов
@@ -490,9 +489,10 @@ namespace Programming.View
             Point2D point = new Point2D(random.Next(0, 100), random.Next(0, 100));
             Model.Rectangle _currentRectangle = new Model.Rectangle(length,
                 width, "Green", point);
-            _rectanglesList.Add(_currentRectangle);
-            rectanglesListBox.Items.Add($"{_currentRectangle.Id}:(X={point.X}" +
-                $"; Y={point.Y}; W={width}; H={length})");
+            _rectangles.Add(_currentRectangle);
+            string text = CreateStringWithRectangleParameters(_currentRectangle.Id, point.X, 
+                point.Y, width, length);
+            rectanglesListBox.Items.Insert(_rectangles.Count - 6,text);
         }
 
         /// <summary>
@@ -509,7 +509,7 @@ namespace Programming.View
             var index = rectanglesListBox.SelectedIndex;
             if (index >= 0)
             {
-                _rectanglesList.RemoveAt(index);
+                _rectangles.RemoveAt(index+5);
                 rectanglesListBox.Items.RemoveAt(index);
             }
         }
@@ -536,13 +536,176 @@ namespace Programming.View
             }
             else
             {
-                Model.Rectangle _currentRectangle = _rectanglesList[index];
+                Model.Rectangle _currentRectangle = _rectangles[index+5];
                 widthRectangleTextBox.Text = _currentRectangle.Width.ToString();
                 lengthRectangleTextBox.Text = _currentRectangle.Length.ToString();
                 idTextBox.Text = _currentRectangle.Id.ToString();
                 xTextBox.Text = _currentRectangle.Center.X.ToString();
                 yTextBox.Text = _currentRectangle.Center.Y.ToString();
             }
+        }
+
+        /// <summary>
+        /// Обработка изменений поля координаты x.
+        /// </summary>
+        /// <param name="sender">
+        /// Предоставляет ссылку на объект, вызвавший событие. 
+        /// </param>
+        /// <param name="e">
+        /// Передает объект, относящийся к обрабатываемому событию.
+        /// </param>
+        private void xTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int index = rectanglesListBox.SelectedIndex;
+                Model.Rectangle _currentRectangle = _rectangles[index + 5];
+                _rectangles[index+5].Center.X = double.Parse(xTextBox.Text);
+                xTextBox.BackColor = System.Drawing.Color.White;
+                string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
+                 _currentRectangle.Center.X, _currentRectangle.Center.Y,
+                 _currentRectangle.Width, _currentRectangle.Length);
+                rectanglesListBox.Items.Insert(index, text);
+                rectanglesListBox.SelectedIndex = index;
+                rectanglesListBox.Items.RemoveAt(index+1);
+            }
+            catch 
+            {
+                xTextBox.BackColor = System.Drawing.Color.Pink;
+            }
+            finally
+            {
+                if (xTextBox.Text == string.Empty)
+                {
+                    xTextBox.BackColor = System.Drawing.Color.White;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Обработка изменений поля координаты y.
+        /// </summary>
+        /// <param name="sender">
+        /// Предоставляет ссылку на объект, вызвавший событие. 
+        /// </param>
+        /// <param name="e">
+        /// Передает объект, относящийся к обрабатываемому событию.
+        /// </param>
+        private void yTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int index = rectanglesListBox.SelectedIndex;
+                Model.Rectangle _currentRectangle = _rectangles[index + 5];
+                _rectangles[index + 5].Center.Y = double.Parse(yTextBox.Text);
+                yTextBox.BackColor = System.Drawing.Color.White;
+                string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
+                 _currentRectangle.Center.X, _currentRectangle.Center.Y,
+                 _currentRectangle.Width, _currentRectangle.Length);
+                rectanglesListBox.Items.Insert(index, text);
+                rectanglesListBox.SelectedIndex = index;
+                rectanglesListBox.Items.RemoveAt(index + 1);
+            }
+            catch
+            {
+                yTextBox.BackColor = System.Drawing.Color.Pink;
+            }
+            finally
+            {
+                if (yTextBox.Text == string.Empty)
+                {
+                    yTextBox.BackColor = System.Drawing.Color.White;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Обработка изменений поля ширины.
+        /// </summary>
+        /// <param name="sender">
+        /// Предоставляет ссылку на объект, вызвавший событие. 
+        /// </param>
+        /// <param name="e">
+        /// Передает объект, относящийся к обрабатываемому событию.
+        /// </param>
+        private void widthRectangleTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int index = rectanglesListBox.SelectedIndex;
+                Model.Rectangle _currentRectangle = _rectangles[index + 5];
+                _rectangles[index + 5].Width = double.Parse(widthRectangleTextBox.Text);
+                widthRectangleTextBox.BackColor = System.Drawing.Color.White;
+                string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
+                 _currentRectangle.Center.X, _currentRectangle.Center.Y,
+                 _currentRectangle.Width, _currentRectangle.Length);
+                rectanglesListBox.Items.Insert(index, text);
+                rectanglesListBox.SelectedIndex = index;
+                rectanglesListBox.Items.RemoveAt(index + 1);
+            }
+            catch
+            {
+                widthRectangleTextBox.BackColor = System.Drawing.Color.Pink;
+            }
+            finally
+            {
+                if (widthRectangleTextBox.Text == string.Empty)
+                {
+                    widthRectangleTextBox.BackColor = System.Drawing.Color.White;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Обработка изменений поля ширины.
+        /// </summary>
+        /// <param name="sender">
+        /// Предоставляет ссылку на объект, вызвавший событие. 
+        /// </param>
+        /// <param name="e">
+        /// Передает объект, относящийся к обрабатываемому событию.
+        /// </param>
+        private void lengthRectangleTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int index = rectanglesListBox.SelectedIndex;
+                Model.Rectangle _currentRectangle = _rectangles[index + 5];
+                _rectangles[index + 5].Length = double.Parse(lengthRectangleTextBox.Text);
+                lengthRectangleTextBox.BackColor = System.Drawing.Color.White;
+                string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
+                 _currentRectangle.Center.X, _currentRectangle.Center.Y,
+                 _currentRectangle.Width, _currentRectangle.Length);
+                rectanglesListBox.Items.Insert(index, text);
+                rectanglesListBox.SelectedIndex = index;
+                rectanglesListBox.Items.RemoveAt(index + 1);
+            }
+            catch
+            {
+                lengthRectangleTextBox.BackColor = System.Drawing.Color.Pink;
+            }
+            finally
+            {
+                if (lengthRectangleTextBox.Text == string.Empty)
+                {
+                    lengthRectangleTextBox.BackColor = System.Drawing.Color.White;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Создает строку для вывода ее в ListBox
+        /// </summary>
+        /// <param name="id">Id прямоугольника.</param>
+        /// <param name="x">Координата x.</param>
+        /// <param name="y">Координат y.</param>
+        /// <param name="width">Ширина прямоугольника.</param>
+        /// <param name="height">Высота прямоугольника.</param>
+        /// <returns>Возвращает готовую для вставки строку.</returns>
+        private string CreateStringWithRectangleParameters(int id, double x, double y, double width,
+    double height)
+        {
+           return $"{id}:(X ={x}; Y={y}; W={width}; H={height})";
         }
     }
 }
