@@ -570,14 +570,26 @@ namespace Programming.View
             {
                 int index = rectanglesListBox.SelectedIndex;
                 Model.Rectangle _currentRectangle = _rectangles[index + 5];
-                _rectangles[index+5].Center.X = int.Parse(xTextBox.Text);
-                xTextBox.BackColor = System.Drawing.Color.White;
-                string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
-                 _currentRectangle.Center.X, _currentRectangle.Center.Y,
-                 _currentRectangle.Width, _currentRectangle.Length);
-                rectanglesListBox.Items.Insert(index, text);
-                rectanglesListBox.SelectedIndex = index;
-                rectanglesListBox.Items.RemoveAt(index+1);
+                if (int.Parse(xTextBox.Text) + _currentRectangle.Width <= panelForRectangles.Width)
+                {
+                    _rectangles[index + 5].Center.X = int.Parse(xTextBox.Text);
+                    xTextBox.BackColor = System.Drawing.Color.White;
+                    string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
+                     _currentRectangle.Center.X, _currentRectangle.Center.Y,
+                     _currentRectangle.Width, _currentRectangle.Length);
+                    rectanglesListBox.Items.Insert(index, text);
+                    rectanglesListBox.SelectedIndex = index;
+                    rectanglesListBox.Items.RemoveAt(index + 1);
+                    Point point = new Point();
+                    point.X = _currentRectangle.Center.X;
+                    point.Y = _currentRectangle.Center.Y;
+                    _panels[index].Location = point;
+                    FindCollisions();
+                }
+                else
+                {
+                    xTextBox.BackColor = System.Drawing.Color.Pink;
+                }
             }
             catch 
             {
@@ -607,14 +619,26 @@ namespace Programming.View
             {
                 int index = rectanglesListBox.SelectedIndex;
                 Model.Rectangle _currentRectangle = _rectangles[index + 5];
-                _rectangles[index + 5].Center.Y = int.Parse(yTextBox.Text);
-                yTextBox.BackColor = System.Drawing.Color.White;
-                string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
-                 _currentRectangle.Center.X, _currentRectangle.Center.Y,
-                 _currentRectangle.Width, _currentRectangle.Length);
-                rectanglesListBox.Items.Insert(index, text);
-                rectanglesListBox.SelectedIndex = index;
-                rectanglesListBox.Items.RemoveAt(index + 1);
+                if (int.Parse(yTextBox.Text) + _currentRectangle.Length <= panelForRectangles.Height)
+                {
+                    _rectangles[index + 5].Center.Y = int.Parse(yTextBox.Text);
+                    yTextBox.BackColor = System.Drawing.Color.White;
+                    string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
+                     _currentRectangle.Center.X, _currentRectangle.Center.Y,
+                     _currentRectangle.Width, _currentRectangle.Length);
+                    rectanglesListBox.Items.Insert(index, text);
+                    rectanglesListBox.SelectedIndex = index;
+                    rectanglesListBox.Items.RemoveAt(index + 1);
+                    Point point = new Point();
+                    point.X = _currentRectangle.Center.X;
+                    point.Y = _currentRectangle.Center.Y;
+                    _panels[index].Location = point;
+                    FindCollisions();
+                }
+                else
+                {
+                    yTextBox.BackColor = System.Drawing.Color.Pink;
+                }
             }
             catch
             {
@@ -644,14 +668,24 @@ namespace Programming.View
             {
                 int index = rectanglesListBox.SelectedIndex;
                 Model.Rectangle _currentRectangle = _rectangles[index + 5];
-                _rectangles[index + 5].Width = double.Parse(widthRectangleTextBox.Text);
-                widthRectangleTextBox.BackColor = System.Drawing.Color.White;
-                string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
-                 _currentRectangle.Center.X, _currentRectangle.Center.Y,
-                 _currentRectangle.Width, _currentRectangle.Length);
-                rectanglesListBox.Items.Insert(index, text);
-                rectanglesListBox.SelectedIndex = index;
-                rectanglesListBox.Items.RemoveAt(index + 1);
+                if (int.Parse(widthRectangleTextBox.Text) + _currentRectangle.Center.X 
+                    <= panelForRectangles.Width)
+                {
+                    _rectangles[index + 5].Width = double.Parse(widthRectangleTextBox.Text);
+                    widthRectangleTextBox.BackColor = System.Drawing.Color.White;
+                    string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
+                     _currentRectangle.Center.X, _currentRectangle.Center.Y,
+                     _currentRectangle.Width, _currentRectangle.Length);
+                    rectanglesListBox.Items.Insert(index, text);
+                    rectanglesListBox.SelectedIndex = index;
+                    rectanglesListBox.Items.RemoveAt(index + 1);
+                    _panels[index].Width = int.Parse(_currentRectangle.Width.ToString());
+                    FindCollisions();
+                }
+                else
+                {
+                    widthRectangleTextBox.BackColor = System.Drawing.Color.Pink;
+                }
             }
             catch
             {
@@ -681,14 +715,24 @@ namespace Programming.View
             {
                 int index = rectanglesListBox.SelectedIndex;
                 Model.Rectangle _currentRectangle = _rectangles[index + 5];
-                _rectangles[index + 5].Length = double.Parse(lengthRectangleTextBox.Text);
-                lengthRectangleTextBox.BackColor = System.Drawing.Color.White;
-                string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
-                 _currentRectangle.Center.X, _currentRectangle.Center.Y,
-                 _currentRectangle.Width, _currentRectangle.Length);
-                rectanglesListBox.Items.Insert(index, text);
-                rectanglesListBox.SelectedIndex = index;
-                rectanglesListBox.Items.RemoveAt(index + 1);
+                if (int.Parse(lengthRectangleTextBox.Text) + _currentRectangle.Center.Y
+                    <= panelForRectangles.Height)
+                {
+                    _rectangles[index + 5].Length = double.Parse(lengthRectangleTextBox.Text);
+                    lengthRectangleTextBox.BackColor = System.Drawing.Color.White;
+                    string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
+                     _currentRectangle.Center.X, _currentRectangle.Center.Y,
+                     _currentRectangle.Width, _currentRectangle.Length);
+                    rectanglesListBox.Items.Insert(index, text);
+                    rectanglesListBox.SelectedIndex = index;
+                    rectanglesListBox.Items.RemoveAt(index + 1);
+                    _panels[index].Height = int.Parse(_currentRectangle.Length.ToString());
+                    FindCollisions();
+                }
+                else
+                {
+                    lengthRectangleTextBox.BackColor = System.Drawing.Color.Pink;
+                }
             }
             catch
             {
