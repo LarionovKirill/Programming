@@ -527,6 +527,7 @@ namespace Programming.View
                 _rectangles.RemoveAt(index+5);
                 rectanglesListBox.Items.RemoveAt(index);
                 panelForRectangles.Controls.RemoveAt(index);
+                FindCollisions();
             }
         }
 
