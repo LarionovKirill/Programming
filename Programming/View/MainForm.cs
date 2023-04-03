@@ -489,10 +489,10 @@ namespace Programming.View
         {
             //Работа с полями прямоугольника.
             Random random = new Random();
-            double length = random.Next(1, 101);
-            double width = random.Next(1, 101);
-            Point2D point = new Point2D(random.Next(0, panelForRectangles.Width),
-                random.Next(0, panelForRectangles.Height));
+            int length = random.Next(1, 101);
+            int width = random.Next(1, 101);
+            Point2D point = new Point2D(random.Next(0, 200),
+                random.Next(0, 200));
             Model.Rectangle _currentRectangle = new Model.Rectangle(length,
                 width, "Green", point);
             _rectangles.Add(_currentRectangle);
@@ -501,7 +501,7 @@ namespace Programming.View
             rectanglesListBox.Items.Insert(_rectangles.Count - 6,text);
             //Работа с панелью.
             Panel _currentPanel = new Panel();
-            _currentPanel.Location = new Point(point.X+int.Parse(width/2), point.Y+length/2);
+            _currentPanel.Location = new Point(point.X,point.Y);
             _currentPanel.Width = int.Parse(width.ToString());
             _currentPanel.Height = int.Parse(length.ToString());
             _currentPanel.BackColor = System.Drawing.Color.FromArgb(127, 127, 255, 127);
