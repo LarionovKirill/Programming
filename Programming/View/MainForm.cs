@@ -547,11 +547,7 @@ namespace Programming.View
             else
             {
                 Model.Rectangle _currentRectangle = _rectangles[index+5];
-                widthRectangleTextBox.Text = _currentRectangle.Width.ToString();
-                lengthRectangleTextBox.Text = _currentRectangle.Length.ToString();
-                idTextBox.Text = _currentRectangle.Id.ToString();
-                xTextBox.Text = _currentRectangle.Center.X.ToString();
-                yTextBox.Text = _currentRectangle.Center.Y.ToString();
+                UpdateRectangleInfo(_currentRectangle); 
             }
         }
 
@@ -802,6 +798,19 @@ namespace Programming.View
             idTextBox.Text = String.Empty;
             xTextBox.Text = String.Empty;
             yTextBox.Text = String.Empty;
+        }
+
+        /// <summary>
+        /// Метод выполняет обновление данных в текстовых полях по указанному прямоугольнику.
+        /// </summary>
+        /// <param name="rectangle"></param>
+        private void UpdateRectangleInfo(Model.Rectangle rectangle)
+        {
+            widthRectangleTextBox.Text = rectangle.Width.ToString();
+            lengthRectangleTextBox.Text = rectangle.Length.ToString();
+            idTextBox.Text = rectangle.Id.ToString();
+            xTextBox.Text = rectangle.Center.X.ToString();
+            yTextBox.Text = rectangle.Center.Y.ToString();
         }
     }
 }
