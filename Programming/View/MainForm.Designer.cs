@@ -616,9 +616,9 @@ namespace Programming.View
             // buttonRemoveRectangle
             // 
             this.buttonRemoveRectangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRemoveRectangle.Location = new System.Drawing.Point(275, 250);
+            this.buttonRemoveRectangle.Location = new System.Drawing.Point(267, 250);
             this.buttonRemoveRectangle.Name = "buttonRemoveRectangle";
-            this.buttonRemoveRectangle.Size = new System.Drawing.Size(75, 36);
+            this.buttonRemoveRectangle.Size = new System.Drawing.Size(83, 36);
             this.buttonRemoveRectangle.TabIndex = 15;
             this.buttonRemoveRectangle.Text = "Remove";
             this.buttonRemoveRectangle.UseVisualStyleBackColor = true;

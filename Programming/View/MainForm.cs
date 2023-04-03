@@ -488,22 +488,18 @@ namespace Programming.View
         private void buttonAddRectangle_Click(object sender, EventArgs e)
         {
             //Работа с полями прямоугольника.
-            Random random = new Random();
-            int length = random.Next(1, 101);
-            int width = random.Next(1, 101);
-            Point2D point = new Point2D(random.Next(0, 200),
-                random.Next(0, 200));
-            Model.Rectangle _currentRectangle = new Model.Rectangle(length,
-                width, "Green", point);
+            Model.Rectangle _currentRectangle = RectangleFactory.Randomize(panelForRectangles.Width,
+               panelForRectangles.Height);
             _rectangles.Add(_currentRectangle);
-            string text = CreateStringWithRectangleParameters(_currentRectangle.Id, point.X, 
-                point.Y, width, length);
+            string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
+                _currentRectangle.Center.X, _currentRectangle.Center.Y,
+                _currentRectangle.Width, _currentRectangle.Length);
             rectanglesListBox.Items.Insert(_rectangles.Count - 6,text);
             //Работа с панелью.
             Panel _currentPanel = new Panel();
-            _currentPanel.Location = new Point(point.X,point.Y);
-            _currentPanel.Width = int.Parse(width.ToString());
-            _currentPanel.Height = int.Parse(length.ToString());
+            _currentPanel.Location = new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
+            _currentPanel.Width = int.Parse(_currentRectangle.Width.ToString());
+            _currentPanel.Height = int.Parse(_currentRectangle.Length.ToString());
             _currentPanel.BackColor = System.Drawing.Color.FromArgb(127, 127, 255, 127);
             _panels.Add(_currentPanel);
             panelForRectangles.Controls.Add(_currentPanel);

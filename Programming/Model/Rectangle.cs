@@ -103,8 +103,9 @@ namespace Programming.Model
         /// Конструктор по умолчанию.
         /// </summary>
         public Rectangle()
-        { 
-
+        {
+            _allRectanglesCount += 1;
+            this.Id = _allRectanglesCount;
         }
 
         /// <summary>
