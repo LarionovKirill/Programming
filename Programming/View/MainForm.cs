@@ -542,11 +542,7 @@ namespace Programming.View
             var index = rectanglesListBox.SelectedIndex;
             if (index < 0)
             {
-                widthRectangleTextBox.Text = String.Empty;
-                lengthRectangleTextBox.Text = String.Empty;
-                idTextBox.Text = String.Empty;
-                xTextBox.Text = String.Empty;
-                yTextBox.Text = String.Empty;
+                ClearRectangleInfo();
             }
             else
             {
@@ -750,6 +746,18 @@ namespace Programming.View
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Метод очищает поля прямоугольника.
+        /// </summary>
+        private void ClearRectangleInfo()
+        {
+            widthRectangleTextBox.Text = String.Empty;
+            lengthRectangleTextBox.Text = String.Empty;
+            idTextBox.Text = String.Empty;
+            xTextBox.Text = String.Empty;
+            yTextBox.Text = String.Empty;
         }
     }
 }
