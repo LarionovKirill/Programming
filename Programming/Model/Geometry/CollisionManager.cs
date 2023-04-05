@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Drawing;
 using System.Threading.Tasks;
 
 namespace Programming.Model
@@ -21,26 +20,17 @@ namespace Programming.Model
         /// иначе false.</returns>
         public static bool IsCollision(Rectangle rectangle1, Rectangle rectangle2)
         {
-            int dx = (int)(rectangle1.Center.X + rectangle1.Width);
-            int dx2 = (int)((rectangle2.Center.X + rectangle2.Width));
-            int dy = (int)((rectangle1.Center.Y + rectangle1.Length));
-            int dy2 = (int)((rectangle2.Center.Y + rectangle2.Length));
-            Point rectangle1Next = new Point(dx,dy);
-            Point rectangle2Next = new Point(dx2,dy2);
-            if (rectangle2Next.X < rectangle1.Center.X || rectangle1Next.X < rectangle2.Center.X)
+            if (rectangle1.Center.X < rectangle2.Center.X + rectangle2.Width &&
+                rectangle1.Center.X + rectangle1.Width > rectangle2.Center.X &&
+                rectangle1.Center.Y < rectangle2.Center.Y + rectangle2.Length &&
+                rectangle1.Center.Y + rectangle1.Length > rectangle2.Center.Y
+                )
+            {
+                return true;
+            }
+            else
             {
                 return false;
-            }
-            else 
-            {
-                if (rectangle1Next.Y < rectangle2.Center.Y || rectangle1.Center.Y > rectangle2Next.Y)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
             }
         }
 
