@@ -570,17 +570,11 @@ namespace Programming.View
                 {
                     _rectangles[index + 5].Center.X = int.Parse(xTextBox.Text);
                     xTextBox.BackColor = System.Drawing.Color.White;
-                    string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
-                     _currentRectangle.Center.X, _currentRectangle.Center.Y,
-                     _currentRectangle.Width, _currentRectangle.Length);
-                    rectanglesListBox.Items.Insert(index, text);
-                    rectanglesListBox.SelectedIndex = index;
-                    rectanglesListBox.Items.RemoveAt(index + 1);
                     Point point = new Point();
                     point.X = (int)_currentRectangle.Center.X;
                     point.Y = (int)_currentRectangle.Center.Y;
                     _panels[index].Location = point;
-                    FindCollisions();
+                    ChangingParametersOfRectangle(index, _currentRectangle);
                 }
                 else
                 {
@@ -619,17 +613,11 @@ namespace Programming.View
                 {
                     _rectangles[index + 5].Center.Y = int.Parse(yTextBox.Text);
                     yTextBox.BackColor = System.Drawing.Color.White;
-                    string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
-                     _currentRectangle.Center.X, _currentRectangle.Center.Y,
-                     _currentRectangle.Width, _currentRectangle.Length);
-                    rectanglesListBox.Items.Insert(index, text);
-                    rectanglesListBox.SelectedIndex = index;
-                    rectanglesListBox.Items.RemoveAt(index + 1);
                     Point point = new Point();
                     point.X = (int)_currentRectangle.Center.X;
                     point.Y = (int)_currentRectangle.Center.Y;
                     _panels[index].Location = point;
-                    FindCollisions();
+                    ChangingParametersOfRectangle(index, _currentRectangle);
                 }
                 else
                 {
@@ -669,14 +657,8 @@ namespace Programming.View
                 {
                     _rectangles[index + 5].Width = double.Parse(widthRectangleTextBox.Text);
                     widthRectangleTextBox.BackColor = System.Drawing.Color.White;
-                    string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
-                     _currentRectangle.Center.X, _currentRectangle.Center.Y,
-                     _currentRectangle.Width, _currentRectangle.Length);
-                    rectanglesListBox.Items.Insert(index, text);
-                    rectanglesListBox.SelectedIndex = index;
-                    rectanglesListBox.Items.RemoveAt(index + 1);
-                    _panels[index].Width = int.Parse(_currentRectangle.Width.ToString());
-                    FindCollisions();
+                    _panels[index].Width = (int)_currentRectangle.Width;
+                    ChangingParametersOfRectangle(index, _currentRectangle);
                 }
                 else
                 {
@@ -716,14 +698,8 @@ namespace Programming.View
                 {
                     _rectangles[index + 5].Length = double.Parse(lengthRectangleTextBox.Text);
                     lengthRectangleTextBox.BackColor = System.Drawing.Color.White;
-                    string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
-                     _currentRectangle.Center.X, _currentRectangle.Center.Y,
-                     _currentRectangle.Width, _currentRectangle.Length);
-                    rectanglesListBox.Items.Insert(index, text);
-                    rectanglesListBox.SelectedIndex = index;
-                    rectanglesListBox.Items.RemoveAt(index + 1);
-                    _panels[index].Height = int.Parse(_currentRectangle.Length.ToString());
-                    FindCollisions();
+                    _panels[index].Height = (int)_currentRectangle.Length;
+                    ChangingParametersOfRectangle(index,_currentRectangle);
                 }
                 else
                 {
@@ -811,6 +787,22 @@ namespace Programming.View
             idTextBox.Text = rectangle.Id.ToString();
             xTextBox.Text = rectangle.Center.X.ToString();
             yTextBox.Text = rectangle.Center.Y.ToString();
+        }
+
+        /// <summary>
+        /// Метод производит изменения в ListBox прямоугольника.
+        /// </summary>
+        /// <param name="index">Индекс строки в ListBox</param>
+        /// <param name="currentRectangle">Прямоугольник с текущими значениями.</param>
+        private void ChangingParametersOfRectangle(int index, Model.Rectangle currentRectangle)
+        {
+            string text = CreateStringWithRectangleParameters(currentRectangle.Id,
+                     currentRectangle.Center.X, currentRectangle.Center.Y,
+                     currentRectangle.Width, currentRectangle.Length);
+            rectanglesListBox.Items.Insert(index, text);
+            rectanglesListBox.SelectedIndex = index;
+            rectanglesListBox.Items.RemoveAt(index + 1);
+            FindCollisions();
         }
     }
 }
