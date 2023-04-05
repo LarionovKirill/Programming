@@ -497,7 +497,7 @@ namespace Programming.View
             rectanglesListBox.Items.Insert(_rectangles.Count - 6,text);
             //Работа с панелью.
             Panel _currentPanel = new Panel();
-            _currentPanel.Location = new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
+            _currentPanel.Location = new Point((int)_currentRectangle.Center.X, (int)_currentRectangle.Center.Y);
             _currentPanel.Width = int.Parse(_currentRectangle.Width.ToString());
             _currentPanel.Height = int.Parse(_currentRectangle.Length.ToString());
             _currentPanel.BackColor = System.Drawing.Color.FromArgb(127, 127, 255, 127);
@@ -577,8 +577,8 @@ namespace Programming.View
                     rectanglesListBox.SelectedIndex = index;
                     rectanglesListBox.Items.RemoveAt(index + 1);
                     Point point = new Point();
-                    point.X = _currentRectangle.Center.X;
-                    point.Y = _currentRectangle.Center.Y;
+                    point.X = (int)_currentRectangle.Center.X;
+                    point.Y = (int)_currentRectangle.Center.Y;
                     _panels[index].Location = point;
                     FindCollisions();
                 }
@@ -626,8 +626,8 @@ namespace Programming.View
                     rectanglesListBox.SelectedIndex = index;
                     rectanglesListBox.Items.RemoveAt(index + 1);
                     Point point = new Point();
-                    point.X = _currentRectangle.Center.X;
-                    point.Y = _currentRectangle.Center.Y;
+                    point.X = (int)_currentRectangle.Center.X;
+                    point.Y = (int)_currentRectangle.Center.Y;
                     _panels[index].Location = point;
                     FindCollisions();
                 }
