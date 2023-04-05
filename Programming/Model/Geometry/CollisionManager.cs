@@ -21,10 +21,10 @@ namespace Programming.Model
         /// иначе false.</returns>
         public static bool IsCollision(Rectangle rectangle1, Rectangle rectangle2)
         {
-            int dx = int.Parse((rectangle1.Center.X + rectangle1.Width).ToString());
-            int dx2 = int.Parse((rectangle2.Center.X + rectangle2.Width).ToString());
-            int dy = int.Parse((rectangle1.Center.Y + rectangle1.Length).ToString());
-            int dy2 = int.Parse((rectangle2.Center.Y + rectangle2.Length).ToString());
+            int dx = (int)(rectangle1.Center.X + rectangle1.Width);
+            int dx2 = (int)((rectangle2.Center.X + rectangle2.Width));
+            int dy = (int)((rectangle1.Center.Y + rectangle1.Length));
+            int dy2 = (int)((rectangle2.Center.Y + rectangle2.Length));
             Point rectangle1Next = new Point(dx,dy);
             Point rectangle2Next = new Point(dx2,dy2);
             if (rectangle2Next.X < rectangle1.Center.X || rectangle1Next.X < rectangle2.Center.X)
