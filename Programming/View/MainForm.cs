@@ -488,16 +488,25 @@ namespace Programming.View
         private void buttonAddRectangle_Click(object sender, EventArgs e)
         {
             //Работа с полями прямоугольника.
-            Model.Rectangle _currentRectangle = RectangleFactory.Randomize(panelForRectangles.Width,
-               panelForRectangles.Height);
+            Model.Rectangle _currentRectangle = RectangleFactory.Randomize(
+                panelForRectangles.Width,
+               panelForRectangles.Height
+               );
             _rectangles.Add(_currentRectangle);
-            string text = CreateStringWithRectangleParameters(_currentRectangle.Id,
-                _currentRectangle.Center.X, _currentRectangle.Center.Y,
-                _currentRectangle.Width, _currentRectangle.Length);
+            string text = CreateStringWithRectangleParameters(
+                _currentRectangle.Id,
+                _currentRectangle.Center.X, 
+                _currentRectangle.Center.Y,
+                _currentRectangle.Width,
+                _currentRectangle.Length
+                );
             rectanglesListBox.Items.Insert(_rectangles.Count - 6,text);
             //Работа с панелью.
             Panel _currentPanel = new Panel();
-            _currentPanel.Location = new Point((int)_currentRectangle.Center.X, (int)_currentRectangle.Center.Y);
+            _currentPanel.Location = new Point(
+                (int)_currentRectangle.Center.X, 
+                (int)_currentRectangle.Center.Y
+                );
             _currentPanel.Width = int.Parse(_currentRectangle.Width.ToString());
             _currentPanel.Height = int.Parse(_currentRectangle.Length.ToString());
             _currentPanel.BackColor = System.Drawing.Color.FromArgb(127, 127, 255, 127);
@@ -728,8 +737,13 @@ namespace Programming.View
         /// <param name="width">Ширина прямоугольника.</param>
         /// <param name="height">Высота прямоугольника.</param>
         /// <returns>Возвращает готовую для вставки строку.</returns>
-        private string CreateStringWithRectangleParameters(int id, double x, double y, double width,
-    double height)
+        private string CreateStringWithRectangleParameters(
+            int id,
+            double x,
+            double y,
+            double width,
+            double height
+            )
         {
            return $"{id}:(X ={x}; Y={y}; W={width}; H={height})";
         }
@@ -796,9 +810,13 @@ namespace Programming.View
         /// <param name="currentRectangle">Прямоугольник с текущими значениями.</param>
         private void ChangingParametersOfRectangle(int index, Model.Rectangle currentRectangle)
         {
-            string text = CreateStringWithRectangleParameters(currentRectangle.Id,
-                     currentRectangle.Center.X, currentRectangle.Center.Y,
-                     currentRectangle.Width, currentRectangle.Length);
+            string text = CreateStringWithRectangleParameters(
+                currentRectangle.Id,
+                currentRectangle.Center.X, 
+                currentRectangle.Center.Y,
+                currentRectangle.Width, 
+                currentRectangle.Length
+                );
             rectanglesListBox.Items.Insert(index, text);
             rectanglesListBox.SelectedIndex = index;
             rectanglesListBox.Items.RemoveAt(index + 1);
