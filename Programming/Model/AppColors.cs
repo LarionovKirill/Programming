@@ -13,7 +13,7 @@ namespace Programming.Model
     static class AppColors
     {
         public static Color correctAnswer = Color.White;
-        public static Color wrongAnswer = Color.Pink;
+        public static Color wrongAnswer = Color.LightPink;
         public static Color springColor = ColorTranslator.FromHtml("#559c45");
         public static Color autumnColor = ColorTranslator.FromHtml("#e29c45");
     }

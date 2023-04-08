@@ -87,11 +87,11 @@ namespace Programming.View.Panels
             {
                 int index = rectangleListBox.SelectedIndex;
                 _rectangles[index].Length = double.Parse(lengthTextBox.Text);
-                lengthTextBox.BackColor = System.Drawing.Color.White;
+                lengthTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             catch
             {
-                lengthTextBox.BackColor = System.Drawing.Color.LightPink;
+                lengthTextBox.BackColor = Model.AppColors.wrongAnswer;
             }
         }
 
@@ -110,11 +110,11 @@ namespace Programming.View.Panels
             {
                 int index = rectangleListBox.SelectedIndex;
                 _rectangles[index].Width = double.Parse(widthTextBox.Text);
-                widthTextBox.BackColor = System.Drawing.Color.White;
+                widthTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             catch
             {
-                widthTextBox.BackColor = System.Drawing.Color.LightPink;
+                widthTextBox.BackColor = Model.AppColors.wrongAnswer;
             }
         }
 
@@ -134,11 +134,11 @@ namespace Programming.View.Panels
             {
                 int index = rectangleListBox.SelectedIndex;
                 _rectangles[index].Color = colorTextBox.Text;
-                colorTextBox.BackColor = System.Drawing.Color.White;
+                colorTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             else
             {
-                colorTextBox.BackColor = System.Drawing.Color.LightPink;
+                colorTextBox.BackColor = Model.AppColors.wrongAnswer;
             }
         }
 
