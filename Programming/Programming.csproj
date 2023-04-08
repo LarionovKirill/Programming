@@ -72,11 +72,17 @@
     <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Panels\FilmsControl.cs">
+    <Compile Include="View\Panels\FilmsListControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Panels\FilmsControl.Designer.cs">
-      <DependentUpon>FilmsControl.cs</DependentUpon>
+    <Compile Include="View\Panels\FilmsListControl.Designer.cs">
+      <DependentUpon>FilmsListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Panels\RectangleListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Panels\RectangleListControl.Designer.cs">
+      <DependentUpon>RectangleListControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Panels\RectanglesCollisionControl.cs">
       <SubType>UserControl</SubType>
@@ -96,8 +102,11 @@
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Panels\FilmsControl.resx">
-      <DependentUpon>FilmsControl.cs</DependentUpon>
+    <EmbeddedResource Include="View\Panels\FilmsListControl.resx">
+      <DependentUpon>FilmsListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Panels\RectangleListControl.resx">
+      <DependentUpon>RectangleListControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Panels\RectanglesCollisionControl.resx">
       <DependentUpon>RectanglesCollisionControl.cs</DependentUpon>

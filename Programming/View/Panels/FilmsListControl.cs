@@ -12,7 +12,7 @@ using Programming.Model.Enums;
 
 namespace Programming.View.Panels
 {
-    public partial class FilmsControl : UserControl
+    public partial class FilmsListControl : UserControl
     {
         /// <summary>
         /// Количество элементов для генерирования объектов.
@@ -24,7 +24,7 @@ namespace Programming.View.Panels
         /// </summary>
         Model.Films[] _films = new Model.Films[countItems];
 
-        public FilmsControl()
+        public FilmsListControl()
         {
             InitializeComponent();
 

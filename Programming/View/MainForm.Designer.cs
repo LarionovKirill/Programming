@@ -50,32 +50,18 @@ namespace Programming.View
             this.intValue = new System.Windows.Forms.Label();
             this.intValues = new System.Windows.Forms.TextBox();
             this.classes = new System.Windows.Forms.TabPage();
-            this.rectangleGroupBox = new System.Windows.Forms.GroupBox();
-            this.idRectangleLabel = new System.Windows.Forms.Label();
-            this.IdRectangleTextBox = new System.Windows.Forms.TextBox();
-            this.yRectangleLabel = new System.Windows.Forms.Label();
-            this.yRectangleTextBox = new System.Windows.Forms.TextBox();
-            this.xRectangleLabel = new System.Windows.Forms.Label();
-            this.xRectangleTextBox = new System.Windows.Forms.TextBox();
-            this.findRectanglesButton = new System.Windows.Forms.Button();
-            this.colorLabel = new System.Windows.Forms.Label();
-            this.widthLabel = new System.Windows.Forms.Label();
-            this.lengthLabel = new System.Windows.Forms.Label();
-            this.colorTextBox = new System.Windows.Forms.TextBox();
-            this.widthTextBox = new System.Windows.Forms.TextBox();
-            this.lengthTextBox = new System.Windows.Forms.TextBox();
-            this.rectangleListBox = new System.Windows.Forms.ListBox();
+            this.filmsListControl1 = new Programming.View.Panels.FilmsListControl();
+            this.rectangleListControl1 = new Programming.View.Panels.RectangleListControl();
             this.Rectangles = new System.Windows.Forms.TabPage();
             this.rectanglesCollisionControl1 = new Programming.View.Panels.RectanglesCollisionControl();
             this.weekdayBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.filmsControl1 = new Programming.View.Panels.FilmsControl();
+            this.rectangleListControl2 = new Programming.View.Panels.RectangleListControl();
             this.tabControl1.SuspendLayout();
             this.Enums.SuspendLayout();
             this.seasonHandleBox.SuspendLayout();
             this.weekdayParsingBox.SuspendLayout();
             this.enumerationsBox.SuspendLayout();
             this.classes.SuspendLayout();
-            this.rectangleGroupBox.SuspendLayout();
             this.Rectangles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weekdayBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -278,8 +264,9 @@ namespace Programming.View
             // 
             // classes
             // 
-            this.classes.Controls.Add(this.filmsControl1);
-            this.classes.Controls.Add(this.rectangleGroupBox);
+            this.classes.Controls.Add(this.rectangleListControl2);
+            this.classes.Controls.Add(this.filmsListControl1);
+            this.classes.Controls.Add(this.rectangleListControl1);
             this.classes.Location = new System.Drawing.Point(4, 25);
             this.classes.Name = "classes";
             this.classes.Padding = new System.Windows.Forms.Padding(3);
@@ -288,150 +275,19 @@ namespace Programming.View
             this.classes.Text = "Classes";
             this.classes.UseVisualStyleBackColor = true;
             // 
-            // rectangleGroupBox
+            // filmsListControl1
             // 
-            this.rectangleGroupBox.Controls.Add(this.idRectangleLabel);
-            this.rectangleGroupBox.Controls.Add(this.IdRectangleTextBox);
-            this.rectangleGroupBox.Controls.Add(this.yRectangleLabel);
-            this.rectangleGroupBox.Controls.Add(this.yRectangleTextBox);
-            this.rectangleGroupBox.Controls.Add(this.xRectangleLabel);
-            this.rectangleGroupBox.Controls.Add(this.xRectangleTextBox);
-            this.rectangleGroupBox.Controls.Add(this.findRectanglesButton);
-            this.rectangleGroupBox.Controls.Add(this.colorLabel);
-            this.rectangleGroupBox.Controls.Add(this.widthLabel);
-            this.rectangleGroupBox.Controls.Add(this.lengthLabel);
-            this.rectangleGroupBox.Controls.Add(this.colorTextBox);
-            this.rectangleGroupBox.Controls.Add(this.widthTextBox);
-            this.rectangleGroupBox.Controls.Add(this.lengthTextBox);
-            this.rectangleGroupBox.Controls.Add(this.rectangleListBox);
-            this.rectangleGroupBox.Location = new System.Drawing.Point(28, 31);
-            this.rectangleGroupBox.Name = "rectangleGroupBox";
-            this.rectangleGroupBox.Size = new System.Drawing.Size(411, 484);
-            this.rectangleGroupBox.TabIndex = 0;
-            this.rectangleGroupBox.TabStop = false;
-            this.rectangleGroupBox.Text = "Rectangles";
+            this.filmsListControl1.Location = new System.Drawing.Point(476, 31);
+            this.filmsListControl1.Name = "filmsListControl1";
+            this.filmsListControl1.Size = new System.Drawing.Size(421, 491);
+            this.filmsListControl1.TabIndex = 2;
             // 
-            // idRectangleLabel
+            // rectangleListControl1
             // 
-            this.idRectangleLabel.AutoSize = true;
-            this.idRectangleLabel.Location = new System.Drawing.Point(231, 28);
-            this.idRectangleLabel.Name = "idRectangleLabel";
-            this.idRectangleLabel.Size = new System.Drawing.Size(23, 17);
-            this.idRectangleLabel.TabIndex = 13;
-            this.idRectangleLabel.Text = "Id:";
-            // 
-            // IdRectangleTextBox
-            // 
-            this.IdRectangleTextBox.Location = new System.Drawing.Point(232, 48);
-            this.IdRectangleTextBox.Name = "IdRectangleTextBox";
-            this.IdRectangleTextBox.ReadOnly = true;
-            this.IdRectangleTextBox.Size = new System.Drawing.Size(112, 22);
-            this.IdRectangleTextBox.TabIndex = 12;
-            // 
-            // yRectangleLabel
-            // 
-            this.yRectangleLabel.AutoSize = true;
-            this.yRectangleLabel.Location = new System.Drawing.Point(231, 368);
-            this.yRectangleLabel.Name = "yRectangleLabel";
-            this.yRectangleLabel.Size = new System.Drawing.Size(21, 17);
-            this.yRectangleLabel.TabIndex = 11;
-            this.yRectangleLabel.Text = "Y:";
-            // 
-            // yRectangleTextBox
-            // 
-            this.yRectangleTextBox.Location = new System.Drawing.Point(232, 388);
-            this.yRectangleTextBox.Name = "yRectangleTextBox";
-            this.yRectangleTextBox.ReadOnly = true;
-            this.yRectangleTextBox.Size = new System.Drawing.Size(112, 22);
-            this.yRectangleTextBox.TabIndex = 10;
-            // 
-            // xRectangleLabel
-            // 
-            this.xRectangleLabel.AutoSize = true;
-            this.xRectangleLabel.Location = new System.Drawing.Point(231, 294);
-            this.xRectangleLabel.Name = "xRectangleLabel";
-            this.xRectangleLabel.Size = new System.Drawing.Size(21, 17);
-            this.xRectangleLabel.TabIndex = 9;
-            this.xRectangleLabel.Text = "X:";
-            // 
-            // xRectangleTextBox
-            // 
-            this.xRectangleTextBox.Location = new System.Drawing.Point(232, 314);
-            this.xRectangleTextBox.Name = "xRectangleTextBox";
-            this.xRectangleTextBox.ReadOnly = true;
-            this.xRectangleTextBox.Size = new System.Drawing.Size(112, 22);
-            this.xRectangleTextBox.TabIndex = 8;
-            // 
-            // findRectanglesButton
-            // 
-            this.findRectanglesButton.Location = new System.Drawing.Point(232, 440);
-            this.findRectanglesButton.Name = "findRectanglesButton";
-            this.findRectanglesButton.Size = new System.Drawing.Size(112, 26);
-            this.findRectanglesButton.TabIndex = 7;
-            this.findRectanglesButton.Text = "Find";
-            this.findRectanglesButton.UseVisualStyleBackColor = true;
-            this.findRectanglesButton.Click += new System.EventHandler(this.FindRectangleWithMaxWidth);
-            // 
-            // colorLabel
-            // 
-            this.colorLabel.AutoSize = true;
-            this.colorLabel.Location = new System.Drawing.Point(231, 224);
-            this.colorLabel.Name = "colorLabel";
-            this.colorLabel.Size = new System.Drawing.Size(45, 17);
-            this.colorLabel.TabIndex = 6;
-            this.colorLabel.Text = "Color:";
-            // 
-            // widthLabel
-            // 
-            this.widthLabel.AutoSize = true;
-            this.widthLabel.Location = new System.Drawing.Point(229, 152);
-            this.widthLabel.Name = "widthLabel";
-            this.widthLabel.Size = new System.Drawing.Size(48, 17);
-            this.widthLabel.TabIndex = 5;
-            this.widthLabel.Text = "Width:";
-            // 
-            // lengthLabel
-            // 
-            this.lengthLabel.AutoSize = true;
-            this.lengthLabel.Location = new System.Drawing.Point(229, 87);
-            this.lengthLabel.Name = "lengthLabel";
-            this.lengthLabel.Size = new System.Drawing.Size(56, 17);
-            this.lengthLabel.TabIndex = 4;
-            this.lengthLabel.Text = "Length:";
-            // 
-            // colorTextBox
-            // 
-            this.colorTextBox.Location = new System.Drawing.Point(232, 244);
-            this.colorTextBox.Name = "colorTextBox";
-            this.colorTextBox.Size = new System.Drawing.Size(112, 22);
-            this.colorTextBox.TabIndex = 3;
-            this.colorTextBox.TextChanged += new System.EventHandler(this.ColorTextChanged);
-            // 
-            // widthTextBox
-            // 
-            this.widthTextBox.Location = new System.Drawing.Point(232, 172);
-            this.widthTextBox.Name = "widthTextBox";
-            this.widthTextBox.Size = new System.Drawing.Size(112, 22);
-            this.widthTextBox.TabIndex = 2;
-            this.widthTextBox.TextChanged += new System.EventHandler(this.WidthTextChanged);
-            // 
-            // lengthTextBox
-            // 
-            this.lengthTextBox.Location = new System.Drawing.Point(232, 107);
-            this.lengthTextBox.Name = "lengthTextBox";
-            this.lengthTextBox.Size = new System.Drawing.Size(112, 22);
-            this.lengthTextBox.TabIndex = 1;
-            this.lengthTextBox.TextChanged += new System.EventHandler(this.LengthTextChanged);
-            // 
-            // rectangleListBox
-            // 
-            this.rectangleListBox.FormattingEnabled = true;
-            this.rectangleListBox.ItemHeight = 16;
-            this.rectangleListBox.Location = new System.Drawing.Point(19, 30);
-            this.rectangleListBox.Name = "rectangleListBox";
-            this.rectangleListBox.Size = new System.Drawing.Size(190, 436);
-            this.rectangleListBox.TabIndex = 0;
-            this.rectangleListBox.SelectedIndexChanged += new System.EventHandler(this.RectangleListBox_SelectedIndexChanged);
+            this.rectangleListControl1.Location = new System.Drawing.Point(527, 65);
+            this.rectangleListControl1.Name = "rectangleListControl1";
+            this.rectangleListControl1.Size = new System.Drawing.Size(150, 150);
+            this.rectangleListControl1.TabIndex = 1;
             // 
             // Rectangles
             // 
@@ -456,12 +312,12 @@ namespace Programming.View
             // 
             this.weekdayBindingSource.DataSource = typeof(Programming.Model.Enums.WeekDay);
             // 
-            // filmsControl1
+            // rectangleListControl2
             // 
-            this.filmsControl1.Location = new System.Drawing.Point(489, 37);
-            this.filmsControl1.Name = "filmsControl1";
-            this.filmsControl1.Size = new System.Drawing.Size(421, 491);
-            this.filmsControl1.TabIndex = 1;
+            this.rectangleListControl2.Location = new System.Drawing.Point(20, 31);
+            this.rectangleListControl2.Name = "rectangleListControl2";
+            this.rectangleListControl2.Size = new System.Drawing.Size(411, 484);
+            this.rectangleListControl2.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -480,8 +336,6 @@ namespace Programming.View
             this.enumerationsBox.ResumeLayout(false);
             this.enumerationsBox.PerformLayout();
             this.classes.ResumeLayout(false);
-            this.rectangleGroupBox.ResumeLayout(false);
-            this.rectangleGroupBox.PerformLayout();
             this.Rectangles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.weekdayBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -511,23 +365,10 @@ namespace Programming.View
         private System.Windows.Forms.GroupBox seasonHandleBox;
         private System.Windows.Forms.GroupBox weekdayParsingBox;
         private System.Windows.Forms.TabPage classes;
-        private System.Windows.Forms.GroupBox rectangleGroupBox;
-        private System.Windows.Forms.ListBox rectangleListBox;
-        private System.Windows.Forms.Label widthLabel;
-        private System.Windows.Forms.Label lengthLabel;
-        private System.Windows.Forms.TextBox colorTextBox;
-        private System.Windows.Forms.TextBox widthTextBox;
-        private System.Windows.Forms.TextBox lengthTextBox;
-        private System.Windows.Forms.Button findRectanglesButton;
-        private System.Windows.Forms.Label colorLabel;
-        private System.Windows.Forms.Label yRectangleLabel;
-        private System.Windows.Forms.TextBox yRectangleTextBox;
-        private System.Windows.Forms.Label xRectangleLabel;
-        private System.Windows.Forms.TextBox xRectangleTextBox;
-        private System.Windows.Forms.Label idRectangleLabel;
-        private System.Windows.Forms.TextBox IdRectangleTextBox;
         private System.Windows.Forms.TabPage Rectangles;
         private Panels.RectanglesCollisionControl rectanglesCollisionControl1;
-        private Panels.FilmsControl filmsControl1;
+        private Panels.RectangleListControl rectangleListControl1;
+        private Panels.FilmsListControl filmsListControl1;
+        private Panels.RectangleListControl rectangleListControl2;
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace Programming.View.Panels
 {
-    partial class FilmsControl
+    partial class FilmsListControl
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -68,7 +68,7 @@ namespace Programming.View.Panels
             // 
             // findFilmsButton
             // 
-            this.findFilmsButton.Location = new System.Drawing.Point(239, 440);
+            this.findFilmsButton.Location = new System.Drawing.Point(252, 440);
             this.findFilmsButton.Name = "findFilmsButton";
             this.findFilmsButton.Size = new System.Drawing.Size(112, 26);
             this.findFilmsButton.TabIndex = 25;
@@ -79,7 +79,7 @@ namespace Programming.View.Panels
             // ratingLabel
             // 
             this.ratingLabel.AutoSize = true;
-            this.ratingLabel.Location = new System.Drawing.Point(236, 309);
+            this.ratingLabel.Location = new System.Drawing.Point(249, 309);
             this.ratingLabel.Name = "ratingLabel";
             this.ratingLabel.Size = new System.Drawing.Size(53, 17);
             this.ratingLabel.TabIndex = 24;
@@ -87,7 +87,7 @@ namespace Programming.View.Panels
             // 
             // ratingTextBox
             // 
-            this.ratingTextBox.Location = new System.Drawing.Point(239, 329);
+            this.ratingTextBox.Location = new System.Drawing.Point(252, 329);
             this.ratingTextBox.Name = "ratingTextBox";
             this.ratingTextBox.Size = new System.Drawing.Size(112, 22);
             this.ratingTextBox.TabIndex = 23;
@@ -96,7 +96,7 @@ namespace Programming.View.Panels
             // genreLabel
             // 
             this.genreLabel.AutoSize = true;
-            this.genreLabel.Location = new System.Drawing.Point(236, 235);
+            this.genreLabel.Location = new System.Drawing.Point(249, 235);
             this.genreLabel.Name = "genreLabel";
             this.genreLabel.Size = new System.Drawing.Size(52, 17);
             this.genreLabel.TabIndex = 22;
@@ -105,7 +105,7 @@ namespace Programming.View.Panels
             // yearOfRealeseLabel
             // 
             this.yearOfRealeseLabel.AutoSize = true;
-            this.yearOfRealeseLabel.Location = new System.Drawing.Point(236, 165);
+            this.yearOfRealeseLabel.Location = new System.Drawing.Point(249, 165);
             this.yearOfRealeseLabel.Name = "yearOfRealeseLabel";
             this.yearOfRealeseLabel.Size = new System.Drawing.Size(114, 17);
             this.yearOfRealeseLabel.TabIndex = 21;
@@ -114,7 +114,7 @@ namespace Programming.View.Panels
             // durationLabel
             // 
             this.durationLabel.AutoSize = true;
-            this.durationLabel.Location = new System.Drawing.Point(236, 93);
+            this.durationLabel.Location = new System.Drawing.Point(249, 93);
             this.durationLabel.Name = "durationLabel";
             this.durationLabel.Size = new System.Drawing.Size(66, 17);
             this.durationLabel.TabIndex = 20;
@@ -123,7 +123,7 @@ namespace Programming.View.Panels
             // titleLabel
             // 
             this.titleLabel.AutoSize = true;
-            this.titleLabel.Location = new System.Drawing.Point(236, 28);
+            this.titleLabel.Location = new System.Drawing.Point(249, 28);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(39, 17);
             this.titleLabel.TabIndex = 19;
@@ -131,7 +131,7 @@ namespace Programming.View.Panels
             // 
             // genreTextBox
             // 
-            this.genreTextBox.Location = new System.Drawing.Point(239, 255);
+            this.genreTextBox.Location = new System.Drawing.Point(252, 255);
             this.genreTextBox.Name = "genreTextBox";
             this.genreTextBox.Size = new System.Drawing.Size(112, 22);
             this.genreTextBox.TabIndex = 18;
@@ -139,7 +139,7 @@ namespace Programming.View.Panels
             // 
             // yearOfReleaseTextBox
             // 
-            this.yearOfReleaseTextBox.Location = new System.Drawing.Point(239, 185);
+            this.yearOfReleaseTextBox.Location = new System.Drawing.Point(252, 185);
             this.yearOfReleaseTextBox.Name = "yearOfReleaseTextBox";
             this.yearOfReleaseTextBox.Size = new System.Drawing.Size(112, 22);
             this.yearOfReleaseTextBox.TabIndex = 17;
@@ -147,7 +147,7 @@ namespace Programming.View.Panels
             // 
             // durationTextBox
             // 
-            this.durationTextBox.Location = new System.Drawing.Point(239, 113);
+            this.durationTextBox.Location = new System.Drawing.Point(252, 113);
             this.durationTextBox.Name = "durationTextBox";
             this.durationTextBox.Size = new System.Drawing.Size(112, 22);
             this.durationTextBox.TabIndex = 16;
@@ -155,7 +155,7 @@ namespace Programming.View.Panels
             // 
             // titleTextBox
             // 
-            this.titleTextBox.Location = new System.Drawing.Point(239, 48);
+            this.titleTextBox.Location = new System.Drawing.Point(252, 48);
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(112, 22);
             this.titleTextBox.TabIndex = 15;
@@ -171,12 +171,12 @@ namespace Programming.View.Panels
             this.filmsListBox.TabIndex = 14;
             this.filmsListBox.SelectedIndexChanged += new System.EventHandler(this.FilmsListBox_SelectedIndexChanged);
             // 
-            // FilmsControl
+            // FilmsListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.filmsGroupBox);
-            this.Name = "FilmsControl";
+            this.Name = "FilmsListControl";
             this.Size = new System.Drawing.Size(421, 491);
             this.filmsGroupBox.ResumeLayout(false);
             this.filmsGroupBox.PerformLayout();
