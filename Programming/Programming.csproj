@@ -72,6 +72,12 @@
     <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Panels\FilmsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Panels\FilmsControl.Designer.cs">
+      <DependentUpon>FilmsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Panels\RectanglesCollisionControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     </Compile>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Panels\FilmsControl.resx">
+      <DependentUpon>FilmsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Panels\RectanglesCollisionControl.resx">
       <DependentUpon>RectanglesCollisionControl.cs</DependentUpon>
