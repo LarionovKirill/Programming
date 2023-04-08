@@ -59,7 +59,7 @@ namespace Programming.View.Panels
                 );
             _currentPanel.Width = int.Parse(_currentRectangle.Width.ToString());
             _currentPanel.Height = int.Parse(_currentRectangle.Length.ToString());
-            _currentPanel.BackColor = System.Drawing.Color.FromArgb(127, 127, 255, 127);
+            _currentPanel.BackColor = Model.AppColors.simpleRectangle;
             _panels.Add(_currentPanel);
             panelForRectangles.Controls.Add(_currentPanel);
             FindCollisions();
@@ -137,12 +137,12 @@ namespace Programming.View.Panels
                 }
                 else
                 {
-                    xTextBox.BackColor = System.Drawing.Color.Pink;
+                    xTextBox.BackColor = Model.AppColors.intersectingRectangle;
                 }
             }
             catch
             {
-                xTextBox.BackColor = System.Drawing.Color.Pink;
+                xTextBox.BackColor = Model.AppColors.intersectingRectangle;
             }
             finally
             {
@@ -180,12 +180,12 @@ namespace Programming.View.Panels
                 }
                 else
                 {
-                    yTextBox.BackColor = System.Drawing.Color.Pink;
+                    yTextBox.BackColor = Model.AppColors.intersectingRectangle;
                 }
             }
             catch
             {
-                yTextBox.BackColor = System.Drawing.Color.Pink;
+                yTextBox.BackColor = Model.AppColors.intersectingRectangle;
             }
             finally
             {
@@ -221,12 +221,12 @@ namespace Programming.View.Panels
                 }
                 else
                 {
-                    widthRectangleTextBox.BackColor = System.Drawing.Color.Pink;
+                    widthRectangleTextBox.BackColor = Model.AppColors.intersectingRectangle;
                 }
             }
             catch
             {
-                widthRectangleTextBox.BackColor = System.Drawing.Color.Pink;
+                widthRectangleTextBox.BackColor = Model.AppColors.intersectingRectangle;
             }
             finally
             {
@@ -262,12 +262,12 @@ namespace Programming.View.Panels
                 }
                 else
                 {
-                    lengthRectangleTextBox.BackColor = System.Drawing.Color.Pink;
+                    lengthRectangleTextBox.BackColor = Model.AppColors.intersectingRectangle;
                 }
             }
             catch
             {
-                lengthRectangleTextBox.BackColor = System.Drawing.Color.Pink;
+                lengthRectangleTextBox.BackColor = Model.AppColors.intersectingRectangle;
             }
             finally
             {
@@ -306,7 +306,7 @@ namespace Programming.View.Panels
         {
             for (int i = 0; i < _panels.Count; i++)
             {
-                _panels[i].BackColor = System.Drawing.Color.FromArgb(127, 127, 255, 127);
+                _panels[i].BackColor = Model.AppColors.simpleRectangle;
             }
             for (int i =0; i < _rectangles.Count; i++)
             {

@@ -16,5 +16,7 @@ namespace Programming.Model
         public static Color wrongAnswer = Color.LightPink;
         public static Color springColor = ColorTranslator.FromHtml("#559c45");
         public static Color autumnColor = ColorTranslator.FromHtml("#e29c45");
+        public static Color intersectingRectangle = System.Drawing.Color.Pink;
+        public static Color simpleRectangle = System.Drawing.Color.FromArgb(127, 127, 255, 127);
     }
 }
