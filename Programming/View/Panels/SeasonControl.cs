@@ -30,7 +30,7 @@ namespace Programming.View.Panels
         private void SeasonButton_Click(object sender, EventArgs e)
         {
             seasonAnswer.Text = string.Empty;
-            seasonHandleBox.BackColor = ColorTranslator.FromHtml("#FFFFFF");
+            seasonHandleBox.BackColor = Model.AppColors.correctAnswer;
             switch (seasonBox.SelectedItem)
             {
                 case "Winter":
@@ -40,7 +40,7 @@ namespace Programming.View.Panels
                 }
                 case "Spring":
                 {
-                    seasonHandleBox.BackColor = ColorTranslator.FromHtml("#559c45");
+                    seasonHandleBox.BackColor = Model.AppColors.springColor;
                     break;
                 }
                 case "Summer":
@@ -50,7 +50,7 @@ namespace Programming.View.Panels
                 }
                 case "Autumn":
                 {
-                    seasonHandleBox.BackColor = ColorTranslator.FromHtml("#e29c45");
+                    seasonHandleBox.BackColor = Model.AppColors.autumnColor;
                     break;
                 }
                 default:

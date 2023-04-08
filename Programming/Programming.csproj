@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\AppColors.cs" />
     <Compile Include="Model\Geometry\RectangleFactory.cs" />
     <Compile Include="Model\Geometry\CollisionManager.cs" />
     <Compile Include="Model\Contact.cs" />
