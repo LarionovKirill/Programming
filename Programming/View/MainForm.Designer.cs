@@ -32,16 +32,15 @@ namespace Programming.View
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Enums = new System.Windows.Forms.TabPage();
-            this.classes = new System.Windows.Forms.TabPage();
-            this.Rectangles = new System.Windows.Forms.TabPage();
+            this.enumerationsControl1 = new Programming.View.Panels.EnumerationsControl();
             this.weekdayControl1 = new Programming.View.Panels.WeekdayControl();
             this.seasonControl1 = new Programming.View.Panels.SeasonControl();
+            this.classes = new System.Windows.Forms.TabPage();
             this.rectangleListControl2 = new Programming.View.Panels.RectangleListControl();
             this.filmsListControl1 = new Programming.View.Panels.FilmsListControl();
-            this.rectangleListControl1 = new Programming.View.Panels.RectangleListControl();
+            this.Rectangles = new System.Windows.Forms.TabPage();
             this.rectanglesCollisionControl1 = new Programming.View.Panels.RectanglesCollisionControl();
             this.weekdayBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.enumerationsControl1 = new Programming.View.Panels.EnumerationsControl();
             this.tabControl1.SuspendLayout();
             this.Enums.SuspendLayout();
             this.classes.SuspendLayout();
@@ -74,29 +73,12 @@ namespace Programming.View
             this.Enums.Text = "Enums";
             this.Enums.UseVisualStyleBackColor = true;
             // 
-            // classes
+            // enumerationsControl1
             // 
-            this.classes.Controls.Add(this.rectangleListControl2);
-            this.classes.Controls.Add(this.filmsListControl1);
-            this.classes.Controls.Add(this.rectangleListControl1);
-            this.classes.Location = new System.Drawing.Point(4, 25);
-            this.classes.Name = "classes";
-            this.classes.Padding = new System.Windows.Forms.Padding(3);
-            this.classes.Size = new System.Drawing.Size(948, 534);
-            this.classes.TabIndex = 1;
-            this.classes.Text = "Classes";
-            this.classes.UseVisualStyleBackColor = true;
-            // 
-            // Rectangles
-            // 
-            this.Rectangles.Controls.Add(this.rectanglesCollisionControl1);
-            this.Rectangles.Location = new System.Drawing.Point(4, 25);
-            this.Rectangles.Name = "Rectangles";
-            this.Rectangles.Padding = new System.Windows.Forms.Padding(3);
-            this.Rectangles.Size = new System.Drawing.Size(948, 534);
-            this.Rectangles.TabIndex = 2;
-            this.Rectangles.Text = "Rectangles";
-            this.Rectangles.UseVisualStyleBackColor = true;
+            this.enumerationsControl1.Location = new System.Drawing.Point(29, 17);
+            this.enumerationsControl1.Name = "enumerationsControl1";
+            this.enumerationsControl1.Size = new System.Drawing.Size(886, 326);
+            this.enumerationsControl1.TabIndex = 18;
             // 
             // weekdayControl1
             // 
@@ -112,6 +94,18 @@ namespace Programming.View
             this.seasonControl1.Size = new System.Drawing.Size(441, 177);
             this.seasonControl1.TabIndex = 16;
             // 
+            // classes
+            // 
+            this.classes.Controls.Add(this.rectangleListControl2);
+            this.classes.Controls.Add(this.filmsListControl1);
+            this.classes.Location = new System.Drawing.Point(4, 25);
+            this.classes.Name = "classes";
+            this.classes.Padding = new System.Windows.Forms.Padding(3);
+            this.classes.Size = new System.Drawing.Size(948, 534);
+            this.classes.TabIndex = 1;
+            this.classes.Text = "Classes";
+            this.classes.UseVisualStyleBackColor = true;
+            // 
             // rectangleListControl2
             // 
             this.rectangleListControl2.Location = new System.Drawing.Point(20, 31);
@@ -121,17 +115,21 @@ namespace Programming.View
             // 
             // filmsListControl1
             // 
-            this.filmsListControl1.Location = new System.Drawing.Point(476, 31);
+            this.filmsListControl1.Location = new System.Drawing.Point(490, 31);
             this.filmsListControl1.Name = "filmsListControl1";
             this.filmsListControl1.Size = new System.Drawing.Size(421, 491);
             this.filmsListControl1.TabIndex = 2;
             // 
-            // rectangleListControl1
+            // Rectangles
             // 
-            this.rectangleListControl1.Location = new System.Drawing.Point(527, 65);
-            this.rectangleListControl1.Name = "rectangleListControl1";
-            this.rectangleListControl1.Size = new System.Drawing.Size(150, 150);
-            this.rectangleListControl1.TabIndex = 1;
+            this.Rectangles.Controls.Add(this.rectanglesCollisionControl1);
+            this.Rectangles.Location = new System.Drawing.Point(4, 25);
+            this.Rectangles.Name = "Rectangles";
+            this.Rectangles.Padding = new System.Windows.Forms.Padding(3);
+            this.Rectangles.Size = new System.Drawing.Size(948, 534);
+            this.Rectangles.TabIndex = 2;
+            this.Rectangles.Text = "Rectangles";
+            this.Rectangles.UseVisualStyleBackColor = true;
             // 
             // rectanglesCollisionControl1
             // 
@@ -144,13 +142,6 @@ namespace Programming.View
             // weekdayBindingSource
             // 
             this.weekdayBindingSource.DataSource = typeof(Programming.Model.Enums.WeekDay);
-            // 
-            // enumerationsControl1
-            // 
-            this.enumerationsControl1.Location = new System.Drawing.Point(29, 17);
-            this.enumerationsControl1.Name = "enumerationsControl1";
-            this.enumerationsControl1.Size = new System.Drawing.Size(886, 326);
-            this.enumerationsControl1.TabIndex = 18;
             // 
             // MainForm
             // 
@@ -177,7 +168,6 @@ namespace Programming.View
         private System.Windows.Forms.TabPage classes;
         private System.Windows.Forms.TabPage Rectangles;
         private Panels.RectanglesCollisionControl rectanglesCollisionControl1;
-        private Panels.RectangleListControl rectangleListControl1;
         private Panels.FilmsListControl filmsListControl1;
         private Panels.RectangleListControl rectangleListControl2;
         private Panels.SeasonControl seasonControl1;

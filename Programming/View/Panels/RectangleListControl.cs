@@ -24,22 +24,6 @@ namespace Programming.View.Panels
         public RectangleListControl()
         {
             InitializeComponent();
-
-            int countOfColors = Enum.GetNames(typeof(Model.Enums.Color)).Length;
-            Random random = new Random();
-            //Заполнение listbox 
-            for (int i = 0; i < countItems; i++)
-            {
-                ///Заполнеение прямоугольников
-                Model.Enums.Color color;
-                double length = random.Next(1, 51);
-                double width = random.Next(1, 51);
-                color = (Model.Enums.Color)random.Next(countOfColors);
-                Model.Point2D point = new Model.Point2D(random.Next(0, 100), random.Next(0, 100));
-                _rectangles.Add(new Model.Rectangle(length, width, color.ToString(), point));
-                rectangleListBox.Items.Add($"Rectangle {i + 1}");
-            }
-            rectangleListBox.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -156,6 +140,34 @@ namespace Programming.View.Panels
             {
                 colorTextBox.BackColor = System.Drawing.Color.LightPink;
             }
+        }
+
+        /// <summary>
+        /// Метод запускается при запуске интерфейса с прямоугольниками и заполянет их.
+        /// </summary>
+        /// <param name="sender">
+        /// Предоставляет ссылку на объект, вызвавший событие. 
+        /// </param>
+        /// <param name="e">
+        /// Передает объект, относящийся к обрабатываемому событию.
+        /// </param>
+        private void RectangleListControl_Load(object sender, EventArgs e)
+        {
+            int countOfColors = Enum.GetNames(typeof(Model.Enums.Color)).Length;
+            Random random = new Random();
+            //Заполнение listbox 
+            for (int i = 0; i < countItems; i++)
+            {
+                ///Заполнеение прямоугольников
+                Model.Enums.Color color;
+                double length = random.Next(1, 51);
+                double width = random.Next(1, 51);
+                color = (Model.Enums.Color)random.Next(countOfColors);
+                Model.Point2D point = new Model.Point2D(random.Next(0, 100), random.Next(0, 100));
+                _rectangles.Add(new Model.Rectangle(length, width, color.ToString(), point));
+                rectangleListBox.Items.Add($"Rectangle {i + 1}");
+            }
+            rectangleListBox.SelectedIndex = 0;
         }
     }
 }

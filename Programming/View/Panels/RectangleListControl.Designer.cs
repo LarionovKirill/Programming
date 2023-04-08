@@ -29,7 +29,7 @@ namespace Programming.View.Panels
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rectanglesBox = new System.Windows.Forms.GroupBox();
             this.idRectangleLabel = new System.Windows.Forms.Label();
             this.IdRectangleTextBox = new System.Windows.Forms.TextBox();
             this.yRectangleLabel = new System.Windows.Forms.Label();
@@ -44,31 +44,31 @@ namespace Programming.View.Panels
             this.widthTextBox = new System.Windows.Forms.TextBox();
             this.lengthTextBox = new System.Windows.Forms.TextBox();
             this.rectangleListBox = new System.Windows.Forms.ListBox();
-            this.groupBox1.SuspendLayout();
+            this.rectanglesBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // rectanglesBox
             // 
-            this.groupBox1.Controls.Add(this.idRectangleLabel);
-            this.groupBox1.Controls.Add(this.IdRectangleTextBox);
-            this.groupBox1.Controls.Add(this.yRectangleLabel);
-            this.groupBox1.Controls.Add(this.yRectangleTextBox);
-            this.groupBox1.Controls.Add(this.xRectangleLabel);
-            this.groupBox1.Controls.Add(this.xRectangleTextBox);
-            this.groupBox1.Controls.Add(this.findRectanglesButton);
-            this.groupBox1.Controls.Add(this.colorLabel);
-            this.groupBox1.Controls.Add(this.widthLabel);
-            this.groupBox1.Controls.Add(this.lengthLabel);
-            this.groupBox1.Controls.Add(this.colorTextBox);
-            this.groupBox1.Controls.Add(this.widthTextBox);
-            this.groupBox1.Controls.Add(this.lengthTextBox);
-            this.groupBox1.Controls.Add(this.rectangleListBox);
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(411, 484);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.rectanglesBox.Controls.Add(this.idRectangleLabel);
+            this.rectanglesBox.Controls.Add(this.IdRectangleTextBox);
+            this.rectanglesBox.Controls.Add(this.yRectangleLabel);
+            this.rectanglesBox.Controls.Add(this.yRectangleTextBox);
+            this.rectanglesBox.Controls.Add(this.xRectangleLabel);
+            this.rectanglesBox.Controls.Add(this.xRectangleTextBox);
+            this.rectanglesBox.Controls.Add(this.findRectanglesButton);
+            this.rectanglesBox.Controls.Add(this.colorLabel);
+            this.rectanglesBox.Controls.Add(this.widthLabel);
+            this.rectanglesBox.Controls.Add(this.lengthLabel);
+            this.rectanglesBox.Controls.Add(this.colorTextBox);
+            this.rectanglesBox.Controls.Add(this.widthTextBox);
+            this.rectanglesBox.Controls.Add(this.lengthTextBox);
+            this.rectanglesBox.Controls.Add(this.rectangleListBox);
+            this.rectanglesBox.Location = new System.Drawing.Point(0, 0);
+            this.rectanglesBox.Name = "rectanglesBox";
+            this.rectanglesBox.Size = new System.Drawing.Size(411, 484);
+            this.rectanglesBox.TabIndex = 0;
+            this.rectanglesBox.TabStop = false;
+            this.rectanglesBox.Text = "Rectangles";
             // 
             // idRectangleLabel
             // 
@@ -197,18 +197,19 @@ namespace Programming.View.Panels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.rectanglesBox);
             this.Name = "RectangleListControl";
             this.Size = new System.Drawing.Size(411, 484);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Load += new System.EventHandler(this.RectangleListControl_Load);
+            this.rectanglesBox.ResumeLayout(false);
+            this.rectanglesBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox rectanglesBox;
         private System.Windows.Forms.Label idRectangleLabel;
         private System.Windows.Forms.TextBox IdRectangleTextBox;
         private System.Windows.Forms.Label yRectangleLabel;
