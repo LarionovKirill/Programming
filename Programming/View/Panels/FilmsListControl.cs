@@ -15,35 +15,13 @@ namespace Programming.View.Panels
     public partial class FilmsListControl : UserControl
     {
         /// <summary>
-        /// Количество элементов для генерирования объектов.
-        /// </summary>
-        const int countItems = 5;
-
-        /// <summary>
         /// Массив элементов класса Film.
         /// </summary>
-        Model.Films[] _films = new Model.Films[countItems];
+        Model.Films[] _films = new Model.Films[5];
 
         public FilmsListControl()
         {
             InitializeComponent();
-
-            int countOfGenre = Enum.GetNames(typeof(Model.Enums.Genre)).Length;
-            Random random = new Random();
-            for (int i = 0; i < countItems; i++)
-            {
-                //Заполнение фильмов
-                Genre genre;
-                _films[i] = new Model.Films();
-                filmsListBox.Items.Add($"Film {i + 1}");
-                _films[i].YearOfRelease = random.Next(1900, 2024);
-                genre = (Genre)random.Next(countOfGenre);
-                _films[i].Genre = genre.ToString();
-                _films[i].Rating = random.Next(1, 101) / 10d;
-                _films[i].Duration = random.Next(80, 300);
-                _films[i].Title = Convert.ToChar(random.Next((int)'A',(int)'Z')).ToString();
-            }
-            filmsListBox.SelectedIndex = 0;
         }
         /// <summary>
         /// Устанавливает значение выбранного фильма
@@ -78,7 +56,7 @@ namespace Programming.View.Panels
         {
             int maxRatingIndex = 0;
             double maxRating = 0d;
-            for (int i = 0; i < countItems; i++)
+            for (int i = 0; i < 5; i++)
             {
                 if (_films[i].Rating > maxRating)
                 {
@@ -204,6 +182,35 @@ namespace Programming.View.Panels
             {
                 durationTextBox.BackColor = System.Drawing.Color.LightPink;
             }
+        }
+
+        /// <summary>
+        /// Метод запускается при запуске интерфейса фильмов и заполняет их в этот момент.
+        /// </summary>
+        /// <param name="sender">
+        /// Предоставляет ссылку на объект, вызвавший событие. 
+        /// </param>
+        /// <param name="e">
+        /// Передает объект, относящийся к обрабатываемому событию.
+        /// </param>
+        private void FilmsListControl_Load(object sender, EventArgs e)
+        {
+            int countOfGenre = Enum.GetNames(typeof(Model.Enums.Genre)).Length;
+            Random random = new Random();
+            for (int i = 0; i < 5; i++)
+            {
+                //Заполнение фильмов
+                Genre genre;
+                _films[i] = new Model.Films();
+                filmsListBox.Items.Add($"Film {i + 1}");
+                _films[i].YearOfRelease = random.Next(1900, 2024);
+                genre = (Genre)random.Next(countOfGenre);
+                _films[i].Genre = genre.ToString();
+                _films[i].Rating = random.Next(1, 101) / 10d;
+                _films[i].Duration = random.Next(80, 300);
+                _films[i].Title = Convert.ToChar(random.Next((int)'A', (int)'Z')).ToString();
+            }
+            filmsListBox.SelectedIndex = 0;
         }
     }
 }

@@ -59,9 +59,9 @@ namespace Programming.View.Panels
             this.filmsGroupBox.Controls.Add(this.durationTextBox);
             this.filmsGroupBox.Controls.Add(this.titleTextBox);
             this.filmsGroupBox.Controls.Add(this.filmsListBox);
-            this.filmsGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.filmsGroupBox.Location = new System.Drawing.Point(0, 0);
             this.filmsGroupBox.Name = "filmsGroupBox";
-            this.filmsGroupBox.Size = new System.Drawing.Size(411, 483);
+            this.filmsGroupBox.Size = new System.Drawing.Size(421, 491);
             this.filmsGroupBox.TabIndex = 0;
             this.filmsGroupBox.TabStop = false;
             this.filmsGroupBox.Text = "Films";
@@ -178,6 +178,7 @@ namespace Programming.View.Panels
             this.Controls.Add(this.filmsGroupBox);
             this.Name = "FilmsListControl";
             this.Size = new System.Drawing.Size(421, 491);
+            this.Load += new System.EventHandler(this.FilmsListControl_Load);
             this.filmsGroupBox.ResumeLayout(false);
             this.filmsGroupBox.PerformLayout();
             this.ResumeLayout(false);
