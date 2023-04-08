@@ -130,6 +130,7 @@ namespace Programming.View.Panels
             this.findRectanglesButton.Text = "Find";
             this.findRectanglesButton.UseVisualStyleBackColor = true;
             this.findRectanglesButton.TextChanged += new System.EventHandler(this.FindRectangleWithMaxWidth);
+            this.findRectanglesButton.Click += new System.EventHandler(this.FindRectangleWithMaxWidth);
             // 
             // colorLabel
             // 

@@ -157,7 +157,6 @@ namespace Programming.View.Panels
             else
             {
                 genreTextBox.BackColor = System.Drawing.Color.LightPink;
-                throw new ArgumentException();
             }
         }
 
