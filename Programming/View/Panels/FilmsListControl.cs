@@ -83,11 +83,11 @@ namespace Programming.View.Panels
             {
                 int index = filmsListBox.SelectedIndex;
                 _films[index].Title = titleTextBox.Text;
-                titleTextBox.BackColor = System.Drawing.Color.White;
+                titleTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             catch
             {
-                titleTextBox.BackColor = System.Drawing.Color.LightPink;
+                titleTextBox.BackColor = Model.AppColors.wrongAnswer;
             }
         }
 
@@ -106,11 +106,11 @@ namespace Programming.View.Panels
             {
                 int index = filmsListBox.SelectedIndex;
                 _films[index].Rating = double.Parse(ratingTextBox.Text);
-                ratingTextBox.BackColor = System.Drawing.Color.White;
+                ratingTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             catch
             {
-                ratingTextBox.BackColor = System.Drawing.Color.LightPink;
+                ratingTextBox.BackColor = Model.AppColors.wrongAnswer;
             }
         }
 
@@ -130,11 +130,11 @@ namespace Programming.View.Panels
             {
                 int index = filmsListBox.SelectedIndex;
                 _films[index].Genre = genreTextBox.Text;
-                genreTextBox.BackColor = System.Drawing.Color.White;
+                genreTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             else
             {
-                genreTextBox.BackColor = System.Drawing.Color.LightPink;
+                genreTextBox.BackColor = Model.AppColors.wrongAnswer;
             }
         }
 
@@ -153,11 +153,11 @@ namespace Programming.View.Panels
             {
                 int index = filmsListBox.SelectedIndex;
                 _films[index].YearOfRelease = int.Parse(yearOfReleaseTextBox.Text);
-                yearOfReleaseTextBox.BackColor = System.Drawing.Color.White;
+                yearOfReleaseTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             catch
             {
-                yearOfReleaseTextBox.BackColor = System.Drawing.Color.LightPink;
+                yearOfReleaseTextBox.BackColor = Model.AppColors.wrongAnswer;
             }
         }
 
@@ -176,11 +176,11 @@ namespace Programming.View.Panels
             {
                 int index = filmsListBox.SelectedIndex;
                 _films[index].Duration = int.Parse(durationTextBox.Text);
-                durationTextBox.BackColor = System.Drawing.Color.White;
+                durationTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             catch
             {
-                durationTextBox.BackColor = System.Drawing.Color.LightPink;
+                durationTextBox.BackColor = Model.AppColors.wrongAnswer;
             }
         }
 
