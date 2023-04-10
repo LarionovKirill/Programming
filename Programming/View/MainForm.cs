@@ -217,7 +217,6 @@ namespace Programming.View
             xRectangleTextBox.Text = current.Center.X.ToString();
             yRectangleTextBox.Text = current.Center.Y.ToString();
             IdRectangleTextBox.Text = current.Id.ToString();    
-
         }
 
         /// <summary>
@@ -426,7 +425,6 @@ namespace Programming.View
             else
             {
                 genreTextBox.BackColor = System.Drawing.Color.LightPink;
-                throw new ArgumentException();
             }
         }
 
@@ -490,25 +488,22 @@ namespace Programming.View
             //Работа с полями прямоугольника.
             Model.Rectangle _currentRectangle = RectangleFactory.Randomize(
                 panelForRectangles.Width,
-               panelForRectangles.Height
-               );
+               panelForRectangles.Height);
             _rectangles.Add(_currentRectangle);
             string text = CreateStringWithRectangleParameters(
                 _currentRectangle.Id,
                 _currentRectangle.Center.X, 
                 _currentRectangle.Center.Y,
                 _currentRectangle.Width,
-                _currentRectangle.Length
-                );
+                _currentRectangle.Length);
             rectanglesListBox.Items.Insert(_rectangles.Count - 6,text);
             //Работа с панелью.
             Panel _currentPanel = new Panel();
             _currentPanel.Location = new Point(
                 (int)_currentRectangle.Center.X, 
-                (int)_currentRectangle.Center.Y
-                );
-            _currentPanel.Width = int.Parse(_currentRectangle.Width.ToString());
-            _currentPanel.Height = int.Parse(_currentRectangle.Length.ToString());
+                (int)_currentRectangle.Center.Y);
+            _currentPanel.Width = (int)_currentRectangle.Width;
+            _currentPanel.Height = (int)_currentRectangle.Length;
             _currentPanel.BackColor = System.Drawing.Color.FromArgb(127, 127, 255, 127);
             _panels.Add(_currentPanel);
             panelForRectangles.Controls.Add(_currentPanel);
