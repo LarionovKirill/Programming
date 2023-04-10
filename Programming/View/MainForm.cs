@@ -18,21 +18,17 @@ namespace Programming.View
         /// <summary>
         /// Количество элементов для генерирования объектов.
         /// </summary>
-        const int countItems = 5;
-
-        /// <summary>
-        /// Массив элементов класса Reactangle.
-        /// </summary>
+        const int _countItems = 5;
 
         /// <summary>
         /// Массив элементов класса Film.
         /// </summary>
-        Films[] films = new Films[countItems];
+        Films[] _films = new Films[_countItems];
 
         /// <summary>
         /// Список прямоугольников класса Rectangle.
         /// </summary>
-        List<Model.Rectangle> rectangles = new List<Model.Rectangle>();
+        List<Model.Rectangle> _rectangles = new List<Model.Rectangle>();
 
         /// <summary>
         /// Список панелей.
@@ -60,7 +56,7 @@ namespace Programming.View
             int countOfColors = Enum.GetNames(typeof(Model.Enums.Color)).Length;
             Random random = new Random();
             //Заполнение listbox 
-            for (int i = 0; i < countItems; i++)
+            for (int i = 0; i < _countItems; i++)
             {
                 ///Заполнеение прямоугольников
                 Model.Enums.Color color;
@@ -68,19 +64,19 @@ namespace Programming.View
                 double width = random.Next(1, 51);
                 color = (Model.Enums.Color)random.Next(countOfColors);
                 Point2D point = new Point2D(random.Next(0, 100), random.Next(0, 100));
-                rectangles.Add(new Model.Rectangle(length, width, color.ToString(), point));
+                _rectangles.Add(new Model.Rectangle(length, width, color.ToString(), point));
                 rectangleListBox.Items.Add($"Rectangle {i + 1}");
 
                 //Заполнение фильмов
                 Genre genre;
-                films[i] = new Films();
+                _films[i] = new Films();
                 filmsListBox.Items.Add($"Film {i + 1}");
-                films[i].YearOfRelease = random.Next(1900, 2024);
+                _films[i].YearOfRelease = random.Next(1900, 2024);
                 genre = (Genre)random.Next(countOfGenre);
-                films[i].Genre = genre.ToString();
-                films[i].Rating = random.Next(1, 101) / 10d;
-                films[i].Duration = random.Next(80, 300);
-                films[i].Title = Convert.ToChar(random.Next(65, 133)).ToString();
+                _films[i].Genre = genre.ToString();
+                _films[i].Rating = random.Next(1, 101) / 10d;
+                _films[i].Duration = random.Next(80, 300);
+                _films[i].Title = Convert.ToChar(random.Next(65, 133)).ToString();
             }
             filmsListBox.SelectedIndex = 0;
             rectangleListBox.SelectedIndex = 0;
@@ -210,7 +206,7 @@ namespace Programming.View
         private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = rectangleListBox.SelectedIndex;
-            Model.Rectangle current = rectangles[index];
+            Model.Rectangle current = _rectangles[index];
             lengthTextBox.Text = current.Length.ToString();
             widthTextBox.Text = current.Width.ToString();
             colorTextBox.Text = current.Color.ToString();
@@ -232,12 +228,12 @@ namespace Programming.View
         {
             int maxRectanlgeIndex = 0;
             double maxWidth = 0d;
-            for (int i = 0; i < countItems; i++)
+            for (int i = 0; i < _countItems; i++)
             {
-                if (rectangles[i].Width > maxWidth)
+                if (_rectangles[i].Width > maxWidth)
                 {
                     maxRectanlgeIndex = i;
-                    maxWidth = rectangles[i].Width;
+                    maxWidth = _rectangles[i].Width;
                 }
             }
             rectangleListBox.SelectedIndex = maxRectanlgeIndex;
@@ -257,7 +253,7 @@ namespace Programming.View
             try
             {
                 int index = rectangleListBox.SelectedIndex;
-                rectangles[index].Length = double.Parse(lengthTextBox.Text);
+                _rectangles[index].Length = double.Parse(lengthTextBox.Text);
                 lengthTextBox.BackColor = System.Drawing.Color.White;
             }
             catch
@@ -280,7 +276,7 @@ namespace Programming.View
             try
             {
                 int index = rectangleListBox.SelectedIndex;
-                rectangles[index].Width = double.Parse(widthTextBox.Text);
+                _rectangles[index].Width = double.Parse(widthTextBox.Text);
                 widthTextBox.BackColor = System.Drawing.Color.White;
             }
             catch
@@ -304,7 +300,7 @@ namespace Programming.View
             if (check)
             {
                 int index = rectangleListBox.SelectedIndex;
-                rectangles[index].Color = colorTextBox.Text;
+                _rectangles[index].Color = colorTextBox.Text;
                 colorTextBox.BackColor = System.Drawing.Color.White;
             }
             else
@@ -325,7 +321,7 @@ namespace Programming.View
         private void FilmsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = filmsListBox.SelectedIndex;
-            Films current = films[index];
+            Films current = _films[index];
             titleTextBox.Text = current.Title.ToString();
             genreTextBox.Text = current.Genre.ToString();
             durationTextBox.Text = current.Duration.ToString();
@@ -346,12 +342,12 @@ namespace Programming.View
         {
             int maxRatingIndex = 0;
             double maxRating = 0d;
-            for (int i = 0; i < countItems; i++)
+            for (int i = 0; i < _countItems; i++)
             {
-                if (films[i].Rating > maxRating)
+                if (_films[i].Rating > maxRating)
                 {
                     maxRatingIndex = i;
-                    maxRating = films[i].Rating;
+                    maxRating = _films[i].Rating;
                 }
             }
             filmsListBox.SelectedIndex = maxRatingIndex;
@@ -372,7 +368,7 @@ namespace Programming.View
             try
             {
                 int index = filmsListBox.SelectedIndex;
-                films[index].Title = titleTextBox.Text;
+                _films[index].Title = titleTextBox.Text;
                 titleTextBox.BackColor = System.Drawing.Color.White;
             }
             catch
@@ -395,7 +391,7 @@ namespace Programming.View
             try
             {
                 int index = filmsListBox.SelectedIndex;
-                films[index].Rating = double.Parse(ratingTextBox.Text);
+                _films[index].Rating = double.Parse(ratingTextBox.Text);
                 ratingTextBox.BackColor = System.Drawing.Color.White;
             }
             catch
@@ -419,7 +415,7 @@ namespace Programming.View
             if (check)
             {
                 int index = filmsListBox.SelectedIndex;
-                films[index].Genre = genreTextBox.Text;
+                _films[index].Genre = genreTextBox.Text;
                 genreTextBox.BackColor = System.Drawing.Color.White;
             }
             else
@@ -442,7 +438,7 @@ namespace Programming.View
             try
             {
                 int index = filmsListBox.SelectedIndex;
-                films[index].YearOfRelease = int.Parse(yearOfReleaseTextBox.Text);
+                _films[index].YearOfRelease = int.Parse(yearOfReleaseTextBox.Text);
                 yearOfReleaseTextBox.BackColor = System.Drawing.Color.White;
             }
             catch
@@ -465,7 +461,7 @@ namespace Programming.View
             try
             {
                 int index = filmsListBox.SelectedIndex;
-                films[index].Duration = int.Parse(durationTextBox.Text);
+                _films[index].Duration = int.Parse(durationTextBox.Text);
                 durationTextBox.BackColor = System.Drawing.Color.White;
             }
             catch
@@ -489,14 +485,14 @@ namespace Programming.View
             Model.Rectangle currentRectangle = RectangleFactory.Randomize(
                 panelForRectangles.Width,
                panelForRectangles.Height);
-            rectangles.Add(currentRectangle);
+            _rectangles.Add(currentRectangle);
             string text = CreateStringWithRectangleParameters(
                 currentRectangle.Id,
                 currentRectangle.Center.X, 
                 currentRectangle.Center.Y,
                 currentRectangle.Width,
                 currentRectangle.Length);
-            rectanglesListBox.Items.Insert(rectangles.Count - 6,text);
+            rectanglesListBox.Items.Insert(_rectangles.Count - 6,text);
             //Работа с панелью.
             Panel currentPanel = new Panel();
             currentPanel.Location = new Point(
@@ -524,7 +520,7 @@ namespace Programming.View
             var index = rectanglesListBox.SelectedIndex;
             if (index >= 0)
             {
-                rectangles.RemoveAt(index+5);
+                _rectangles.RemoveAt(index+5);
                 rectanglesListBox.Items.RemoveAt(index);
                 panels.RemoveAt(index);
                 panelForRectangles.Controls.RemoveAt(index);
@@ -550,7 +546,7 @@ namespace Programming.View
             }
             else
             {
-                Model.Rectangle currentRectangle = rectangles[index+5];
+                Model.Rectangle currentRectangle = _rectangles[index+5];
                 UpdateRectangleInfo(currentRectangle); 
             }
         }
@@ -569,10 +565,10 @@ namespace Programming.View
             try
             {
                 int index = rectanglesListBox.SelectedIndex;
-                Model.Rectangle currentRectangle = rectangles[index + 5];
+                Model.Rectangle currentRectangle = _rectangles[index + 5];
                 if (int.Parse(xTextBox.Text) + currentRectangle.Width <= panelForRectangles.Width)
                 {
-                    rectangles[index + 5].Center.X = int.Parse(xTextBox.Text);
+                    _rectangles[index + 5].Center.X = int.Parse(xTextBox.Text);
                     xTextBox.BackColor = System.Drawing.Color.White;
                     Point point = new Point();
                     point.X = (int)currentRectangle.Center.X;
@@ -612,10 +608,10 @@ namespace Programming.View
             try
             {
                 int index = rectanglesListBox.SelectedIndex;
-                Model.Rectangle currentRectangle = rectangles[index + 5];
+                Model.Rectangle currentRectangle = _rectangles[index + 5];
                 if (int.Parse(yTextBox.Text) + currentRectangle.Length <= panelForRectangles.Height)
                 {
-                    rectangles[index + 5].Center.Y = int.Parse(yTextBox.Text);
+                    _rectangles[index + 5].Center.Y = int.Parse(yTextBox.Text);
                     yTextBox.BackColor = System.Drawing.Color.White;
                     Point point = new Point();
                     point.X = (int)currentRectangle.Center.X;
@@ -655,11 +651,11 @@ namespace Programming.View
             try
             {
                 int index = rectanglesListBox.SelectedIndex;
-                Model.Rectangle currentRectangle = rectangles[index + 5];
+                Model.Rectangle currentRectangle = _rectangles[index + 5];
                 if (int.Parse(widthRectangleTextBox.Text) + currentRectangle.Center.X 
                     <= panelForRectangles.Width)
                 {
-                    rectangles[index + 5].Width = double.Parse(widthRectangleTextBox.Text);
+                    _rectangles[index + 5].Width = double.Parse(widthRectangleTextBox.Text);
                     widthRectangleTextBox.BackColor = System.Drawing.Color.White;
                     panels[index].Width = (int)currentRectangle.Width;
                     ChangingParametersOfRectangle(index, currentRectangle);
@@ -696,11 +692,11 @@ namespace Programming.View
             try
             {
                 int index = rectanglesListBox.SelectedIndex;
-                Model.Rectangle currentRectangle = rectangles[index + 5];
+                Model.Rectangle currentRectangle = _rectangles[index + 5];
                 if (int.Parse(lengthRectangleTextBox.Text) + currentRectangle.Center.Y
                     <= panelForRectangles.Height)
                 {
-                    rectangles[index + 5].Length = double.Parse(lengthRectangleTextBox.Text);
+                    _rectangles[index + 5].Length = double.Parse(lengthRectangleTextBox.Text);
                     lengthRectangleTextBox.BackColor = System.Drawing.Color.White;
                     panels[index].Height = (int)currentRectangle.Length;
                     ChangingParametersOfRectangle(index,currentRectangle);
@@ -753,17 +749,17 @@ namespace Programming.View
             {
                 panels[i].BackColor = System.Drawing.Color.FromArgb(127, 127, 255, 127);
             }
-            for (int i = 5; i < rectangles.Count; i++)
+            for (int i = 5; i < _rectangles.Count; i++)
             {
-                for (int j = 5; j < rectangles.Count; j++)
+                for (int j = 5; j < _rectangles.Count; j++)
                 {
-                    if (rectangles[i] == rectangles[j])
+                    if (_rectangles[i] == _rectangles[j])
                     {
                         continue;
                     }
                     else
                     {
-                        if (CollisionManager.IsCollision(rectangles[i], rectangles[j]))
+                        if (CollisionManager.IsCollision(_rectangles[i], _rectangles[j]))
                         {
                             panels[i - 5].BackColor = System.Drawing.Color.FromArgb(127, 255, 127, 127);
                             panels[j - 5].BackColor = System.Drawing.Color.FromArgb(127, 255, 127, 127);
