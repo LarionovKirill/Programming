@@ -20,7 +20,7 @@ namespace Programming.View.Panels
         /// <summary>
         /// Список прямоугольников класса Rectangle.
         /// </summary>
-        List<Model.Rectangle> _rectangles = new List<Model.Rectangle>();
+        List<Model.Rectangle> rectangles = new List<Model.Rectangle>();
         public RectangleListControl()
         {
             InitializeComponent();
@@ -38,7 +38,7 @@ namespace Programming.View.Panels
         private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = rectangleListBox.SelectedIndex;
-            Model.Rectangle current = _rectangles[index];
+            Model.Rectangle current = rectangles[index];
             lengthTextBox.Text = current.Length.ToString();
             widthTextBox.Text = current.Width.ToString();
             colorTextBox.Text = current.Color.ToString();
@@ -63,10 +63,10 @@ namespace Programming.View.Panels
             double maxWidth = 0d;
             for (int i = 0; i < countItems; i++)
             {
-                if (_rectangles[i].Width > maxWidth)
+                if (rectangles[i].Width > maxWidth)
                 {
                     maxRectanlgeIndex = i;
-                    maxWidth = _rectangles[i].Width;
+                    maxWidth = rectangles[i].Width;
                 }
             }
             rectangleListBox.SelectedIndex = maxRectanlgeIndex;
@@ -86,7 +86,7 @@ namespace Programming.View.Panels
             try
             {
                 int index = rectangleListBox.SelectedIndex;
-                _rectangles[index].Length = double.Parse(lengthTextBox.Text);
+                rectangles[index].Length = double.Parse(lengthTextBox.Text);
                 lengthTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             catch
@@ -109,7 +109,7 @@ namespace Programming.View.Panels
             try
             {
                 int index = rectangleListBox.SelectedIndex;
-                _rectangles[index].Width = double.Parse(widthTextBox.Text);
+                rectangles[index].Width = double.Parse(widthTextBox.Text);
                 widthTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             catch
@@ -133,7 +133,7 @@ namespace Programming.View.Panels
             if (check)
             {
                 int index = rectangleListBox.SelectedIndex;
-                _rectangles[index].Color = colorTextBox.Text;
+                rectangles[index].Color = colorTextBox.Text;
                 colorTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             else
@@ -164,7 +164,7 @@ namespace Programming.View.Panels
                 double width = random.Next(1, 51);
                 color = (Model.Enums.Color)random.Next(countOfColors);
                 Model.Point2D point = new Model.Point2D(random.Next(0, 100), random.Next(0, 100));
-                _rectangles.Add(new Model.Rectangle(length, width, color.ToString(), point));
+                rectangles.Add(new Model.Rectangle(length, width, color.ToString(), point));
                 rectangleListBox.Items.Add($"Rectangle {i + 1}");
             }
             rectangleListBox.SelectedIndex = 0;

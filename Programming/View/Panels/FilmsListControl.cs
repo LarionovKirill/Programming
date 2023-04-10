@@ -17,7 +17,7 @@ namespace Programming.View.Panels
         /// <summary>
         /// Массив элементов класса Film.
         /// </summary>
-        Model.Films[] _films = new Model.Films[5];
+        Model.Films[] films = new Model.Films[5];
 
         public FilmsListControl()
         {
@@ -35,7 +35,7 @@ namespace Programming.View.Panels
         private void FilmsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = filmsListBox.SelectedIndex;
-            Model.Films current = _films[index];
+            Model.Films current = films[index];
             titleTextBox.Text = current.Title.ToString();
             genreTextBox.Text = current.Genre.ToString();
             durationTextBox.Text = current.Duration.ToString();
@@ -58,10 +58,10 @@ namespace Programming.View.Panels
             double maxRating = 0d;
             for (int i = 0; i < 5; i++)
             {
-                if (_films[i].Rating > maxRating)
+                if (films[i].Rating > maxRating)
                 {
                     maxRatingIndex = i;
-                    maxRating = _films[i].Rating;
+                    maxRating = films[i].Rating;
                 }
             }
             filmsListBox.SelectedIndex = maxRatingIndex;
@@ -82,7 +82,7 @@ namespace Programming.View.Panels
             try
             {
                 int index = filmsListBox.SelectedIndex;
-                _films[index].Title = titleTextBox.Text;
+                films[index].Title = titleTextBox.Text;
                 titleTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             catch
@@ -105,7 +105,7 @@ namespace Programming.View.Panels
             try
             {
                 int index = filmsListBox.SelectedIndex;
-                _films[index].Rating = double.Parse(ratingTextBox.Text);
+                films[index].Rating = double.Parse(ratingTextBox.Text);
                 ratingTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             catch
@@ -129,7 +129,7 @@ namespace Programming.View.Panels
             if (check)
             {
                 int index = filmsListBox.SelectedIndex;
-                _films[index].Genre = genreTextBox.Text;
+                films[index].Genre = genreTextBox.Text;
                 genreTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             else
@@ -152,7 +152,7 @@ namespace Programming.View.Panels
             try
             {
                 int index = filmsListBox.SelectedIndex;
-                _films[index].YearOfRelease = int.Parse(yearOfReleaseTextBox.Text);
+                films[index].YearOfRelease = int.Parse(yearOfReleaseTextBox.Text);
                 yearOfReleaseTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             catch
@@ -175,7 +175,7 @@ namespace Programming.View.Panels
             try
             {
                 int index = filmsListBox.SelectedIndex;
-                _films[index].Duration = int.Parse(durationTextBox.Text);
+                films[index].Duration = int.Parse(durationTextBox.Text);
                 durationTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             catch
@@ -201,14 +201,14 @@ namespace Programming.View.Panels
             {
                 //Заполнение фильмов
                 Genre genre;
-                _films[i] = new Model.Films();
+                films[i] = new Model.Films();
                 filmsListBox.Items.Add($"Film {i + 1}");
-                _films[i].YearOfRelease = random.Next(1900, 2024);
+                films[i].YearOfRelease = random.Next(1900, 2024);
                 genre = (Genre)random.Next(countOfGenre);
-                _films[i].Genre = genre.ToString();
-                _films[i].Rating = random.Next(1, 101) / 10d;
-                _films[i].Duration = random.Next(80, 300);
-                _films[i].Title = Convert.ToChar(random.Next((int)'A', (int)'Z')).ToString();
+                films[i].Genre = genre.ToString();
+                films[i].Rating = random.Next(1, 101) / 10d;
+                films[i].Duration = random.Next(80, 300);
+                films[i].Title = Convert.ToChar(random.Next((int)'A', (int)'Z')).ToString();
             }
             filmsListBox.SelectedIndex = 0;
         }

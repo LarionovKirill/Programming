@@ -15,7 +15,7 @@ namespace Programming.View.Panels
         /// <summary>
         /// Список прямоугольников класса Rectangle.
         /// </summary>
-        List<Model.Rectangle> _rectangles = new List<Model.Rectangle>();
+        List<Model.Rectangle> rectangles = new List<Model.Rectangle>();
 
         /// <summary>
         /// Список панелей.
@@ -38,27 +38,27 @@ namespace Programming.View.Panels
         private void buttonAddRectangle_Click(object sender, EventArgs e)
         {
             //Работа с полями прямоугольника.
-            Model.Rectangle _currentRectangle = Model.RectangleFactory.Randomize(
+            Model.Rectangle currentRectangle = Model.RectangleFactory.Randomize(
                 panelForRectangles.Width,
                panelForRectangles.Height
                );
             string text = CreateStringWithRectangleParameters(
-                _currentRectangle.Id,
-                _currentRectangle.Center.X,
-                _currentRectangle.Center.Y,
-                _currentRectangle.Width,
-                _currentRectangle.Length
+                currentRectangle.Id,
+                currentRectangle.Center.X,
+                currentRectangle.Center.Y,
+                currentRectangle.Width,
+                currentRectangle.Length
                 );
-            rectanglesListBox.Items.Insert(_rectangles.Count, text);
-            _rectangles.Add(_currentRectangle);
+            rectanglesListBox.Items.Insert(rectangles.Count, text);
+            rectangles.Add(currentRectangle);
             //Работа с панелью.
             Panel _currentPanel = new Panel();
             _currentPanel.Location = new Point(
-                (int)_currentRectangle.Center.X,
-                (int)_currentRectangle.Center.Y
+                (int)currentRectangle.Center.X,
+                (int)currentRectangle.Center.Y
                 );
-            _currentPanel.Width = int.Parse(_currentRectangle.Width.ToString());
-            _currentPanel.Height = int.Parse(_currentRectangle.Length.ToString());
+            _currentPanel.Width = int.Parse(currentRectangle.Width.ToString());
+            _currentPanel.Height = int.Parse(currentRectangle.Length.ToString());
             _currentPanel.BackColor = Model.AppColors.simpleRectangle;
             _panels.Add(_currentPanel);
             panelForRectangles.Controls.Add(_currentPanel);
@@ -79,7 +79,7 @@ namespace Programming.View.Panels
             var index = rectanglesListBox.SelectedIndex;
             if (index >= 0)
             {
-                _rectangles.RemoveAt(index);
+                rectangles.RemoveAt(index);
                 rectanglesListBox.Items.RemoveAt(index);
                 _panels.RemoveAt(index);
                 panelForRectangles.Controls.RemoveAt(index);
@@ -105,8 +105,8 @@ namespace Programming.View.Panels
             }
             else
             {
-                Model.Rectangle _currentRectangle = _rectangles[index];
-                UpdateRectangleInfo(_currentRectangle);
+                Model.Rectangle currentRectangle = rectangles[index];
+                UpdateRectangleInfo(currentRectangle);
             }
         }
 
@@ -124,16 +124,16 @@ namespace Programming.View.Panels
             try
             {
                 int index = rectanglesListBox.SelectedIndex;
-                Model.Rectangle _currentRectangle = _rectangles[index];
-                if (int.Parse(xTextBox.Text) + _currentRectangle.Width <= panelForRectangles.Width)
+                Model.Rectangle currentRectangle = rectangles[index];
+                if (int.Parse(xTextBox.Text) + currentRectangle.Width <= panelForRectangles.Width)
                 {
-                    _rectangles[index].Center.X = int.Parse(xTextBox.Text);
+                    rectangles[index].Center.X = int.Parse(xTextBox.Text);
                     xTextBox.BackColor = System.Drawing.Color.White;
                     Point point = new Point();
-                    point.X = (int)_currentRectangle.Center.X;
-                    point.Y = (int)_currentRectangle.Center.Y;
+                    point.X = (int)currentRectangle.Center.X;
+                    point.Y = (int)currentRectangle.Center.Y;
                     _panels[index].Location = point;
-                    ChangingParametersOfRectangle(index, _currentRectangle);
+                    ChangingParametersOfRectangle(index, currentRectangle);
                 }
                 else
                 {
@@ -167,16 +167,16 @@ namespace Programming.View.Panels
             try
             {
                 int index = rectanglesListBox.SelectedIndex;
-                Model.Rectangle _currentRectangle = _rectangles[index];
-                if (int.Parse(yTextBox.Text) + _currentRectangle.Length <= panelForRectangles.Height)
+                Model.Rectangle currentRectangle = rectangles[index];
+                if (int.Parse(yTextBox.Text) + currentRectangle.Length <= panelForRectangles.Height)
                 {
-                    _rectangles[index].Center.Y = int.Parse(yTextBox.Text);
+                    rectangles[index].Center.Y = int.Parse(yTextBox.Text);
                     yTextBox.BackColor = System.Drawing.Color.White;
                     Point point = new Point();
-                    point.X = (int)_currentRectangle.Center.X;
-                    point.Y = (int)_currentRectangle.Center.Y;
+                    point.X = (int)currentRectangle.Center.X;
+                    point.Y = (int)currentRectangle.Center.Y;
                     _panels[index].Location = point;
-                    ChangingParametersOfRectangle(index, _currentRectangle);
+                    ChangingParametersOfRectangle(index, currentRectangle);
                 }
                 else
                 {
@@ -210,14 +210,14 @@ namespace Programming.View.Panels
             try
             {
                 int index = rectanglesListBox.SelectedIndex;
-                Model.Rectangle _currentRectangle = _rectangles[index];
-                if (int.Parse(widthRectangleTextBox.Text) + _currentRectangle.Center.X
+                Model.Rectangle currentRectangle = rectangles[index];
+                if (int.Parse(widthRectangleTextBox.Text) + currentRectangle.Center.X
                     <= panelForRectangles.Width)
                 {
-                    _rectangles[index].Width = double.Parse(widthRectangleTextBox.Text);
+                    rectangles[index].Width = double.Parse(widthRectangleTextBox.Text);
                     widthRectangleTextBox.BackColor = System.Drawing.Color.White;
-                    _panels[index].Width = (int)_currentRectangle.Width;
-                    ChangingParametersOfRectangle(index, _currentRectangle);
+                    _panels[index].Width = (int)currentRectangle.Width;
+                    ChangingParametersOfRectangle(index, currentRectangle);
                 }
                 else
                 {
@@ -251,14 +251,14 @@ namespace Programming.View.Panels
             try
             {
                 int index = rectanglesListBox.SelectedIndex;
-                Model.Rectangle _currentRectangle = _rectangles[index];
-                if (int.Parse(lengthRectangleTextBox.Text) + _currentRectangle.Center.Y
+                Model.Rectangle currentRectangle = rectangles[index];
+                if (int.Parse(lengthRectangleTextBox.Text) + currentRectangle.Center.Y
                     <= panelForRectangles.Height)
                 {
-                    _rectangles[index].Length = double.Parse(lengthRectangleTextBox.Text);
+                    rectangles[index].Length = double.Parse(lengthRectangleTextBox.Text);
                     lengthRectangleTextBox.BackColor = System.Drawing.Color.White;
-                    _panels[index].Height = (int)_currentRectangle.Length;
-                    ChangingParametersOfRectangle(index, _currentRectangle);
+                    _panels[index].Height = (int)currentRectangle.Length;
+                    ChangingParametersOfRectangle(index, currentRectangle);
                 }
                 else
                 {
@@ -308,17 +308,17 @@ namespace Programming.View.Panels
             {
                 _panels[i].BackColor = Model.AppColors.simpleRectangle;
             }
-            for (int i =0; i < _rectangles.Count; i++)
+            for (int i =0; i < rectangles.Count; i++)
             {
-                for (int j = 0; j < _rectangles.Count; j++)
+                for (int j = 0; j < rectangles.Count; j++)
                 {
-                    if (_rectangles[i] == _rectangles[j])
+                    if (rectangles[i] == rectangles[j])
                     {
                         continue;
                     }
                     else
                     {
-                        if (Model.CollisionManager.IsCollision(_rectangles[i], _rectangles[j]))
+                        if (Model.CollisionManager.IsCollision(rectangles[i], rectangles[j]))
                         {
                             _panels[i].BackColor = System.Drawing.Color.FromArgb(127, 255, 127, 127);
                             _panels[j].BackColor = System.Drawing.Color.FromArgb(127, 255, 127, 127);
