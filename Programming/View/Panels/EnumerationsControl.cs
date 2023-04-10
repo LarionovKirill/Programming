@@ -18,7 +18,7 @@ namespace Programming.View.Panels
         {
             InitializeComponent();
             var enums = new[]
-{
+            {
                 "Color",
                 "EducationForm",
                 "Genre",
