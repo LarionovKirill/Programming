@@ -483,7 +483,7 @@ namespace Programming.View
         /// <param name="e">
         /// Передает объект, относящийся к обрабатываемому событию.
         /// </param>
-        private void buttonAddRectangle_Click(object sender, EventArgs e)
+        private void ButtonAddRectangle_Click(object sender, EventArgs e)
         {
             //Работа с полями прямоугольника.
             Model.Rectangle _currentRectangle = RectangleFactory.Randomize(
@@ -519,7 +519,7 @@ namespace Programming.View
         /// <param name="e">
         /// Передает объект, относящийся к обрабатываемому событию.
         /// </param>
-        private void buttonRemoveRectangle_Click(object sender, EventArgs e)
+        private void ButtonRemoveRectangle_Click(object sender, EventArgs e)
         {
             var index = rectanglesListBox.SelectedIndex;
             if (index >= 0)
@@ -541,7 +541,7 @@ namespace Programming.View
         /// <param name="e">
         /// Передает объект, относящийся к обрабатываемому событию.
         /// </param>
-        private void rectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var index = rectanglesListBox.SelectedIndex;
             if (index < 0)
@@ -564,7 +564,7 @@ namespace Programming.View
         /// <param name="e">
         /// Передает объект, относящийся к обрабатываемому событию.
         /// </param>
-        private void xTextBox_TextChanged(object sender, EventArgs e)
+        private void XTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -607,7 +607,7 @@ namespace Programming.View
         /// <param name="e">
         /// Передает объект, относящийся к обрабатываемому событию.
         /// </param>
-        private void yTextBox_TextChanged(object sender, EventArgs e)
+        private void YTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -650,7 +650,7 @@ namespace Programming.View
         /// <param name="e">
         /// Передает объект, относящийся к обрабатываемому событию.
         /// </param>
-        private void widthRectangleTextBox_TextChanged(object sender, EventArgs e)
+        private void WidthRectangleTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -691,7 +691,7 @@ namespace Programming.View
         /// <param name="e">
         /// Передает объект, относящийся к обрабатываемому событию.
         /// </param>
-        private void lengthRectangleTextBox_TextChanged(object sender, EventArgs e)
+        private void LengthRectangleTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {

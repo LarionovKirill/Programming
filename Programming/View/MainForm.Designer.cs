@@ -622,7 +622,7 @@ namespace Programming.View
             this.buttonRemoveRectangle.TabIndex = 15;
             this.buttonRemoveRectangle.Text = "Remove";
             this.buttonRemoveRectangle.UseVisualStyleBackColor = true;
-            this.buttonRemoveRectangle.Click += new System.EventHandler(this.buttonRemoveRectangle_Click);
+            this.buttonRemoveRectangle.Click += new System.EventHandler(this.ButtonRemoveRectangle_Click);
             // 
             // buttonAddRectangle
             // 
@@ -633,7 +633,7 @@ namespace Programming.View
             this.buttonAddRectangle.TabIndex = 14;
             this.buttonAddRectangle.Text = "Add";
             this.buttonAddRectangle.UseVisualStyleBackColor = true;
-            this.buttonAddRectangle.Click += new System.EventHandler(this.buttonAddRectangle_Click);
+            this.buttonAddRectangle.Click += new System.EventHandler(this.ButtonAddRectangle_Click);
             // 
             // labelLength
             // 
@@ -686,7 +686,7 @@ namespace Programming.View
             this.lengthRectangleTextBox.Name = "lengthRectangleTextBox";
             this.lengthRectangleTextBox.Size = new System.Drawing.Size(100, 22);
             this.lengthRectangleTextBox.TabIndex = 8;
-            this.lengthRectangleTextBox.TextChanged += new System.EventHandler(this.lengthRectangleTextBox_TextChanged);
+            this.lengthRectangleTextBox.TextChanged += new System.EventHandler(this.LengthRectangleTextBox_TextChanged);
             // 
             // widthRectangleTextBox
             // 
@@ -694,7 +694,7 @@ namespace Programming.View
             this.widthRectangleTextBox.Name = "widthRectangleTextBox";
             this.widthRectangleTextBox.Size = new System.Drawing.Size(100, 22);
             this.widthRectangleTextBox.TabIndex = 7;
-            this.widthRectangleTextBox.TextChanged += new System.EventHandler(this.widthRectangleTextBox_TextChanged);
+            this.widthRectangleTextBox.TextChanged += new System.EventHandler(this.WidthRectangleTextBox_TextChanged);
             // 
             // yTextBox
             // 
@@ -702,7 +702,7 @@ namespace Programming.View
             this.yTextBox.Name = "yTextBox";
             this.yTextBox.Size = new System.Drawing.Size(100, 22);
             this.yTextBox.TabIndex = 6;
-            this.yTextBox.TextChanged += new System.EventHandler(this.yTextBox_TextChanged);
+            this.yTextBox.TextChanged += new System.EventHandler(this.YTextBox_TextChanged);
             // 
             // xTextBox
             // 
@@ -710,7 +710,7 @@ namespace Programming.View
             this.xTextBox.Name = "xTextBox";
             this.xTextBox.Size = new System.Drawing.Size(100, 22);
             this.xTextBox.TabIndex = 5;
-            this.xTextBox.TextChanged += new System.EventHandler(this.xTextBox_TextChanged);
+            this.xTextBox.TextChanged += new System.EventHandler(this.XTextBox_TextChanged);
             // 
             // idTextBox
             // 
@@ -746,7 +746,7 @@ namespace Programming.View
             this.rectanglesListBox.Name = "rectanglesListBox";
             this.rectanglesListBox.Size = new System.Drawing.Size(428, 212);
             this.rectanglesListBox.TabIndex = 1;
-            this.rectanglesListBox.SelectedIndexChanged += new System.EventHandler(this.rectanglesListBox_SelectedIndexChanged);
+            this.rectanglesListBox.SelectedIndexChanged += new System.EventHandler(this.RectanglesListBox_SelectedIndexChanged);
             // 
             // panelForRectangles
             // 
