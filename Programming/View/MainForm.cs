@@ -33,7 +33,7 @@ namespace Programming.View
         /// <summary>
         /// Список панелей.
         /// </summary>
-        List<Panel> panels = new List<Panel>();
+        List<Panel> _panels = new List<Panel>();
 
         /// <summary>
         /// Главный метод, который запускается с программой.
@@ -501,7 +501,7 @@ namespace Programming.View
             currentPanel.Width = (int)currentRectangle.Width;
             currentPanel.Height = (int)currentRectangle.Length;
             currentPanel.BackColor = System.Drawing.Color.FromArgb(127, 127, 255, 127);
-            panels.Add(currentPanel);
+            _panels.Add(currentPanel);
             panelForRectangles.Controls.Add(currentPanel);
             FindCollisions();
         }
@@ -522,7 +522,7 @@ namespace Programming.View
             {
                 _rectangles.RemoveAt(index+5);
                 rectanglesListBox.Items.RemoveAt(index);
-                panels.RemoveAt(index);
+                _panels.RemoveAt(index);
                 panelForRectangles.Controls.RemoveAt(index);
                 FindCollisions();
             }
@@ -573,7 +573,7 @@ namespace Programming.View
                     Point point = new Point();
                     point.X = (int)currentRectangle.UpperLeftCorner.X;
                     point.Y = (int)currentRectangle.UpperLeftCorner.Y;
-                    panels[index].Location = point;
+                    _panels[index].Location = point;
                     ChangingParametersOfRectangle(index, currentRectangle);
                 }
                 else
@@ -616,7 +616,7 @@ namespace Programming.View
                     Point point = new Point();
                     point.X = (int)currentRectangle.UpperLeftCorner.X;
                     point.Y = (int)currentRectangle.UpperLeftCorner.Y;
-                    panels[index].Location = point;
+                    _panels[index].Location = point;
                     ChangingParametersOfRectangle(index, currentRectangle);
                 }
                 else
@@ -657,7 +657,7 @@ namespace Programming.View
                 {
                     _rectangles[index + 5].Width = double.Parse(widthRectangleTextBox.Text);
                     widthRectangleTextBox.BackColor = System.Drawing.Color.White;
-                    panels[index].Width = (int)currentRectangle.Width;
+                    _panels[index].Width = (int)currentRectangle.Width;
                     ChangingParametersOfRectangle(index, currentRectangle);
                 }
                 else
@@ -698,7 +698,7 @@ namespace Programming.View
                 {
                     _rectangles[index + 5].Length = double.Parse(lengthRectangleTextBox.Text);
                     lengthRectangleTextBox.BackColor = System.Drawing.Color.White;
-                    panels[index].Height = (int)currentRectangle.Length;
+                    _panels[index].Height = (int)currentRectangle.Length;
                     ChangingParametersOfRectangle(index,currentRectangle);
                 }
                 else
@@ -745,9 +745,9 @@ namespace Programming.View
         /// </summary>
         private void FindCollisions()
         {
-            for (int i = 0; i < panels.Count; i++)
+            for (int i = 0; i < _panels.Count; i++)
             {
-                panels[i].BackColor = System.Drawing.Color.FromArgb(127, 127, 255, 127);
+                _panels[i].BackColor = System.Drawing.Color.FromArgb(127, 127, 255, 127);
             }
             for (int i = 5; i < _rectangles.Count; i++)
             {
@@ -761,8 +761,8 @@ namespace Programming.View
                     {
                         if (CollisionManager.IsCollision(_rectangles[i], _rectangles[j]))
                         {
-                            panels[i - 5].BackColor = System.Drawing.Color.FromArgb(127, 255, 127, 127);
-                            panels[j - 5].BackColor = System.Drawing.Color.FromArgb(127, 255, 127, 127);
+                            _panels[i - 5].BackColor = System.Drawing.Color.FromArgb(127, 255, 127, 127);
+                            _panels[j - 5].BackColor = System.Drawing.Color.FromArgb(127, 255, 127, 127);
                         }
                     }
                 }
