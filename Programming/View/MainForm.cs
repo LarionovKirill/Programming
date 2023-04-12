@@ -806,8 +806,7 @@ namespace Programming.View
                 currentRectangle.UpperLeftCorner.X, 
                 currentRectangle.UpperLeftCorner.Y,
                 currentRectangle.Width, 
-                currentRectangle.Length
-                );
+                currentRectangle.Length);
             rectanglesListBox.Items.Insert(index, text);
             rectanglesListBox.SelectedIndex = index;
             rectanglesListBox.Items.RemoveAt(index + 1);
