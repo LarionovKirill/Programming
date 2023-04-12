@@ -25,7 +25,7 @@ namespace Programming.Model
             int x = random.Next(15, maxWidth - 15 - width);
             int y = random.Next(15, maxHeight - 15 - heigth);
             Point2D point = new Point2D(x,y);
-            currentRectangle.Center = point;
+            currentRectangle.UpperLeftCorner = point;
             return currentRectangle;
         }
     }

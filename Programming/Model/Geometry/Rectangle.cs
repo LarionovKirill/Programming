@@ -81,7 +81,7 @@ namespace Programming.Model
         /// <summary>
         /// Свойство для поля Center;
         /// </summary>
-        public Point2D Center { get; set; }
+        public Point2D UpperLeftCorner { get; set; }
 
         /// <summary>
         /// Свойство для поля _allRectanglesCount
@@ -119,7 +119,7 @@ namespace Programming.Model
             this.Color = color;
             this.Length = length;
             this.Width = width;
-            this.Center = point;
+            this.UpperLeftCorner = point;
             _allRectanglesCount += 1;
             this.Id = _allRectanglesCount;
         }
