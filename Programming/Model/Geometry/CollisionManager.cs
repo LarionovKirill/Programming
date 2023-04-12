@@ -20,11 +20,10 @@ namespace Programming.Model
         /// иначе false.</returns>
         public static bool IsCollision(Rectangle rectangle1, Rectangle rectangle2)
         {
-            if (rectangle1.Center.X < rectangle2.Center.X + rectangle2.Width &&
-                rectangle1.Center.X + rectangle1.Width > rectangle2.Center.X &&
-                rectangle1.Center.Y < rectangle2.Center.Y + rectangle2.Length &&
-                rectangle1.Center.Y + rectangle1.Length > rectangle2.Center.Y
-                )
+            if (rectangle1.UpperLeftCorner.X < rectangle1.UpperLeftCorner.X + rectangle2.Width &&
+                rectangle1.UpperLeftCorner.X + rectangle1.Width > rectangle1.UpperLeftCorner.X &&
+                rectangle1.UpperLeftCorner.Y < rectangle1.UpperLeftCorner.Y + rectangle2.Length &&
+                rectangle1.UpperLeftCorner.Y + rectangle1.Length > rectangle1.UpperLeftCorner.Y)
             {
                 return true;
             }
