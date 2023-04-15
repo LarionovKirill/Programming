@@ -15,16 +15,22 @@ namespace Programming.View.Panels
         /// <summary>
         /// Количество элементов для генерирования объектов.
         /// </summary>
-        const int countItems = 5;
+        const int COUNT_ITEMS = 5;
 
         /// <summary>
         /// Список прямоугольников класса Rectangle.
         /// </summary>
         List<Model.Rectangle> _rectangles = new List<Model.Rectangle>();
+
         public RectangleListControl()
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Свойство для списка прямоугольников.
+        /// </summary>
+        private List<Model.Rectangle> Rectangles { get { return _rectangles; } set { } }
 
         /// <summary>
         /// Заполняет TextBox при нажатии элемента из ListBox
@@ -38,7 +44,7 @@ namespace Programming.View.Panels
         private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = rectangleListBox.SelectedIndex;
-            Model.Rectangle current = _rectangles[index];
+            Model.Rectangle current = Rectangles[index];
             lengthTextBox.Text = current.Length.ToString();
             widthTextBox.Text = current.Width.ToString();
             colorTextBox.Text = current.Color.ToString();
@@ -61,12 +67,12 @@ namespace Programming.View.Panels
         {
             int maxRectanlgeIndex = 0;
             double maxWidth = 0d;
-            for (int i = 0; i < countItems; i++)
+            for (int i = 0; i < COUNT_ITEMS; i++)
             {
-                if (_rectangles[i].Width > maxWidth)
+                if (Rectangles[i].Width > maxWidth)
                 {
                     maxRectanlgeIndex = i;
-                    maxWidth = _rectangles[i].Width;
+                    maxWidth = Rectangles[i].Width;
                 }
             }
             rectangleListBox.SelectedIndex = maxRectanlgeIndex;
@@ -86,7 +92,7 @@ namespace Programming.View.Panels
             try
             {
                 int index = rectangleListBox.SelectedIndex;
-                _rectangles[index].Length = double.Parse(lengthTextBox.Text);
+                Rectangles[index].Length = double.Parse(lengthTextBox.Text);
                 lengthTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             catch
@@ -109,7 +115,7 @@ namespace Programming.View.Panels
             try
             {
                 int index = rectangleListBox.SelectedIndex;
-                _rectangles[index].Width = double.Parse(widthTextBox.Text);
+                Rectangles[index].Width = double.Parse(widthTextBox.Text);
                 widthTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             catch
@@ -133,7 +139,7 @@ namespace Programming.View.Panels
             if (check)
             {
                 int index = rectangleListBox.SelectedIndex;
-                _rectangles[index].Color = colorTextBox.Text;
+                Rectangles[index].Color = colorTextBox.Text;
                 colorTextBox.BackColor = Model.AppColors.correctAnswer;
             }
             else
@@ -156,7 +162,7 @@ namespace Programming.View.Panels
             int countOfColors = Enum.GetNames(typeof(Model.Enums.Color)).Length;
             Random random = new Random();
             //Заполнение listbox 
-            for (int i = 0; i < countItems; i++)
+            for (int i = 0; i < COUNT_ITEMS; i++)
             {
                 ///Заполнеение прямоугольников
                 Model.Enums.Color color;
@@ -164,7 +170,7 @@ namespace Programming.View.Panels
                 double width = random.Next(1, 51);
                 color = (Model.Enums.Color)random.Next(countOfColors);
                 Model.Point2D point = new Model.Point2D(random.Next(0, 100), random.Next(0, 100));
-                _rectangles.Add(new Model.Rectangle(length, width, color.ToString(), point));
+                Rectangles.Add(new Model.Rectangle(length, width, color.ToString(), point));
                 rectangleListBox.Items.Add($"Rectangle {i + 1}");
             }
             rectangleListBox.SelectedIndex = 0;

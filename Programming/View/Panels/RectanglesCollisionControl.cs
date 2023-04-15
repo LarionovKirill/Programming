@@ -21,10 +21,21 @@ namespace Programming.View.Panels
         /// Список панелей.
         /// </summary>
         List<Panel> _panels = new List<Panel>();
+
         public RectanglesCollisionControl()
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Свойство для списка панелей канвы.
+        /// </summary>
+        private List<Panel> Panels { set { } get { return _panels; } }
+
+        /// <summary>
+        /// Свойство для списка прямоугольников.
+        /// </summary>
+        private List<Model.Rectangle> Rectangles { set { } get { return _rectangles; } }
 
         /// <summary>
         /// Добавляет прямоугольник в ListBox.
@@ -49,8 +60,8 @@ namespace Programming.View.Panels
                 currentRectangle.Width,
                 currentRectangle.Length
                 );
-            rectanglesListBox.Items.Insert(_rectangles.Count, text);
-            _rectangles.Add(currentRectangle);
+            rectanglesListBox.Items.Insert(Rectangles.Count, text);
+            Rectangles.Add(currentRectangle);
             //Работа с панелью.
             Panel _currentPanel = new Panel();
             _currentPanel.Location = new Point(
@@ -60,7 +71,7 @@ namespace Programming.View.Panels
             _currentPanel.Width = int.Parse(currentRectangle.Width.ToString());
             _currentPanel.Height = int.Parse(currentRectangle.Length.ToString());
             _currentPanel.BackColor = Model.AppColors.simpleRectangle;
-            _panels.Add(_currentPanel);
+            Panels.Add(_currentPanel);
             panelForRectangles.Controls.Add(_currentPanel);
             FindCollisions();
         }
@@ -79,9 +90,9 @@ namespace Programming.View.Panels
             var index = rectanglesListBox.SelectedIndex;
             if (index >= 0)
             {
-                _rectangles.RemoveAt(index);
+                Rectangles.RemoveAt(index);
                 rectanglesListBox.Items.RemoveAt(index);
-                _panels.RemoveAt(index);
+                Panels.RemoveAt(index);
                 panelForRectangles.Controls.RemoveAt(index);
                 FindCollisions();
             }
@@ -105,7 +116,7 @@ namespace Programming.View.Panels
             }
             else
             {
-                Model.Rectangle currentRectangle = _rectangles[index];
+                Model.Rectangle currentRectangle = Rectangles[index];
                 UpdateRectangleInfo(currentRectangle);
             }
         }
@@ -124,15 +135,15 @@ namespace Programming.View.Panels
             try
             {
                 int index = rectanglesListBox.SelectedIndex;
-                Model.Rectangle currentRectangle = _rectangles[index];
+                Model.Rectangle currentRectangle = Rectangles[index];
                 if (int.Parse(xTextBox.Text) + currentRectangle.Width <= panelForRectangles.Width)
                 {
-                    _rectangles[index].UpperLeftCorner.X = int.Parse(xTextBox.Text);
+                    Rectangles[index].UpperLeftCorner.X = int.Parse(xTextBox.Text);
                     xTextBox.BackColor = System.Drawing.Color.White;
                     Point point = new Point();
                     point.X = (int)currentRectangle.UpperLeftCorner.X;
                     point.Y = (int)currentRectangle.UpperLeftCorner.Y;
-                    _panels[index].Location = point;
+                    Panels[index].Location = point;
                     ChangingParametersOfRectangle(index, currentRectangle);
                 }
                 else
@@ -167,15 +178,15 @@ namespace Programming.View.Panels
             try
             {
                 int index = rectanglesListBox.SelectedIndex;
-                Model.Rectangle currentRectangle = _rectangles[index];
+                Model.Rectangle currentRectangle = Rectangles[index];
                 if (int.Parse(yTextBox.Text) + currentRectangle.Length <= panelForRectangles.Height)
                 {
-                    _rectangles[index].UpperLeftCorner.Y = int.Parse(yTextBox.Text);
+                    Rectangles[index].UpperLeftCorner.Y = int.Parse(yTextBox.Text);
                     yTextBox.BackColor = System.Drawing.Color.White;
                     Point point = new Point();
                     point.X = (int)currentRectangle.UpperLeftCorner.X;
                     point.Y = (int)currentRectangle.UpperLeftCorner.Y;
-                    _panels[index].Location = point;
+                    Panels[index].Location = point;
                     ChangingParametersOfRectangle(index, currentRectangle);
                 }
                 else
@@ -210,13 +221,13 @@ namespace Programming.View.Panels
             try
             {
                 int index = rectanglesListBox.SelectedIndex;
-                Model.Rectangle currentRectangle = _rectangles[index];
+                Model.Rectangle currentRectangle = Rectangles[index];
                 if (int.Parse(widthRectangleTextBox.Text) + currentRectangle.UpperLeftCorner.X
                     <= panelForRectangles.Width)
                 {
-                    _rectangles[index].Width = double.Parse(widthRectangleTextBox.Text);
+                    Rectangles[index].Width = double.Parse(widthRectangleTextBox.Text);
                     widthRectangleTextBox.BackColor = System.Drawing.Color.White;
-                    _panels[index].Width = (int)currentRectangle.Width;
+                    Panels[index].Width = (int)currentRectangle.Width;
                     ChangingParametersOfRectangle(index, currentRectangle);
                 }
                 else
@@ -251,13 +262,13 @@ namespace Programming.View.Panels
             try
             {
                 int index = rectanglesListBox.SelectedIndex;
-                Model.Rectangle currentRectangle = _rectangles[index];
+                Model.Rectangle currentRectangle = Rectangles[index];
                 if (int.Parse(lengthRectangleTextBox.Text) + currentRectangle.UpperLeftCorner.Y
                     <= panelForRectangles.Height)
                 {
-                    _rectangles[index].Length = double.Parse(lengthRectangleTextBox.Text);
+                    Rectangles[index].Length = double.Parse(lengthRectangleTextBox.Text);
                     lengthRectangleTextBox.BackColor = System.Drawing.Color.White;
-                    _panels[index].Height = (int)currentRectangle.Length;
+                    Panels[index].Height = (int)currentRectangle.Length;
                     ChangingParametersOfRectangle(index, currentRectangle);
                 }
                 else
@@ -304,24 +315,24 @@ namespace Programming.View.Panels
         /// </summary>
         private void FindCollisions()
         {
-            for (int i = 0; i < _panels.Count; i++)
+            for (int i = 0; i < Panels.Count; i++)
             {
-                _panels[i].BackColor = Model.AppColors.simpleRectangle;
+                Panels[i].BackColor = Model.AppColors.simpleRectangle;
             }
-            for (int i =0; i < _rectangles.Count; i++)
+            for (int i =0; i < Rectangles.Count; i++)
             {
-                for (int j = 0; j < _rectangles.Count; j++)
+                for (int j = 0; j < Rectangles.Count; j++)
                 {
-                    if (_rectangles[i] == _rectangles[j])
+                    if (Rectangles[i] == Rectangles[j])
                     {
                         continue;
                     }
                     else
                     {
-                        if (Model.CollisionManager.IsCollision(_rectangles[i], _rectangles[j]))
+                        if (Model.CollisionManager.IsCollision(Rectangles[i], Rectangles[j]))
                         {
-                            _panels[i].BackColor = System.Drawing.Color.FromArgb(127, 255, 127, 127);
-                            _panels[j].BackColor = System.Drawing.Color.FromArgb(127, 255, 127, 127);
+                            Panels[i].BackColor = System.Drawing.Color.FromArgb(127, 255, 127, 127);
+                            Panels[j].BackColor = System.Drawing.Color.FromArgb(127, 255, 127, 127);
                         }
                     }
                 }
