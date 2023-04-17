@@ -1,0 +1,9 @@
+C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task\PersonalTask\PersonalTask\bin\Debug\PersonalTask.exe.config
+C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task\PersonalTask\PersonalTask\bin\Debug\PersonalTask.exe
+C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task\PersonalTask\PersonalTask\bin\Debug\PersonalTask.pdb
+C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task\PersonalTask\PersonalTask\obj\Debug\PersonalTask.csproj.AssemblyReference.cache
+C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task\PersonalTask\PersonalTask\obj\Debug\PersonalTask.Properties.Resources.resources
+C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task\PersonalTask\PersonalTask\obj\Debug\PersonalTask.csproj.GenerateResource.cache
+C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task\PersonalTask\PersonalTask\obj\Debug\PersonalTask.csproj.CoreCompileInputs.cache
+C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task\PersonalTask\PersonalTask\obj\Debug\PersonalTask.exe
+C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task\PersonalTask\PersonalTask\obj\Debug\PersonalTask.pdb
