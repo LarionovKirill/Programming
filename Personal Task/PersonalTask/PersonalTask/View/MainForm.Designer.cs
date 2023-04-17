@@ -29,13 +29,32 @@ namespace PersonalTask
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.userInterface1 = new PersonalTask.View.UserInterface();
+            this.SuspendLayout();
+            // 
+            // userInterface1
+            // 
+            this.userInterface1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userInterface1.Location = new System.Drawing.Point(0, 0);
+            this.userInterface1.Name = "userInterface1";
+            this.userInterface1.Size = new System.Drawing.Size(861, 528);
+            this.userInterface1.TabIndex = 0;
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(861, 528);
+            this.Controls.Add(this.userInterface1);
+            this.Name = "MainForm";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private View.UserInterface userInterface1;
     }
 }
 

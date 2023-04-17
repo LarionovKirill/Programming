@@ -7,3 +7,5 @@ C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task
 C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task\PersonalTask\PersonalTask\obj\Debug\PersonalTask.csproj.CoreCompileInputs.cache
 C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task\PersonalTask\PersonalTask\obj\Debug\PersonalTask.exe
 C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task\PersonalTask\PersonalTask\obj\Debug\PersonalTask.pdb
+C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task\PersonalTask\PersonalTask\obj\Debug\PersonalTask.View.UserInterface.resources
+C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task\PersonalTask\PersonalTask\obj\Debug\PersonalTask.MainForm.resources
