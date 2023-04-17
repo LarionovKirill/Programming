@@ -44,9 +44,10 @@ namespace PersonalTask.View
         {
             try
             {
-                int index = airTravelsListBox.SelectedIndex;
-                Model.AirTravel current = AirTravels[index];
-                current.Departure = departureTextBox.Text;
+                PersonalTask.Services.ColissionManager.AssertOnLengthOfString(
+                    destinationTextBox.Text,
+                    100,
+                    "Длина строки не должна превышать 100 символов.");
                 departureTextBox.BackColor = Color.White;
             }
             catch
@@ -62,9 +63,10 @@ namespace PersonalTask.View
         {
             try
             {
-                int index = airTravelsListBox.SelectedIndex;
-                Model.AirTravel current = AirTravels[index];
-                current.Destination = departureTextBox.Text;
+                PersonalTask.Services.ColissionManager.AssertOnLengthOfString(
+                    destinationTextBox.Text,
+                    100,
+                    "Длина строки не должна превышать 100 символов.");
                 destinationTextBox.BackColor = Color.White;
             }
             catch
@@ -80,9 +82,10 @@ namespace PersonalTask.View
         {
             try
             {
-                int index = airTravelsListBox.SelectedIndex;
-                Model.AirTravel current = AirTravels[index];
-                current.DepartureTime = dateTimePicker.Value;
+                PersonalTask.Services.ColissionManager.AssertDepartureTime(
+                    dateTimePicker.Value,
+                    "Неверная дата вылета."
+                    );
             }
             catch
             {

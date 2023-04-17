@@ -47,8 +47,8 @@ namespace PersonalTask.Services
         public static void AssertDepartureTime(DateTime departureFlight, string properyName)
         {
             DateTime currentTime;
-            currentTime = DateTime.Now;
-            if (departureFlight < currentTime)
+            currentTime = DateTime.Now.Date;
+            if (departureFlight.Date < currentTime.Date)
             {
                 throw new ArgumentException(properyName);
             }
