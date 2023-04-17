@@ -85,6 +85,7 @@ namespace PersonalTask.View
             this.timeFlightTextBox.Name = "timeFlightTextBox";
             this.timeFlightTextBox.Size = new System.Drawing.Size(202, 22);
             this.timeFlightTextBox.TabIndex = 9;
+            this.timeFlightTextBox.TextChanged += new System.EventHandler(this.TimeFlightTextBox_TextChanged);
             // 
             // typeOfFlightComboBox
             // 

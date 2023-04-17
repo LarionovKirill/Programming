@@ -93,11 +93,36 @@ namespace PersonalTask.View
             }
         }
 
+        /// <summary>
+        /// Метод, который срабатывает при загрузке интерфейса.
+        /// </summary>
         private void UserInterface_Load(object sender, EventArgs e)
         {
             foreach (var item in Enum.GetValues(typeof(Model.FlightType)))
             {
                 typeOfFlightComboBox.Items.Add(item);
+            }
+        }
+
+        /// <summary>
+        /// Проверка на длительность полета.
+        /// </summary>
+        private void TimeFlightTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try 
+            {
+                if (timeFlightTextBox.Text.Length > 0)
+                {
+                    PersonalTask.Services.ColissionManager.AssertFlightTime(
+                        int.Parse(timeFlightTextBox.Text),
+                        1000,
+                        "Время полета не должно превышать 1000 минут."
+                        );
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Время полета от 1 до 1000 минут.");
             }
         }
     }
