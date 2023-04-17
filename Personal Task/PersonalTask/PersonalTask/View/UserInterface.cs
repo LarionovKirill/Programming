@@ -122,8 +122,16 @@ namespace PersonalTask.View
             }
             catch
             {
+                timeFlightTextBox.BackColor = Color.Pink;
                 MessageBox.Show("Время полета от 1 до 1000 минут.");
             }
+        }
+
+        /// <summary>
+        /// Метод при наведении на кнопку делает ее более тусклой.
+        /// </summary>
+        private void ChangePictureBox_MouseMove(object sender, MouseEventArgs e)
+        {
         }
     }
 }

@@ -93,12 +93,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\GreenAddButton.png" />
+    <Resource Include="Resources\GreenAddButton.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\ChangeButton.png" />
-    <None Include="Resources\ChangeButton1.png" />
-    <Content Include="Resources\DeleteButton.png" />
+    <Resource Include="Resources\ChangeButton.png" />
+    <Resource Include="Resources\DeleteButton.png" />
+    <Resource Include="Resources\ChangeButtonContrast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\DeleteButtonContrast.png" />
+    <Resource Include="Resources\GreenAddButtonContrast.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

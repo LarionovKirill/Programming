@@ -42,11 +42,11 @@ namespace PersonalTask.View
             this.departureLabel = new System.Windows.Forms.Label();
             this.destinationTextBox = new System.Windows.Forms.TextBox();
             this.departureTextBox = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.changePictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.addPictureBox = new System.Windows.Forms.PictureBox();
             this.airTravelGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.changePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -164,15 +164,16 @@ namespace PersonalTask.View
             this.departureTextBox.TabIndex = 0;
             this.departureTextBox.TextChanged += new System.EventHandler(this.DepartureTextBox_TextChanged);
             // 
-            // pictureBox2
+            // changePictureBox
             // 
-            this.pictureBox2.Image = global::PersonalTask.Properties.Resources.ChangeButton;
-            this.pictureBox2.Location = new System.Drawing.Point(121, 491);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(36, 33);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
+            this.changePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("changePictureBox.Image")));
+            this.changePictureBox.Location = new System.Drawing.Point(121, 491);
+            this.changePictureBox.Name = "changePictureBox";
+            this.changePictureBox.Size = new System.Drawing.Size(36, 33);
+            this.changePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.changePictureBox.TabIndex = 4;
+            this.changePictureBox.TabStop = false;
+            this.changePictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ChangePictureBox_MouseMove);
             // 
             // pictureBox1
             // 
@@ -198,7 +199,7 @@ namespace PersonalTask.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.changePictureBox);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.addPictureBox);
             this.Controls.Add(this.airTravelGroupBox);
@@ -208,7 +209,7 @@ namespace PersonalTask.View
             this.Load += new System.EventHandler(this.UserInterface_Load);
             this.airTravelGroupBox.ResumeLayout(false);
             this.airTravelGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.changePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addPictureBox)).EndInit();
             this.ResumeLayout(false);
@@ -231,6 +232,6 @@ namespace PersonalTask.View
         private System.Windows.Forms.TextBox departureTextBox;
         private System.Windows.Forms.PictureBox addPictureBox;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox changePictureBox;
     }
 }
