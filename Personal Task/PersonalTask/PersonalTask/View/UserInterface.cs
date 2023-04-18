@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -128,10 +129,67 @@ namespace PersonalTask.View
         }
 
         /// <summary>
-        /// Метод при наведении на кнопку делает ее более тусклой.
+        /// Метод при наведении на кнопку редактирования делает ее более тусклой.
         /// </summary>
         private void ChangePictureBox_MouseMove(object sender, MouseEventArgs e)
         {
+            changePictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(
+                "ChangeButtonContrast");
+        }
+
+        /// <summary>
+        /// Метод возвращает контраст кнопки редактирования при покидании курсора.
+        /// </summary>
+        private void ChangePictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            changePictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(
+                "ChangeButton");
+        }
+
+        /// <summary>
+        /// Метод при наведении на кнопку удаления делает ее более тусклой.
+        /// </summary>
+        private void DeletePictureBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            deletePictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(
+                "DeleteButtonContrast");
+        }
+
+        /// <summary>
+        /// Метод возвращает контраст кнопки удаления при покидании курсора.
+        /// </summary>
+        private void DeletePictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            deletePictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(
+                "DeleteButton");
+        }
+
+        /// <summary>
+        /// Метод при наведении на кнопку удаления делает ее более тусклой.
+        /// </summary>
+        private void AddPictureBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            addPictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(
+                "GreenAddButtonContrast");
+        }
+
+        /// <summary>
+        /// Метод возвращает контраст кнопки удаления при покидании курсора.
+        /// </summary>
+        private void AddPictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            addPictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(
+                "GreenAddButton");
+        }
+
+        /// <summary>
+        /// Обработка нажати кнопки добавить.
+        /// </summary>
+
+        private void AddPictureBox_Click(object sender, EventArgs e)
+        {
+            addPictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(
+                "GreenAddButton");
         }
     }
 }

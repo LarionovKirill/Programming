@@ -43,11 +43,11 @@ namespace PersonalTask.View
             this.destinationTextBox = new System.Windows.Forms.TextBox();
             this.departureTextBox = new System.Windows.Forms.TextBox();
             this.changePictureBox = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.deletePictureBox = new System.Windows.Forms.PictureBox();
             this.addPictureBox = new System.Windows.Forms.PictureBox();
             this.airTravelGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.changePictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deletePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -173,17 +173,20 @@ namespace PersonalTask.View
             this.changePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.changePictureBox.TabIndex = 4;
             this.changePictureBox.TabStop = false;
+            this.changePictureBox.MouseLeave += new System.EventHandler(this.ChangePictureBox_MouseLeave);
             this.changePictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ChangePictureBox_MouseMove);
             // 
-            // pictureBox1
+            // deletePictureBox
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(70, 491);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 33);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.deletePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("deletePictureBox.Image")));
+            this.deletePictureBox.Location = new System.Drawing.Point(70, 491);
+            this.deletePictureBox.Name = "deletePictureBox";
+            this.deletePictureBox.Size = new System.Drawing.Size(36, 33);
+            this.deletePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.deletePictureBox.TabIndex = 3;
+            this.deletePictureBox.TabStop = false;
+            this.deletePictureBox.MouseLeave += new System.EventHandler(this.DeletePictureBox_MouseLeave);
+            this.deletePictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DeletePictureBox_MouseMove);
             // 
             // addPictureBox
             // 
@@ -194,13 +197,16 @@ namespace PersonalTask.View
             this.addPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.addPictureBox.TabIndex = 2;
             this.addPictureBox.TabStop = false;
+            this.addPictureBox.Click += new System.EventHandler(this.AddPictureBox_Click);
+            this.addPictureBox.MouseLeave += new System.EventHandler(this.AddPictureBox_MouseLeave);
+            this.addPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AddPictureBox_MouseMove);
             // 
             // UserInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.changePictureBox);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.deletePictureBox);
             this.Controls.Add(this.addPictureBox);
             this.Controls.Add(this.airTravelGroupBox);
             this.Controls.Add(this.airTravelsListBox);
@@ -210,7 +216,7 @@ namespace PersonalTask.View
             this.airTravelGroupBox.ResumeLayout(false);
             this.airTravelGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.changePictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deletePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addPictureBox)).EndInit();
             this.ResumeLayout(false);
 
@@ -231,7 +237,7 @@ namespace PersonalTask.View
         private System.Windows.Forms.TextBox destinationTextBox;
         private System.Windows.Forms.TextBox departureTextBox;
         private System.Windows.Forms.PictureBox addPictureBox;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox deletePictureBox;
         private System.Windows.Forms.PictureBox changePictureBox;
     }
 }

@@ -73,6 +73,16 @@ namespace PersonalTask.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ChangeButtonContrast {
+            get {
+                object obj = ResourceManager.GetObject("ChangeButtonContrast", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DeleteButton {
             get {
                 object obj = ResourceManager.GetObject("DeleteButton", resourceCulture);
@@ -83,9 +93,29 @@ namespace PersonalTask.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DeleteButtonContrast {
+            get {
+                object obj = ResourceManager.GetObject("DeleteButtonContrast", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GreenAddButton {
             get {
                 object obj = ResourceManager.GetObject("GreenAddButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GreenAddButtonContrast {
+            get {
+                object obj = ResourceManager.GetObject("GreenAddButtonContrast", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
