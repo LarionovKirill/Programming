@@ -84,7 +84,7 @@ namespace PersonalTask.View
             try
             {
                 PersonalTask.Services.ColissionManager.AssertDepartureTime(
-                    dateTimePicker.Value,
+                    departureTime.Value,
                     "Неверная дата вылета."
                     );
             }
@@ -112,10 +112,10 @@ namespace PersonalTask.View
         {
             try 
             {
-                if (timeFlightTextBox.Text.Length > 0)
+                if (flightTimeTextBox.Text.Length > 0)
                 {
                     PersonalTask.Services.ColissionManager.AssertFlightTime(
-                        int.Parse(timeFlightTextBox.Text),
+                        int.Parse(flightTimeTextBox.Text),
                         1000,
                         "Время полета не должно превышать 1000 минут."
                         );
@@ -123,7 +123,7 @@ namespace PersonalTask.View
             }
             catch
             {
-                timeFlightTextBox.BackColor = Color.Pink;
+                flightTimeTextBox.BackColor = Color.Pink;
                 MessageBox.Show("Время полета от 1 до 1000 минут.");
             }
         }
@@ -185,11 +185,29 @@ namespace PersonalTask.View
         /// <summary>
         /// Обработка нажати кнопки добавить.
         /// </summary>
-
         private void AddPictureBox_Click(object sender, EventArgs e)
         {
-            addPictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(
-                "GreenAddButton");
+            _airTravels.Add(new Model.AirTravel(
+                departureTextBox.Text,
+                destinationTextBox.Text,
+                departureTime.Value,
+                int.Parse(flightTimeTextBox.Text),
+                (Model.FlightType)Enum.Parse(typeof(Model.FlightType),
+                typeOfFlightComboBox.SelectedItem.ToString())));
+            airTravelsListBox.Items.Add(CreateStringForList(_airTravels.Last()));
+        }
+
+        /// <summary>
+        /// Метод формирует строку для вывода.
+        /// </summary>
+        /// <param name="current"> Объект класса AirTravel, откуда берется информация.</param>
+        /// <returns></returns>
+        private string CreateStringForList(Model.AirTravel current)
+        {
+            string finalString;
+            finalString = $"{current.DepartureTime.ToShortDateString()}: {current.Departure}" +
+                $" - {current.Destination} ";
+            return finalString;
         }
     }
 }

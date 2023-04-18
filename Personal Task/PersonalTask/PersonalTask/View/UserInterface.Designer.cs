@@ -32,12 +32,12 @@ namespace PersonalTask.View
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserInterface));
             this.airTravelsListBox = new System.Windows.Forms.ListBox();
             this.airTravelGroupBox = new System.Windows.Forms.GroupBox();
-            this.timeFlightTextBox = new System.Windows.Forms.TextBox();
+            this.flightTimeTextBox = new System.Windows.Forms.TextBox();
             this.typeOfFlightComboBox = new System.Windows.Forms.ComboBox();
             this.timeFlightLabel = new System.Windows.Forms.Label();
             this.typeOfFlightLabel = new System.Windows.Forms.Label();
             this.dayOfFlightLabel = new System.Windows.Forms.Label();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.departureTime = new System.Windows.Forms.DateTimePicker();
             this.destinationLabel = new System.Windows.Forms.Label();
             this.departureLabel = new System.Windows.Forms.Label();
             this.destinationTextBox = new System.Windows.Forms.TextBox();
@@ -62,12 +62,12 @@ namespace PersonalTask.View
             // 
             // airTravelGroupBox
             // 
-            this.airTravelGroupBox.Controls.Add(this.timeFlightTextBox);
+            this.airTravelGroupBox.Controls.Add(this.flightTimeTextBox);
             this.airTravelGroupBox.Controls.Add(this.typeOfFlightComboBox);
             this.airTravelGroupBox.Controls.Add(this.timeFlightLabel);
             this.airTravelGroupBox.Controls.Add(this.typeOfFlightLabel);
             this.airTravelGroupBox.Controls.Add(this.dayOfFlightLabel);
-            this.airTravelGroupBox.Controls.Add(this.dateTimePicker);
+            this.airTravelGroupBox.Controls.Add(this.departureTime);
             this.airTravelGroupBox.Controls.Add(this.destinationLabel);
             this.airTravelGroupBox.Controls.Add(this.departureLabel);
             this.airTravelGroupBox.Controls.Add(this.destinationTextBox);
@@ -77,15 +77,15 @@ namespace PersonalTask.View
             this.airTravelGroupBox.Size = new System.Drawing.Size(470, 235);
             this.airTravelGroupBox.TabIndex = 1;
             this.airTravelGroupBox.TabStop = false;
-            this.airTravelGroupBox.Text = "Выбранный полет";
+            this.airTravelGroupBox.Text = "Информация о полете";
             // 
-            // timeFlightTextBox
+            // flightTimeTextBox
             // 
-            this.timeFlightTextBox.Location = new System.Drawing.Point(147, 191);
-            this.timeFlightTextBox.Name = "timeFlightTextBox";
-            this.timeFlightTextBox.Size = new System.Drawing.Size(202, 22);
-            this.timeFlightTextBox.TabIndex = 9;
-            this.timeFlightTextBox.TextChanged += new System.EventHandler(this.TimeFlightTextBox_TextChanged);
+            this.flightTimeTextBox.Location = new System.Drawing.Point(147, 191);
+            this.flightTimeTextBox.Name = "flightTimeTextBox";
+            this.flightTimeTextBox.Size = new System.Drawing.Size(202, 22);
+            this.flightTimeTextBox.TabIndex = 9;
+            this.flightTimeTextBox.TextChanged += new System.EventHandler(this.TimeFlightTextBox_TextChanged);
             // 
             // typeOfFlightComboBox
             // 
@@ -122,13 +122,13 @@ namespace PersonalTask.View
             this.dayOfFlightLabel.TabIndex = 5;
             this.dayOfFlightLabel.Text = "Время вылета :";
             // 
-            // dateTimePicker
+            // departureTime
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(149, 113);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker.TabIndex = 4;
-            this.dateTimePicker.ValueChanged += new System.EventHandler(this.DateTimePicker_ValueChanged);
+            this.departureTime.Location = new System.Drawing.Point(149, 113);
+            this.departureTime.Name = "departureTime";
+            this.departureTime.Size = new System.Drawing.Size(200, 22);
+            this.departureTime.TabIndex = 4;
+            this.departureTime.ValueChanged += new System.EventHandler(this.DateTimePicker_ValueChanged);
             // 
             // destinationLabel
             // 
@@ -226,12 +226,12 @@ namespace PersonalTask.View
 
         private System.Windows.Forms.ListBox airTravelsListBox;
         private System.Windows.Forms.GroupBox airTravelGroupBox;
-        private System.Windows.Forms.TextBox timeFlightTextBox;
+        private System.Windows.Forms.TextBox flightTimeTextBox;
         private System.Windows.Forms.ComboBox typeOfFlightComboBox;
         private System.Windows.Forms.Label timeFlightLabel;
         private System.Windows.Forms.Label typeOfFlightLabel;
         private System.Windows.Forms.Label dayOfFlightLabel;
-        private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.DateTimePicker departureTime;
         private System.Windows.Forms.Label destinationLabel;
         private System.Windows.Forms.Label departureLabel;
         private System.Windows.Forms.TextBox destinationTextBox;
