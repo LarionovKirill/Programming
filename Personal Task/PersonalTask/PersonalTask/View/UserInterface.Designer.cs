@@ -59,6 +59,7 @@ namespace PersonalTask.View
             this.airTravelsListBox.Name = "airTravelsListBox";
             this.airTravelsListBox.Size = new System.Drawing.Size(330, 468);
             this.airTravelsListBox.TabIndex = 0;
+            this.airTravelsListBox.SelectedIndexChanged += new System.EventHandler(this.AirTravelsListBox_SelectedIndexChanged);
             // 
             // airTravelGroupBox
             // 
@@ -185,6 +186,7 @@ namespace PersonalTask.View
             this.deletePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.deletePictureBox.TabIndex = 3;
             this.deletePictureBox.TabStop = false;
+            this.deletePictureBox.Click += new System.EventHandler(this.DeletePictureBox_Click);
             this.deletePictureBox.MouseLeave += new System.EventHandler(this.DeletePictureBox_MouseLeave);
             this.deletePictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DeletePictureBox_MouseMove);
             // 

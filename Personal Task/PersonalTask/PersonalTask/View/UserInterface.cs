@@ -120,6 +120,7 @@ namespace PersonalTask.View
                         "Время полета не должно превышать 1000 минут."
                         );
                 }
+                flightTimeTextBox.BackColor = Color.White;
             }
             catch
             {
@@ -208,6 +209,38 @@ namespace PersonalTask.View
             finalString = $"{current.DepartureTime.ToShortDateString()}: {current.Departure}" +
                 $" - {current.Destination} ";
             return finalString;
+        }
+
+        /// <summary>
+        /// Метод удаляет выбранный авиаперелет из списка из списка.
+        /// </summary>
+        private void DeletePictureBox_Click(object sender, EventArgs e)
+        {
+            int index = airTravelsListBox.SelectedIndex;
+            airTravelsListBox.SelectedIndex = index - 1;
+            airTravelsListBox.Items.RemoveAt(index);
+            _airTravels.RemoveAt(index);
+        }
+
+        /// <summary>
+        /// Метод заполняет информация о перелете по выбранному элементу из списка.
+        /// </summary>
+        private void AirTravelsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = airTravelsListBox.SelectedIndex;
+            ToFillInformationAboutAirTravel(_airTravels[index]);
+        }
+
+        /// <summary>
+        /// Заполняет информация о перелете в поля textbox'ов.
+        /// </summary>
+        private void ToFillInformationAboutAirTravel(Model.AirTravel current)
+        {
+            departureTextBox.Text = current.Departure;
+            destinationTextBox.Text = current.Destination;
+            departureTime.Value = current.DepartureTime;
+            typeOfFlightComboBox.Text = current.FlightType.ToString();
+            flightTimeTextBox.Text = current.FlightTime.ToString();
         }
     }
 }
