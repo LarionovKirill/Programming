@@ -47,7 +47,7 @@ namespace PersonalTask
             this.ClientSize = new System.Drawing.Size(861, 528);
             this.Controls.Add(this.userInterface1);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Авиаперелеты";
             this.ResumeLayout(false);
 
         }
