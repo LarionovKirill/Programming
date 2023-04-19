@@ -9,6 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.IO;
+
+
 namespace PersonalTask.View
 {
     public partial class UserInterface : UserControl
@@ -33,9 +38,48 @@ namespace PersonalTask.View
             }
         }
 
+        /// <summary>
+        /// Инициализация компонентов пользовательского интерфейса.
+        /// </summary>
         public UserInterface()
         {
             InitializeComponent();
+            Deserialize();
+        }
+
+        /// <summary>
+        /// Сериализация данных.
+        /// Реализация взята из: https://learn.microsoft.com/ru-ru/dotnet/standard/serialization/system-text-json/how-to?pivots=dotnet-core-3-1
+        /// </summary>
+        private void Serialize()
+        {
+            var path = "AirTravels.json";
+            var contents = JsonSerializer.Serialize(AirTravels);
+            File.WriteAllText(path, contents);
+        }
+
+        /// <summary>
+        /// Десериализация данных.
+        /// Реализация взята из: https://learn.microsoft.com/ru-ru/dotnet/standard/serialization/system-text-json/how-to?pivots=dotnet-core-3-1
+        /// </summary>
+        private void Deserialize()
+        {
+
+            var path = "AirTravels.json";
+            var jsonString = File.ReadAllText(path);
+            if (jsonString != string.Empty)
+            {
+                var takedInformation = JsonSerializer.Deserialize<List<Model.AirTravel>>(jsonString);
+                foreach (var items in takedInformation)
+                {
+                    if (items != null)
+                    {
+                        AirTravels.Add(items);
+                        airTravelsListBox.Items.Add(CreateStringForList(AirTravels.Last()));
+                    }
+                }
+                SortData();
+            }
         }
 
         /// <summary>
@@ -200,6 +244,7 @@ namespace PersonalTask.View
                     typeOfFlightComboBox.SelectedItem.ToString())));
                 airTravelsListBox.Items.Add(CreateStringForList(_airTravels.Last()));
                 SortData();
+                Serialize();
             }
             catch 
             {
@@ -229,6 +274,7 @@ namespace PersonalTask.View
             airTravelsListBox.SelectedIndex = index - 1;
             airTravelsListBox.Items.RemoveAt(index);
             _airTravels.RemoveAt(index);
+            Serialize();
         }
 
         /// <summary>
@@ -269,6 +315,7 @@ namespace PersonalTask.View
                     typeOfFlightComboBox.SelectedItem.ToString());
             airTravelsListBox.Items[index] = CreateStringForList(AirTravels[index]);
             SortData();
+            Serialize();
         }
 
         /// <summary>

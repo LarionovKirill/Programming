@@ -9,6 +9,8 @@ namespace PersonalTask.Model
     /// <summary>
     /// Класс авиаперелетов.
     /// </summary>
+
+    [Serializable]
     class AirTravel
     {
         /// <summary>
