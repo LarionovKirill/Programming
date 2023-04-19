@@ -90,6 +90,7 @@ namespace PersonalTask.View
             // 
             // typeOfFlightComboBox
             // 
+            this.typeOfFlightComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.typeOfFlightComboBox.FormattingEnabled = true;
             this.typeOfFlightComboBox.Location = new System.Drawing.Point(149, 151);
             this.typeOfFlightComboBox.Name = "typeOfFlightComboBox";
@@ -129,7 +130,7 @@ namespace PersonalTask.View
             this.departureTime.Name = "departureTime";
             this.departureTime.Size = new System.Drawing.Size(200, 22);
             this.departureTime.TabIndex = 4;
-            this.departureTime.ValueChanged += new System.EventHandler(this.DateTimePicker_ValueChanged);
+            this.departureTime.ValueChanged += new System.EventHandler(this.DepartureTime_ValueChanged);
             // 
             // destinationLabel
             // 
@@ -168,19 +169,20 @@ namespace PersonalTask.View
             // changePictureBox
             // 
             this.changePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("changePictureBox.Image")));
-            this.changePictureBox.Location = new System.Drawing.Point(121, 491);
+            this.changePictureBox.Location = new System.Drawing.Point(70, 491);
             this.changePictureBox.Name = "changePictureBox";
             this.changePictureBox.Size = new System.Drawing.Size(36, 33);
             this.changePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.changePictureBox.TabIndex = 4;
             this.changePictureBox.TabStop = false;
+            this.changePictureBox.Click += new System.EventHandler(this.ChangePictureBox_Click);
             this.changePictureBox.MouseLeave += new System.EventHandler(this.ChangePictureBox_MouseLeave);
             this.changePictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ChangePictureBox_MouseMove);
             // 
             // deletePictureBox
             // 
             this.deletePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("deletePictureBox.Image")));
-            this.deletePictureBox.Location = new System.Drawing.Point(70, 491);
+            this.deletePictureBox.Location = new System.Drawing.Point(122, 491);
             this.deletePictureBox.Name = "deletePictureBox";
             this.deletePictureBox.Size = new System.Drawing.Size(36, 33);
             this.deletePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

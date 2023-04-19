@@ -79,7 +79,7 @@ namespace PersonalTask.View
         /// <summary>
         /// Проверяет изменение даты вылета.
         /// </summary>
-        private void DateTimePicker_ValueChanged(object sender, EventArgs e)
+        private void DepartureTime_ValueChanged(object sender, EventArgs e)
         {
             try
             {
@@ -103,6 +103,7 @@ namespace PersonalTask.View
             {
                 typeOfFlightComboBox.Items.Add(item);
             }
+            typeOfFlightComboBox.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -188,14 +189,22 @@ namespace PersonalTask.View
         /// </summary>
         private void AddPictureBox_Click(object sender, EventArgs e)
         {
-            _airTravels.Add(new Model.AirTravel(
-                departureTextBox.Text,
-                destinationTextBox.Text,
-                departureTime.Value,
-                int.Parse(flightTimeTextBox.Text),
-                (Model.FlightType)Enum.Parse(typeof(Model.FlightType),
-                typeOfFlightComboBox.SelectedItem.ToString())));
-            airTravelsListBox.Items.Add(CreateStringForList(_airTravels.Last()));
+            try
+            {
+                _airTravels.Add(new Model.AirTravel(
+                    departureTextBox.Text,
+                    destinationTextBox.Text,
+                    departureTime.Value,
+                    int.Parse(flightTimeTextBox.Text),
+                    (Model.FlightType)Enum.Parse(typeof(Model.FlightType),
+                    typeOfFlightComboBox.SelectedItem.ToString())));
+                airTravelsListBox.Items.Add(CreateStringForList(_airTravels.Last()));
+                SortData();
+            }
+            catch 
+            {
+                MessageBox.Show("Заполните все поля правильно");
+            }
         }
 
         /// <summary>
@@ -227,8 +236,11 @@ namespace PersonalTask.View
         /// </summary>
         private void AirTravelsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = airTravelsListBox.SelectedIndex;
-            ToFillInformationAboutAirTravel(_airTravels[index]);
+            if (airTravelsListBox.SelectedIndex >= 0)
+            {
+                int index = airTravelsListBox.SelectedIndex;
+                ToFillInformationAboutAirTravel(_airTravels[index]);
+            }
         }
 
         /// <summary>
@@ -241,6 +253,43 @@ namespace PersonalTask.View
             departureTime.Value = current.DepartureTime;
             typeOfFlightComboBox.Text = current.FlightType.ToString();
             flightTimeTextBox.Text = current.FlightTime.ToString();
+        }
+
+        /// <summary>
+        /// Метод обрабатывает изменения выбранного перелета
+        /// </summary>
+        private void ChangePictureBox_Click(object sender, EventArgs e)
+        {
+            int index = airTravelsListBox.SelectedIndex;
+            AirTravels[index].Departure = departureTextBox.Text;
+            AirTravels[index].Destination = destinationTextBox.Text;
+            AirTravels[index].DepartureTime = departureTime.Value;
+            AirTravels[index].FlightTime = int.Parse(flightTimeTextBox.Text);
+            AirTravels[index].FlightType = (Model.FlightType)Enum.Parse(typeof(Model.FlightType),
+                    typeOfFlightComboBox.SelectedItem.ToString());
+            airTravelsListBox.Items[index] = CreateStringForList(AirTravels[index]);
+            SortData();
+        }
+
+        /// <summary>
+        /// Метод сортирует метода пузырька данные по дате вылета.
+        /// </summary>
+        private void SortData()
+        {
+            int itearation = _airTravels.Count;
+            for (int i = 0; i < itearation; i++)
+            {
+                for (int j = 0; j < itearation - 1 - i; j++)
+                {
+                    if (_airTravels[j].DepartureTime > _airTravels[j + 1].DepartureTime)
+                    {
+                        (_airTravels[j].DepartureTime, _airTravels[j+1].DepartureTime) =
+                            (_airTravels[j+1].DepartureTime, _airTravels[j].DepartureTime);
+                        (airTravelsListBox.Items[j], airTravelsListBox.Items[j+1]) =
+                            (airTravelsListBox.Items[j+1], airTravelsListBox.Items[j]);
+                    }
+                }
+            }
         }
     }
 }
