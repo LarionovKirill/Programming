@@ -30,6 +30,7 @@ namespace PersonalTask
         private void InitializeComponent()
         {
             this.userInterface1 = new PersonalTask.View.UserInterface();
+            this.userInterface2 = new PersonalTask.View.UserInterface();
             this.SuspendLayout();
             // 
             // userInterface1
@@ -40,12 +41,19 @@ namespace PersonalTask
             this.userInterface1.Size = new System.Drawing.Size(861, 528);
             this.userInterface1.TabIndex = 0;
             // 
+            // userInterface2
+            // 
+            this.userInterface2.Location = new System.Drawing.Point(2, 1);
+            this.userInterface2.Name = "userInterface2";
+            this.userInterface2.Size = new System.Drawing.Size(856, 529);
+            this.userInterface2.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 528);
-            this.Controls.Add(this.userInterface1);
+            this.Controls.Add(this.userInterface2);
             this.Name = "MainForm";
             this.Text = "Авиаперелеты";
             this.ResumeLayout(false);
@@ -55,6 +63,7 @@ namespace PersonalTask
         #endregion
 
         private View.UserInterface userInterface1;
+        private View.UserInterface userInterface2;
     }
 }
 
