@@ -330,8 +330,8 @@ namespace PersonalTask.View
                 {
                     if (_airTravels[j].DepartureTime > _airTravels[j + 1].DepartureTime)
                     {
-                        (_airTravels[j].DepartureTime, _airTravels[j + 1].DepartureTime) =
-                            (_airTravels[j + 1].DepartureTime, _airTravels[j].DepartureTime);
+                        (_airTravels[j], _airTravels[j + 1]) = 
+                            (_airTravels[j + 1], _airTravels[j]);
                         (airTravelsListBox.Items[j], airTravelsListBox.Items[j + 1]) =
                             (airTravelsListBox.Items[j + 1], airTravelsListBox.Items[j]);
                     }
