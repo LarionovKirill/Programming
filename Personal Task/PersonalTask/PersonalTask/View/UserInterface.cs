@@ -78,63 +78,6 @@ namespace PersonalTask.View
                         airTravelsListBox.Items.Add(CreateStringForList(AirTravels.Last()));
                     }
                 }
-                SortData();
-            }
-        }
-
-        /// <summary>
-        /// Изменение места отправления выбранного объекта.
-        /// </summary>
-        private void DepartureTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                PersonalTask.Services.ColissionManager.AssertOnLengthOfString(
-                    destinationTextBox.Text,
-                    100,
-                    "Длина строки не должна превышать 100 символов.");
-                departureTextBox.BackColor = Color.White;
-            }
-            catch
-            {
-                departureTextBox.BackColor = Color.Pink;
-            }
-        }
-
-        /// <summary>
-        /// Изменение места прибытия выбранного объекта.
-        /// </summary>
-        private void DestinationTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                PersonalTask.Services.ColissionManager.AssertOnLengthOfString(
-                    destinationTextBox.Text,
-                    100,
-                    "Длина строки не должна превышать 100 символов.");
-                destinationTextBox.BackColor = Color.White;
-            }
-            catch
-            {
-                destinationTextBox.BackColor = Color.Pink;
-            }
-        }
-
-        /// <summary>
-        /// Проверяет изменение даты вылета.
-        /// </summary>
-        private void DepartureTime_ValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                PersonalTask.Services.ColissionManager.AssertDepartureTime(
-                    departureTime.Value,
-                    "Неверная дата вылета."
-                    );
-            }
-            catch
-            {
-                MessageBox.Show("Неверная дата вылета.");
             }
         }
 
@@ -143,35 +86,7 @@ namespace PersonalTask.View
         /// </summary>
         private void UserInterface_Load(object sender, EventArgs e)
         {
-            foreach (var item in Enum.GetValues(typeof(Model.FlightType)))
-            {
-                typeOfFlightComboBox.Items.Add(item);
-            }
-            typeOfFlightComboBox.SelectedIndex = 0;
-        }
 
-        /// <summary>
-        /// Проверка на длительность полета.
-        /// </summary>
-        private void TimeFlightTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try 
-            {
-                if (flightTimeTextBox.Text.Length > 0)
-                {
-                    PersonalTask.Services.ColissionManager.AssertFlightTime(
-                        int.Parse(flightTimeTextBox.Text),
-                        1000,
-                        "Время полета не должно превышать 1000 минут."
-                        );
-                }
-                flightTimeTextBox.BackColor = Color.White;
-            }
-            catch
-            {
-                flightTimeTextBox.BackColor = Color.Pink;
-                MessageBox.Show("Время полета от 1 до 1000 минут.");
-            }
         }
 
         /// <summary>
@@ -233,22 +148,31 @@ namespace PersonalTask.View
         /// </summary>
         private void AddPictureBox_Click(object sender, EventArgs e)
         {
-            try
+            ChangingForm test = new ChangingForm();
+            test.agreeButton.Text = "Добавить перелет";
+            test.cancelButton.Text = "Отмена";
+            foreach (var item in Enum.GetValues(typeof(Model.FlightType)))
+            {
+                test.typeOfFlightComboBox.Items.Add(item);
+            }
+            test.ShowDialog();
+            if (test.agreeButton.DialogResult == DialogResult.Yes)
             {
                 _airTravels.Add(new Model.AirTravel(
-                    departureTextBox.Text,
-                    destinationTextBox.Text,
-                    departureTime.Value,
-                    int.Parse(flightTimeTextBox.Text),
-                    (Model.FlightType)Enum.Parse(typeof(Model.FlightType),
-                    typeOfFlightComboBox.SelectedItem.ToString())));
+                test.departureTextBox.Text,
+                test.destinationTextBox.Text,
+                test.departureTime.Value,
+                int.Parse(test.flightTimeTextBox.Text),
+                (Model.FlightType)Enum.Parse(typeof(Model.FlightType),
+                test.typeOfFlightComboBox.SelectedItem.ToString())));
                 airTravelsListBox.Items.Add(CreateStringForList(_airTravels.Last()));
                 SortData();
                 Serialize();
+                test.Close();
             }
-            catch 
+            else if (test.cancelButton.DialogResult == DialogResult.No)
             {
-                MessageBox.Show("Заполните все поля правильно");
+                test.Close();
             }
         }
 
@@ -296,8 +220,8 @@ namespace PersonalTask.View
         {
             departureTextBox.Text = current.Departure;
             destinationTextBox.Text = current.Destination;
-            departureTime.Value = current.DepartureTime;
-            typeOfFlightComboBox.Text = current.FlightType.ToString();
+            typeOfFlightTextBox.Text = current.FlightType.ToString();
+            departureTimeTextBox.Text = current.DepartureTime.Date.ToString("dd.MM.yyyy");
             flightTimeTextBox.Text = current.FlightTime.ToString();
         }
 
@@ -306,16 +230,43 @@ namespace PersonalTask.View
         /// </summary>
         private void ChangePictureBox_Click(object sender, EventArgs e)
         {
-            int index = airTravelsListBox.SelectedIndex;
-            AirTravels[index].Departure = departureTextBox.Text;
-            AirTravels[index].Destination = destinationTextBox.Text;
-            AirTravels[index].DepartureTime = departureTime.Value;
-            AirTravels[index].FlightTime = int.Parse(flightTimeTextBox.Text);
-            AirTravels[index].FlightType = (Model.FlightType)Enum.Parse(typeof(Model.FlightType),
-                    typeOfFlightComboBox.SelectedItem.ToString());
-            airTravelsListBox.Items[index] = CreateStringForList(AirTravels[index]);
-            SortData();
-            Serialize();
+            if (airTravelsListBox.SelectedIndex >= 0)
+            {
+                ChangingForm test = new ChangingForm();
+                int index = airTravelsListBox.SelectedIndex;
+                test.departureTextBox.Text = AirTravels[index].Departure;
+                test.destinationTextBox.Text = AirTravels[index].Destination;
+                test.departureTime.Value = AirTravels[index].DepartureTime;
+                test.flightTimeTextBox.Text = AirTravels[index].FlightTime.ToString();
+                foreach (var item in Enum.GetValues(typeof(Model.FlightType)))
+                {
+                    test.typeOfFlightComboBox.Items.Add(item);
+                }
+                test.typeOfFlightComboBox.SelectedItem = AirTravels[index].FlightType;
+                test.ShowDialog();
+                if (test.agreeButton.DialogResult == DialogResult.Yes)
+                {
+                    AirTravels[index].Departure = test.departureTextBox.Text;
+                    AirTravels[index].Destination = test.destinationTextBox.Text;
+                    AirTravels[index].DepartureTime = test.departureTime.Value;
+                    AirTravels[index].FlightType = (Model.FlightType)Enum.Parse(typeof(Model.FlightType),
+                        test.typeOfFlightComboBox.SelectedItem.ToString());
+                    AirTravels[index].FlightTime = int.Parse(test.flightTimeTextBox.Text);
+                    ToFillInformationAboutAirTravel(AirTravels[index]);
+                    airTravelsListBox.Items[index] = CreateStringForList(AirTravels[index]);
+                    SortData();
+                    Serialize();
+                    test.Close();
+                }
+                else if (test.cancelButton.DialogResult == DialogResult.No)
+                {
+                    test.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите перелет, который хотите изменить.");
+            }
         }
 
         /// <summary>

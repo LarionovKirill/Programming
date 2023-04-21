@@ -29,3 +29,4 @@ C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task
 C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task\PersonalTask\PersonalTask\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task\PersonalTask\PersonalTask\bin\Debug\System.ValueTuple.xml
 C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task\PersonalTask\PersonalTask\obj\Debug\PersonalTask.csproj.CopyComplete
+C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\Personal Task\PersonalTask\PersonalTask\obj\Debug\PersonalTask.View.ChangingForm.resources

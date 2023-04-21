@@ -82,6 +82,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\ColissionManager.cs" />
+    <Compile Include="View\ChangingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChangingForm.Designer.cs">
+      <DependentUpon>ChangingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ChangingForm.resx">
+      <DependentUpon>ChangingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
