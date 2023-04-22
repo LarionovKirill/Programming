@@ -98,7 +98,7 @@ namespace PersonalTask.View
             // 
             // flightTimeTextBox
             // 
-            this.flightTimeTextBox.Location = new System.Drawing.Point(147, 191);
+            this.flightTimeTextBox.Location = new System.Drawing.Point(149, 191);
             this.flightTimeTextBox.Name = "flightTimeTextBox";
             this.flightTimeTextBox.ReadOnly = true;
             this.flightTimeTextBox.Size = new System.Drawing.Size(202, 22);
@@ -151,7 +151,7 @@ namespace PersonalTask.View
             // 
             // destinationTextBox
             // 
-            this.destinationTextBox.Location = new System.Drawing.Point(149, 74);
+            this.destinationTextBox.Location = new System.Drawing.Point(149, 71);
             this.destinationTextBox.Name = "destinationTextBox";
             this.destinationTextBox.ReadOnly = true;
             this.destinationTextBox.Size = new System.Drawing.Size(315, 22);
