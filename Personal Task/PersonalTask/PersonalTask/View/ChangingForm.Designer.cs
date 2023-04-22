@@ -93,9 +93,9 @@ namespace PersonalTask.View
             this.dayOfFlightLabel.AutoSize = true;
             this.dayOfFlightLabel.Location = new System.Drawing.Point(63, 96);
             this.dayOfFlightLabel.Name = "dayOfFlightLabel";
-            this.dayOfFlightLabel.Size = new System.Drawing.Size(110, 17);
+            this.dayOfFlightLabel.Size = new System.Drawing.Size(102, 17);
             this.dayOfFlightLabel.TabIndex = 15;
-            this.dayOfFlightLabel.Text = "Время вылета :";
+            this.dayOfFlightLabel.Text = "Дата вылета :";
             // 
             // departureTime
             // 

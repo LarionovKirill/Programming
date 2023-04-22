@@ -32,6 +32,7 @@ namespace PersonalTask.View
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserInterface));
             this.airTravelsListBox = new System.Windows.Forms.ListBox();
             this.airTravelGroupBox = new System.Windows.Forms.GroupBox();
+            this.departureTimeTextBox = new System.Windows.Forms.TextBox();
             this.typeOfFlightTextBox = new System.Windows.Forms.TextBox();
             this.flightTimeTextBox = new System.Windows.Forms.TextBox();
             this.timeFlightLabel = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@ namespace PersonalTask.View
             this.changePictureBox = new System.Windows.Forms.PictureBox();
             this.deletePictureBox = new System.Windows.Forms.PictureBox();
             this.addPictureBox = new System.Windows.Forms.PictureBox();
-            this.departureTimeTextBox = new System.Windows.Forms.TextBox();
             this.airTravelGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.changePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deletePictureBox)).BeginInit();
@@ -79,6 +79,14 @@ namespace PersonalTask.View
             this.airTravelGroupBox.TabIndex = 1;
             this.airTravelGroupBox.TabStop = false;
             this.airTravelGroupBox.Text = "Информация о полете";
+            // 
+            // departureTimeTextBox
+            // 
+            this.departureTimeTextBox.Location = new System.Drawing.Point(149, 113);
+            this.departureTimeTextBox.Name = "departureTimeTextBox";
+            this.departureTimeTextBox.ReadOnly = true;
+            this.departureTimeTextBox.Size = new System.Drawing.Size(200, 22);
+            this.departureTimeTextBox.TabIndex = 9;
             // 
             // typeOfFlightTextBox
             // 
@@ -119,9 +127,9 @@ namespace PersonalTask.View
             this.dayOfFlightLabel.AutoSize = true;
             this.dayOfFlightLabel.Location = new System.Drawing.Point(33, 113);
             this.dayOfFlightLabel.Name = "dayOfFlightLabel";
-            this.dayOfFlightLabel.Size = new System.Drawing.Size(110, 17);
+            this.dayOfFlightLabel.Size = new System.Drawing.Size(102, 17);
             this.dayOfFlightLabel.TabIndex = 5;
-            this.dayOfFlightLabel.Text = "Время вылета :";
+            this.dayOfFlightLabel.Text = "Дата вылета :";
             // 
             // destinationLabel
             // 
@@ -195,14 +203,6 @@ namespace PersonalTask.View
             this.addPictureBox.Click += new System.EventHandler(this.AddPictureBox_Click);
             this.addPictureBox.MouseLeave += new System.EventHandler(this.AddPictureBox_MouseLeave);
             this.addPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AddPictureBox_MouseMove);
-            // 
-            // departureTimeTextBox
-            // 
-            this.departureTimeTextBox.Location = new System.Drawing.Point(149, 113);
-            this.departureTimeTextBox.Name = "departureTimeTextBox";
-            this.departureTimeTextBox.ReadOnly = true;
-            this.departureTimeTextBox.Size = new System.Drawing.Size(200, 22);
-            this.departureTimeTextBox.TabIndex = 9;
             // 
             // UserInterface
             // 

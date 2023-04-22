@@ -148,31 +148,38 @@ namespace PersonalTask.View
         /// </summary>
         private void AddPictureBox_Click(object sender, EventArgs e)
         {
-            ChangingForm test = new ChangingForm();
-            test.agreeButton.Text = "Добавить перелет";
-            test.cancelButton.Text = "Отмена";
+            ChangingForm addForm = new ChangingForm();
+            addForm.agreeButton.Text = "Добавить перелет";
+            addForm.cancelButton.Text = "Отмена";
             foreach (var item in Enum.GetValues(typeof(Model.FlightType)))
             {
-                test.typeOfFlightComboBox.Items.Add(item);
+                addForm.typeOfFlightComboBox.Items.Add(item);
             }
-            test.ShowDialog();
-            if (test.agreeButton.DialogResult == DialogResult.Yes)
+            addForm.ShowDialog();
+            if (addForm.DialogResult == DialogResult.Yes)
             {
-                _airTravels.Add(new Model.AirTravel(
-                test.departureTextBox.Text,
-                test.destinationTextBox.Text,
-                test.departureTime.Value,
-                int.Parse(test.flightTimeTextBox.Text),
-                (Model.FlightType)Enum.Parse(typeof(Model.FlightType),
-                test.typeOfFlightComboBox.SelectedItem.ToString())));
-                airTravelsListBox.Items.Add(CreateStringForList(_airTravels.Last()));
-                SortData();
-                Serialize();
-                test.Close();
+                try
+                {
+                    _airTravels.Add(new Model.AirTravel(
+                    addForm.departureTextBox.Text,
+                    addForm.destinationTextBox.Text,
+                    addForm.departureTime.Value,
+                    int.Parse(addForm.flightTimeTextBox.Text),
+                    (Model.FlightType)Enum.Parse(typeof(Model.FlightType),
+                    addForm.typeOfFlightComboBox.SelectedItem.ToString())));
+                    airTravelsListBox.Items.Add(CreateStringForList(_airTravels.Last()));
+                    SortData();
+                    Serialize();
+                    addForm.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Вы пытаетесь сохранить неправильные данные.");
+                }
             }
-            else if (test.cancelButton.DialogResult == DialogResult.No)
+            else if (addForm.DialogResult == DialogResult.No)
             {
-                test.Close();
+                addForm.Close();
             }
         }
 
@@ -232,35 +239,42 @@ namespace PersonalTask.View
         {
             if (airTravelsListBox.SelectedIndex >= 0)
             {
-                ChangingForm test = new ChangingForm();
+                ChangingForm changeForm = new ChangingForm();
                 int index = airTravelsListBox.SelectedIndex;
-                test.departureTextBox.Text = AirTravels[index].Departure;
-                test.destinationTextBox.Text = AirTravels[index].Destination;
-                test.departureTime.Value = AirTravels[index].DepartureTime;
-                test.flightTimeTextBox.Text = AirTravels[index].FlightTime.ToString();
+                changeForm.departureTextBox.Text = AirTravels[index].Departure;
+                changeForm.destinationTextBox.Text = AirTravels[index].Destination;
+                changeForm.departureTime.Value = AirTravels[index].DepartureTime;
+                changeForm.flightTimeTextBox.Text = AirTravels[index].FlightTime.ToString();
                 foreach (var item in Enum.GetValues(typeof(Model.FlightType)))
                 {
-                    test.typeOfFlightComboBox.Items.Add(item);
+                    changeForm.typeOfFlightComboBox.Items.Add(item);
                 }
-                test.typeOfFlightComboBox.SelectedItem = AirTravels[index].FlightType;
-                test.ShowDialog();
-                if (test.agreeButton.DialogResult == DialogResult.Yes)
+                changeForm.typeOfFlightComboBox.SelectedItem = AirTravels[index].FlightType;
+                changeForm.ShowDialog();
+                if (changeForm.DialogResult == DialogResult.Yes)
                 {
-                    AirTravels[index].Departure = test.departureTextBox.Text;
-                    AirTravels[index].Destination = test.destinationTextBox.Text;
-                    AirTravels[index].DepartureTime = test.departureTime.Value;
-                    AirTravels[index].FlightType = (Model.FlightType)Enum.Parse(typeof(Model.FlightType),
-                        test.typeOfFlightComboBox.SelectedItem.ToString());
-                    AirTravels[index].FlightTime = int.Parse(test.flightTimeTextBox.Text);
-                    ToFillInformationAboutAirTravel(AirTravels[index]);
-                    airTravelsListBox.Items[index] = CreateStringForList(AirTravels[index]);
-                    SortData();
-                    Serialize();
-                    test.Close();
+                    try
+                    {
+                        AirTravels[index].Departure = changeForm.departureTextBox.Text;
+                        AirTravels[index].Destination = changeForm.destinationTextBox.Text;
+                        AirTravels[index].DepartureTime = changeForm.departureTime.Value;
+                        AirTravels[index].FlightType = (Model.FlightType)Enum.Parse(typeof(Model.FlightType),
+                            changeForm.typeOfFlightComboBox.SelectedItem.ToString());
+                        AirTravels[index].FlightTime = int.Parse(changeForm.flightTimeTextBox.Text);
+                        ToFillInformationAboutAirTravel(AirTravels[index]);
+                        airTravelsListBox.Items[index] = CreateStringForList(AirTravels[index]);
+                        SortData();
+                        Serialize();
+                        changeForm.Close();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Вы пытаетесь сохранить неправильные данные.");
+                    }
                 }
-                else if (test.cancelButton.DialogResult == DialogResult.No)
+                else if (changeForm.DialogResult == DialogResult.No)
                 {
-                    test.Close();
+                    changeForm.Close();
                 }
             }
             else
