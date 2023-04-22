@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\PersonalTask",
-    "\\PersonalTask\\PersonalTask",
-    "\\PersonalTask\\PersonalTask\\View"
+    ""
   ],
-  "SelectedNode": "\\PersonalTask\\PersonalTask\\View\\UserInterface.cs",
+  "SelectedNode": "\\PersonalTask.sln",
   "PreviewInSolutionExplorer": false
 }
