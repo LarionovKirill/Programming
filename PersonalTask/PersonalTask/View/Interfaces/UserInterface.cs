@@ -21,10 +21,10 @@ namespace PersonalTask.View
         /// <summary>
         /// Список авиаперелетов.
         /// </summary>
-        List<Model.AirTravel> _airTravels = new List<Model.AirTravel>();
+        private List<Model.AirTravel> _airTravels = new List<Model.AirTravel>();
         
         /// <summary>
-        /// Свойство поля _airTravels.
+        /// Свойство поля AirTravels.
         /// </summary>
         private List<Model.AirTravel> AirTravels
         {
@@ -160,14 +160,14 @@ namespace PersonalTask.View
             {
                 try
                 {
-                    _airTravels.Add(new Model.AirTravel(
+                    AirTravels.Add(new Model.AirTravel(
                     addForm.departureTextBox.Text,
                     addForm.destinationTextBox.Text,
                     addForm.departureTime.Value,
                     int.Parse(addForm.flightTimeTextBox.Text),
                     (Model.FlightType)Enum.Parse(typeof(Model.FlightType),
                     addForm.typeOfFlightComboBox.SelectedItem.ToString())));
-                    airTravelsListBox.Items.Add(CreateStringForList(_airTravels.Last()));
+                    airTravelsListBox.Items.Add(CreateStringForList(AirTravels.Last()));
                     SortData();
                     Serialize();
                     addForm.Close();
@@ -204,7 +204,7 @@ namespace PersonalTask.View
             int index = airTravelsListBox.SelectedIndex;
             airTravelsListBox.SelectedIndex = index - 1;
             airTravelsListBox.Items.RemoveAt(index);
-            _airTravels.RemoveAt(index);
+            AirTravels.RemoveAt(index);
             Serialize();
         }
 
@@ -216,7 +216,7 @@ namespace PersonalTask.View
             if (airTravelsListBox.SelectedIndex >= 0)
             {
                 int index = airTravelsListBox.SelectedIndex;
-                ToFillInformationAboutAirTravel(_airTravels[index]);
+                ToFillInformationAboutAirTravel(AirTravels[index]);
             }
         }
 
@@ -288,15 +288,15 @@ namespace PersonalTask.View
         /// </summary>
         private void SortData()
         {
-            int itearation = _airTravels.Count;
+            int itearation = AirTravels.Count;
             for (int i = 0; i < itearation; i++)
             {
                 for (int j = 0; j < itearation - 1 - i; j++)
                 {
-                    if (_airTravels[j].DepartureTime > _airTravels[j + 1].DepartureTime)
+                    if (AirTravels[j].DepartureTime > AirTravels[j + 1].DepartureTime)
                     {
-                        (_airTravels[j], _airTravels[j + 1]) = 
-                            (_airTravels[j + 1], _airTravels[j]);
+                        (AirTravels[j], AirTravels[j + 1]) = 
+                            (AirTravels[j + 1], AirTravels[j]);
                         (airTravelsListBox.Items[j], airTravelsListBox.Items[j + 1]) =
                             (airTravelsListBox.Items[j + 1], airTravelsListBox.Items[j]);
                     }
