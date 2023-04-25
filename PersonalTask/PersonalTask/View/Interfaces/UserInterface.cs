@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.IO;
-
+using System.Reflection;
 
 namespace PersonalTask.View
 {
@@ -64,7 +64,6 @@ namespace PersonalTask.View
         /// </summary>
         private void Deserialize()
         {
-
             var path = "AirTravels.json";
             var jsonString = File.ReadAllText(path);
             if (jsonString != string.Empty)

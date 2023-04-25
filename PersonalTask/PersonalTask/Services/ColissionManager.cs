@@ -48,10 +48,10 @@ namespace PersonalTask.Services
         {
             DateTime currentTime;
             currentTime = DateTime.Now.Date;
-            if (departureFlight.Date < currentTime.Date)
+            /*if (departureFlight.Date < currentTime.Date)
             {
                 throw new ArgumentException(properyName + $" пытается присвоить неправильное время.");
-            }
+            }*/
         }
 
         /// <summary>
