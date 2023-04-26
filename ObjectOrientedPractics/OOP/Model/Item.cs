@@ -96,6 +96,12 @@ namespace OOP.Model
 		}
 
 		/// <summary>
+		/// Свойство категории товаров.
+		/// </summary>
+		public Category Category { get; set; }
+			
+
+		/// <summary>
 		/// Конструктор без параметров.
 		/// </summary>
 		public Item()
@@ -109,12 +115,14 @@ namespace OOP.Model
 		/// <param name="name">Имя товара.</param>
 		/// <param name="info">Информация о товаре.</param>
 		/// <param name="cost">Цена товара.</param>
-		public Item(string name, string info, double cost)
+		/// <param name="category">Категория товара.</param>
+		public Item(string name, string info, double cost, Category category)
 		{
 			this.Info = info;
 			this.Name = name;
 			this.Cost = cost;
 			this.Id = OOP.Services.IdGenerator.GetNextItemID();
+			this.Category = category;
 		}
 	}
 }

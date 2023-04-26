@@ -49,10 +49,19 @@ namespace OOP.View.Tabs
         {
             try
             {
+                //Получение данных с формы.
+                var name = nameItemTextBox.Text;
+                var description = descriptionItemTextBox.Text;
+                var cost = double.Parse(costItemTextBox.Text);
+                var category = (Model.Category)Enum.Parse(typeof(Model.Category),
+                    categoryComboBox.SelectedItem.ToString());
+               
+                //Добавление объекта в список.
                 Items.Add(new Model.Item(
-                    nameItemTextBox.Text,
-                    descriptionItemTextBox.Text,
-                    double.Parse(costItemTextBox.Text)));
+                    name,
+                    description,
+                    cost,
+                    category));
                 itemListBox.Items.Add($"Товар : {Items.Last().Id}");
             }
             catch
@@ -158,6 +167,17 @@ namespace OOP.View.Tabs
             nameItemTextBox.Text = current.Name;
             descriptionItemTextBox.Text = current.Info;
             costItemTextBox.Text = current.Cost.ToString();
+            categoryComboBox.SelectedItem = current.Category;
+        }
+
+        private void ItemsTab_Load(object sender, EventArgs e)
+        {
+            var contents = Enum.GetValues(typeof(Model.Category));
+            foreach (var items in contents)
+            {
+                categoryComboBox.Items.Add(items);
+            }
+            categoryComboBox.SelectedIndex = 0;
         }
     }
 }
