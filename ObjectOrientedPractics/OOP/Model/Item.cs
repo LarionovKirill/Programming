@@ -43,7 +43,7 @@ namespace OOP.Model
 		{
 			set
 			{
-				OOP.Services.ValueValidator.AssertStringOnLength(
+				Services.ValueValidator.AssertStringOnLength(
 					value,
 					200,
 					"Name");
@@ -81,7 +81,7 @@ namespace OOP.Model
 		{
 			set
 			{
-				OOP.Services.ValueValidator.AssertValueInRange(
+				Services.ValueValidator.AssertValueInRange(
 					value,
 					0,
 					100000,
@@ -106,7 +106,7 @@ namespace OOP.Model
 		/// </summary>
 		public Item()
 		{
-			this.Id = OOP.Services.IdGenerator.GetNextItemID();
+			this.Id = Services.IdGenerator.GetNextItemID();
 		}
 
 		/// <summary>
@@ -121,7 +121,7 @@ namespace OOP.Model
 			this.Info = info;
 			this.Name = name;
 			this.Cost = cost;
-			this.Id = OOP.Services.IdGenerator.GetNextItemID();
+			this.Id = Services.IdGenerator.GetNextItemID();
 			this.Category = category;
 		}
 	}
