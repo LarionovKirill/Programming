@@ -166,14 +166,23 @@ namespace PersonalTask.View
             {
                 try
                 {
-                    AirTravels.Add(new Model.AirTravel(
-                    addForm.departureTextBox.Text,
-                    addForm.destinationTextBox.Text,
-                    addForm.departureTime.Value,
-                    int.Parse(addForm.flightTimeTextBox.Text),
-                    (Model.FlightType)Enum.Parse(typeof(Model.FlightType),
-                    addForm.typeOfFlightComboBox.SelectedItem.ToString())));
+                    //Сбор информации в локальные переменные.
+                    var departure = addForm.departureTextBox.Text;
+                    var destination = addForm.destinationTextBox.Text;
+                    var departureTime = addForm.departureTime.Value;
+                    var flightTime = int.Parse(addForm.flightTimeTextBox.Text);
+                    var typeOfFlight = (Model.FlightType)Enum.Parse(typeof(Model.FlightType),
+                    addForm.typeOfFlightComboBox.SelectedItem.ToString());
 
+                    //Добавление перелета в список.
+                    AirTravels.Add(new Model.AirTravel(
+                    departure,
+                    destination,
+                    departureTime,
+                    flightTime,
+                    typeOfFlight));
+                    
+                    //Добавление перелета в ListBox.
                     airTravelsListBox.Items.Add(CreateStringForList(AirTravels.Last()));
 
                     SortData();
