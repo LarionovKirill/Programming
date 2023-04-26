@@ -15,7 +15,7 @@ namespace OOP.View.Tabs
         /// <summary>
         /// Список товаров.
         /// </summary>
-        List<Model.Item> _items = new List<Model.Item>();
+        private List<Model.Item> _items = new List<Model.Item>();
 
         /// <summary>
         /// Свойство поля _items.
@@ -52,8 +52,7 @@ namespace OOP.View.Tabs
                 Items.Add(new Model.Item(
                     nameItemTextBox.Text,
                     descriptionItemTextBox.Text,
-                    double.Parse(costItemTextBox.Text)
-                    ));
+                    double.Parse(costItemTextBox.Text)));
                 itemListBox.Items.Add($"Товар : {Items.Last().Id}");
             }
             catch
@@ -91,8 +90,7 @@ namespace OOP.View.Tabs
                     double.Parse(costItemTextBox.Text),
                     0,
                     100000,
-                    "Цена не может иметь данное значение. Диапазон от 0 до 100000"
-                    );
+                    "costItemTextBox");
                 costItemTextBox.BackColor = Color.White;
             }
             catch
@@ -111,7 +109,7 @@ namespace OOP.View.Tabs
                 OOP.Services.ValueValidator.AssertStringOnLength(
                     nameItemTextBox.Text,
                     200,
-                    "Name должен быть меньше 200 символов.");
+                    "costItemTextBox");
                 nameItemTextBox.BackColor = Color.White;
             }
             catch
@@ -130,7 +128,7 @@ namespace OOP.View.Tabs
                 OOP.Services.ValueValidator.AssertStringOnLength(
                     descriptionItemTextBox.Text,
                     1000,
-                    "Name должен быть меньше 200 символов.");
+                    "DescriptionItemTextBox");
                 descriptionItemTextBox.BackColor = Color.White;
             }
             catch

@@ -15,7 +15,7 @@ namespace OOP.View
         /// <summary>
         /// Список пользователей.
         /// </summary>
-        List<Model.Customer> _customers = new List<Model.Customer>();
+        private List<Model.Customer> _customers = new List<Model.Customer>();
 
         /// <summary>
         /// Свойство поля _customers.
@@ -70,8 +70,7 @@ namespace OOP.View
             {
                 Customers.Add(new Model.Customer(
                     fullNameTextBox.Text,
-                    addressTextBox.Text
-                    ));
+                    addressTextBox.Text));
                 customerListBox.Items.Add($"Пользователь : {Customers.Last().Id}");
             }
             catch
@@ -100,7 +99,7 @@ namespace OOP.View
                 OOP.Services.ValueValidator.AssertStringOnLength(
                     fullNameTextBox.Text,
                     200,
-                    "Full Name должен быть меньше 200 символов.");
+                    "FullNameTextBox");
                 fullNameTextBox.BackColor = Color.White;
             }
             catch
@@ -116,7 +115,7 @@ namespace OOP.View
                 OOP.Services.ValueValidator.AssertStringOnLength(
                     addressTextBox.Text,
                     500,
-                    "Address должен быть меньше 500 символов.");
+                    "AddressTextBox");
                 addressTextBox.BackColor = Color.White;
             }
             catch

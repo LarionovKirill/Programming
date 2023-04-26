@@ -13,12 +13,12 @@ namespace OOP.Services
         /// </summary>
         /// <param name="value">Проверяемая строка.</param>
         /// <param name="maxLength">Максимальная длина.</param>
-        /// <param name="propertyName">Текст ошибки.</param>
+        /// <param name="propertyName">Свойство, вызвавшое ошибку.</param>
         public static void AssertStringOnLength(string value, int maxLength, string propertyName)
         {
             if (value.Length > maxLength)
             {
-                throw new ArgumentException(propertyName);
+                throw new ArgumentException(propertyName + $" не может быть длинее {maxLength}");
             }
         }
 
@@ -29,7 +29,7 @@ namespace OOP.Services
         /// <param name="value">Передаваемое значение.</param>
         /// <param name="minValue">Минимальное значение.</param>
         /// <param name="maxValue">Максимальное значение.</param>
-        /// <param name="propertyName">Текст ошибки.</param>
+        /// <param name="propertyName">Свойство, вызвавшое ошибку.</param>
         public static void AssertValueInRange(double value,
             double minValue, 
             double maxValue, 
@@ -37,7 +37,8 @@ namespace OOP.Services
         {
             if (value < minValue || value > maxValue)
             {
-                throw new ArgumentException(propertyName);
+                throw new ArgumentException(propertyName + $" может быть от {minValue} " +
+                    $"до {maxValue}");
             }
         }
     }

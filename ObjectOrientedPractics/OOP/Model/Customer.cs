@@ -42,7 +42,7 @@ namespace OOP.Model
 				OOP.Services.ValueValidator.AssertStringOnLength(
 					value,
 					200,
-					"FullName должен быть меньше 200 символов.");
+					"FullName");
 				_fullName = value;
 			}
 			get
@@ -61,7 +61,7 @@ namespace OOP.Model
 				OOP.Services.ValueValidator.AssertStringOnLength(
 					value,
 					500,
-					"Address должен быть меньше 500 символов.");
+					"Address");
 				_address = value;
 			}
 			get

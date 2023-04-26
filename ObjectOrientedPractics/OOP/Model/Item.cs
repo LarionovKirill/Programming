@@ -46,7 +46,7 @@ namespace OOP.Model
 				OOP.Services.ValueValidator.AssertStringOnLength(
 					value,
 					200,
-					"Name должен быть меньше 200 символов.");
+					"Name");
 				_name = value;
 			}
 			get
@@ -65,7 +65,7 @@ namespace OOP.Model
 				OOP.Services.ValueValidator.AssertStringOnLength(
 						value,
 						1000,
-						"Info должен быть меньше 1000 символов.");
+						"Info");
 				_info = value;
 			}
 			get
@@ -85,7 +85,7 @@ namespace OOP.Model
 					value,
 					0,
 					100000,
-					"Цена не может иметь данное значение. Ёе диапазон от 0 до 100000"
+					"Cost"
 					);
 				_cost = value;
 			}
