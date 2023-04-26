@@ -160,6 +160,7 @@ namespace PersonalTask.View
             {
                 addForm.typeOfFlightComboBox.Items.Add(item);
             }
+            addForm.typeOfFlightComboBox.SelectedIndex = 0;
             addForm.ShowDialog();
             if (addForm.DialogResult == DialogResult.Yes)
             {
