@@ -80,6 +80,7 @@ namespace OOP.View.Tabs
                 var index = itemListBox.SelectedIndex;
                 Items.RemoveAt(index);
                 itemListBox.Items.RemoveAt(index);
+                itemListBox.SelectedIndex = 0;
             }
         }
 
