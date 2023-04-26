@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ObjectOrientedPractics",
+    "\\ObjectOrientedPractics\\OOP",
+    "\\ObjectOrientedPractics\\OOP\\Model"
   ],
-  "SelectedNode": "\\PersonalTask.sln",
+  "SelectedNode": "\\ObjectOrientedPractics\\OOP\\Model\\Customer.cs",
   "PreviewInSolutionExplorer": false
 }
