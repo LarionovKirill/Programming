@@ -12,7 +12,9 @@ using System.Windows.Forms;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.IO;
+using System.Web;
 using System.Reflection;
+using System.Web.Script.Serialization;
 
 namespace PersonalTask.View
 {
@@ -44,16 +46,17 @@ namespace PersonalTask.View
         public UserInterface()
         {
             InitializeComponent();
-            Deserialize();
         }
 
         /// <summary>
         /// Сериализация данных.
         /// Реализация взята из: https://learn.microsoft.com/ru-ru/dotnet/standard/serialization/system-text-json/how-to?pivots=dotnet-core-3-1
+        /// Получение пути к папке взято здесь : https://translated.turbopages.org/proxy_u/en-ru.ru.03d73794-6448958e-0645cc54-74722d776562/https/stackoverflow.com/questions/50828926/how-to-get-the-solution-path-in-c-sharp
         /// </summary>
         private void Serialize()
         {
-            var path = "AirTravels.json";
+            var path = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory())
+                .Parent.FullName, "Resources\\AirTravels.json");
             var contents = JsonSerializer.Serialize(AirTravels);
             File.WriteAllText(path, contents);
         }
@@ -61,11 +64,14 @@ namespace PersonalTask.View
         /// <summary>
         /// Десериализация данных.
         /// Реализация взята из: https://learn.microsoft.com/ru-ru/dotnet/standard/serialization/system-text-json/how-to?pivots=dotnet-core-3-1
+        /// Реализация взятия из папки ресурсов и его конвертирования: https://stackoverflow.com/questions/20765204/parse-byte-array-to-json-with-json-net
         /// </summary>
         private void Deserialize()
         {
-            var path = "AirTravels.json";
-            var jsonString = File.ReadAllText(path);
+            //var path = "AirTravels.json";
+            //var jsonString = File.ReadAllText(path);
+            var jsonFile = Properties.Resources.AirTravels;
+            string jsonString = Encoding.UTF8.GetString(jsonFile);
             if (jsonString != string.Empty)
             {
                 var takedInformation = JsonSerializer.Deserialize<List<Model.AirTravel>>(jsonString);
@@ -85,7 +91,7 @@ namespace PersonalTask.View
         /// </summary>
         private void UserInterface_Load(object sender, EventArgs e)
         {
-
+            Deserialize();
         }
 
         /// <summary>
@@ -166,7 +172,9 @@ namespace PersonalTask.View
                     int.Parse(addForm.flightTimeTextBox.Text),
                     (Model.FlightType)Enum.Parse(typeof(Model.FlightType),
                     addForm.typeOfFlightComboBox.SelectedItem.ToString())));
+
                     airTravelsListBox.Items.Add(CreateStringForList(AirTravels.Last()));
+
                     SortData();
                     Serialize();
                     addForm.Close();
