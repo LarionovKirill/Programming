@@ -96,7 +96,7 @@ namespace OOP.View.Tabs
             }
             try
             {
-                OOP.Services.ValueValidator.AssertValueInRange(
+                Services.ValueValidator.AssertValueInRange(
                     double.Parse(costItemTextBox.Text),
                     0,
                     100000,
@@ -116,7 +116,7 @@ namespace OOP.View.Tabs
         {
             try
             {
-                OOP.Services.ValueValidator.AssertStringOnLength(
+                Services.ValueValidator.AssertStringOnLength(
                     nameItemTextBox.Text,
                     200,
                     "costItemTextBox");
@@ -135,7 +135,7 @@ namespace OOP.View.Tabs
         {
             try
             {
-                OOP.Services.ValueValidator.AssertStringOnLength(
+                Services.ValueValidator.AssertStringOnLength(
                     descriptionItemTextBox.Text,
                     1000,
                     "DescriptionItemTextBox");

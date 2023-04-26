@@ -62,7 +62,7 @@ namespace OOP.Model
 		{
 			set
 			{
-				OOP.Services.ValueValidator.AssertStringOnLength(
+				Services.ValueValidator.AssertStringOnLength(
 						value,
 						1000,
 						"Info");
