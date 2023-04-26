@@ -39,7 +39,7 @@ namespace OOP.Model
 		{
 			set
 			{
-				OOP.Services.ValueValidator.AssertStringOnLength(
+				Services.ValueValidator.AssertStringOnLength(
 					value,
 					200,
 					"FullName");
@@ -58,7 +58,7 @@ namespace OOP.Model
 		{
 			set
 			{
-				OOP.Services.ValueValidator.AssertStringOnLength(
+				Services.ValueValidator.AssertStringOnLength(
 					value,
 					500,
 					"Address");
@@ -74,7 +74,7 @@ namespace OOP.Model
 		/// </summary>
 		public Customer()
 		{
-			this.Id = OOP.Services.IdGenerator.GetNextCustomerID();
+			this.Id = Services.IdGenerator.GetNextCustomerID();
 		}
 
 		/// <summary>
@@ -84,7 +84,7 @@ namespace OOP.Model
 		/// <param name="address">Адрес пользователя.</param>
 		public Customer(string fullName, string address)
 		{
-			this.Id = OOP.Services.IdGenerator.GetNextCustomerID();
+			this.Id = Services.IdGenerator.GetNextCustomerID();
 			this.FullName = fullName;
 			this.Address = address;
 		}

@@ -96,7 +96,7 @@ namespace OOP.View
         {
             try
             {
-                OOP.Services.ValueValidator.AssertStringOnLength(
+                Services.ValueValidator.AssertStringOnLength(
                     fullNameTextBox.Text,
                     200,
                     "FullNameTextBox");
@@ -112,7 +112,7 @@ namespace OOP.View
         {
             try
             {
-                OOP.Services.ValueValidator.AssertStringOnLength(
+                Services.ValueValidator.AssertStringOnLength(
                     addressTextBox.Text,
                     500,
                     "AddressTextBox");
