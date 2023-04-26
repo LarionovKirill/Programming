@@ -170,6 +170,9 @@ namespace OOP.View.Tabs
             categoryComboBox.SelectedItem = current.Category;
         }
 
+        /// <summary>
+        /// Метод выполняется при запуске формы. Он заполняет comboBox.
+        /// </summary>
         private void ItemsTab_Load(object sender, EventArgs e)
         {
             var contents = Enum.GetValues(typeof(Model.Category));
@@ -178,6 +181,19 @@ namespace OOP.View.Tabs
                 categoryComboBox.Items.Add(items);
             }
             categoryComboBox.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// Метод сохранет изменение категории выбранного товара.
+        /// </summary>
+        private void СategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (itemListBox.SelectedIndex >= 0)
+            {
+                var index = itemListBox.SelectedIndex;
+                Items[index].Category = (Model.Category)Enum.Parse(typeof(Model.Category),
+                    categoryComboBox.SelectedItem.ToString());
+            }
         }
     }
 }

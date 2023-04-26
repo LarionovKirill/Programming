@@ -184,6 +184,7 @@ namespace OOP.View.Tabs
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(129, 24);
             this.categoryComboBox.TabIndex = 14;
+            this.categoryComboBox.SelectedIndexChanged += new System.EventHandler(this.СategoryComboBox_SelectedIndexChanged);
             // 
             // ItemsTab
             // 
