@@ -42,7 +42,7 @@ namespace OOP.Model
 				Services.ValueValidator.AssertStringOnLength(
 					value,
 					200,
-					"FullName");
+					nameof(FullName));
 				_fullName = value;
 			}
 			get
@@ -61,7 +61,7 @@ namespace OOP.Model
 				Services.ValueValidator.AssertStringOnLength(
 					value,
 					500,
-					"Address");
+					nameof(Address));
 				_address = value;
 			}
 			get
