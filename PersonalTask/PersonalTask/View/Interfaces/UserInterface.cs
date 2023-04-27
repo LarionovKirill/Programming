@@ -55,8 +55,7 @@ namespace PersonalTask.View
         /// </summary>
         private void Serialize()
         {
-            var path = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory())
-                .Parent.FullName, "Resources\\AirTravels.json");
+            var path = "AirTravels.json";
             var contents = JsonSerializer.Serialize(AirTravels);
             File.WriteAllText(path, contents);
         }
@@ -68,19 +67,39 @@ namespace PersonalTask.View
         /// </summary>
         private void Deserialize()
         {
-            //var path = "AirTravels.json";
-            //var jsonString = File.ReadAllText(path);
-            var jsonFile = Properties.Resources.AirTravels;
-            string jsonString = Encoding.UTF8.GetString(jsonFile);
-            if (jsonString != string.Empty)
+            try
             {
-                var takedInformation = JsonSerializer.Deserialize<List<Model.AirTravel>>(jsonString);
-                foreach (var items in takedInformation)
+                var path = "AirTravels.json";
+                var jsonString = File.ReadAllText(path);
+                if (jsonString != string.Empty)
                 {
-                    if (items != null)
+                    var takedInformation = JsonSerializer.Deserialize<List<Model.AirTravel>>(jsonString);
+                    foreach (var items in takedInformation)
                     {
-                        AirTravels.Add(items);
-                        airTravelsListBox.Items.Add(CreateStringForList(AirTravels.Last()));
+                        if (items != null)
+                        {
+                            AirTravels.Add(items);
+                            airTravelsListBox.Items.Add(CreateStringForList(AirTravels.Last()));
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                FileInfo file = new FileInfo("AirTravels.json");
+                file.Create();
+                var path = "AirTravels.json";
+                var jsonString = File.ReadAllText(path);
+                if (jsonString != string.Empty)
+                {
+                    var takedInformation = JsonSerializer.Deserialize<List<Model.AirTravel>>(jsonString);
+                    foreach (var items in takedInformation)
+                    {
+                        if (items != null)
+                        {
+                            AirTravels.Add(items);
+                            airTravelsListBox.Items.Add(CreateStringForList(AirTravels.Last()));
+                        }
                     }
                 }
             }

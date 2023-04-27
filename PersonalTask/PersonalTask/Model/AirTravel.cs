@@ -52,7 +52,7 @@ namespace PersonalTask.Model
                 Services.ColissionManager.AssertOnLengthOfString(
                     value,
                     100,
-                    "Длина строки не должна превышать 100 символов.");
+                    nameof(Departure));
                 _departure = value;
             }
         }
@@ -72,7 +72,7 @@ namespace PersonalTask.Model
                 Services.ColissionManager.AssertOnLengthOfString(
                     value,
                     100,
-                    "Destination");
+                    nameof(Destination));
                 _destination = value;
             }
         }
@@ -86,7 +86,7 @@ namespace PersonalTask.Model
             {
                 Services.ColissionManager.AssertDepartureTime(
                     value,
-                    "DepartureTime");
+                    nameof(DepartureTime));
                 _departureTime = value;
             }
             get
@@ -105,7 +105,7 @@ namespace PersonalTask.Model
                 Services.ColissionManager.AssertFlightTime(
                     value,
                     1000,
-                    "FlightTime");
+                    nameof(FlightTime));
                 _flightTime = value;
             }
             get
@@ -123,7 +123,7 @@ namespace PersonalTask.Model
             {
                 Services.ColissionManager.IsValueInEnum(
                     value,
-                    "FlightType");
+                    nameof(FlightType));
                 _flightType = value;
             }
             get
