@@ -46,7 +46,7 @@ namespace OOP.Model
 				Services.ValueValidator.AssertStringOnLength(
 					value,
 					200,
-					"Name");
+					nameof(Name));
 				_name = value;
 			}
 			get
@@ -65,7 +65,7 @@ namespace OOP.Model
 				Services.ValueValidator.AssertStringOnLength(
 						value,
 						1000,
-						"Info");
+						nameof(Info));
 				_info = value;
 			}
 			get
@@ -85,8 +85,7 @@ namespace OOP.Model
 					value,
 					0,
 					100000,
-					"Cost"
-					);
+					nameof(Cost));
 				_cost = value;
 			}
 			get

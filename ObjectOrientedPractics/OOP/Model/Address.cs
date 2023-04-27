@@ -52,7 +52,7 @@ namespace OOP.Model
             }
             set
             {
-                Services.ValueValidator.AssertIndex(value, "Index");
+                Services.ValueValidator.AssertIndex(value, nameof(Index));
                 _index = value;
             }
         }
@@ -68,7 +68,7 @@ namespace OOP.Model
             }
             set
             {
-                Services.ValueValidator.AssertStringOnLength(value, 50, "Country");
+                Services.ValueValidator.AssertStringOnLength(value, 50, nameof(Country));
                 _country = value;
             }
         }
@@ -84,7 +84,7 @@ namespace OOP.Model
             }
             set
             {
-                Services.ValueValidator.AssertStringOnLength(value, 50, "City");
+                Services.ValueValidator.AssertStringOnLength(value, 50, nameof(City));
                 _city = value;
             }
         }
@@ -100,7 +100,7 @@ namespace OOP.Model
             }
             set
             {
-                Services.ValueValidator.AssertStringOnLength(value, 100, "Street");
+                Services.ValueValidator.AssertStringOnLength(value, 100, nameof(Street));
                 _street = value;
             }
         }
@@ -116,7 +116,7 @@ namespace OOP.Model
             }
             set
             {
-                Services.ValueValidator.AssertStringOnLength(value, 10, "Building");
+                Services.ValueValidator.AssertStringOnLength(value, 10, nameof(Building));
                 _building = value;
             }
         }
@@ -132,7 +132,7 @@ namespace OOP.Model
             }
             set
             {
-                Services.ValueValidator.AssertStringOnLength(value, 10, "Apartment");
+                Services.ValueValidator.AssertStringOnLength(value, 10, nameof(Apartment));
                 _apartment = value;
             }
         }
