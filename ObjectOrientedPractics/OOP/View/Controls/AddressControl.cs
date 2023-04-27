@@ -15,12 +15,22 @@ namespace OOP.View.Controls
         /// <summary>
         /// Список адресов.
         /// </summary>
-        private List<Model.Address> _address = new List<Model.Address>();
+        private Model.Address _address = new Model.Address();
        
         /// <summary>
-        /// Свойство для списка _address.
+        /// Свойство для поля _address.
         /// </summary>
-        private List<Model.Address> Address { set; get; }
+        public Model.Address Address 
+        {
+            set 
+            {
+                _address = value;
+            }
+            get
+            {
+                return _address;
+            }
+        }
 
         public AddressControl()
         {
@@ -34,9 +44,7 @@ namespace OOP.View.Controls
         {
             try
             {
-                Services.ValueValidator.AssertIndex(
-                    int.Parse(postIndexTextBox.Text),
-                    nameof(PostIndexTextBox_TextChanged));
+                Address.Index = int.Parse(postIndexTextBox.Text);
                 postIndexTextBox.BackColor = Color.White;
             }
             catch
@@ -52,10 +60,7 @@ namespace OOP.View.Controls
         {
             try
             {
-                Services.ValueValidator.AssertStringOnLength(
-                    countryTextBox.Text,
-                    50,
-                    nameof(CountryTextBox_TextChanged));
+                Address.Country = countryTextBox.Text;
                 countryTextBox.BackColor = Color.White;
             }
             catch
@@ -71,10 +76,7 @@ namespace OOP.View.Controls
         {
             try
             {
-                Services.ValueValidator.AssertStringOnLength(
-                    cityTextBox.Text,
-                    50,
-                    nameof(CityTextBox_TextChanged));
+                Address.City = cityTextBox.Text;
                 cityTextBox.BackColor = Color.White;
             }
             catch
@@ -90,10 +92,7 @@ namespace OOP.View.Controls
         {
             try
             {
-                Services.ValueValidator.AssertStringOnLength(
-                    streetTextBox.Text,
-                    100,
-                    nameof(StreetTextBox_TextChanged));
+                Address.Street = streetTextBox.Text;
                 streetTextBox.BackColor = Color.White;
             }
             catch
@@ -109,10 +108,7 @@ namespace OOP.View.Controls
         {
             try
             {
-                Services.ValueValidator.AssertStringOnLength(
-                    buildingTextBox.Text,
-                    10,
-                    nameof(BuildingTextBox_TextChanged));
+                Address.Building = buildingTextBox.Text;
                 buildingTextBox.BackColor = Color.White;
             }
             catch
@@ -128,10 +124,7 @@ namespace OOP.View.Controls
         {
             try
             {
-                Services.ValueValidator.AssertStringOnLength(
-                    apartmentTextBox.Text,
-                    10,
-                    nameof(ApartmentTextBox_TextChanged));
+                Address.Apartment = apartmentTextBox.Text;
                 apartmentTextBox.BackColor = Color.White;
             }
             catch

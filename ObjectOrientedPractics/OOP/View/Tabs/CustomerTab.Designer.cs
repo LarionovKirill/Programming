@@ -29,6 +29,7 @@ namespace OOP.View
         /// </summary>
         private void InitializeComponent()
         {
+            OOP.Model.Address address1 = new OOP.Model.Address();
             this.selectedCustomerLabel = new System.Windows.Forms.Label();
             this.customersLabel = new System.Windows.Forms.Label();
             this.fullNameLabel = new System.Windows.Forms.Label();
@@ -127,6 +128,7 @@ namespace OOP.View
             // 
             // addressControl
             // 
+            this.addressControl.Address = address1;
             this.addressControl.Location = new System.Drawing.Point(309, 113);
             this.addressControl.Name = "addressControl";
             this.addressControl.Size = new System.Drawing.Size(570, 203);
@@ -147,7 +149,7 @@ namespace OOP.View
             this.Controls.Add(this.addCustomerButton);
             this.Controls.Add(this.customerListBox);
             this.Name = "CustomerTab";
-            this.Size = new System.Drawing.Size(872, 553);
+            this.Size = new System.Drawing.Size(884, 553);
             this.ResumeLayout(false);
             this.PerformLayout();
 

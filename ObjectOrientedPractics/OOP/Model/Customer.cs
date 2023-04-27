@@ -77,30 +77,11 @@ namespace OOP.Model
 		/// Конструктор класса с параметрами.
 		/// </summary>
 		/// <param name="fullName"> Имя пользователя.</param>
-		/// <param name="index">Почтовый индекс пользователя.</param>
-		/// <param name="country">Страна пользователя.</param>
-		/// <param name="city">Город пользователя.</param>
-		/// <param name="street">Улица пользователя.</param>
-		/// <param name="building">Дом пользователя.</param>
-		/// <param name="apartment">Квартира пользователя.</param>
-		public Customer(
-			string fullName,
-			int index,
-			string country,
-			string city,
-			string street,
-			string building,
-			string apartment)
+		public Customer(string fullName, Address address)
 		{
 			this.Id = Services.IdGenerator.GetNextCustomerID();
 			this.FullName = fullName;
-			this.Address = new Address(
-				index,
-				country,
-				city,
-				street,
-				building,
-				apartment);
+			this.Address = address;
 		}
 	}
 }

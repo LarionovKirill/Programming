@@ -47,6 +47,7 @@ namespace OOP.View
             {
                 var index = customerListBox.SelectedIndex;
                 FillFieldsOfCustomer(Customers[index]);
+                addressControl.Address = Customers[index].Address;
             }
         }
 
@@ -75,12 +76,7 @@ namespace OOP.View
             {
                 Customers.Add(new Model.Customer(
                     fullNameTextBox.Text,
-                    int.Parse(addressControl.postIndexTextBox.Text),
-                    addressControl.countryTextBox.Text,
-                    addressControl.cityTextBox.Text,
-                    addressControl.streetTextBox.Text,
-                    addressControl.buildingTextBox.Text,
-                    addressControl.apartmentTextBox.Text));
+                    addressControl.Address));
 
                 customerListBox.Items.Add($"Пользователь : {Customers.Last().Id}");
             }
@@ -107,10 +103,18 @@ namespace OOP.View
         {
             try
             {
-                Services.ValueValidator.AssertStringOnLength(
-                    fullNameTextBox.Text,
-                    200,
-                    nameof(FullNameTextBox_TextChanged));
+                if (customerListBox.SelectedIndex >= 0)
+                {
+                    var index = customerListBox.SelectedIndex;
+                    Customers[index].FullName = fullNameTextBox.Text;
+                }
+                else
+                {
+                    Services.ValueValidator.AssertStringOnLength(
+                        fullNameTextBox.Text,
+                        200,
+                        nameof(FullNameTextBox_TextChanged));
+                }
                 fullNameTextBox.BackColor = Color.White;
             }
             catch
