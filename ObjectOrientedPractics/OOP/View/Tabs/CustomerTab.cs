@@ -57,8 +57,13 @@ namespace OOP.View
         public void FillFieldsOfCustomer(Model.Customer current)
         {
             idCustomerTextBox.Text = current.Id.ToString();
-            addressTextBox.Text = current.Address;
             fullNameTextBox.Text = current.FullName;
+            addressControl.postIndexTextBox.Text = current.Address.Index.ToString();
+            addressControl.streetTextBox.Text = current.Address.Street;
+            addressControl.cityTextBox.Text = current.Address.City;
+            addressControl.countryTextBox.Text = current.Address.Country;
+            addressControl.buildingTextBox.Text = current.Address.Building;
+            addressControl.apartmentTextBox.Text = current.Address.Apartment;
         }
 
         /// <summary>
@@ -70,7 +75,13 @@ namespace OOP.View
             {
                 Customers.Add(new Model.Customer(
                     fullNameTextBox.Text,
-                    addressTextBox.Text));
+                    int.Parse(addressControl.postIndexTextBox.Text),
+                    addressControl.countryTextBox.Text,
+                    addressControl.cityTextBox.Text,
+                    addressControl.streetTextBox.Text,
+                    addressControl.buildingTextBox.Text,
+                    addressControl.apartmentTextBox.Text));
+
                 customerListBox.Items.Add($"Пользователь : {Customers.Last().Id}");
             }
             catch
@@ -99,28 +110,12 @@ namespace OOP.View
                 Services.ValueValidator.AssertStringOnLength(
                     fullNameTextBox.Text,
                     200,
-                    "FullNameTextBox");
+                    nameof(FullNameTextBox_TextChanged));
                 fullNameTextBox.BackColor = Color.White;
             }
             catch
             {
                 fullNameTextBox.BackColor = Color.Pink;
-            }
-        }
-
-        private void AddressTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                Services.ValueValidator.AssertStringOnLength(
-                    addressTextBox.Text,
-                    500,
-                    "AddressTextBox");
-                addressTextBox.BackColor = Color.White;
-            }
-            catch
-            {
-                addressTextBox.BackColor = Color.Pink;
             }
         }
     }

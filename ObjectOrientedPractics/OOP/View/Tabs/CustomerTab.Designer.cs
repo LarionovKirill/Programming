@@ -31,15 +31,14 @@ namespace OOP.View
         {
             this.selectedCustomerLabel = new System.Windows.Forms.Label();
             this.customersLabel = new System.Windows.Forms.Label();
-            this.addressLabel = new System.Windows.Forms.Label();
             this.fullNameLabel = new System.Windows.Forms.Label();
             this.idLabel = new System.Windows.Forms.Label();
             this.idCustomerTextBox = new System.Windows.Forms.TextBox();
             this.fullNameTextBox = new System.Windows.Forms.TextBox();
-            this.addressTextBox = new System.Windows.Forms.TextBox();
             this.removeCustomerButton = new System.Windows.Forms.Button();
             this.addCustomerButton = new System.Windows.Forms.Button();
             this.customerListBox = new System.Windows.Forms.ListBox();
+            this.addressControl = new OOP.View.Controls.AddressControl();
             this.SuspendLayout();
             // 
             // selectedCustomerLabel
@@ -61,15 +60,6 @@ namespace OOP.View
             this.customersLabel.Size = new System.Drawing.Size(89, 17);
             this.customersLabel.TabIndex = 35;
             this.customersLabel.Text = "Customers:";
-            // 
-            // addressLabel
-            // 
-            this.addressLabel.AutoSize = true;
-            this.addressLabel.Location = new System.Drawing.Point(319, 120);
-            this.addressLabel.Name = "addressLabel";
-            this.addressLabel.Size = new System.Drawing.Size(64, 17);
-            this.addressLabel.TabIndex = 34;
-            this.addressLabel.Text = "Address:";
             // 
             // fullNameLabel
             // 
@@ -105,15 +95,6 @@ namespace OOP.View
             this.fullNameTextBox.TabIndex = 30;
             this.fullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
             // 
-            // addressTextBox
-            // 
-            this.addressTextBox.Location = new System.Drawing.Point(400, 117);
-            this.addressTextBox.Multiline = true;
-            this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(299, 96);
-            this.addressTextBox.TabIndex = 29;
-            this.addressTextBox.TextChanged += new System.EventHandler(this.AddressTextBox_TextChanged);
-            // 
             // removeCustomerButton
             // 
             this.removeCustomerButton.Location = new System.Drawing.Point(135, 488);
@@ -144,23 +125,29 @@ namespace OOP.View
             this.customerListBox.TabIndex = 26;
             this.customerListBox.SelectedIndexChanged += new System.EventHandler(this.CustomerListBox_SelectedIndexChanged);
             // 
+            // addressControl
+            // 
+            this.addressControl.Location = new System.Drawing.Point(309, 113);
+            this.addressControl.Name = "addressControl";
+            this.addressControl.Size = new System.Drawing.Size(570, 203);
+            this.addressControl.TabIndex = 37;
+            // 
             // CustomerTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.addressControl);
             this.Controls.Add(this.selectedCustomerLabel);
             this.Controls.Add(this.customersLabel);
-            this.Controls.Add(this.addressLabel);
             this.Controls.Add(this.fullNameLabel);
             this.Controls.Add(this.idLabel);
             this.Controls.Add(this.idCustomerTextBox);
             this.Controls.Add(this.fullNameTextBox);
-            this.Controls.Add(this.addressTextBox);
             this.Controls.Add(this.removeCustomerButton);
             this.Controls.Add(this.addCustomerButton);
             this.Controls.Add(this.customerListBox);
             this.Name = "CustomerTab";
-            this.Size = new System.Drawing.Size(719, 553);
+            this.Size = new System.Drawing.Size(872, 553);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,14 +157,13 @@ namespace OOP.View
 
         private System.Windows.Forms.Label selectedCustomerLabel;
         private System.Windows.Forms.Label customersLabel;
-        private System.Windows.Forms.Label addressLabel;
         private System.Windows.Forms.Label fullNameLabel;
         private System.Windows.Forms.Label idLabel;
         private System.Windows.Forms.TextBox idCustomerTextBox;
         private System.Windows.Forms.TextBox fullNameTextBox;
-        private System.Windows.Forms.TextBox addressTextBox;
         private System.Windows.Forms.Button removeCustomerButton;
         private System.Windows.Forms.Button addCustomerButton;
         private System.Windows.Forms.ListBox customerListBox;
+        private Controls.AddressControl addressControl;
     }
 }

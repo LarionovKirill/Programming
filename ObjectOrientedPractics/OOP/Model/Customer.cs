@@ -23,9 +23,9 @@ namespace OOP.Model
 		private string _fullName;
 
 		/// <summary>
-		/// Хранит адрес пользователя.
+		/// Хранит адрес доставки.
 		/// </summary>
-		private string _address;
+		private Address _address;
 
 		/// <summary>
 		/// Свойство поля _id.
@@ -50,43 +50,57 @@ namespace OOP.Model
 				return _fullName;
 			}
 		}
-
 		/// <summary>
-		/// Свойство поля _address.
+		/// Свойство для адреса доставки.
 		/// </summary>
-		public string Address
-		{
-			set
-			{
-				Services.ValueValidator.AssertStringOnLength(
-					value,
-					500,
-					nameof(Address));
-				_address = value;
-			}
-			get
+		public Address Address {
+			get 
 			{
 				return _address;
 			}
+			set
+			{
+				_address = value;
+			}
 		}
+
 		/// <summary>
 		/// Конструктор без параметров.
 		/// </summary>
 		public Customer()
 		{
 			this.Id = Services.IdGenerator.GetNextCustomerID();
+			Address = new Address();
 		}
 
 		/// <summary>
 		/// Конструктор класса с параметрами.
 		/// </summary>
 		/// <param name="fullName"> Имя пользователя.</param>
-		/// <param name="address">Адрес пользователя.</param>
-		public Customer(string fullName, string address)
+		/// <param name="index">Почтовый индекс пользователя.</param>
+		/// <param name="country">Страна пользователя.</param>
+		/// <param name="city">Город пользователя.</param>
+		/// <param name="street">Улица пользователя.</param>
+		/// <param name="building">Дом пользователя.</param>
+		/// <param name="apartment">Квартира пользователя.</param>
+		public Customer(
+			string fullName,
+			int index,
+			string country,
+			string city,
+			string street,
+			string building,
+			string apartment)
 		{
 			this.Id = Services.IdGenerator.GetNextCustomerID();
 			this.FullName = fullName;
-			this.Address = address;
+			this.Address = new Address(
+				index,
+				country,
+				city,
+				street,
+				building,
+				apartment);
 		}
 	}
 }
