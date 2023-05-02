@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ObjectOrientedPractics",
+    "\\ObjectOrientedPractics\\OOP",
+    "\\ObjectOrientedPractics\\OOP\\View",
+    "\\ObjectOrientedPractics\\OOP\\View\\Tabs"
   ],
-  "SelectedNode": "\\OOP.sln",
+  "SelectedNode": "\\ObjectOrientedPractics\\OOP\\View\\Tabs\\CustomerTab.cs",
   "PreviewInSolutionExplorer": false
 }

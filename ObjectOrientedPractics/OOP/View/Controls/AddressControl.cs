@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OOP.View.Controls
+namespace OOP.View
 {
     public partial class AddressControl : UserControl
     {

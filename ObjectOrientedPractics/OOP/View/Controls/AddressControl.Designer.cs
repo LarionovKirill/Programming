@@ -189,11 +189,11 @@ namespace OOP.View.Controls
         private System.Windows.Forms.Label buildingLabel;
         private System.Windows.Forms.Label apartmentLabel;
         private System.Windows.Forms.Label cityLabel;
-        internal System.Windows.Forms.TextBox postIndexTextBox;
-        internal System.Windows.Forms.TextBox countryTextBox;
-        internal System.Windows.Forms.TextBox streetTextBox;
-        internal System.Windows.Forms.TextBox cityTextBox;
-        internal System.Windows.Forms.TextBox buildingTextBox;
-        internal System.Windows.Forms.TextBox apartmentTextBox;
+        private System.Windows.Forms.TextBox postIndexTextBox;
+        private System.Windows.Forms.TextBox countryTextBox;
+        private System.Windows.Forms.TextBox streetTextBox;
+        private System.Windows.Forms.TextBox cityTextBox;
+        private System.Windows.Forms.TextBox buildingTextBox;
+        private System.Windows.Forms.TextBox apartmentTextBox;
     }
 }

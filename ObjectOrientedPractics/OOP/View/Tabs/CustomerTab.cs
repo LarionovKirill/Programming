@@ -33,6 +33,7 @@ namespace OOP.View
                 _customers = value;
             }
         }
+
         public CustomerTab()
         {
             InitializeComponent();
@@ -46,8 +47,8 @@ namespace OOP.View
             if (customerListBox.SelectedIndex>=0)
             {
                 var index = customerListBox.SelectedIndex;
-                FillFieldsOfCustomer(Customers[index]);
                 addressControl.Address = Customers[index].Address;
+                FillFieldsOfCustomer(Customers[index]);
             }
         }
 
