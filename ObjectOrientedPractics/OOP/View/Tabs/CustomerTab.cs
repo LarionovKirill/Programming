@@ -15,7 +15,7 @@ namespace OOP.View
         /// <summary>
         /// Список пользователей.
         /// </summary>
-        private List<Model.Customer> _customers = new List<Model.Customer>();
+        private List<Model.Customer> _customers;
 
         /// <summary>
         /// Свойство поля _customers.

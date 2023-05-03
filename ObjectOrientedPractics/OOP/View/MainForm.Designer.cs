@@ -42,6 +42,7 @@ namespace OOP
             // 
             // customerTab1
             // 
+            this.customerTab1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.customerTab1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.customerTab1.Location = new System.Drawing.Point(3, 3);
             this.customerTab1.Name = "customerTab1";

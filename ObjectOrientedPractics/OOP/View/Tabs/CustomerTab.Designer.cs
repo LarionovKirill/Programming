@@ -127,14 +127,14 @@ namespace OOP.View
             this.customerListBox.SelectedIndexChanged += new System.EventHandler(this.CustomerListBox_SelectedIndexChanged);
             // 
             // addressControl
-            // 
+            /*
             address1.Apartment = null;
             address1.Building = null;
             address1.City = null;
             address1.Country = null;
             address1.Index = 0;
             address1.Street = null;
-            this.addressControl.Address = address1;
+            this.addressControl.Address = address1;*/
             this.addressControl.Location = new System.Drawing.Point(309, 122);
             this.addressControl.Name = "addressControl";
             this.addressControl.Size = new System.Drawing.Size(570, 203);
@@ -172,6 +172,6 @@ namespace OOP.View
         private System.Windows.Forms.Button removeCustomerButton;
         private System.Windows.Forms.Button addCustomerButton;
         private System.Windows.Forms.ListBox customerListBox;
-        internal AddressControl addressControl;
+        private AddressControl addressControl;
     }
 }

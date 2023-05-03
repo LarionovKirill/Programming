@@ -15,7 +15,7 @@ namespace OOP.View.Tabs
         /// <summary>
         /// Список товаров.
         /// </summary>
-        private List<Model.Item> _items = new List<Model.Item>();
+        private List<Model.Item> _items;
 
         /// <summary>
         /// Свойство поля _items.
