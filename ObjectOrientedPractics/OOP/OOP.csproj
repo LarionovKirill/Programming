@@ -116,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Diagrams\Uml лаба 1.jpg" />
+    <Content Include="Diagrams\Uml лаба 2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
