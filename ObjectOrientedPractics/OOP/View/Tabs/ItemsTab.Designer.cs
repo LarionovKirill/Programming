@@ -71,7 +71,7 @@ namespace OOP.View.Tabs
             this.descriptionItemTextBox.Location = new System.Drawing.Point(320, 323);
             this.descriptionItemTextBox.Multiline = true;
             this.descriptionItemTextBox.Name = "descriptionItemTextBox";
-            this.descriptionItemTextBox.Size = new System.Drawing.Size(377, 119);
+            this.descriptionItemTextBox.Size = new System.Drawing.Size(464, 119);
             this.descriptionItemTextBox.TabIndex = 3;
             this.descriptionItemTextBox.TextChanged += new System.EventHandler(this.DescriptionItemTextBox_TextChanged);
             // 
@@ -80,7 +80,7 @@ namespace OOP.View.Tabs
             this.nameItemTextBox.Location = new System.Drawing.Point(320, 191);
             this.nameItemTextBox.Multiline = true;
             this.nameItemTextBox.Name = "nameItemTextBox";
-            this.nameItemTextBox.Size = new System.Drawing.Size(377, 96);
+            this.nameItemTextBox.Size = new System.Drawing.Size(464, 96);
             this.nameItemTextBox.TabIndex = 4;
             this.nameItemTextBox.TextChanged += new System.EventHandler(this.NameItemTextBox_TextChanged);
             // 
@@ -206,7 +206,7 @@ namespace OOP.View.Tabs
             this.Controls.Add(this.addItemButton);
             this.Controls.Add(this.itemListBox);
             this.Name = "ItemsTab";
-            this.Size = new System.Drawing.Size(719, 553);
+            this.Size = new System.Drawing.Size(805, 553);
             this.Load += new System.EventHandler(this.ItemsTab_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
