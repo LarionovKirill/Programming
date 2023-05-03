@@ -1,5 +1,5 @@
 ﻿
-namespace OOP.View.Controls
+namespace OOP.View
 {
     partial class AddressControl
     {

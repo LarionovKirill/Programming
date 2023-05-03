@@ -39,7 +39,7 @@ namespace OOP.View
             this.removeCustomerButton = new System.Windows.Forms.Button();
             this.addCustomerButton = new System.Windows.Forms.Button();
             this.customerListBox = new System.Windows.Forms.ListBox();
-            this.addressControl = new OOP.View.Controls.AddressControl();
+            this.addressControl = new OOP.View.AddressControl();
             this.SuspendLayout();
             // 
             // selectedCustomerLabel
@@ -128,8 +128,14 @@ namespace OOP.View
             // 
             // addressControl
             // 
+            address1.Apartment = null;
+            address1.Building = null;
+            address1.City = null;
+            address1.Country = null;
+            address1.Index = 0;
+            address1.Street = null;
             this.addressControl.Address = address1;
-            this.addressControl.Location = new System.Drawing.Point(309, 113);
+            this.addressControl.Location = new System.Drawing.Point(309, 122);
             this.addressControl.Name = "addressControl";
             this.addressControl.Size = new System.Drawing.Size(570, 203);
             this.addressControl.TabIndex = 37;
@@ -166,6 +172,6 @@ namespace OOP.View
         private System.Windows.Forms.Button removeCustomerButton;
         private System.Windows.Forms.Button addCustomerButton;
         private System.Windows.Forms.ListBox customerListBox;
-        private Controls.AddressControl addressControl;
+        internal AddressControl addressControl;
     }
 }

@@ -16,13 +16,13 @@ namespace OOP.View
         /// Список адресов.
         /// </summary>
         private Model.Address _address = new Model.Address();
-       
+
         /// <summary>
         /// Свойство для поля _address.
         /// </summary>
-        public Model.Address Address 
+        public Model.Address Address
         {
-            set 
+            set
             {
                 _address = value;
             }
@@ -31,6 +31,20 @@ namespace OOP.View
                 return _address;
             }
         }
+
+        /// <summary>
+        /// Метод заполняет поля адреса.
+        /// </summary>
+        internal void FillAddress(Model.Address address)
+        {
+            postIndexTextBox.Text = address.Index.ToString();
+            countryTextBox.Text = address.Country;
+            cityTextBox.Text = address.City;
+            apartmentTextBox.Text = address.Apartment;
+            buildingTextBox.Text = address.Building;
+            streetTextBox.Text = address.Street;
+        }
+
 
         public AddressControl()
         {

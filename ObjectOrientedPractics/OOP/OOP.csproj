@@ -49,10 +49,10 @@
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Services\IdGenerator.cs" />
-    <Compile Include="View\Controls\AddressControl.cs">
+    <Compile Include="View\Tabs\AddressControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Controls\AddressControl.Designer.cs">
+    <Compile Include="View\Tabs\AddressControl.Designer.cs">
       <DependentUpon>AddressControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Tabs\CustomerTab.cs">
@@ -87,7 +87,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\Controls\AddressControl.resx">
+    <EmbeddedResource Include="View\Tabs\AddressControl.resx">
       <DependentUpon>AddressControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Tabs\CustomerTab.resx">

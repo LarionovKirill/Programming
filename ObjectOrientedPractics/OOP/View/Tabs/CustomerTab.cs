@@ -47,8 +47,8 @@ namespace OOP.View
             if (customerListBox.SelectedIndex>=0)
             {
                 var index = customerListBox.SelectedIndex;
-                addressControl.Address = Customers[index].Address;
                 FillFieldsOfCustomer(Customers[index]);
+                addressControl.FillAddress(Customers[index].Address);
             }
         }
 
@@ -60,12 +60,6 @@ namespace OOP.View
         {
             idCustomerTextBox.Text = current.Id.ToString();
             fullNameTextBox.Text = current.FullName;
-            addressControl.postIndexTextBox.Text = current.Address.Index.ToString();
-            addressControl.streetTextBox.Text = current.Address.Street;
-            addressControl.cityTextBox.Text = current.Address.City;
-            addressControl.countryTextBox.Text = current.Address.Country;
-            addressControl.buildingTextBox.Text = current.Address.Building;
-            addressControl.apartmentTextBox.Text = current.Address.Apartment;
         }
 
         /// <summary>
@@ -77,7 +71,12 @@ namespace OOP.View
             {
                 Customers.Add(new Model.Customer(
                     fullNameTextBox.Text,
-                    addressControl.Address));
+                    addressControl.Address.Index,
+                    addressControl.Address.Building,
+                    addressControl.Address.City,
+                    addressControl.Address.Country,
+                    addressControl.Address.Street,
+                    addressControl.Address.Apartment));
 
                 customerListBox.Items.Add($"Пользователь : {Customers.Last().Id}");
             }
@@ -100,6 +99,9 @@ namespace OOP.View
             }
         }
 
+        /// <summary>
+        /// Изменяет полное имя пользователя.
+        /// </summary>
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -108,13 +110,6 @@ namespace OOP.View
                 {
                     var index = customerListBox.SelectedIndex;
                     Customers[index].FullName = fullNameTextBox.Text;
-                }
-                else
-                {
-                    Services.ValueValidator.AssertStringOnLength(
-                        fullNameTextBox.Text,
-                        200,
-                        nameof(FullNameTextBox_TextChanged));
                 }
                 fullNameTextBox.BackColor = Color.White;
             }
