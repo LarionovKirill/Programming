@@ -3,8 +3,9 @@
     "",
     "\\ObjectOrientedPractics",
     "\\ObjectOrientedPractics\\OOP",
-    "\\ObjectOrientedPractics\\OOP\\Model"
+    "\\ObjectOrientedPractics\\OOP\\View",
+    "\\ObjectOrientedPractics\\OOP\\View\\Tabs"
   ],
-  "SelectedNode": "\\ObjectOrientedPractics\\OOP\\Model\\Customer.cs",
+  "SelectedNode": "\\ObjectOrientedPractics\\OOP\\View\\Tabs\\ItemsTab.cs",
   "PreviewInSolutionExplorer": false
 }
