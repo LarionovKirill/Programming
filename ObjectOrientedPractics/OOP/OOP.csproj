@@ -49,6 +49,8 @@
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Cart.cs" />
     <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\Status.cs" />
     <Compile Include="Model\Store.cs" />
     <Compile Include="Services\IdGenerator.cs" />
     <Compile Include="View\Tabs\AddressControl.cs">

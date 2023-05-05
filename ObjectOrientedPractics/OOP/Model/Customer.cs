@@ -38,6 +38,11 @@ namespace OOP.Model
 		private Cart _cart;
 
 		/// <summary>
+		/// Список заказов пользователя.
+		/// </summary>
+		private List<Order> _orders;
+
+		/// <summary>
 		/// Свойство поля _fullName.
 		/// </summary>
 		public string FullName
@@ -69,6 +74,9 @@ namespace OOP.Model
 			}
 		}
 
+		/// <summary>
+		/// Свойство для корзины.
+		/// </summary>
 		public Cart Cart
 		{
 			get
@@ -82,12 +90,18 @@ namespace OOP.Model
 		}
 
 		/// <summary>
+		/// Свойство для списка заказов.
+		/// </summary>
+		public List<Order> Orders { get; set; }
+
+		/// <summary>
 		/// Конструктор без параметров.
 		/// </summary>
 		public Customer()
 		{
 			this.Id = Services.IdGenerator.GetNextCustomerID();
 			Address = new Address();
+			this.Cart = new Cart();
 		}
 
 		/// <summary>
@@ -101,12 +115,12 @@ namespace OOP.Model
 			string city,
 			string country,
 			string street,
-			string apartment,
-			Cart cart)
+			string apartment)
 		{
 			this.Id = Services.IdGenerator.GetNextCustomerID();
 			this.FullName = fullName;
 			this.Address = new Address(index, country, city, street, building, apartment);
+			this.Cart = new Cart();
 		}
 	}
 }
