@@ -33,6 +33,11 @@ namespace OOP.Model
 		public int Id { get; private set; }
 
 		/// <summary>
+		/// Хранит корзину пользователя.
+		/// </summary>
+		private Cart _cart;
+
+		/// <summary>
 		/// Свойство поля _fullName.
 		/// </summary>
 		public string FullName
@@ -64,6 +69,18 @@ namespace OOP.Model
 			}
 		}
 
+		public Cart Cart
+		{
+			get
+			{
+				return _cart;
+			}
+			set
+			{
+				_cart = value;
+			}
+		}
+
 		/// <summary>
 		/// Конструктор без параметров.
 		/// </summary>
@@ -84,7 +101,8 @@ namespace OOP.Model
 			string city,
 			string country,
 			string street,
-			string apartment)
+			string apartment,
+			Cart cart)
 		{
 			this.Id = Services.IdGenerator.GetNextCustomerID();
 			this.FullName = fullName;
