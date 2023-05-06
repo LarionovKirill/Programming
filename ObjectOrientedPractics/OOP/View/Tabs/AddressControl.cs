@@ -13,22 +13,37 @@ namespace OOP.View
     public partial class AddressControl : UserControl
     {
         /// <summary>
-        /// Список адресов.
+        /// Копия формы для передачи данных
+        /// </summary>
+        public CustomerTab _customerTab;
+
+        /// <summary>
+        /// Хранит преедан пользователь или нет.
+        /// </summary>
+        private bool _currentCustomer = false;
+
+        /// <summary>
+        /// Хранит индекс переданного пользователя.
+        /// </summary>
+        private int _index;
+
+        /// <summary>
+        /// Aдрес пользователя.
         /// </summary>
         private Model.Address _address = new Model.Address();
 
         /// <summary>
-        /// Свойство для поля _address.
+        /// Свойство адреса.
         /// </summary>
         public Model.Address Address
         {
-            set
-            {
-                _address = value;
-            }
             get
             {
                 return _address;
+            }
+            set
+            {
+                _address = value;
             }
         }
 
@@ -60,6 +75,10 @@ namespace OOP.View
             {
                 Address.Index = int.Parse(postIndexTextBox.Text);
                 postIndexTextBox.BackColor = Color.White;
+                if (_currentCustomer)
+                {
+                    _customerTab.Customers[_index].Address.Index = Address.Index;
+                }
             }
             catch
             {
@@ -76,6 +95,10 @@ namespace OOP.View
             {
                 Address.Country = countryTextBox.Text;
                 countryTextBox.BackColor = Color.White;
+                if (_currentCustomer)
+                {
+                    _customerTab.Customers[_index].Address.Country = Address.Country;
+                }
             }
             catch
             {
@@ -92,6 +115,10 @@ namespace OOP.View
             {
                 Address.City = cityTextBox.Text;
                 cityTextBox.BackColor = Color.White;
+                if (_currentCustomer)
+                {
+                    _customerTab.Customers[_index].Address.City = Address.City;
+                }
             }
             catch
             {
@@ -108,6 +135,10 @@ namespace OOP.View
             {
                 Address.Street = streetTextBox.Text;
                 streetTextBox.BackColor = Color.White;
+                if (_currentCustomer)
+                {
+                    _customerTab.Customers[_index].Address.Street = Address.Street;
+                }
             }
             catch
             {
@@ -124,6 +155,10 @@ namespace OOP.View
             {
                 Address.Building = buildingTextBox.Text;
                 buildingTextBox.BackColor = Color.White;
+                if (_currentCustomer)
+                {
+                    _customerTab.Customers[_index].Address.Building = Address.Building;
+                }
             }
             catch
             {
@@ -140,11 +175,25 @@ namespace OOP.View
             {
                 Address.Apartment = apartmentTextBox.Text;
                 apartmentTextBox.BackColor = Color.White;
+                if (_currentCustomer)
+                {
+                    _customerTab.Customers[_index].Address.Apartment = Address.Apartment;
+                }
             }
             catch
             {
                 apartmentTextBox.BackColor = Color.Pink;
             }
+        }
+
+        /// <summary>
+        /// Получение объекта, которого выбрали в другом элемента.
+        /// </summary>
+        /// <param name="current">Выбранный пользователь с другого элемента.</param>
+        public void GetCustomer(int index)
+        {
+            _currentCustomer = true;
+            _index = index;
         }
     }
 }
