@@ -81,7 +81,7 @@ namespace OOP.Model
         /// <summary>
         /// Тип заказа.
         /// </summary>
-        public Status OrderStatus { get; set; }
+        public OrderStatus OrderStatus { get; set; }
 
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace OOP.Model
         /// <param name="creatingDate">Дата создания заказа.</param>
         /// <param name="address">Адрес доставки.</param>
         /// <param name="orderStatus">Статус заказа.</param>
-        public Order(DateTime creatingDate, Address address, Status orderStatus)
+        public Order(DateTime creatingDate, Address address, OrderStatus orderStatus)
         {
             this.Id = Services.IdGenerator.GetNextOrderID();
             this.DateOfCreate = creatingDate;

@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace OOP.Model
 {
-    public class Status
-    {
         /// <summary>
         /// Перечисление хранит состояния заказа.
         /// </summary>
@@ -21,5 +19,4 @@ namespace OOP.Model
             Returned,
             Abandoned
         }
-    }
 }

@@ -50,7 +50,7 @@
     <Compile Include="Model\Cart.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Order.cs" />
-    <Compile Include="Model\Status.cs" />
+    <Compile Include="Model\OrderStatus.cs" />
     <Compile Include="Model\Store.cs" />
     <Compile Include="Services\IdGenerator.cs" />
     <Compile Include="View\Tabs\AddressControl.cs">
@@ -58,6 +58,12 @@
     </Compile>
     <Compile Include="View\Tabs\AddressControl.Designer.cs">
       <DependentUpon>AddressControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Tabs\CartsTabs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Tabs\CartsTabs.Designer.cs">
+      <DependentUpon>CartsTabs.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Tabs\CustomerTab.cs">
       <SubType>UserControl</SubType>
@@ -93,6 +99,9 @@
     </Compile>
     <EmbeddedResource Include="View\Tabs\AddressControl.resx">
       <DependentUpon>AddressControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Tabs\CartsTabs.resx">
+      <DependentUpon>CartsTabs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Tabs\CustomerTab.resx">
       <DependentUpon>CustomerTab.cs</DependentUpon>

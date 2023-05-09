@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace OOP.Model
 {
+    /// <summary>
+    /// Описывает корзину товаров.
+    /// </summary>
     public class Cart
     {
         /// <summary>
@@ -48,7 +51,5 @@ namespace OOP.Model
                 }
             }
         }
-
-
     }
 }
