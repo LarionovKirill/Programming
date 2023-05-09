@@ -54,14 +54,14 @@ namespace OOP.View.Tabs
             this.itemListBox.Location = new System.Drawing.Point(9, 24);
             this.itemListBox.Margin = new System.Windows.Forms.Padding(2);
             this.itemListBox.Name = "itemListBox";
-            this.itemListBox.Size = new System.Drawing.Size(272, 368);
+            this.itemListBox.Size = new System.Drawing.Size(272, 446);
             this.itemListBox.TabIndex = 0;
             this.itemListBox.SelectedIndexChanged += new System.EventHandler(this.ItemListBox_SelectedIndexChanged);
             // 
             // addItemButton
             // 
             this.addItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addItemButton.Location = new System.Drawing.Point(10, 396);
+            this.addItemButton.Location = new System.Drawing.Point(10, 481);
             this.addItemButton.Margin = new System.Windows.Forms.Padding(2);
             this.addItemButton.Name = "addItemButton";
             this.addItemButton.Size = new System.Drawing.Size(86, 44);
@@ -79,7 +79,7 @@ namespace OOP.View.Tabs
             this.descriptionItemTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.descriptionItemTextBox.Multiline = true;
             this.descriptionItemTextBox.Name = "descriptionItemTextBox";
-            this.descriptionItemTextBox.Size = new System.Drawing.Size(357, 118);
+            this.descriptionItemTextBox.Size = new System.Drawing.Size(348, 194);
             this.descriptionItemTextBox.TabIndex = 3;
             this.descriptionItemTextBox.TextChanged += new System.EventHandler(this.DescriptionItemTextBox_TextChanged);
             // 
@@ -91,7 +91,7 @@ namespace OOP.View.Tabs
             this.nameItemTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nameItemTextBox.Multiline = true;
             this.nameItemTextBox.Name = "nameItemTextBox";
-            this.nameItemTextBox.Size = new System.Drawing.Size(357, 91);
+            this.nameItemTextBox.Size = new System.Drawing.Size(348, 91);
             this.nameItemTextBox.TabIndex = 4;
             this.nameItemTextBox.TextChanged += new System.EventHandler(this.NameItemTextBox_TextChanged);
             // 
@@ -103,7 +103,7 @@ namespace OOP.View.Tabs
             this.costItemTextBox.Location = new System.Drawing.Point(349, 68);
             this.costItemTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.costItemTextBox.Name = "costItemTextBox";
-            this.costItemTextBox.Size = new System.Drawing.Size(113, 20);
+            this.costItemTextBox.Size = new System.Drawing.Size(104, 20);
             this.costItemTextBox.TabIndex = 5;
             this.costItemTextBox.TextChanged += new System.EventHandler(this.СostItemTextBox_TextChanged);
             // 
@@ -116,7 +116,7 @@ namespace OOP.View.Tabs
             this.idItemTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.idItemTextBox.Name = "idItemTextBox";
             this.idItemTextBox.ReadOnly = true;
-            this.idItemTextBox.Size = new System.Drawing.Size(113, 20);
+            this.idItemTextBox.Size = new System.Drawing.Size(104, 20);
             this.idItemTextBox.TabIndex = 6;
             // 
             // idLabel
@@ -190,7 +190,7 @@ namespace OOP.View.Tabs
             // removeItemButton
             // 
             this.removeItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.removeItemButton.Location = new System.Drawing.Point(195, 396);
+            this.removeItemButton.Location = new System.Drawing.Point(195, 481);
             this.removeItemButton.Margin = new System.Windows.Forms.Padding(2);
             this.removeItemButton.Name = "removeItemButton";
             this.removeItemButton.Size = new System.Drawing.Size(86, 44);
@@ -220,7 +220,7 @@ namespace OOP.View.Tabs
             this.categoryComboBox.Location = new System.Drawing.Point(349, 95);
             this.categoryComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.categoryComboBox.Name = "categoryComboBox";
-            this.categoryComboBox.Size = new System.Drawing.Size(113, 21);
+            this.categoryComboBox.Size = new System.Drawing.Size(104, 21);
             this.categoryComboBox.TabIndex = 14;
             this.categoryComboBox.SelectedIndexChanged += new System.EventHandler(this.СategoryComboBox_SelectedIndexChanged);
             // 
@@ -245,7 +245,7 @@ namespace OOP.View.Tabs
             this.Controls.Add(this.itemListBox);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ItemsTab";
-            this.Size = new System.Drawing.Size(670, 450);
+            this.Size = new System.Drawing.Size(661, 535);
             this.Load += new System.EventHandler(this.ItemsTab_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

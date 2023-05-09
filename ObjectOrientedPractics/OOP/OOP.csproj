@@ -59,11 +59,11 @@
     <Compile Include="View\Tabs\AddressControl.Designer.cs">
       <DependentUpon>AddressControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Tabs\CartsTabs.cs">
+    <Compile Include="View\Tabs\CartsTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Tabs\CartsTabs.Designer.cs">
-      <DependentUpon>CartsTabs.cs</DependentUpon>
+    <Compile Include="View\Tabs\CartsTab.Designer.cs">
+      <DependentUpon>CartsTab.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Tabs\CustomerTab.cs">
       <SubType>UserControl</SubType>
@@ -100,8 +100,8 @@
     <EmbeddedResource Include="View\Tabs\AddressControl.resx">
       <DependentUpon>AddressControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Tabs\CartsTabs.resx">
-      <DependentUpon>CartsTabs.cs</DependentUpon>
+    <EmbeddedResource Include="View\Tabs\CartsTab.resx">
+      <DependentUpon>CartsTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Tabs\CustomerTab.resx">
       <DependentUpon>CustomerTab.cs</DependentUpon>
