@@ -37,17 +37,19 @@ namespace OOP.View
         public CustomerTab()
         {
             InitializeComponent();
+            addressControl._customerTab = this;
         }
-        
+
         /// <summary>
         /// Обработка нажатия выбранного пользователя.
         /// </summary>
         private void CustomerListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (customerListBox.SelectedIndex>=0)
+            if (customerListBox.SelectedIndex >= 0)
             {
                 var index = customerListBox.SelectedIndex;
                 FillFieldsOfCustomer(Customers[index]);
+                addressControl.GetCustomer(index);
                 addressControl.FillAddress(Customers[index].Address);
             }
         }
@@ -69,16 +71,23 @@ namespace OOP.View
         {
             try
             {
+                Model.Address currentAddress = GetAddress();
                 Customers.Add(new Model.Customer(
                     fullNameTextBox.Text,
-                    addressControl.Address.Index,
-                    addressControl.Address.Building,
-                    addressControl.Address.City,
-                    addressControl.Address.Country,
-                    addressControl.Address.Street,
-                    addressControl.Address.Apartment));
+                    currentAddress.Index,
+                    currentAddress.Building,
+                    currentAddress.City,
+                    currentAddress.Country,
+                    currentAddress.Street,
+                    currentAddress.Apartment));
 
                 customerListBox.Items.Add($"Пользователь : {Customers.Last().Id}");
+                var index = customerListBox.SelectedIndex;
+                if (index >= 0)
+                {
+                    addressControl.GetCustomer(index);
+                }
+
             }
             catch
             {
@@ -117,6 +126,15 @@ namespace OOP.View
             {
                 fullNameTextBox.BackColor = Color.Pink;
             }
+        }
+
+        /// <summary>
+        /// Возвращает адрес из другой формы.
+        /// </summary>
+        /// <returns>Адрес.</returns>
+        private Model.Address GetAddress()
+        {
+            return addressControl.Address;
         }
     }
 }
