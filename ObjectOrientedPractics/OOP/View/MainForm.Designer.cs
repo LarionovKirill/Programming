@@ -31,13 +31,13 @@ namespace OOP
         {
             this.itemsTabPage = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.itemsTab1 = new OOP.View.Tabs.ItemsTab();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.customerTab2 = new OOP.View.CustomerTab();
-            this.customerTab1 = new OOP.View.CustomerTab();
             this.cartsTabPage = new System.Windows.Forms.TabPage();
-            this.panelForCart = new System.Windows.Forms.Panel();
+            this.customerTab1 = new OOP.View.CustomerTab();
+            this.cartsTabs1 = new OOP.View.Tabs.CartsTabs();
+            this.customerTab2 = new OOP.View.CustomerTab();
+            this.itemsTab1 = new OOP.View.Tabs.ItemsTab();
             this.itemsTabPage.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -62,20 +62,10 @@ namespace OOP
             this.panel1.Controls.Add(this.itemsTab1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(895, 558);
             this.panel1.TabIndex = 0;
-            // 
-            // itemsTab1
-            // 
-            this.itemsTab1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.itemsTab1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.itemsTab1.Location = new System.Drawing.Point(0, 0);
-            this.itemsTab1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.itemsTab1.Name = "itemsTab1";
-            this.itemsTab1.Size = new System.Drawing.Size(895, 558);
-            this.itemsTab1.TabIndex = 0;
             // 
             // tabControl
             // 
@@ -102,14 +92,16 @@ namespace OOP
             this.tabPage1.Text = "Customer";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // customerTab2
+            // cartsTabPage
             // 
-            this.customerTab2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customerTab2.Location = new System.Drawing.Point(3, 2);
-            this.customerTab2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.customerTab2.Name = "customerTab2";
-            this.customerTab2.Size = new System.Drawing.Size(895, 558);
-            this.customerTab2.TabIndex = 0;
+            this.cartsTabPage.Controls.Add(this.cartsTabs1);
+            this.cartsTabPage.Location = new System.Drawing.Point(4, 25);
+            this.cartsTabPage.Name = "cartsTabPage";
+            this.cartsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.cartsTabPage.Size = new System.Drawing.Size(901, 562);
+            this.cartsTabPage.TabIndex = 2;
+            this.cartsTabPage.Text = "Carts";
+            this.cartsTabPage.UseVisualStyleBackColor = true;
             // 
             // customerTab1
             // 
@@ -121,24 +113,33 @@ namespace OOP
             this.customerTab1.Size = new System.Drawing.Size(866, 552);
             this.customerTab1.TabIndex = 0;
             // 
-            // cartsTabPage
+            // cartsTabs1
             // 
-            this.cartsTabPage.Controls.Add(this.panelForCart);
-            this.cartsTabPage.Location = new System.Drawing.Point(4, 25);
-            this.cartsTabPage.Name = "cartsTabPage";
-            this.cartsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.cartsTabPage.Size = new System.Drawing.Size(901, 562);
-            this.cartsTabPage.TabIndex = 2;
-            this.cartsTabPage.Text = "Carts";
-            this.cartsTabPage.UseVisualStyleBackColor = true;
+            this.cartsTabs1.Customers = null;
+            this.cartsTabs1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cartsTabs1.Items = null;
+            this.cartsTabs1.Location = new System.Drawing.Point(3, 3);
+            this.cartsTabs1.Name = "cartsTabs1";
+            this.cartsTabs1.Size = new System.Drawing.Size(895, 556);
+            this.cartsTabs1.TabIndex = 0;
             // 
-            // panelForCart
+            // customerTab2
             // 
-            this.panelForCart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelForCart.Location = new System.Drawing.Point(3, 3);
-            this.panelForCart.Name = "panelForCart";
-            this.panelForCart.Size = new System.Drawing.Size(895, 556);
-            this.panelForCart.TabIndex = 0;
+            this.customerTab2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.customerTab2.Location = new System.Drawing.Point(3, 2);
+            this.customerTab2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.customerTab2.Name = "customerTab2";
+            this.customerTab2.Size = new System.Drawing.Size(895, 558);
+            this.customerTab2.TabIndex = 0;
+            // 
+            // itemsTab1
+            // 
+            this.itemsTab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.itemsTab1.Location = new System.Drawing.Point(0, 0);
+            this.itemsTab1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.itemsTab1.Name = "itemsTab1";
+            this.itemsTab1.Size = new System.Drawing.Size(895, 558);
+            this.itemsTab1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -163,11 +164,11 @@ namespace OOP
         private System.Windows.Forms.TabPage itemsTabPage;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
-        private View.CustomerTab customerTab2;
         private System.Windows.Forms.Panel panel1;
-        private View.Tabs.ItemsTab itemsTab1;
         private System.Windows.Forms.TabPage cartsTabPage;
-        private System.Windows.Forms.Panel panelForCart;
+        private View.Tabs.CartsTabs cartsTabs1;
+        private View.CustomerTab customerTab2;
+        private View.Tabs.ItemsTab itemsTab1;
     }
 }
 

@@ -13,26 +13,11 @@ namespace OOP.View
     public partial class CustomerTab : UserControl
     {
         /// <summary>
-        /// Список пользователей.
-        /// </summary>
-        private List<Model.Customer> _customers;
-
-        /// <summary>
         /// Свойство поля _customers.
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<Model.Customer> Customers
-        {
-            get
-            {
-                return _customers;
-            }
-            set
-            {
-                _customers = value;
-            }
-        }
+        public List<Model.Customer> Customers{get;set;}
 
         public CustomerTab()
         {

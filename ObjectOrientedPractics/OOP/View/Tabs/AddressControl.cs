@@ -27,25 +27,11 @@ namespace OOP.View
         /// </summary>
         private int _index;
 
-        /// <summary>
-        /// Aдрес пользователя.
-        /// </summary>
-        private Model.Address _address = new Model.Address();
 
         /// <summary>
         /// Свойство адреса.
         /// </summary>
-        public Model.Address Address
-        {
-            get
-            {
-                return _address;
-            }
-            set
-            {
-                _address = value;
-            }
-        }
+        public Model.Address Address{ get; set;}
 
         /// <summary>
         /// Метод заполняет поля адреса.

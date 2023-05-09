@@ -48,7 +48,7 @@ namespace OOP.View.Tabs
             this.itemsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.itemsLabel.Location = new System.Drawing.Point(12, 10);
             this.itemsLabel.Name = "itemsLabel";
-            this.itemsLabel.Size = new System.Drawing.Size(46, 17);
+            this.itemsLabel.Size = new System.Drawing.Size(37, 13);
             this.itemsLabel.TabIndex = 0;
             this.itemsLabel.Text = "Items";
             // 
@@ -58,7 +58,7 @@ namespace OOP.View.Tabs
             this.customerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.customerLabel.Location = new System.Drawing.Point(323, 30);
             this.customerLabel.Name = "customerLabel";
-            this.customerLabel.Size = new System.Drawing.Size(81, 17);
+            this.customerLabel.Size = new System.Drawing.Size(63, 13);
             this.customerLabel.TabIndex = 1;
             this.customerLabel.Text = "Customer:";
             // 
@@ -93,7 +93,7 @@ namespace OOP.View.Tabs
             this.cartLabel.AutoSize = true;
             this.cartLabel.Location = new System.Drawing.Point(323, 88);
             this.cartLabel.Name = "cartLabel";
-            this.cartLabel.Size = new System.Drawing.Size(38, 17);
+            this.cartLabel.Size = new System.Drawing.Size(35, 16);
             this.cartLabel.TabIndex = 5;
             this.cartLabel.Text = "Cart:";
             // 
@@ -138,7 +138,7 @@ namespace OOP.View.Tabs
             this.amountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.amountLabel.Location = new System.Drawing.Point(804, 301);
             this.amountLabel.Name = "amountLabel";
-            this.amountLabel.Size = new System.Drawing.Size(70, 18);
+            this.amountLabel.Size = new System.Drawing.Size(59, 15);
             this.amountLabel.TabIndex = 10;
             this.amountLabel.Text = "Amount:";
             // 
