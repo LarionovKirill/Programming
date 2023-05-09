@@ -51,5 +51,12 @@ namespace OOP.Model
                 }
             }
         }
+        /// <summary>
+        /// Конструктор класса корзины.
+        /// </summary>
+        public Cart()
+        {
+            ListOfGoods = new List<Item>();
+        }
     }
 }

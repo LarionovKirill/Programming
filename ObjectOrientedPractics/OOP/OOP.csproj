@@ -52,7 +52,9 @@
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\OrderStatus.cs" />
     <Compile Include="Model\Store.cs" />
+    <Compile Include="Services\CustomerGenerator.cs" />
     <Compile Include="Services\IdGenerator.cs" />
+    <Compile Include="Services\ItemGeneretor.cs" />
     <Compile Include="View\Tabs\AddressControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

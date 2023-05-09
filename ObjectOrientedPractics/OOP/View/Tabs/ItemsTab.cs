@@ -71,6 +71,21 @@ namespace OOP.View.Tabs
         }
 
         /// <summary>
+        /// Обновляет информацию при запуске приложения.
+        /// </summary>
+        public void UpdateInformation()
+        {
+            if (Items != null)
+            {
+                foreach (var items in Items)
+                {
+                    itemListBox.Items.Add(items.Name);
+                }
+            }
+        }
+
+
+        /// <summary>
         /// Удаляет товар из списка.
         /// </summary>
         private void RemoveItemButton_Click(object sender, EventArgs e)

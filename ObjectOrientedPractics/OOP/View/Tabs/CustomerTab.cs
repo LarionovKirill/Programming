@@ -26,6 +26,20 @@ namespace OOP.View
         }
 
         /// <summary>
+        /// Обновляет информацию о пользователе.
+        /// </summary>
+        public void UpdateInformation()
+        {
+            if (Customers != null)
+            {
+                foreach(var customers in Customers)
+                {
+                    customerListBox.Items.Add(customers.FullName);
+                }
+            }
+        }
+
+        /// <summary>
         /// Обработка нажатия выбранного пользователя.
         /// </summary>
         private void CustomerListBox_SelectedIndexChanged(object sender, EventArgs e)

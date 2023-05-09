@@ -104,13 +104,20 @@ namespace OOP.Model
 			this.Cart = new Cart();
 		}
 
+
 		/// <summary>
 		/// Конструктор класса с параметрами.
 		/// </summary>
-		/// <param name="fullName"> Имя пользователя.</param>
+		/// <param name="fullName">Имя пользователя.</param>
+		/// <param name="Postindex">Почтовый индекс.</param>
+		/// <param name="building">Номер дома.</param>
+		/// <param name="city">Город.</param>
+		/// <param name="country">Страна.</param>
+		/// <param name="street">Улица.</param>
+		/// <param name="apartment">Квартира.</param>
 		public Customer(
 			string fullName,
-			int index,
+			int Postindex,
 			string building,
 			string city,
 			string country,
@@ -119,7 +126,7 @@ namespace OOP.Model
 		{
 			this.Id = Services.IdGenerator.GetNextCustomerID();
 			this.FullName = fullName;
-			this.Address = new Address(index, country, city, street, building, apartment);
+			this.Address = new Address(Postindex, country, city, street, building, apartment);
 			this.Cart = new Cart();
 		}
 	}

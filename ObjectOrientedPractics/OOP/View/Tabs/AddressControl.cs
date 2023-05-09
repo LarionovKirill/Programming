@@ -59,6 +59,10 @@ namespace OOP.View
         {
             try
             {
+                if (Address == null)
+                {
+                    Address = new Model.Address();
+                }
                 Address.Index = int.Parse(postIndexTextBox.Text);
                 postIndexTextBox.BackColor = Color.White;
                 if (_currentCustomer)
@@ -79,6 +83,10 @@ namespace OOP.View
         {
             try
             {
+                if (Address == null)
+                {
+                    Address = new Model.Address();
+                }
                 Address.Country = countryTextBox.Text;
                 countryTextBox.BackColor = Color.White;
                 if (_currentCustomer)
@@ -99,6 +107,10 @@ namespace OOP.View
         {
             try
             {
+                if (Address == null)
+                {
+                    Address = new Model.Address();
+                }
                 Address.City = cityTextBox.Text;
                 cityTextBox.BackColor = Color.White;
                 if (_currentCustomer)
@@ -119,6 +131,10 @@ namespace OOP.View
         {
             try
             {
+                if (Address == null)
+                {
+                    Address = new Model.Address();
+                }
                 Address.Street = streetTextBox.Text;
                 streetTextBox.BackColor = Color.White;
                 if (_currentCustomer)
@@ -139,6 +155,10 @@ namespace OOP.View
         {
             try
             {
+                if (Address == null)
+                {
+                    Address = new Model.Address();
+                }
                 Address.Building = buildingTextBox.Text;
                 buildingTextBox.BackColor = Color.White;
                 if (_currentCustomer)
@@ -159,6 +179,10 @@ namespace OOP.View
         {
             try
             {
+                if (Address == null)
+                {
+                    Address = new Model.Address();
+                }
                 Address.Apartment = apartmentTextBox.Text;
                 apartmentTextBox.BackColor = Color.White;
                 if (_currentCustomer)
