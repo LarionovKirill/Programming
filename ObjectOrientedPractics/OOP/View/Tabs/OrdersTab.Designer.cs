@@ -44,7 +44,7 @@ namespace OOP.View.Tabs
             this.informationTable = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -201,7 +201,7 @@ namespace OOP.View.Tabs
             this.informationTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Date,
-            this.Name,
+            this.FullName,
             this.Address,
             this.Cost,
             this.Status});
@@ -226,10 +226,10 @@ namespace OOP.View.Tabs
             this.Date.HeaderText = "Creating Date";
             this.Date.Name = "Date";
             // 
-            // Name
+            // FullName
             // 
-            this.Name.HeaderText = "Full Name";
-            this.Name.Name = "Name";
+            this.FullName.HeaderText = "Full Name";
+            this.FullName.Name = "FullName";
             // 
             // Address
             // 
@@ -279,6 +279,7 @@ namespace OOP.View.Tabs
             this.Controls.Add(this.idLabel);
             this.Controls.Add(this.selectedOrderLabel);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "ordersTab";
             this.Size = new System.Drawing.Size(775, 515);
             this.Load += new System.EventHandler(this.OrdersTab_Load);
             ((System.ComponentModel.ISupportInitialize)(this.informationTable)).EndInit();
@@ -304,7 +305,7 @@ namespace OOP.View.Tabs
         private AddressControl addressControl;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
