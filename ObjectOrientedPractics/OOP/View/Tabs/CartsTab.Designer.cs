@@ -76,7 +76,7 @@ namespace OOP.View.Tabs
             // 
             // createOrderButton
             // 
-            this.createOrderButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.createOrderButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.createOrderButton.Location = new System.Drawing.Point(219, 295);
             this.createOrderButton.Name = "createOrderButton";
             this.createOrderButton.Size = new System.Drawing.Size(110, 38);
@@ -163,7 +163,9 @@ namespace OOP.View.Tabs
             // 
             // cartListBox
             // 
-            this.cartListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cartListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cartListBox.FormattingEnabled = true;
             this.cartListBox.Location = new System.Drawing.Point(219, 86);
             this.cartListBox.Name = "cartListBox";

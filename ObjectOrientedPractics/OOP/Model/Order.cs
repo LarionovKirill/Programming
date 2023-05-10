@@ -37,23 +37,63 @@ namespace OOP.Model
         /// <summary>
         /// Свойство id заказа.
         /// </summary>
-        public int Id { get; private set; }
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+            private set
+            {
+                _id = value;
+            }
+        }
 
 
         /// <summary>
         /// Свойство даты создания заказа.
         /// </summary>
-        public DateTime DateOfCreate { get; private set; }
+        public DateTime DateOfCreate
+        {
+            get
+            {
+                return _dateOfCreate;
+            }
+            private set
+            {
+                _dateOfCreate = value;
+            }
+        }
 
         /// <summary>
         /// Свойство для списка товаров заказа.
         /// </summary>
-        public List<Item> Items { get; set; }
+        public List<Item> Items
+        {
+            get
+            {
+                return _items;
+            }
+            set
+            {
+                _items = value;
+            }
+        }
 
         /// <summary>
         /// Свойство для адреса доставки.
         /// </summary>
-        public Address Address { get; set; }
+        public Address Address
+        {
+            get
+            {
+                return _address;
+            }
+            set
+            {
+                _address = value;
+            }
+        }
 
         /// <summary>
         /// Свойство для общей стоимости заказа. 
@@ -90,6 +130,8 @@ namespace OOP.Model
         public Order()
         {
             this.Id = Services.IdGenerator.GetNextOrderID();
+            this.Address = new Model.Address();
+            this.Items = new List<Model.Item>();
         }
 
         /// <summary>
@@ -104,6 +146,7 @@ namespace OOP.Model
             this.DateOfCreate = creatingDate;
             this.Address = address;
             this.OrderStatus = orderStatus;
+            this.Items = new List<Model.Item>();
         }
     }
 }

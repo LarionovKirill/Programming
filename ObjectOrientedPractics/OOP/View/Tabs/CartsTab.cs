@@ -72,6 +72,8 @@ namespace OOP.View.Tabs
         /// </summary>
         public void RefreshData() 
         {
+            itemsListBox.Items.Clear();
+            customerComboBox.Items.Clear();
             foreach (var customer in Customers)
             {
                 customerComboBox.Items.Add(customer.FullName);
@@ -120,15 +122,22 @@ namespace OOP.View.Tabs
         /// </summary>
         private void CreateOrderButton_Click(object sender, EventArgs e)
         {
-            if (CurrentCustomer != null)
+            if (CurrentCustomer != null && cartListBox.Items.Count > 0)
             {
-                DateTime time = new DateTime();
+                DateTime time = DateTime.Now;
                 Model.Order newOrder = new Model.Order(
                     time.Date,
                     CurrentCustomer.Address,
                     Model.OrderStatus.New);
                 newOrder.Items.AddRange(CurrentCustomer.Cart.ListOfGoods);
                 CurrentCustomer.Orders.Add(newOrder);
+                CurrentCustomer.Cart.ListOfGoods.Clear();
+                cartListBox.Items.Clear();
+                amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Пустая корзина или не выбран пользователь");
             }
         }
 

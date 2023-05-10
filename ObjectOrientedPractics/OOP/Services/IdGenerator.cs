@@ -50,7 +50,7 @@ namespace OOP.Services
         public static int GetNextOrderID()
         {
             _idOrder += 1;
-            return _idCustomer;
+            return _idOrder;
         }
     }
 }

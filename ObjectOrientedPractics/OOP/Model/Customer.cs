@@ -92,7 +92,17 @@ namespace OOP.Model
 		/// <summary>
 		/// Свойство для списка заказов.
 		/// </summary>
-		public List<Order> Orders { get; set; }
+		public List<Order> Orders 
+		{
+			get
+			{
+				return _orders;
+			}
+			set
+			{
+				_orders = value;
+			} 
+		}
 
 		/// <summary>
 		/// Конструктор без параметров.
@@ -102,6 +112,7 @@ namespace OOP.Model
 			this.Id = Services.IdGenerator.GetNextCustomerID();
 			Address = new Address();
 			this.Cart = new Cart();
+			this.Orders = new List<Order>();
 		}
 
 
@@ -128,6 +139,7 @@ namespace OOP.Model
 			this.FullName = fullName;
 			this.Address = new Address(Postindex, country, city, street, building, apartment);
 			this.Cart = new Cart();
+			this.Orders = new List<Order>();
 		}
 	}
 }
