@@ -28,11 +28,6 @@ namespace OOP.Model
         /// </summary>
         private List<Item> _items;
 
-        /// <summary>
-        /// Хранит общую стоимость.
-        /// </summary>
-        private double _fullCost;
-
 
         /// <summary>
         /// Свойство id заказа.
