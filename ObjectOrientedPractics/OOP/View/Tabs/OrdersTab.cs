@@ -13,7 +13,7 @@ namespace OOP.View.Tabs
     /// <summary>
     /// Форма заказов.
     /// </summary>
-    public partial class OrdersTab : UserControl
+    public partial class ordersTab : UserControl
     {
         /// <summary>
         /// Список пользователей в магазине.
@@ -55,7 +55,7 @@ namespace OOP.View.Tabs
             }
         }
 
-        public OrdersTab()
+        public ordersTab()
         {
             InitializeComponent();
         }
@@ -77,6 +77,7 @@ namespace OOP.View.Tabs
         public void UpdateInformation()
         {
             informationTable.Rows.Clear();
+            Orders.Clear();
             foreach (var customer in Customers)
             {
                 foreach (var order in customer.Orders)
@@ -84,7 +85,7 @@ namespace OOP.View.Tabs
                     Orders.Add(order);
                     informationTable.Rows.Add(
                         order.Id,
-                        order.DateOfCreate,
+                        order.DateOfCreate.ToString("dd.MM.yyyy"),
                         customer.FullName,
                         GetFormatAddress(order.Address),
                         order.FullCost,
@@ -103,8 +104,8 @@ namespace OOP.View.Tabs
             {
                 ordersItemsListBox.Items.Clear();
                 idTextBox.Text = Orders[index].Id.ToString();
-                creationTextBox.Text = Orders[index].DateOfCreate.ToString();
-                statusComboBox.SelectedItem = Orders[index].OrderStatus.ToString();
+                creationTextBox.Text = Orders[index].DateOfCreate.ToString("dd.MM.yyyy");
+                statusComboBox.SelectedItem = Orders[index].OrderStatus;
                 var currentAddress = Orders[index].Address;
                 addressControl.FillAddress(currentAddress);
                 foreach (var items in Orders[index].Items)
@@ -126,6 +127,22 @@ namespace OOP.View.Tabs
                 statusComboBox.Items.Add(status);
             }
             statusComboBox.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// Обновляет тип заказа.
+        /// </summary>
+        private void StatusComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (informationTable.CurrentRow != null)
+            {
+                var index = informationTable.CurrentRow.Index;
+                if (index >= 0)
+                {
+                    Orders[index].OrderStatus = (Model.OrderStatus)Enum.Parse(typeof(Model.OrderStatus),
+                        statusComboBox.SelectedItem.ToString());
+                }
+            }
         }
     }
 }

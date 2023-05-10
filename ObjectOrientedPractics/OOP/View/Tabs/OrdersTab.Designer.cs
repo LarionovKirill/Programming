@@ -1,7 +1,7 @@
 ﻿
 namespace OOP.View.Tabs
 {
-    partial class OrdersTab
+    partial class ordersTab
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -42,13 +42,13 @@ namespace OOP.View.Tabs
             this.amountLabel = new System.Windows.Forms.Label();
             this.costLabel = new System.Windows.Forms.Label();
             this.informationTable = new System.Windows.Forms.DataGridView();
-            this.addressControl = new OOP.View.AddressControl();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressControl = new OOP.View.AddressControl();
             ((System.ComponentModel.ISupportInitialize)(this.informationTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,6 +128,7 @@ namespace OOP.View.Tabs
             this.statusComboBox.Name = "statusComboBox";
             this.statusComboBox.Size = new System.Drawing.Size(210, 21);
             this.statusComboBox.TabIndex = 7;
+            this.statusComboBox.SelectedIndexChanged += new System.EventHandler(this.StatusComboBox_SelectedIndexChanged);
             // 
             // ordersLabel
             // 
@@ -214,17 +215,6 @@ namespace OOP.View.Tabs
             this.informationTable.TabIndex = 13;
             this.informationTable.SelectionChanged += new System.EventHandler(this.InformationTable_SelectionChanged);
             // 
-            // addressControl
-            // 
-            this.addressControl.Address = null;
-            this.addressControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.addressControl.Location = new System.Drawing.Point(324, 101);
-            this.addressControl.Margin = new System.Windows.Forms.Padding(2);
-            this.addressControl.Name = "addressControl";
-            this.addressControl.Size = new System.Drawing.Size(437, 165);
-            this.addressControl.TabIndex = 14;
-            // 
             // Id
             // 
             this.Id.HeaderText = "ID";
@@ -259,7 +249,18 @@ namespace OOP.View.Tabs
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
             // 
-            // OrdersTab
+            // addressControl
+            // 
+            this.addressControl.Address = null;
+            this.addressControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addressControl.Location = new System.Drawing.Point(324, 101);
+            this.addressControl.Margin = new System.Windows.Forms.Padding(2);
+            this.addressControl.Name = "addressControl";
+            this.addressControl.Size = new System.Drawing.Size(437, 165);
+            this.addressControl.TabIndex = 14;
+            // 
+            // ordersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

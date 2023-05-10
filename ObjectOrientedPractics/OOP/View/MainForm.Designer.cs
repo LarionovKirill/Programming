@@ -40,7 +40,7 @@ namespace OOP
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.orderPanel = new System.Windows.Forms.Panel();
             this.customerTab1 = new OOP.View.CustomerTab();
-            this.ordersTab1 = new OOP.View.Tabs.OrdersTab();
+            this.ordersTab1 = new OOP.View.Tabs.ordersTab();
             this.itemsTabPage.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -213,7 +213,7 @@ namespace OOP
         private View.Tabs.ItemsTab itemsTab;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel orderPanel;
-        private View.Tabs.OrdersTab ordersTab1;
+        private View.Tabs.ordersTab ordersTab1;
     }
 }
 
