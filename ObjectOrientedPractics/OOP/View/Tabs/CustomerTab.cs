@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace OOP.View
 {
+    /// <summary>
+    /// Пользовательский интерфейс пользователей.
+    /// </summary>
     public partial class CustomerTab : UserControl
     {
         /// <summary>
@@ -109,7 +112,7 @@ namespace OOP.View
         }
 
         /// <summary>
-        /// Изменяет полное имя пользователя.
+        /// Метод проверяет и изменяет имя пользователя.
         /// </summary>
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {

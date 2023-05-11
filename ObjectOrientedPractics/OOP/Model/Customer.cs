@@ -12,10 +12,6 @@ namespace OOP.Model
 	[Serializable]
 	public class Customer
 	{
-		/// <summary>
-		/// Хранит Id пользователя.
-		/// </summary>
-		private int _id;
 
 		/// <summary>
 		/// Хранит имя пользователя.
