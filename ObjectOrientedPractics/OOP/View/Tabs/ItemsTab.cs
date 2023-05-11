@@ -55,6 +55,8 @@ namespace OOP.View.Tabs
                 //Получение данных с формы.
                 var name = nameItemTextBox.Text;
                 var description = descriptionItemTextBox.Text;
+                var category = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
+                    categoryComboBox.SelectedItem.ToString());
                 var cost = decimal.Parse(costItemTextBox.Text);
                
                 //Добавление объекта в список.
@@ -170,6 +172,33 @@ namespace OOP.View.Tabs
             nameItemTextBox.Text = current.Name;
             descriptionItemTextBox.Text = current.Info;
             costItemTextBox.Text = current.Cost.ToString();
+            categoryComboBox.SelectedItem = current.ItemCategory;
+        }
+
+        /// <summary>
+        /// Метод выполняется при запуске формы. Он заполняет comboBox.
+        /// </summary>
+        private void ItemsTab_Load(object sender, EventArgs e)
+        {
+            var contents = Enum.GetValues(typeof(Model.ItemCategory));
+            foreach (var items in contents)
+            {
+                categoryComboBox.Items.Add(items);
+            }
+            categoryComboBox.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// Метод сохранет изменение категории выбранного товара.
+        /// </summary>
+        private void СategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (itemListBox.SelectedIndex >= 0)
+            {
+                var index = itemListBox.SelectedIndex;
+                Items[index].ItemCategory = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
+                    categoryComboBox.SelectedItem.ToString());
+            }
         }
     }
 }
