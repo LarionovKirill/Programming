@@ -40,7 +40,7 @@ namespace OOP.Model
         /// Квартира пользователя.
         /// </summary>
         private string _apartment;
-        
+
         /// <summary>
         /// Свойство поля _index.
         /// </summary>
@@ -154,11 +154,11 @@ namespace OOP.Model
         /// <param name="street">Улица.</param>
         /// <param name="building">Здание.</param>
         /// <param name="apartment">Квартира.</param>
-        public Address(int index, 
-            string country, 
-            string city, 
-            string street, 
-            string building, 
+        public Address(int index,
+            string country,
+            string city,
+            string street,
+            string building,
             string apartment)
         {
             this.Index = index;

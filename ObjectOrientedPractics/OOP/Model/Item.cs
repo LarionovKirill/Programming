@@ -98,7 +98,7 @@ namespace OOP.Model
 		/// Свойство категории товаров.
 		/// </summary>
 		public Category Category { get; set; }
-			
+
 
 		/// <summary>
 		/// Конструктор без параметров.

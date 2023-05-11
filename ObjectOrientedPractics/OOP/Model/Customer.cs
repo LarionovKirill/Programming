@@ -53,8 +53,9 @@ namespace OOP.Model
 		/// <summary>
 		/// Свойство для адреса доставки.
 		/// </summary>
-		public Address Address {
-			get 
+		public Address Address
+		{
+			get
 			{
 				return _address;
 			}
