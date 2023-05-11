@@ -15,12 +15,12 @@ namespace OOP.View
         /// <summary>
         /// Копия формы для передачи данных
         /// </summary>
-        public CustomerTab _customerTab;
+        public CustomerTab CustomerTab { get; set; };
 
         /// <summary>
         /// Хранит преедан пользователь или нет.
         /// </summary>
-        private bool _currentCustomer = false;
+        private bool CurrentCustomer { get; set; } = false;
 
         /// <summary>
         /// Хранит индекс переданного пользователя.
