@@ -31,12 +31,12 @@ namespace OOP.View.Tabs
             {
                 return _items;
             }
-            set 
+            set
             {
                 _items = value;
             }
         }
-           
+
         /// <summary>
         /// Метод создающий компоненты формы.
         /// </summary>
@@ -58,7 +58,7 @@ namespace OOP.View.Tabs
                 var category = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
                     categoryComboBox.SelectedItem.ToString());
                 var cost = decimal.Parse(costItemTextBox.Text);
-               
+
                 //Добавление объекта в список.
                 Items.Add(new Model.Item(
                     name,
@@ -106,8 +106,10 @@ namespace OOP.View.Tabs
                 }
                 else
                 {
-                    Model.Item checker = new Model.Item();
-                    checker.Cost = decimal.Parse(costItemTextBox.Text);
+                    Services.ValueValidator.AssertValueInRange(decimal.Parse(costItemTextBox.Text),
+                        0,
+                        100000,
+                        "СostItemTextBox_TextChanged");
                 }
                 costItemTextBox.BackColor = Color.White;
             }
@@ -131,8 +133,9 @@ namespace OOP.View.Tabs
                 }
                 else
                 {
-                    Model.Item checker = new Model.Item();
-                    checker.Name = nameItemTextBox.Text;
+                    Services.ValueValidator.AssertStringOnLength(descriptionItemTextBox.Text,
+                        500,
+                        "DescriptionItemTextBox_TextChanged");
                 }
                 nameItemTextBox.BackColor = Color.White;
             }
@@ -156,8 +159,9 @@ namespace OOP.View.Tabs
                 }
                 else
                 {
-                    Model.Item checker = new Model.Item();
-                    checker.Info = descriptionItemTextBox.Text;
+                    Services.ValueValidator.AssertStringOnLength(descriptionItemTextBox.Text,
+                        500,
+                        "DescriptionItemTextBox_TextChanged");
                 }
                 descriptionItemTextBox.BackColor = Color.White;
             }
