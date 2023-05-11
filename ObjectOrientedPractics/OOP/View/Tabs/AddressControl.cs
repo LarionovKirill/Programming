@@ -15,7 +15,7 @@ namespace OOP.View
         /// <summary>
         /// Копия формы для передачи данных
         /// </summary>
-        public CustomerTab CustomerTab { get; set; };
+        public CustomerTab CustomerTab { get; set; }
 
         /// <summary>
         /// Хранит преедан пользователь или нет.
@@ -75,9 +75,9 @@ namespace OOP.View
             {
                 Address.Index = int.Parse(postIndexTextBox.Text);
                 postIndexTextBox.BackColor = Color.White;
-                if (_currentCustomer)
+                if (CurrentCustomer)
                 {
-                    _customerTab.Customers[_index].Address.Index = Address.Index;
+                    CustomerTab.Customers[_index].Address.Index = Address.Index;
                 }
             }
             catch
@@ -95,9 +95,9 @@ namespace OOP.View
             {
                 Address.Country = countryTextBox.Text;
                 countryTextBox.BackColor = Color.White;
-                if (_currentCustomer)
+                if (CurrentCustomer)
                 {
-                    _customerTab.Customers[_index].Address.Country = Address.Country;
+                    CustomerTab.Customers[_index].Address.Country = Address.Country;
                 }
             }
             catch
@@ -115,9 +115,9 @@ namespace OOP.View
             {
                 Address.City = cityTextBox.Text;
                 cityTextBox.BackColor = Color.White;
-                if (_currentCustomer)
+                if (CurrentCustomer)
                 {
-                    _customerTab.Customers[_index].Address.City = Address.City;
+                    CustomerTab.Customers[_index].Address.City = Address.City;
                 }
             }
             catch
@@ -135,9 +135,9 @@ namespace OOP.View
             {
                 Address.Street = streetTextBox.Text;
                 streetTextBox.BackColor = Color.White;
-                if (_currentCustomer)
+                if (CurrentCustomer)
                 {
-                    _customerTab.Customers[_index].Address.Street = Address.Street;
+                    CustomerTab.Customers[_index].Address.Street = Address.Street;
                 }
             }
             catch
@@ -155,9 +155,9 @@ namespace OOP.View
             {
                 Address.Building = buildingTextBox.Text;
                 buildingTextBox.BackColor = Color.White;
-                if (_currentCustomer)
+                if (CurrentCustomer)
                 {
-                    _customerTab.Customers[_index].Address.Building = Address.Building;
+                    CustomerTab.Customers[_index].Address.Building = Address.Building;
                 }
             }
             catch
@@ -175,9 +175,9 @@ namespace OOP.View
             {
                 Address.Apartment = apartmentTextBox.Text;
                 apartmentTextBox.BackColor = Color.White;
-                if (_currentCustomer)
+                if (CurrentCustomer)
                 {
-                    _customerTab.Customers[_index].Address.Apartment = Address.Apartment;
+                    CustomerTab.Customers[_index].Address.Apartment = Address.Apartment;
                 }
             }
             catch
@@ -192,7 +192,7 @@ namespace OOP.View
         /// <param name="current">Выбранный пользователь с другого элемента.</param>
         public void GetCustomer(int index)
         {
-            _currentCustomer = true;
+            CurrentCustomer = true;
             _index = index;
         }
     }

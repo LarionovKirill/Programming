@@ -207,7 +207,7 @@ namespace OOP.View.Tabs
             this.categoryLabel.Name = "categoryLabel";
             this.categoryLabel.Size = new System.Drawing.Size(52, 13);
             this.categoryLabel.TabIndex = 13;
-            this.categoryLabel.Text = "Category:";
+            this.categoryLabel.Text = "ItemCategory:";
             // 
             // categoryComboBox
             // 

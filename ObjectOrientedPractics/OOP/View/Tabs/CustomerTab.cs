@@ -37,7 +37,7 @@ namespace OOP.View
         public CustomerTab()
         {
             InitializeComponent();
-            addressControl._customerTab = this;
+            addressControl.CustomerTab = this;
         }
 
         /// <summary>

@@ -53,7 +53,7 @@ namespace OOP.View.Tabs
                 var name = nameItemTextBox.Text;
                 var description = descriptionItemTextBox.Text;
                 var cost = double.Parse(costItemTextBox.Text);
-                var category = (Model.Category)Enum.Parse(typeof(Model.Category),
+                var category = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
                     categoryComboBox.SelectedItem.ToString());
                
                 //Добавление объекта в список.
@@ -168,7 +168,7 @@ namespace OOP.View.Tabs
             nameItemTextBox.Text = current.Name;
             descriptionItemTextBox.Text = current.Info;
             costItemTextBox.Text = current.Cost.ToString();
-            categoryComboBox.SelectedItem = current.Category;
+            categoryComboBox.SelectedItem = current.ItemCategory;
         }
 
         /// <summary>
@@ -176,7 +176,7 @@ namespace OOP.View.Tabs
         /// </summary>
         private void ItemsTab_Load(object sender, EventArgs e)
         {
-            var contents = Enum.GetValues(typeof(Model.Category));
+            var contents = Enum.GetValues(typeof(Model.ItemCategory));
             foreach (var items in contents)
             {
                 categoryComboBox.Items.Add(items);
@@ -192,7 +192,7 @@ namespace OOP.View.Tabs
             if (itemListBox.SelectedIndex >= 0)
             {
                 var index = itemListBox.SelectedIndex;
-                Items[index].Category = (Model.Category)Enum.Parse(typeof(Model.Category),
+                Items[index].ItemCategory = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
                     categoryComboBox.SelectedItem.ToString());
             }
         }
