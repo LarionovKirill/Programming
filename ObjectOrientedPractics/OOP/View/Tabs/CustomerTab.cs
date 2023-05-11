@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace OOP.View
 {
+    /// <summary>
+    /// Пользовательский интерфейс пользователей.
+    /// </summary>
     public partial class CustomerTab : UserControl
     {
         /// <summary>
@@ -92,14 +95,18 @@ namespace OOP.View
             }
         }
 
+        /// <summary>
+        /// Метод проверяет и изменяет имя пользователя.
+        /// </summary>
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                Services.ValueValidator.AssertStringOnLength(
-                    fullNameTextBox.Text,
-                    200,
-                    "FullNameTextBox");
+                if (customerListBox.SelectedIndex >= 0)
+                {
+                    var index = customerListBox.SelectedIndex;
+                    Customers[index].FullName = fullNameTextBox.Text;
+                }
                 fullNameTextBox.BackColor = Color.White;
             }
             catch
@@ -108,14 +115,18 @@ namespace OOP.View
             }
         }
 
+        /// <summary>
+        /// Метод проверяет и изменяет адрес пользователя.
+        /// </summary>
         private void AddressTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                Services.ValueValidator.AssertStringOnLength(
-                    addressTextBox.Text,
-                    500,
-                    "AddressTextBox");
+                if (customerListBox.SelectedIndex >= 0)
+                {
+                    var index = customerListBox.SelectedIndex;
+                    Customers[index].Address = addressTextBox.Text;
+                }
                 addressTextBox.BackColor = Color.White;
             }
             catch

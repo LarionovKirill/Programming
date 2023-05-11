@@ -183,7 +183,6 @@ namespace OOP.View.Tabs
             this.Controls.Add(this.itemListBox);
             this.Name = "ItemsTab";
             this.Size = new System.Drawing.Size(719, 553);
-            this.Load += new System.EventHandler(this.ItemsTab_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
