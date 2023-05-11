@@ -104,6 +104,11 @@ namespace OOP.View.Tabs
                     var index = itemListBox.SelectedIndex;
                     Items[index].Cost = decimal.Parse(costItemTextBox.Text);
                 }
+                else
+                {
+                    Model.Item checker = new Model.Item();
+                    checker.Cost = decimal.Parse(costItemTextBox.Text);
+                }
                 costItemTextBox.BackColor = Color.White;
             }
             catch
@@ -124,6 +129,11 @@ namespace OOP.View.Tabs
                     var index = itemListBox.SelectedIndex;
                     Items[index].Name = nameItemTextBox.Text;
                 }
+                else
+                {
+                    Model.Item checker = new Model.Item();
+                    checker.Name = nameItemTextBox.Text;
+                }
                 nameItemTextBox.BackColor = Color.White;
             }
             catch
@@ -143,6 +153,11 @@ namespace OOP.View.Tabs
                 {
                     var index = itemListBox.SelectedIndex;
                     Items[index].Info = descriptionItemTextBox.Text;
+                }
+                else
+                {
+                    Model.Item checker = new Model.Item();
+                    checker.Info = descriptionItemTextBox.Text;
                 }
                 descriptionItemTextBox.BackColor = Color.White;
             }
