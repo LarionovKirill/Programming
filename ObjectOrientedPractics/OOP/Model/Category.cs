@@ -17,6 +17,6 @@ namespace OOP.Model
         Sport,
         Auto,
         Child,
-        books
+        Books
     }
 }
