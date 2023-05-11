@@ -12,7 +12,6 @@ namespace OOP.Model
 	[Serializable]
 	public class Customer
 	{
-
 		/// <summary>
 		/// Хранит имя пользователя.
 		/// </summary>
