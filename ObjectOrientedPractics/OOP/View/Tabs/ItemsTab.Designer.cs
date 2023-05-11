@@ -42,8 +42,6 @@ namespace OOP.View.Tabs
             this.itemsLabel = new System.Windows.Forms.Label();
             this.selectedItemLabel = new System.Windows.Forms.Label();
             this.removeItemButton = new System.Windows.Forms.Button();
-            this.categoryLabel = new System.Windows.Forms.Label();
-            this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // itemListBox
@@ -72,7 +70,7 @@ namespace OOP.View.Tabs
             this.addItemButton.Click += new System.EventHandler(this.AddItemButton_Click);
             // 
             // descriptionItemTextBox
-            // 
+            //
             this.descriptionItemTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -85,7 +83,7 @@ namespace OOP.View.Tabs
             this.descriptionItemTextBox.TextChanged += new System.EventHandler(this.DescriptionItemTextBox_TextChanged);
             // 
             // nameItemTextBox
-            // 
+            //
             this.nameItemTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nameItemTextBox.Location = new System.Drawing.Point(396, 192);
@@ -193,7 +191,7 @@ namespace OOP.View.Tabs
             this.removeItemButton.Text = "Remove";
             this.removeItemButton.UseVisualStyleBackColor = true;
             this.removeItemButton.Click += new System.EventHandler(this.RemoveItemButton_Click);
-            // 
+            //
             // categoryLabel
             // 
             this.categoryLabel.AutoSize = true;
@@ -217,13 +215,11 @@ namespace OOP.View.Tabs
             this.categoryComboBox.Size = new System.Drawing.Size(149, 24);
             this.categoryComboBox.TabIndex = 14;
             this.categoryComboBox.SelectedIndexChanged += new System.EventHandler(this.СategoryComboBox_SelectedIndexChanged);
-            // 
+            //
             // ItemsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.categoryComboBox);
-            this.Controls.Add(this.categoryLabel);
             this.Controls.Add(this.selectedItemLabel);
             this.Controls.Add(this.itemsLabel);
             this.Controls.Add(this.descriptionLabel);
@@ -241,6 +237,7 @@ namespace OOP.View.Tabs
             this.Name = "ItemsTab";
             this.Size = new System.Drawing.Size(893, 554);
             this.Load += new System.EventHandler(this.ItemsTab_Load);
+            this.Size = new System.Drawing.Size(719, 553);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,7 +258,5 @@ namespace OOP.View.Tabs
         private System.Windows.Forms.Label itemsLabel;
         private System.Windows.Forms.Label selectedItemLabel;
         private System.Windows.Forms.Button removeItemButton;
-        private System.Windows.Forms.Label categoryLabel;
-        private System.Windows.Forms.ComboBox categoryComboBox;
     }
 }

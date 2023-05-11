@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace OOP.View.Tabs
 {
+    /// <summary>
+    /// Пользовательский интерфейс пользовательского окна.
+    /// </summary>
     public partial class ItemsTab : UserControl
     {
         /// <summary>
@@ -52,16 +55,15 @@ namespace OOP.View.Tabs
                 //Получение данных с формы.
                 var name = nameItemTextBox.Text;
                 var description = descriptionItemTextBox.Text;
-                var cost = double.Parse(costItemTextBox.Text);
                 var category = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
                     categoryComboBox.SelectedItem.ToString());
+                var cost = decimal.Parse(costItemTextBox.Text);
                
                 //Добавление объекта в список.
                 Items.Add(new Model.Item(
                     name,
                     description,
-                    cost,
-                    category));
+                    cost));
                 itemListBox.Items.Add($"Товар : {Items.Last().Id}");
             }
             catch
@@ -96,11 +98,11 @@ namespace OOP.View.Tabs
             }
             try
             {
-                Services.ValueValidator.AssertValueInRange(
-                    double.Parse(costItemTextBox.Text),
-                    0,
-                    100000,
-                    "costItemTextBox");
+                if (itemListBox.SelectedIndex >= 0)
+                {
+                    var index = itemListBox.SelectedIndex;
+                    Items[index].Cost = decimal.Parse(costItemTextBox.Text);
+                }
                 costItemTextBox.BackColor = Color.White;
             }
             catch
@@ -116,10 +118,11 @@ namespace OOP.View.Tabs
         {
             try
             {
-                Services.ValueValidator.AssertStringOnLength(
-                    nameItemTextBox.Text,
-                    200,
-                    "costItemTextBox");
+                if (itemListBox.SelectedIndex >= 0)
+                {
+                    var index = itemListBox.SelectedIndex;
+                    Items[index].Name = nameItemTextBox.Text;
+                }
                 nameItemTextBox.BackColor = Color.White;
             }
             catch
@@ -135,10 +138,11 @@ namespace OOP.View.Tabs
         {
             try
             {
-                Services.ValueValidator.AssertStringOnLength(
-                    descriptionItemTextBox.Text,
-                    1000,
-                    "DescriptionItemTextBox");
+                if (itemListBox.SelectedIndex >= 0)
+                {
+                    var index = itemListBox.SelectedIndex;
+                    Items[index].Info = descriptionItemTextBox.Text;
+                }
                 descriptionItemTextBox.BackColor = Color.White;
             }
             catch
