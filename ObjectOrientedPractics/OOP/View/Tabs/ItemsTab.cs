@@ -63,7 +63,8 @@ namespace OOP.View.Tabs
                 Items.Add(new Model.Item(
                     name,
                     description,
-                    cost));
+                    cost,
+                    category));
                 itemListBox.Items.Add($"Товар : {Items.Last().Id}");
             }
             catch
