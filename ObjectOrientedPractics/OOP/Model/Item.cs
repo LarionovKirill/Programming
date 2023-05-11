@@ -12,11 +12,6 @@ namespace OOP.Model
 	public class Item
 	{
 		/// <summary>
-		/// Id товара.
-		/// </summary>
-		static private int _id;
-
-		/// <summary>
 		/// Название товара.
 		/// </summary>
 		private string _name;

@@ -13,11 +13,6 @@ namespace OOP.Model
 	public class Customer
 	{
 		/// <summary>
-		/// Хранит Id пользователя.
-		/// </summary>
-		private int _id;
-
-		/// <summary>
 		/// Хранит имя пользователя.
 		/// </summary>
 		private string _fullName;
