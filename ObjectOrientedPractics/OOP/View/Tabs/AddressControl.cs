@@ -25,7 +25,7 @@ namespace OOP.View
         /// <summary>
         /// Хранит индекс переданного пользователя.
         /// </summary>
-        private int _index;
+        private int Index { get; set; }
 
         /// <summary>
         /// Aдрес пользователя.
@@ -77,7 +77,7 @@ namespace OOP.View
                 postIndexTextBox.BackColor = Color.White;
                 if (CurrentCustomer)
                 {
-                    CustomerTab.Customers[_index].Address.Index = Address.Index;
+                    CustomerTab.Customers[Index].Address.Index = Address.Index;
                 }
             }
             catch
@@ -97,7 +97,7 @@ namespace OOP.View
                 countryTextBox.BackColor = Color.White;
                 if (CurrentCustomer)
                 {
-                    CustomerTab.Customers[_index].Address.Country = Address.Country;
+                    CustomerTab.Customers[Index].Address.Country = Address.Country;
                 }
             }
             catch
@@ -117,7 +117,7 @@ namespace OOP.View
                 cityTextBox.BackColor = Color.White;
                 if (CurrentCustomer)
                 {
-                    CustomerTab.Customers[_index].Address.City = Address.City;
+                    CustomerTab.Customers[Index].Address.City = Address.City;
                 }
             }
             catch
@@ -137,7 +137,7 @@ namespace OOP.View
                 streetTextBox.BackColor = Color.White;
                 if (CurrentCustomer)
                 {
-                    CustomerTab.Customers[_index].Address.Street = Address.Street;
+                    CustomerTab.Customers[Index].Address.Street = Address.Street;
                 }
             }
             catch
@@ -157,7 +157,7 @@ namespace OOP.View
                 buildingTextBox.BackColor = Color.White;
                 if (CurrentCustomer)
                 {
-                    CustomerTab.Customers[_index].Address.Building = Address.Building;
+                    CustomerTab.Customers[Index].Address.Building = Address.Building;
                 }
             }
             catch
@@ -177,7 +177,7 @@ namespace OOP.View
                 apartmentTextBox.BackColor = Color.White;
                 if (CurrentCustomer)
                 {
-                    CustomerTab.Customers[_index].Address.Apartment = Address.Apartment;
+                    CustomerTab.Customers[Index].Address.Apartment = Address.Apartment;
                 }
             }
             catch
@@ -193,7 +193,7 @@ namespace OOP.View
         public void GetCustomer(int index)
         {
             CurrentCustomer = true;
-            _index = index;
+            Index = index;
         }
     }
 }
