@@ -13,34 +13,14 @@ namespace OOP.Model
 	public class Customer
 	{
 		/// <summary>
-		/// Хранит Id пользователя.
-		/// </summary>
-		private int _id;
-
-		/// <summary>
 		/// Хранит имя пользователя.
 		/// </summary>
 		private string _fullName;
 
 		/// <summary>
-		/// Хранит адрес доставки.
-		/// </summary>
-		private Address _address;
-
-		/// <summary>
 		/// Свойство поля _id.
 		/// </summary>
 		public int Id { get; private set; }
-
-		/// <summary>
-		/// Хранит корзину пользователя.
-		/// </summary>
-		private Cart _cart;
-
-		/// <summary>
-		/// Список заказов пользователя.
-		/// </summary>
-		private List<Order> _orders;
 
 		/// <summary>
 		/// Свойство поля _fullName.
@@ -63,46 +43,17 @@ namespace OOP.Model
 		/// <summary>
 		/// Свойство для адреса доставки.
 		/// </summary>
-		public Address Address {
-			get 
-			{
-				return _address;
-			}
-			set
-			{
-				_address = value;
-			}
-		}
+		public Address Address { get; set; }
 
 		/// <summary>
 		/// Свойство для корзины.
 		/// </summary>
-		public Cart Cart
-		{
-			get
-			{
-				return _cart;
-			}
-			set
-			{
-				_cart = value;
-			}
-		}
+		public Cart Cart { get; set; }
 
 		/// <summary>
 		/// Свойство для списка заказов.
 		/// </summary>
-		public List<Order> Orders 
-		{
-			get
-			{
-				return _orders;
-			}
-			set
-			{
-				_orders = value;
-			} 
-		}
+		public List<Order> Orders { get; set; }
 
 		/// <summary>
 		/// Конструктор без параметров.

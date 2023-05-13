@@ -9,86 +9,24 @@ namespace OOP.Model
     public class Order
     {
         /// <summary>
-        /// Хранит Id заказа.
-        /// </summary>
-        private int _id;
-
-        /// <summary>
-        /// Хранит адрес заказа.
-        /// </summary>
-        private Address _address;
-
-        /// <summary>
-        /// Хранит дату создания заказа.
-        /// </summary>
-        private DateTime _dateOfCreate;
-
-        /// <summary>
-        /// Хранит список товаров заказа.
-        /// </summary>
-        private List<Item> _items;
-
-
-        /// <summary>
         /// Свойство id заказа.
         /// </summary>
-        public int Id
-        {
-            get
-            {
-                return _id;
-            }
-            private set
-            {
-                _id = value;
-            }
-        }
-
+        public int Id { get; set; }
 
         /// <summary>
         /// Свойство даты создания заказа.
         /// </summary>
-        public DateTime DateOfCreate
-        {
-            get
-            {
-                return _dateOfCreate;
-            }
-            private set
-            {
-                _dateOfCreate = value;
-            }
-        }
+        public DateTime DateOfCreate { get; set; }
 
         /// <summary>
         /// Свойство для списка товаров заказа.
         /// </summary>
-        public List<Item> Items
-        {
-            get
-            {
-                return _items;
-            }
-            set
-            {
-                _items = value;
-            }
-        }
+        public List<Item> Items { get; set; }
 
         /// <summary>
         /// Свойство для адреса доставки.
         /// </summary>
-        public Address Address
-        {
-            get
-            {
-                return _address;
-            }
-            set
-            {
-                _address = value;
-            }
-        }
+        public Address Address { get; set; }
 
         /// <summary>
         /// Свойство для общей стоимости заказа. 
