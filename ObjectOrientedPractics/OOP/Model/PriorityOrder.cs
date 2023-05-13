@@ -12,7 +12,7 @@ namespace OOP.Model
     /// <see cref="Order"></see>
     /// </summary>
     [Serializable]
-    class PriorityOrder : Order
+    public class PriorityOrder : Order
     {
         /// <summary>
         /// Свойство времени доставки заказа.
@@ -25,7 +25,7 @@ namespace OOP.Model
         public DateTime DeliveryDay { get; set; }
 
         /// <summary>
-        /// Конструктор без параметров, унаследованный от родительского класса.
+        /// Конструктор без параметров, унаследованный от класс <see cref="Order"/>.
         /// </summary>
         public PriorityOrder() : base()
         {
@@ -54,5 +54,18 @@ namespace OOP.Model
             this.OrderStatus = orderStatus;*/
         }
 
+        /// <summary>
+        /// Конструктор с параметрами, унаследованный от класса <see cref="Order"/>.
+        /// </summary>
+        /// <param name="address"></param>
+        /// <param name="orderStatus"></param>
+        /// <param name="creatingDate"></param>
+        public PriorityOrder(
+            Address address,
+            OrderStatus orderStatus,
+            DateTime creatingDate) : base(creatingDate, address, orderStatus)
+        {
+            
+        }
     }
 }

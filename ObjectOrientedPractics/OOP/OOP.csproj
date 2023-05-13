@@ -57,7 +57,8 @@
     <Compile Include="Services\CustomerGenerator.cs" />
     <Compile Include="Services\EnumGetter.cs" />
     <Compile Include="Services\IdGenerator.cs" />
-    <Compile Include="Services\ItemGeneretor.cs" />
+    <Compile Include="Services\ItemGenerator.cs" />
+    <Compile Include="Services\OrderGenerator.cs" />
     <Compile Include="View\Tabs\AddressControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

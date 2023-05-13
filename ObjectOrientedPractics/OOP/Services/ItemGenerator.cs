@@ -9,7 +9,7 @@ namespace OOP.Services
     /// <summary>
     /// Сервисный класс для генерации товара.
     /// </summary>
-    static class ItemGeneretor
+    static class ItemGenerator
     {
         /// <summary>
         /// Генерирует простенький список товаров.
@@ -24,6 +24,21 @@ namespace OOP.Services
                 "Наушники", 
                 "беспроводные", 
                 2000, 
+                Model.Category.Elictronics));
+            _items.Add(new Model.Item(
+                "Велосипед",
+                "21 скорость",
+                14000,
+                Model.Category.Sport));
+            _items.Add(new Model.Item(
+                "PowerBank",
+                "10000 mAh",
+                1000,
+                Model.Category.Elictronics));
+            _items.Add(new Model.Item(
+                "Телевизор",
+                "4К",
+                30000,
                 Model.Category.Elictronics));
             return _items;
         }

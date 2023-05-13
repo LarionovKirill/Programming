@@ -39,6 +39,7 @@ namespace OOP.View
             this.addCustomerButton = new System.Windows.Forms.Button();
             this.customerListBox = new System.Windows.Forms.ListBox();
             this.addressControl = new OOP.View.AddressControl();
+            this.isPriorityCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // selectedCustomerLabel
@@ -89,7 +90,7 @@ namespace OOP.View
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.idCustomerTextBox.Location = new System.Drawing.Point(310, 33);
-            this.idCustomerTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.idCustomerTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.idCustomerTextBox.Name = "idCustomerTextBox";
             this.idCustomerTextBox.ReadOnly = true;
             this.idCustomerTextBox.Size = new System.Drawing.Size(98, 20);
@@ -101,7 +102,7 @@ namespace OOP.View
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.fullNameTextBox.Location = new System.Drawing.Point(310, 63);
-            this.fullNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fullNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.fullNameTextBox.Name = "fullNameTextBox";
             this.fullNameTextBox.Size = new System.Drawing.Size(225, 20);
             this.fullNameTextBox.TabIndex = 30;
@@ -111,7 +112,7 @@ namespace OOP.View
             // 
             this.removeCustomerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.removeCustomerButton.Location = new System.Drawing.Point(152, 396);
-            this.removeCustomerButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.removeCustomerButton.Margin = new System.Windows.Forms.Padding(2);
             this.removeCustomerButton.Name = "removeCustomerButton";
             this.removeCustomerButton.Size = new System.Drawing.Size(86, 44);
             this.removeCustomerButton.TabIndex = 28;
@@ -123,7 +124,7 @@ namespace OOP.View
             // 
             this.addCustomerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addCustomerButton.Location = new System.Drawing.Point(10, 396);
-            this.addCustomerButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addCustomerButton.Margin = new System.Windows.Forms.Padding(2);
             this.addCustomerButton.Name = "addCustomerButton";
             this.addCustomerButton.Size = new System.Drawing.Size(86, 44);
             this.addCustomerButton.TabIndex = 27;
@@ -137,7 +138,7 @@ namespace OOP.View
             | System.Windows.Forms.AnchorStyles.Left)));
             this.customerListBox.FormattingEnabled = true;
             this.customerListBox.Location = new System.Drawing.Point(10, 24);
-            this.customerListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.customerListBox.Margin = new System.Windows.Forms.Padding(2);
             this.customerListBox.Name = "customerListBox";
             this.customerListBox.Size = new System.Drawing.Size(228, 368);
             this.customerListBox.TabIndex = 26;
@@ -145,20 +146,31 @@ namespace OOP.View
             // 
             // addressControl
             // 
-            this.addressControl.Address = null;
             this.addressControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.addressControl.Location = new System.Drawing.Point(242, 104);
+            this.addressControl.Location = new System.Drawing.Point(240, 120);
             this.addressControl.Margin = new System.Windows.Forms.Padding(2);
             this.addressControl.Name = "addressControl";
             this.addressControl.Size = new System.Drawing.Size(428, 165);
             this.addressControl.TabIndex = 37;
             // 
+            // isPriorityCheckBox
+            // 
+            this.isPriorityCheckBox.AutoSize = true;
+            this.isPriorityCheckBox.Location = new System.Drawing.Point(310, 98);
+            this.isPriorityCheckBox.Name = "isPriorityCheckBox";
+            this.isPriorityCheckBox.Size = new System.Drawing.Size(65, 17);
+            this.isPriorityCheckBox.TabIndex = 39;
+            this.isPriorityCheckBox.Text = "IsPriority";
+            this.isPriorityCheckBox.UseVisualStyleBackColor = true;
+            this.isPriorityCheckBox.CheckedChanged += new System.EventHandler(this.IsPriorityCheckBox_CheckedChanged);
+            // 
             // CustomerTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.isPriorityCheckBox);
             this.Controls.Add(this.addressControl);
             this.Controls.Add(this.selectedCustomerLabel);
             this.Controls.Add(this.customersLabel);
@@ -169,7 +181,7 @@ namespace OOP.View
             this.Controls.Add(this.removeCustomerButton);
             this.Controls.Add(this.addCustomerButton);
             this.Controls.Add(this.customerListBox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CustomerTab";
             this.Size = new System.Drawing.Size(670, 450);
             this.ResumeLayout(false);
@@ -189,5 +201,6 @@ namespace OOP.View
         private System.Windows.Forms.Button addCustomerButton;
         private System.Windows.Forms.ListBox customerListBox;
         private AddressControl addressControl;
+        private System.Windows.Forms.CheckBox isPriorityCheckBox;
     }
 }

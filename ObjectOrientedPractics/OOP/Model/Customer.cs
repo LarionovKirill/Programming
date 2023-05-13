@@ -60,7 +60,7 @@ namespace OOP.Model
 		/// Свойство для адреса доставки.
 		/// </summary>
 		public Address Address {
-			get 
+			get
 			{
 				return _address;
 			}
@@ -90,7 +90,7 @@ namespace OOP.Model
 		/// </summary>
 		[Browsable(false)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public List<Order> Orders 
+		public List<Order> Orders
 		{
 			get
 			{
@@ -99,8 +99,13 @@ namespace OOP.Model
 			set
 			{
 				_orders = value;
-			} 
+			}
 		}
+
+		/// <summary>
+		/// Свойство хранящее показатель приоритетного заказа.
+		/// </summary>
+		public bool IsPriority { get; set; } = false;
 
 		/// <summary>
 		/// Конструктор без параметров.

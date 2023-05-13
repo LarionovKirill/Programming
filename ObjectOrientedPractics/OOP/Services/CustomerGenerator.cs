@@ -30,6 +30,30 @@ namespace OOP.Services
                 "Russia",
                 "Fedorova",
                 "19"));
+            _customers.Add(new Model.Customer(
+                "Денисов Михаил Степанович",
+                628654,
+                "124",
+                "Ufa",
+                "Russia",
+                "Lenina",
+                "35"));
+            _customers.Add(new Model.Customer(
+                "Федосеев Артём Артурович",
+                458863,
+                "99",
+                "Samara",
+                "Russia",
+                "Cvetochnaya ",
+                "36"));
+            _customers.Add(new Model.Customer(
+                "Головин Вадим Егорович",
+                983302,
+                "203",
+                "Saint Petersburg",
+                "Russia",
+                "Mohovaya",
+                "88"));
             return _customers;
         }
     }

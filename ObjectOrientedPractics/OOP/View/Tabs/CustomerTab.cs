@@ -61,6 +61,7 @@ namespace OOP.View
         {
             idCustomerTextBox.Text = current.Id.ToString();
             fullNameTextBox.Text = current.FullName;
+            isPriorityCheckBox.Checked = current.IsPriority;
         }
 
         /// <summary>
@@ -134,6 +135,20 @@ namespace OOP.View
         private Model.Address GetAddress()
         {
             return addressControl.Address;
+        }
+
+        /// <summary>
+        /// Изменяет значение приоритета пользователя.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void IsPriorityCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (customerListBox.SelectedIndex >= 0)
+            {
+                var index = customerListBox.SelectedIndex;
+                Customers[index].IsPriority = isPriorityCheckBox.Checked;
+            }
         }
     }
 }

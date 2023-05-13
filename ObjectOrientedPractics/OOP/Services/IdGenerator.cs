@@ -21,6 +21,9 @@ namespace OOP.Services
         /// </summary>
         static private int _idCustomer = 0;
 
+        /// <summary>
+        /// Id заказа.
+        /// </summary>
         static private int _idOrder = 0;
 
         /// <summary>
