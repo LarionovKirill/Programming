@@ -18,13 +18,13 @@ namespace OOP.Services
         public static List<Model.Item> GenerateListOfItems()
         {
             List <Model.Item> _items = new List<Model.Item>();
-            _items.Add(new Model.Item("Футболка","Хлопковая",400,Model.Category.Clothes));
-            _items.Add(new Model.Item("Шорты", "Трикотажные", 500, Model.Category.Clothes));
+            _items.Add(new Model.Item("Футболка","Хлопковая",400,Model.ItemCategory.Clothes));
+            _items.Add(new Model.Item("Шорты", "Трикотажные", 500, Model.ItemCategory.Clothes));
             _items.Add(new Model.Item(
                 "Наушники", 
                 "беспроводные", 
                 2000, 
-                Model.Category.Elictronics));
+                Model.ItemCategory.Elictronics));
             return _items;
         }
     }
