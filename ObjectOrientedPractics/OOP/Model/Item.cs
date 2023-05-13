@@ -29,7 +29,7 @@ namespace OOP.Model
 		/// <summary>
 		/// Цена товара.
 		/// </summary>
-		private double _cost;
+		private decimal  _cost;
 
 		/// <summary>
 		/// Свойство для поля _id.
@@ -77,7 +77,7 @@ namespace OOP.Model
 		/// <summary>
 		/// Свойство для поля _cost.
 		/// </summary>
-		public double Cost
+		public decimal  Cost
 		{
 			set
 			{
@@ -115,7 +115,7 @@ namespace OOP.Model
 		/// <param name="info">Информация о товаре.</param>
 		/// <param name="cost">Цена товара.</param>
 		/// <param name="category">Категория товара.</param>
-		public Item(string name, string info, double cost, Category category)
+		public Item(string name, string info, decimal  cost, Category category)
 		{
 			this.Info = info;
 			this.Name = name;
