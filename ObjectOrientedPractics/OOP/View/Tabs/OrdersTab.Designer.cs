@@ -48,8 +48,13 @@ namespace OOP.View.Tabs
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.deliveryTimeComboBox = new System.Windows.Forms.ComboBox();
             this.addressControl = new OOP.View.AddressControl();
+            this.priorityPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.informationTable)).BeginInit();
+            this.priorityPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // selectedOrderLabel
@@ -102,7 +107,7 @@ namespace OOP.View.Tabs
             this.idTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.ReadOnly = true;
-            this.idTextBox.Size = new System.Drawing.Size(210, 20);
+            this.idTextBox.Size = new System.Drawing.Size(113, 20);
             this.idTextBox.TabIndex = 5;
             // 
             // creationTextBox
@@ -114,7 +119,7 @@ namespace OOP.View.Tabs
             this.creationTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.creationTextBox.Name = "creationTextBox";
             this.creationTextBox.ReadOnly = true;
-            this.creationTextBox.Size = new System.Drawing.Size(210, 20);
+            this.creationTextBox.Size = new System.Drawing.Size(113, 20);
             this.creationTextBox.TabIndex = 6;
             // 
             // statusComboBox
@@ -126,7 +131,7 @@ namespace OOP.View.Tabs
             this.statusComboBox.Location = new System.Drawing.Point(391, 75);
             this.statusComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.statusComboBox.Name = "statusComboBox";
-            this.statusComboBox.Size = new System.Drawing.Size(210, 21);
+            this.statusComboBox.Size = new System.Drawing.Size(113, 21);
             this.statusComboBox.TabIndex = 7;
             this.statusComboBox.SelectedIndexChanged += new System.EventHandler(this.StatusComboBox_SelectedIndexChanged);
             // 
@@ -249,9 +254,42 @@ namespace OOP.View.Tabs
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(13, 4);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 16);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Priority Options";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 25);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Delivery Time:";
+            // 
+            // deliveryTimeComboBox
+            // 
+            this.deliveryTimeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.deliveryTimeComboBox.FormattingEnabled = true;
+            this.deliveryTimeComboBox.Location = new System.Drawing.Point(91, 22);
+            this.deliveryTimeComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.deliveryTimeComboBox.Name = "deliveryTimeComboBox";
+            this.deliveryTimeComboBox.Size = new System.Drawing.Size(113, 21);
+            this.deliveryTimeComboBox.TabIndex = 17;
+            this.deliveryTimeComboBox.SelectedIndexChanged += new System.EventHandler(this.DeliveryTimeComboBox_SelectedIndexChanged);
+            // 
             // addressControl
             // 
-            this.addressControl.Address = null;
             this.addressControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.addressControl.Location = new System.Drawing.Point(324, 101);
@@ -260,10 +298,22 @@ namespace OOP.View.Tabs
             this.addressControl.Size = new System.Drawing.Size(437, 165);
             this.addressControl.TabIndex = 14;
             // 
+            // priorityPanel
+            // 
+            this.priorityPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.priorityPanel.Controls.Add(this.label1);
+            this.priorityPanel.Controls.Add(this.deliveryTimeComboBox);
+            this.priorityPanel.Controls.Add(this.label2);
+            this.priorityPanel.Location = new System.Drawing.Point(515, 5);
+            this.priorityPanel.Name = "priorityPanel";
+            this.priorityPanel.Size = new System.Drawing.Size(248, 96);
+            this.priorityPanel.TabIndex = 18;
+            // 
             // ordersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.priorityPanel);
             this.Controls.Add(this.addressControl);
             this.Controls.Add(this.informationTable);
             this.Controls.Add(this.costLabel);
@@ -283,6 +333,8 @@ namespace OOP.View.Tabs
             this.Size = new System.Drawing.Size(775, 515);
             this.Load += new System.EventHandler(this.OrdersTab_Load);
             ((System.ComponentModel.ISupportInitialize)(this.informationTable)).EndInit();
+            this.priorityPanel.ResumeLayout(false);
+            this.priorityPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,5 +361,9 @@ namespace OOP.View.Tabs
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox deliveryTimeComboBox;
+        private System.Windows.Forms.Panel priorityPanel;
     }
 }

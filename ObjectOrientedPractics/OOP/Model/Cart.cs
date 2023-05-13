@@ -13,24 +13,9 @@ namespace OOP.Model
     public class Cart
     {
         /// <summary>
-        /// Хранит список товаров в корзине.
-        /// </summary>
-        private List<Item> _listOfGoods;
-
-        /// <summary>
         /// Свойство списка товаров.
         /// </summary>
-        public List<Item> ListOfGoods
-        {
-            get
-            {
-                return _listOfGoods;
-            }
-            set
-            {
-                _listOfGoods = value;
-            }
-        }
+        public List<Item> ListOfGoods { get; set; }
 
         /// <summary>
         /// Свойство подсчета стоимости.

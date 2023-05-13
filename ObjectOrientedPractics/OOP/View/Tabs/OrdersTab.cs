@@ -16,48 +16,18 @@ namespace OOP.View.Tabs
     public partial class ordersTab : UserControl
     {
         /// <summary>
-        /// Список пользователей в магазине.
-        /// </summary>
-        private List<Model.Customer> _customers = new List<Model.Customer>();
-
-        /// <summary>
         /// Свойство для списка пользователй.
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<Model.Customer> Customers
-        {
-            get
-            {
-                return _customers;
-            }
-            set
-            {
-                _customers = value;
-            }
-        }
-
-        /// <summary>
-        /// Список заказов магазина.
-        /// </summary>
-        private List<Model.Order> _orders = new List<Model.Order>();
+        public List<Model.Customer> Customers { get; set; }
 
         /// <summary>
         /// Свойство для списка заказов.
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<Model.Order> Orders
-        {
-            get
-            {
-                return _orders;
-            }
-            set
-            {
-                _orders = value;
-            }
-        }
+        public List<Model.Order> Orders { get; set; } = new List<Model.Order>();
 
         public ordersTab()
         {
@@ -99,6 +69,45 @@ namespace OOP.View.Tabs
         }
 
         /// <summary>
+        /// Заполянет поля обычного заказа.
+        /// </summary>
+        private void FillBasicOrder(Model.Order order)
+        {
+            idTextBox.Text = order.Id.ToString();
+            creationTextBox.Text = order.DateOfCreate.ToString("dd.MM.yyyy");
+            statusComboBox.SelectedItem = order.OrderStatus;
+            var currentAddress = order.Address;
+            addressControl.FillAddress(currentAddress);
+            foreach (var items in order.Items)
+            {
+                ordersItemsListBox.Items.Add(items.Name);
+            }
+            costLabel.Text = order.FullCost.ToString();
+        }
+
+
+        /// <summary>
+        /// Заполянет поля обычного заказа.
+        /// </summary>
+        private void FillPriorityOrder(Model.PriorityOrder order)
+        {
+            idTextBox.Text = order.Id.ToString();
+            creationTextBox.Text = order.DateOfCreate.ToString("dd.MM.yyyy");
+            statusComboBox.SelectedItem = order.OrderStatus;
+            var currentAddress = order.Address;
+            addressControl.FillAddress(currentAddress);
+            foreach (var items in order.Items)
+            {
+                ordersItemsListBox.Items.Add(items.Name);
+            }
+            costLabel.Text = order.FullCost.ToString();
+            var dict = Services.EnumGetter.GetDeliveryTime();
+            deliveryTimeComboBox.SelectedItem = dict[order.DeliveryTime];
+        }
+
+
+
+        /// <summary>
         /// Метод заполняет поля формы при нажатии элемента таблицы.
         /// </summary>
         private void InformationTable_SelectionChanged(object sender, EventArgs e)
@@ -107,16 +116,16 @@ namespace OOP.View.Tabs
             if (index >= 0)
             {
                 ordersItemsListBox.Items.Clear();
-                idTextBox.Text = Orders[index].Id.ToString();
-                creationTextBox.Text = Orders[index].DateOfCreate.ToString("dd.MM.yyyy");
-                statusComboBox.SelectedItem = Orders[index].OrderStatus;
-                var currentAddress = Orders[index].Address;
-                addressControl.FillAddress(currentAddress);
-                foreach (var items in Orders[index].Items)
+                if (Orders[index].GetType() == typeof(Model.Order))
                 {
-                    ordersItemsListBox.Items.Add(items.Name);
+                    FillBasicOrder(Orders[index]);
+                    priorityPanel.Visible = false;
                 }
-                costLabel.Text = Orders[index].FullCost.ToString();
+                else if (Orders[index].GetType() == typeof(Model.PriorityOrder))
+                {
+                    FillPriorityOrder((Model.PriorityOrder)Orders[index]);
+                    priorityPanel.Visible = true;
+                }
             }
         }
 
@@ -131,6 +140,13 @@ namespace OOP.View.Tabs
                 statusComboBox.Items.Add(status);
             }
             statusComboBox.SelectedIndex = 0;
+
+            var TimeDelivery = Services.EnumGetter.GetDeliveryTime();
+
+            foreach (var item in TimeDelivery)
+            {
+                deliveryTimeComboBox.Items.Add(item.Value);
+            }
         }
 
         /// <summary>
@@ -145,6 +161,34 @@ namespace OOP.View.Tabs
                 {
                     Orders[index].OrderStatus = (Model.OrderStatus)Enum.Parse(typeof(Model.OrderStatus),
                         statusComboBox.SelectedItem.ToString());
+                }
+            }
+        }
+
+        /// <summary>
+        /// Изменяет время доставки заказа.
+        /// </summary>
+        private void DeliveryTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (informationTable.CurrentRow != null)
+            {
+                var index = informationTable.CurrentRow.Index;
+                if (index >= 0)
+                {
+                    if (Orders[index].GetType() == typeof(Model.PriorityOrder))
+                    {
+                        var order = (Model.PriorityOrder)Orders[index];
+                        var dict = Services.EnumGetter.GetDeliveryTime();
+                        foreach (var time in dict)
+                        {
+                            if (time.Value == deliveryTimeComboBox.SelectedItem.ToString())
+                            {
+                                order.DeliveryTime = time.Key;
+                                break;
+                            }
+                        }
+                        Orders[index] = order;
+                    }
                 }
             }
         }

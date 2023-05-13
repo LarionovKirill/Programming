@@ -40,7 +40,6 @@ namespace OOP
             InitializeComponent();
             Store.Items = Services.ItemGenerator.GenerateListOfItems();
             itemsTab.Items = Store.Items;
-            priorityOrdersTab1.Items = Store.Items;
             itemsTab.UpdateInformation();
             Store.Customers = Services.CustomerGenerator.GenerateListOfCustomers();
             customerTab2.Customers = Store.Customers;
