@@ -9,6 +9,7 @@ namespace OOP.Model
     /// <summary>
     /// Класс хранит информацию об адресе пользователя.
     /// </summary>
+    [Serializable]
     public class Address
     {
         /// <summary>

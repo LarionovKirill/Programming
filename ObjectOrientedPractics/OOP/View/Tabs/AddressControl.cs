@@ -15,6 +15,8 @@ namespace OOP.View
         /// <summary>
         /// Копия формы для передачи данных
         /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public CustomerTab _customerTab;
 
         /// <summary>
@@ -31,6 +33,8 @@ namespace OOP.View
         /// <summary>
         /// Свойство адреса.
         /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Model.Address Address{ get; set;}
 
         /// <summary>

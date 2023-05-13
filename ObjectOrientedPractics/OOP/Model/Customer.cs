@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +13,6 @@ namespace OOP.Model
 	[Serializable]
 	public class Customer
 	{
-		/// <summary>
-		/// Хранит Id пользователя.
-		/// </summary>
-		private int _id;
-
 		/// <summary>
 		/// Хранит имя пользователя.
 		/// </summary>
@@ -92,6 +88,8 @@ namespace OOP.Model
 		/// <summary>
 		/// Свойство для списка заказов.
 		/// </summary>
+		[Browsable(false)]
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public List<Order> Orders 
 		{
 			get

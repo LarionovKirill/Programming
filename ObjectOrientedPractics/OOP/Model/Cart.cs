@@ -9,6 +9,7 @@ namespace OOP.Model
     /// <summary>
     /// Описывает корзину товаров.
     /// </summary>
+    [Serializable]
     public class Cart
     {
         /// <summary>

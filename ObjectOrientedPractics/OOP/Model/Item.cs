@@ -9,6 +9,7 @@ namespace OOP.Model
 	/// <summary>
 	/// Класс товар.
 	/// </summary>
+	[Serializable]
 	public class Item
 	{
 		/// <summary>

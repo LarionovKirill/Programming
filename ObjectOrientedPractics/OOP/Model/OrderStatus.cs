@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace OOP.Model
 {
-        /// <summary>
-        /// Перечисление хранит состояния заказа.
-        /// </summary>
-        public enum OrderStatus
-        {
-            New,
-            Processing,
-            Assembly,
-            Sent,
-            Delivered,
-            Returned,
-            Abandoned
-        }
+    /// <summary>
+    /// Перечисление хранит состояния заказа.
+    /// </summary>
+    public enum OrderStatus
+    {
+        New,
+        Processing,
+        Assembly,
+        Sent,
+        Delivered,
+        Returned,
+        Abandoned
+    }
 }

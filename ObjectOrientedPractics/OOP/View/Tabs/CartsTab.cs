@@ -28,16 +28,21 @@ namespace OOP.View.Tabs
         /// <summary>
         /// Хранит информацию о выбранном пользователе.
         /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Model.Customer CurrentCustomer { get; set;}
 
         /// <summary>
         /// Свойство для товаров.
         /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Model.Item> Items { get; set; }
 
         /// <summary>
         /// Свойство пользователей.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Model.Customer> Customers { get; set; }
 
 

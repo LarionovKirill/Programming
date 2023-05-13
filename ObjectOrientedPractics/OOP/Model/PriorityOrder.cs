@@ -11,6 +11,7 @@ namespace OOP.Model
     /// Наследуется от класса
     /// <see cref="Order"></see>
     /// </summary>
+    [Serializable]
     class PriorityOrder : Order
     {
         /// <summary>

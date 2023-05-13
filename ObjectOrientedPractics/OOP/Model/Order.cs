@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace OOP.Model
 {
+    /// <summary>
+    /// Класс заказа.
+    /// </summary>
+    [Serializable]
     public class Order
     {
         /// <summary>

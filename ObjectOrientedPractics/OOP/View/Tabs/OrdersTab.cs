@@ -23,6 +23,8 @@ namespace OOP.View.Tabs
         /// <summary>
         /// Свойство для списка пользователй.
         /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Model.Customer> Customers
         {
             get
@@ -43,6 +45,8 @@ namespace OOP.View.Tabs
         /// <summary>
         /// Свойство для списка заказов.
         /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Model.Order> Orders
         {
             get

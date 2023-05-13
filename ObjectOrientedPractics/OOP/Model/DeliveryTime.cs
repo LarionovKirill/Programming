@@ -9,6 +9,7 @@ namespace OOP.Model
     /// <summary>
     /// Время доставки.
     /// </summary>
+    [Serializable]
     public enum DeliveryTime
     {
         Between9And11,
