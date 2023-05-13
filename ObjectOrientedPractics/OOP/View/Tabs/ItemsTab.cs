@@ -52,7 +52,7 @@ namespace OOP.View.Tabs
                 //Получение данных с формы.
                 var name = nameItemTextBox.Text;
                 var description = descriptionItemTextBox.Text;
-                var cost = double.Parse(costItemTextBox.Text);
+                var cost = decimal .Parse(costItemTextBox.Text);
                 var category = (Model.Category)Enum.Parse(typeof(Model.Category),
                     categoryComboBox.SelectedItem.ToString());
                
@@ -112,7 +112,7 @@ namespace OOP.View.Tabs
             try
             {
                 Services.ValueValidator.AssertValueInRange(
-                    double.Parse(costItemTextBox.Text),
+                    decimal .Parse(costItemTextBox.Text),
                     0,
                     100000,
                     "costItemTextBox");

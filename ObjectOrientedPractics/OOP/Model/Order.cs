@@ -35,11 +35,11 @@ namespace OOP.Model
         /// <summary>
         /// Свойство для общей стоимости заказа. 
         /// </summary>
-        public double FullCost 
+        public decimal  FullCost 
         {
             get
             {
-                var sum = 0.0d;
+                var sum = 0.0m;
                 if (Items == null || Items.Count == 0)
                 {
                     return sum;

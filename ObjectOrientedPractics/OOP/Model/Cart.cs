@@ -20,11 +20,11 @@ namespace OOP.Model
         /// <summary>
         /// Свойство подсчета стоимости.
         /// </summary>
-        public double Amount
+        public decimal  Amount
         {
             get
             {
-                var sum = 0.0d;
+                decimal sum = 0.0m;
                 if (ListOfGoods == null || ListOfGoods.Count == 0)
                     return sum;
                 else
