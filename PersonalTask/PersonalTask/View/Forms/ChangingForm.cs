@@ -24,7 +24,7 @@ namespace PersonalTask.View
         {
             try
             {
-                PersonalTask.Services.ColissionManager.AssertOnLengthOfString(
+                Services.ColissionManager.AssertOnLengthOfString(
                     destinationTextBox.Text,
                     100,
                     "Длина строки не должна превышать 100 символов.");
@@ -43,7 +43,7 @@ namespace PersonalTask.View
         {
             try
             {
-                PersonalTask.Services.ColissionManager.AssertOnLengthOfString(
+                Services.ColissionManager.AssertOnLengthOfString(
                     destinationTextBox.Text,
                     100,
                     "Длина строки не должна превышать 100 символов.");
@@ -62,7 +62,7 @@ namespace PersonalTask.View
         {
             try
             {
-                PersonalTask.Services.ColissionManager.AssertDepartureTime(
+                Services.ColissionManager.AssertDepartureTime(
                     departureTime.Value,
                     "Неверная дата вылета."
                     );
@@ -82,7 +82,7 @@ namespace PersonalTask.View
             {
                 if (flightTimeTextBox.Text.Length > 0)
                 {
-                    PersonalTask.Services.ColissionManager.AssertFlightTime(
+                    Services.ColissionManager.AssertFlightTime(
                         int.Parse(flightTimeTextBox.Text),
                         1000,
                         "Время полета не должно превышать 1000 минут."

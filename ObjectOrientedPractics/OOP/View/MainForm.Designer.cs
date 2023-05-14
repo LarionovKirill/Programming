@@ -54,7 +54,7 @@ namespace OOP
             // 
             this.itemsTabPage.Controls.Add(this.panel1);
             this.itemsTabPage.Location = new System.Drawing.Point(4, 22);
-            this.itemsTabPage.Margin = new System.Windows.Forms.Padding(2);
+            this.itemsTabPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.itemsTabPage.Name = "itemsTabPage";
             this.itemsTabPage.Padding = new System.Windows.Forms.Padding(2);
             this.itemsTabPage.Size = new System.Drawing.Size(665, 517);
@@ -88,7 +88,7 @@ namespace OOP
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(2);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(823, 543);
@@ -99,13 +99,23 @@ namespace OOP
             // 
             this.tabPage1.Controls.Add(this.customerTab2);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(665, 517);
             this.tabPage1.TabIndex = 1;
             this.tabPage1.Text = "Customer";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // customerTab1
+            // 
+            this.customerTab1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.customerTab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.customerTab1.Location = new System.Drawing.Point(3, 3);
+            this.customerTab1.Margin = new System.Windows.Forms.Padding(2);
+            this.customerTab1.Name = "customerTab1";
+            this.customerTab1.Size = new System.Drawing.Size(866, 552);
+            this.customerTab1.TabIndex = 0;
             // 
             // customerTab2
             // 
@@ -164,13 +174,12 @@ namespace OOP
             // 
             // customerTab1
             // 
-            this.customerTab1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.customerTab1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customerTab1.Location = new System.Drawing.Point(3, 3);
-            this.customerTab1.Margin = new System.Windows.Forms.Padding(2);
-            this.customerTab1.Name = "customerTab1";
-            this.customerTab1.Size = new System.Drawing.Size(866, 552);
-            this.customerTab1.TabIndex = 0;
+            this.itemsTab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.itemsTab1.Location = new System.Drawing.Point(0, 0);
+            this.itemsTab1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.itemsTab1.Name = "itemsTab1";
+            this.itemsTab1.Size = new System.Drawing.Size(670, 450);
+            this.itemsTab1.TabIndex = 0;
             // 
             // ordersTab1
             // 
@@ -187,7 +196,7 @@ namespace OOP
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(823, 543);
             this.Controls.Add(this.tabControl);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainForm";
             this.Text = "Object Oriented Practics";
             this.itemsTabPage.ResumeLayout(false);
@@ -214,6 +223,7 @@ namespace OOP
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel orderPanel;
         private View.Tabs.ordersTab ordersTab1;
+
     }
 }
 

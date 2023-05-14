@@ -15,17 +15,17 @@ namespace OOP.View
         /// <summary>
         /// Копия формы для передачи данных
         /// </summary>
-        public CustomerTab _customerTab;
+        public CustomerTab CustomerTab { get; set; }
 
         /// <summary>
         /// Хранит преедан пользователь или нет.
         /// </summary>
-        private bool _currentCustomer = false;
+        private bool CurrentCustomer { get; set; } = false;
 
         /// <summary>
         /// Хранит индекс переданного пользователя.
         /// </summary>
-        private int _index;
+        private int Index { get; set; }
 
 
         /// <summary>
@@ -65,9 +65,9 @@ namespace OOP.View
                 }
                 Address.Index = int.Parse(postIndexTextBox.Text);
                 postIndexTextBox.BackColor = Color.White;
-                if (_currentCustomer)
+                if (CurrentCustomer)
                 {
-                    _customerTab.Customers[_index].Address.Index = Address.Index;
+                    CustomerTab.Customers[Index].Address.Index = Address.Index;
                 }
             }
             catch
@@ -89,9 +89,9 @@ namespace OOP.View
                 }
                 Address.Country = countryTextBox.Text;
                 countryTextBox.BackColor = Color.White;
-                if (_currentCustomer)
+                if (CurrentCustomer)
                 {
-                    _customerTab.Customers[_index].Address.Country = Address.Country;
+                    CustomerTab.Customers[Index].Address.Country = Address.Country;
                 }
             }
             catch
@@ -113,9 +113,9 @@ namespace OOP.View
                 }
                 Address.City = cityTextBox.Text;
                 cityTextBox.BackColor = Color.White;
-                if (_currentCustomer)
+                if (CurrentCustomer)
                 {
-                    _customerTab.Customers[_index].Address.City = Address.City;
+                    CustomerTab.Customers[Index].Address.City = Address.City;
                 }
             }
             catch
@@ -137,9 +137,9 @@ namespace OOP.View
                 }
                 Address.Street = streetTextBox.Text;
                 streetTextBox.BackColor = Color.White;
-                if (_currentCustomer)
+                if (CurrentCustomer)
                 {
-                    _customerTab.Customers[_index].Address.Street = Address.Street;
+                    CustomerTab.Customers[Index].Address.Street = Address.Street;
                 }
             }
             catch
@@ -161,9 +161,9 @@ namespace OOP.View
                 }
                 Address.Building = buildingTextBox.Text;
                 buildingTextBox.BackColor = Color.White;
-                if (_currentCustomer)
+                if (CurrentCustomer)
                 {
-                    _customerTab.Customers[_index].Address.Building = Address.Building;
+                    CustomerTab.Customers[Index].Address.Building = Address.Building;
                 }
             }
             catch
@@ -185,9 +185,9 @@ namespace OOP.View
                 }
                 Address.Apartment = apartmentTextBox.Text;
                 apartmentTextBox.BackColor = Color.White;
-                if (_currentCustomer)
+                if (CurrentCustomer)
                 {
-                    _customerTab.Customers[_index].Address.Apartment = Address.Apartment;
+                    CustomerTab.Customers[Index].Address.Apartment = Address.Apartment;
                 }
             }
             catch
@@ -202,8 +202,8 @@ namespace OOP.View
         /// <param name="current">Выбранный пользователь с другого элемента.</param>
         public void GetCustomer(int index)
         {
-            _currentCustomer = true;
-            _index = index;
+            CurrentCustomer = true;
+            Index = index;
         }
     }
 }

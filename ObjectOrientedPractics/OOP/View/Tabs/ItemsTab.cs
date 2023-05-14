@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace OOP.View.Tabs
 {
+    /// <summary>
+    /// Пользовательский интерфейс пользовательского окна.
+    /// </summary>
     public partial class ItemsTab : UserControl
     {
         /// <summary>
@@ -28,12 +31,12 @@ namespace OOP.View.Tabs
             {
                 return _items;
             }
-            set 
+            set
             {
                 _items = value;
             }
         }
-           
+
         /// <summary>
         /// Метод создающий компоненты формы.
         /// </summary>
@@ -52,10 +55,10 @@ namespace OOP.View.Tabs
                 //Получение данных с формы.
                 var name = nameItemTextBox.Text;
                 var description = descriptionItemTextBox.Text;
-                var cost = decimal .Parse(costItemTextBox.Text);
                 var category = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
                     categoryComboBox.SelectedItem.ToString());
-               
+                var cost = decimal.Parse(costItemTextBox.Text);
+
                 //Добавление объекта в список.
                 Items.Add(new Model.Item(
                     name,
@@ -116,6 +119,18 @@ namespace OOP.View.Tabs
                     0,
                     100000,
                     "costItemTextBox");
+                if (itemListBox.SelectedIndex >= 0)
+                {
+                    var index = itemListBox.SelectedIndex;
+                    Items[index].Cost = decimal.Parse(costItemTextBox.Text);
+                }
+                else
+                {
+                    Services.ValueValidator.AssertValueInRange(decimal.Parse(costItemTextBox.Text),
+                        0,
+                        100000,
+                        "СostItemTextBox_TextChanged");
+                }
                 costItemTextBox.BackColor = Color.White;
             }
             catch
@@ -131,10 +146,17 @@ namespace OOP.View.Tabs
         {
             try
             {
-                Services.ValueValidator.AssertStringOnLength(
-                    nameItemTextBox.Text,
-                    200,
-                    "costItemTextBox");
+                if (itemListBox.SelectedIndex >= 0)
+                {
+                    var index = itemListBox.SelectedIndex;
+                    Items[index].Name = nameItemTextBox.Text;
+                }
+                else
+                {
+                    Services.ValueValidator.AssertStringOnLength(descriptionItemTextBox.Text,
+                        500,
+                        "DescriptionItemTextBox_TextChanged");
+                }
                 nameItemTextBox.BackColor = Color.White;
             }
             catch
@@ -150,10 +172,17 @@ namespace OOP.View.Tabs
         {
             try
             {
-                Services.ValueValidator.AssertStringOnLength(
-                    descriptionItemTextBox.Text,
-                    1000,
-                    "DescriptionItemTextBox");
+                if (itemListBox.SelectedIndex >= 0)
+                {
+                    var index = itemListBox.SelectedIndex;
+                    Items[index].Info = descriptionItemTextBox.Text;
+                }
+                else
+                {
+                    Services.ValueValidator.AssertStringOnLength(descriptionItemTextBox.Text,
+                        500,
+                        "DescriptionItemTextBox_TextChanged");
+                }
                 descriptionItemTextBox.BackColor = Color.White;
             }
             catch

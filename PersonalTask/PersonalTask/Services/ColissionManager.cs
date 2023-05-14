@@ -16,12 +16,12 @@ namespace PersonalTask.Services
         /// </summary>
         /// <param name="text">Вводимый на проверку текст.</param>
         /// <param name="maxLength">Максимальная длина строки.</param>
-        /// <param name="propertyName">Текст ошибки.</param>
+        /// <param name="propertyName">Свойство, вызвавшое метод.</param>
         public static void AssertOnLengthOfString(string text, int maxLength, string propertyName)
         {
             if (text.Length > maxLength)
             {
-                throw new ArgumentException(propertyName);
+                throw new ArgumentException(propertyName + $" не должно превышать {maxLength} символов.");
             }
         }
 
@@ -30,12 +30,12 @@ namespace PersonalTask.Services
         /// </summary>
         /// <param name="flightTime">Время полета.</param>
         /// <param name="maxTime">Максимально допустимое время полета.</param>
-        /// <param name="propertyName">Текст ошибки.</param>
+        /// <param name="propertyName">Свойство, вызвавшое метод.</param>
         public static void AssertFlightTime (int flightTime, int maxTime, string propertyName)
         {
             if (flightTime <= 0 || flightTime > maxTime)
             {
-                throw new ArgumentException(propertyName);
+                throw new ArgumentException(propertyName + $" пытается присвоить неправильное время.");
             }
         }
 
@@ -43,22 +43,22 @@ namespace PersonalTask.Services
         /// Проверяет правильность ввода времени вылета.
         /// </summary>
         /// <param name="departureFlight">Передаваемое время вылета.</param>
-        /// <param name="properyName">Текст ошибки.</param>
+        /// <param name="properyName">Свойство, вызвавшое метод.</param>
         public static void AssertDepartureTime(DateTime departureFlight, string properyName)
         {
             DateTime currentTime;
             currentTime = DateTime.Now.Date;
-            if (departureFlight.Date < currentTime.Date)
+            /*if (departureFlight.Date < currentTime.Date)
             {
-                throw new ArgumentException(properyName);
-            }
+                throw new ArgumentException(properyName + $" пытается присвоить неправильное время.");
+            }*/
         }
 
         /// <summary>
         /// Проверяет, является ли переданное значение объектом перечисления.
         /// </summary>
         /// <param name="FlightType"> Переданное значение.</param>
-        /// <param name="propertyName">Текст ошибки.</param>
+        /// <param name="propertyName">Свойство, вызвавшое метод.</param>
         public static void IsValueInEnum(Model.FlightType FlightType, string propertyName)
         {
             if (!Enum.IsDefined(typeof(Model.FlightType), FlightType))

@@ -8,7 +8,7 @@ namespace PersonalTask.Model
 {
     public enum FlightType
     { 
-        Внутренний,
-        Международный
+        Internal,
+        International
     }
 }

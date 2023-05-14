@@ -35,9 +35,11 @@ namespace PersonalTask
             // 
             // userInterface2
             // 
-            this.userInterface2.Location = new System.Drawing.Point(2, 1);
+            this.userInterface2.AutoSize = true;
+            this.userInterface2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userInterface2.Location = new System.Drawing.Point(0, 0);
             this.userInterface2.Name = "userInterface2";
-            this.userInterface2.Size = new System.Drawing.Size(856, 529);
+            this.userInterface2.Size = new System.Drawing.Size(861, 528);
             this.userInterface2.TabIndex = 0;
             // 
             // userInterface1
@@ -54,11 +56,10 @@ namespace PersonalTask
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 528);
             this.Controls.Add(this.userInterface2);
-            this.MaximumSize = new System.Drawing.Size(879, 575);
-            this.MinimumSize = new System.Drawing.Size(879, 575);
             this.Name = "MainForm";
             this.Text = "Авиаперелеты";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
