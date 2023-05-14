@@ -15,23 +15,26 @@ namespace OOP.View
         /// <summary>
         /// Копия формы для передачи данных
         /// </summary>
-        public CustomerTab CustomerTab { get; set; }
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public CustomerTab _customerTab;
 
         /// <summary>
         /// Хранит преедан пользователь или нет.
         /// </summary>
-        private bool CurrentCustomer { get; set; } = false;
+        private bool _currentCustomer = false;
 
         /// <summary>
         /// Хранит индекс переданного пользователя.
         /// </summary>
-        private int Index { get; set; }
-
+        private int _index;
 
         /// <summary>
         /// Свойство адреса.
         /// </summary>
-        public Model.Address Address{ get; set;}
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Model.Address Address{ get; set; }
 
         /// <summary>
         /// Метод заполняет поля адреса.
@@ -65,9 +68,9 @@ namespace OOP.View
                 }
                 Address.Index = int.Parse(postIndexTextBox.Text);
                 postIndexTextBox.BackColor = Color.White;
-                if (CurrentCustomer)
+                if (_currentCustomer)
                 {
-                    CustomerTab.Customers[Index].Address.Index = Address.Index;
+                    _customerTab.Customers[_index].Address.Index = Address.Index;
                 }
             }
             catch
@@ -89,9 +92,9 @@ namespace OOP.View
                 }
                 Address.Country = countryTextBox.Text;
                 countryTextBox.BackColor = Color.White;
-                if (CurrentCustomer)
+                if (_currentCustomer)
                 {
-                    CustomerTab.Customers[Index].Address.Country = Address.Country;
+                    _customerTab.Customers[_index].Address.Country = Address.Country;
                 }
             }
             catch
@@ -113,9 +116,9 @@ namespace OOP.View
                 }
                 Address.City = cityTextBox.Text;
                 cityTextBox.BackColor = Color.White;
-                if (CurrentCustomer)
+                if (_currentCustomer)
                 {
-                    CustomerTab.Customers[Index].Address.City = Address.City;
+                    _customerTab.Customers[_index].Address.City = Address.City;
                 }
             }
             catch
@@ -137,9 +140,9 @@ namespace OOP.View
                 }
                 Address.Street = streetTextBox.Text;
                 streetTextBox.BackColor = Color.White;
-                if (CurrentCustomer)
+                if (_currentCustomer)
                 {
-                    CustomerTab.Customers[Index].Address.Street = Address.Street;
+                    _customerTab.Customers[_index].Address.Street = Address.Street;
                 }
             }
             catch
@@ -161,9 +164,9 @@ namespace OOP.View
                 }
                 Address.Building = buildingTextBox.Text;
                 buildingTextBox.BackColor = Color.White;
-                if (CurrentCustomer)
+                if (_currentCustomer)
                 {
-                    CustomerTab.Customers[Index].Address.Building = Address.Building;
+                    _customerTab.Customers[_index].Address.Building = Address.Building;
                 }
             }
             catch
@@ -185,9 +188,9 @@ namespace OOP.View
                 }
                 Address.Apartment = apartmentTextBox.Text;
                 apartmentTextBox.BackColor = Color.White;
-                if (CurrentCustomer)
+                if (_currentCustomer)
                 {
-                    CustomerTab.Customers[Index].Address.Apartment = Address.Apartment;
+                    _customerTab.Customers[_index].Address.Apartment = Address.Apartment;
                 }
             }
             catch
@@ -199,11 +202,11 @@ namespace OOP.View
         /// <summary>
         /// Получение объекта, которого выбрали в другом элемента.
         /// </summary>
-        /// <param name="current">Выбранный пользователь с другого элемента.</param>
+        /// <param name="index">Индекс выбранного пользователя с другого элемента.</param>
         public void GetCustomer(int index)
         {
-            CurrentCustomer = true;
-            Index = index;
+            _currentCustomer = true;
+            _index = index;
         }
     }
 }

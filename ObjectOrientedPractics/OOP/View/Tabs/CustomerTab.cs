@@ -10,9 +10,6 @@ using System.Windows.Forms;
 
 namespace OOP.View
 {
-    /// <summary>
-    /// Пользовательский интерфейс пользователей.
-    /// </summary>
     public partial class CustomerTab : UserControl
     {
         /// <summary>
@@ -25,7 +22,7 @@ namespace OOP.View
         public CustomerTab()
         {
             InitializeComponent();
-            addressControl.CustomerTab = this;
+            addressControl._customerTab = this;
         }
 
         /// <summary>
@@ -74,6 +71,11 @@ namespace OOP.View
             try
             {
                 Model.Address currentAddress = GetAddress();
+                if (currentAddress == null)
+                {
+                    MessageBox.Show("Введите верные значения.");
+                    return;
+                }
                 Customers.Add(new Model.Customer(
                     fullNameTextBox.Text,
                     currentAddress.Index,
@@ -83,7 +85,7 @@ namespace OOP.View
                     currentAddress.Street,
                     currentAddress.Apartment));
 
-                customerListBox.Items.Add($"Пользователь : {Customers.Last().Id}");
+                customerListBox.Items.Add(Customers.Last().FullName);
                 var index = customerListBox.SelectedIndex;
                 if (index >= 0)
                 {
@@ -107,11 +109,12 @@ namespace OOP.View
                 var index = customerListBox.SelectedIndex;
                 Customers.RemoveAt(index);
                 customerListBox.Items.RemoveAt(index);
+                customerListBox.SelectedIndex = -1;
             }
         }
 
         /// <summary>
-        /// Метод проверяет и изменяет имя пользователя.
+        /// Изменяет полное имя пользователя.
         /// </summary>
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {

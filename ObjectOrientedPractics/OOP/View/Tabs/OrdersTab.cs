@@ -16,44 +16,18 @@ namespace OOP.View.Tabs
     public partial class ordersTab : UserControl
     {
         /// <summary>
-        /// Список пользователей в магазине.
-        /// </summary>
-        private List<Model.Customer> _customers = new List<Model.Customer>();
-
-        /// <summary>
         /// Свойство для списка пользователй.
         /// </summary>
-        public List<Model.Customer> Customers
-        {
-            get
-            {
-                return _customers;
-            }
-            set
-            {
-                _customers = value;
-            }
-        }
-
-        /// <summary>
-        /// Список заказов магазина.
-        /// </summary>
-        private List<Model.Order> _orders = new List<Model.Order>();
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public List<Model.Customer> Customers { get; set; }
 
         /// <summary>
         /// Свойство для списка заказов.
         /// </summary>
-        public List<Model.Order> Orders
-        {
-            get
-            {
-                return _orders;
-            }
-            set
-            {
-                _orders = value;
-            }
-        }
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public List<Model.Order> Orders { get; set; } = new List<Model.Order>();
 
         public ordersTab()
         {
@@ -77,7 +51,10 @@ namespace OOP.View.Tabs
         public void UpdateInformation()
         {
             informationTable.Rows.Clear();
-            Orders.Clear();
+            if (Orders != null)
+            {
+                Orders.Clear();
+            }
             foreach (var customer in Customers)
             {
                 foreach (var order in customer.Orders)

@@ -16,28 +16,24 @@ namespace OOP.View.Tabs
     public partial class CartsTab : UserControl
     {
         /// <summary>
-        /// Список пользователей.
-        /// </summary>
-        private List<Model.Customer> _customers = new List<Model.Customer>();
-
-        /// <summary>
-        /// Список товаров.
-        /// </summary>
-        private List<Model.Item> _items = new List<Model.Item>();
-
-        /// <summary>
         /// Хранит информацию о выбранном пользователе.
         /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Model.Customer CurrentCustomer { get; set;}
 
         /// <summary>
         /// Свойство для товаров.
         /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Model.Item> Items { get; set; }
 
         /// <summary>
         /// Свойство пользователей.
         /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Model.Customer> Customers { get; set; }
 
 

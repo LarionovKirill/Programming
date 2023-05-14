@@ -30,9 +30,9 @@ namespace OOP.Services
         /// <param name="minValue">Минимальное значение.</param>
         /// <param name="maxValue">Максимальное значение.</param>
         /// <param name="propertyName">Свойство, вызвавшое ошибку.</param>
-        public static void AssertValueInRange(decimal value,
-            decimal minValue,
-            decimal maxValue, 
+        public static void AssertValueInRange(decimal  value,
+            decimal  minValue, 
+            decimal  maxValue, 
             string propertyName)
         {
             if (value < minValue || value > maxValue)

@@ -39,11 +39,10 @@ namespace OOP
         {
             InitializeComponent();
             Store.Items = Services.ItemGeneretor.GenerateListOfItems();
-            itemsTab.Items = Store.Items;
-            itemsTab.UpdateInformation();
+            itemsTab2.Items = Store.Items;
+            itemsTab2.UpdateInformation();
             Store.Customers = Services.CustomerGenerator.GenerateListOfCustomers();
             customerTab2.Customers = Store.Customers;
-            ordersTab1.Customers = Store.Customers;
             customerTab2.UpdateInformation();
             cartsTab.Customers = Store.Customers;
             cartsTab.Items = Store.Items;
