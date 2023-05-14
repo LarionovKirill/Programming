@@ -12,16 +12,15 @@ namespace OOP.Model
 	[Serializable]
 	public class Customer
 	{
-
 		/// <summary>
 		/// Хранит имя пользователя.
 		/// </summary>
 		private string _fullName;
 
 		/// <summary>
-		/// Хранит адрес пользователя.
+		/// Хранит адрес доставки.
 		/// </summary>
-		private string _address;
+		private Address _address;
 
 		/// <summary>
 		/// Свойство поля _id.
@@ -46,43 +45,46 @@ namespace OOP.Model
 				return _fullName;
 			}
 		}
-
 		/// <summary>
-		/// Свойство поля _address.
+		/// Свойство для адреса доставки.
 		/// </summary>
-		public string Address
+		public Address Address
 		{
-			set
-			{
-				Services.ValueValidator.AssertStringOnLength(
-					value,
-					500,
-					nameof(Address));
-				_address = value;
-			}
 			get
 			{
 				return _address;
 			}
+			set
+			{
+				_address = value;
+			}
 		}
+
 		/// <summary>
 		/// Конструктор без параметров.
 		/// </summary>
 		public Customer()
 		{
 			this.Id = Services.IdGenerator.GetNextCustomerID();
+			Address = new Address();
 		}
 
 		/// <summary>
 		/// Конструктор класса с параметрами.
 		/// </summary>
 		/// <param name="fullName"> Имя пользователя.</param>
-		/// <param name="address">Адрес пользователя.</param>
-		public Customer(string fullName, string address)
+		public Customer(
+			string fullName,
+			int index,
+			string building,
+			string city,
+			string country,
+			string street,
+			string apartment)
 		{
 			this.Id = Services.IdGenerator.GetNextCustomerID();
 			this.FullName = fullName;
-			this.Address = address;
+			this.Address = new Address(index, country, city, street, building, apartment);
 		}
 	}
 }

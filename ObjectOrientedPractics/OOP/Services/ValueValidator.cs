@@ -41,5 +41,18 @@ namespace OOP.Services
                     $"до {maxValue}");
             }
         }
+
+        /// <summary>
+        /// Метод проверяет, может ли быть такой почтовый индекс.
+        /// </summary>
+        /// <param name="index">Передаваемый индекс.</param>
+        /// <param name="propertyName">Свойство, вызвавшое метод.</param>
+        public static void AssertIndex(int index, string propertyName)
+        {
+            if (index < 100000 || index >= 1000000)
+            {
+                throw new ArgumentException(propertyName);
+            }
+        }
     }
 }

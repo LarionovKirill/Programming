@@ -18,7 +18,7 @@ namespace OOP.View
         /// <summary>
         /// Список пользователей.
         /// </summary>
-        private List<Model.Customer> _customers = new List<Model.Customer>();
+        private List<Model.Customer> _customers;
 
         /// <summary>
         /// Свойство поля _customers.
@@ -36,20 +36,24 @@ namespace OOP.View
                 _customers = value;
             }
         }
+
         public CustomerTab()
         {
             InitializeComponent();
+            addressControl.CustomerTab = this;
         }
-        
+
         /// <summary>
         /// Обработка нажатия выбранного пользователя.
         /// </summary>
         private void CustomerListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (customerListBox.SelectedIndex>=0)
+            if (customerListBox.SelectedIndex >= 0)
             {
                 var index = customerListBox.SelectedIndex;
                 FillFieldsOfCustomer(Customers[index]);
+                addressControl.GetCustomer(index);
+                addressControl.FillAddress(Customers[index].Address);
             }
         }
 
@@ -60,7 +64,6 @@ namespace OOP.View
         public void FillFieldsOfCustomer(Model.Customer current)
         {
             idCustomerTextBox.Text = current.Id.ToString();
-            addressTextBox.Text = current.Address;
             fullNameTextBox.Text = current.FullName;
         }
 
@@ -71,10 +74,23 @@ namespace OOP.View
         {
             try
             {
+                Model.Address currentAddress = GetAddress();
                 Customers.Add(new Model.Customer(
                     fullNameTextBox.Text,
-                    addressTextBox.Text));
+                    currentAddress.Index,
+                    currentAddress.Building,
+                    currentAddress.City,
+                    currentAddress.Country,
+                    currentAddress.Street,
+                    currentAddress.Apartment));
+
                 customerListBox.Items.Add($"Пользователь : {Customers.Last().Id}");
+                var index = customerListBox.SelectedIndex;
+                if (index >= 0)
+                {
+                    addressControl.GetCustomer(index);
+                }
+
             }
             catch
             {
@@ -116,23 +132,12 @@ namespace OOP.View
         }
 
         /// <summary>
-        /// Метод проверяет и изменяет адрес пользователя.
+        /// Возвращает адрес из другой формы.
         /// </summary>
-        private void AddressTextBox_TextChanged(object sender, EventArgs e)
+        /// <returns>Адрес.</returns>
+        private Model.Address GetAddress()
         {
-            try
-            {
-                if (customerListBox.SelectedIndex >= 0)
-                {
-                    var index = customerListBox.SelectedIndex;
-                    Customers[index].Address = addressTextBox.Text;
-                }
-                addressTextBox.BackColor = Color.White;
-            }
-            catch
-            {
-                addressTextBox.BackColor = Color.Pink;
-            }
+            return addressControl.Address;
         }
     }
 }

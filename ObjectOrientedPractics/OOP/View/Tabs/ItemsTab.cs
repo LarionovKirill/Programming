@@ -18,7 +18,7 @@ namespace OOP.View.Tabs
         /// <summary>
         /// Список товаров.
         /// </summary>
-        private List<Model.Item> _items = new List<Model.Item>();
+        private List<Model.Item> _items;
 
         /// <summary>
         /// Свойство поля _items.
@@ -31,12 +31,12 @@ namespace OOP.View.Tabs
             {
                 return _items;
             }
-            set 
+            set
             {
                 _items = value;
             }
         }
-           
+
         /// <summary>
         /// Метод создающий компоненты формы.
         /// </summary>
@@ -55,13 +55,16 @@ namespace OOP.View.Tabs
                 //Получение данных с формы.
                 var name = nameItemTextBox.Text;
                 var description = descriptionItemTextBox.Text;
+                var category = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
+                    categoryComboBox.SelectedItem.ToString());
                 var cost = decimal.Parse(costItemTextBox.Text);
-               
+
                 //Добавление объекта в список.
                 Items.Add(new Model.Item(
                     name,
                     description,
-                    cost));
+                    cost,
+                    category));
                 itemListBox.Items.Add($"Товар : {Items.Last().Id}");
             }
             catch
@@ -80,6 +83,7 @@ namespace OOP.View.Tabs
                 var index = itemListBox.SelectedIndex;
                 Items.RemoveAt(index);
                 itemListBox.Items.RemoveAt(index);
+                itemListBox.SelectedIndex = 0;
             }
         }
 
@@ -99,6 +103,13 @@ namespace OOP.View.Tabs
                 {
                     var index = itemListBox.SelectedIndex;
                     Items[index].Cost = decimal.Parse(costItemTextBox.Text);
+                }
+                else
+                {
+                    Services.ValueValidator.AssertValueInRange(decimal.Parse(costItemTextBox.Text),
+                        0,
+                        100000,
+                        "СostItemTextBox_TextChanged");
                 }
                 costItemTextBox.BackColor = Color.White;
             }
@@ -120,6 +131,12 @@ namespace OOP.View.Tabs
                     var index = itemListBox.SelectedIndex;
                     Items[index].Name = nameItemTextBox.Text;
                 }
+                else
+                {
+                    Services.ValueValidator.AssertStringOnLength(descriptionItemTextBox.Text,
+                        500,
+                        "DescriptionItemTextBox_TextChanged");
+                }
                 nameItemTextBox.BackColor = Color.White;
             }
             catch
@@ -139,6 +156,12 @@ namespace OOP.View.Tabs
                 {
                     var index = itemListBox.SelectedIndex;
                     Items[index].Info = descriptionItemTextBox.Text;
+                }
+                else
+                {
+                    Services.ValueValidator.AssertStringOnLength(descriptionItemTextBox.Text,
+                        500,
+                        "DescriptionItemTextBox_TextChanged");
                 }
                 descriptionItemTextBox.BackColor = Color.White;
             }
@@ -169,6 +192,33 @@ namespace OOP.View.Tabs
             nameItemTextBox.Text = current.Name;
             descriptionItemTextBox.Text = current.Info;
             costItemTextBox.Text = current.Cost.ToString();
+            categoryComboBox.SelectedItem = current.ItemCategory;
+        }
+
+        /// <summary>
+        /// Метод выполняется при запуске формы. Он заполняет comboBox.
+        /// </summary>
+        private void ItemsTab_Load(object sender, EventArgs e)
+        {
+            var contents = Enum.GetValues(typeof(Model.ItemCategory));
+            foreach (var items in contents)
+            {
+                categoryComboBox.Items.Add(items);
+            }
+            categoryComboBox.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// Метод сохранет изменение категории выбранного товара.
+        /// </summary>
+        private void СategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (itemListBox.SelectedIndex >= 0)
+            {
+                var index = itemListBox.SelectedIndex;
+                Items[index].ItemCategory = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
+                    categoryComboBox.SelectedItem.ToString());
+            }
         }
     }
 }
