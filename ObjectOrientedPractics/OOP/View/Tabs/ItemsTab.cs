@@ -20,9 +20,15 @@ namespace OOP.View.Tabs
         public List<Model.Item> Items { get; set; }
 
         /// <summary>
-        /// Флаг изменения.
+        /// Флаг режима изменения.
         /// </summary>
-        private bool Change { get; set; } = false;
+        private bool ChangeMode { get; set; } = false;
+
+
+        /// <summary>
+        /// Флаг режима добавления.
+        /// </summary>
+        private bool AddMode { get; set; } = false;
 
         /// <summary>
         /// Копия товара.
@@ -42,27 +48,10 @@ namespace OOP.View.Tabs
         /// </summary>
         private void AddItemButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                //Получение данных с формы.
-                var name = nameItemTextBox.Text;
-                var description = descriptionItemTextBox.Text;
-                var cost = decimal .Parse(costItemTextBox.Text);
-                var category = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
-                    categoryComboBox.SelectedItem.ToString());
-               
-                //Добавление объекта в список.
-                Items.Add(new Model.Item(
-                    name,
-                    description,
-                    cost,
-                    category));
-                itemListBox.Items.Add($"Товар : {Items.Last().Id}");
-            }
-            catch
-            {
-                MessageBox.Show("Введите верные значения.");
-            }
+            AddMode = true;
+            ClearFields();
+            itemListBox.SelectedIndex = -1;
+            OpenFields();
         }
 
         /// <summary>
@@ -106,11 +95,7 @@ namespace OOP.View.Tabs
             }
             try
             {
-                if (itemListBox.SelectedIndex >= 0)
-                {
-                    var index = itemListBox.SelectedIndex;
-                    Items[index].Cost = decimal.Parse(costItemTextBox.Text);
-                }
+                copyItem.Cost = decimal.Parse(costItemTextBox.Text);
                 costItemTextBox.BackColor = Color.White;
             }
             catch
@@ -126,11 +111,7 @@ namespace OOP.View.Tabs
         {
             try
             {
-                if (itemListBox.SelectedIndex >= 0)
-                {
-                    var index = itemListBox.SelectedIndex;
-                    Items[index].Name = nameItemTextBox.Text;
-                }
+                copyItem.Name = nameItemTextBox.Text;
                 nameItemTextBox.BackColor = Color.White;
             }
             catch
@@ -146,11 +127,7 @@ namespace OOP.View.Tabs
         {
             try
             {
-                if (itemListBox.SelectedIndex >= 0)
-                {
-                    var index = itemListBox.SelectedIndex;
-                    Items[index].Info = descriptionItemTextBox.Text;
-                }
+                copyItem.Info = descriptionItemTextBox.Text;
                 descriptionItemTextBox.BackColor = Color.White;
             }
             catch
@@ -168,7 +145,7 @@ namespace OOP.View.Tabs
             {
                 var index = itemListBox.SelectedIndex;
                 FillingInTheProductField(Items[index]);
-                if (Change == true)
+                if (ChangeMode == true)
                 {
                     CloseFields();
                 }
@@ -220,6 +197,7 @@ namespace OOP.View.Tabs
         {
             if (itemListBox.SelectedIndex >= 0)
             {
+                ChangeMode = true;
                 var index = itemListBox.SelectedIndex;
                 OpenFields();
                 ToCopyItem(Items[index]);
@@ -235,12 +213,12 @@ namespace OOP.View.Tabs
         /// </summary>
         private void OpenFields()
         {
+            categoryComboBox.Enabled = true;
             saveButton.Visible = true;
             cancelButton.Visible = true;
             descriptionItemTextBox.ReadOnly = false;
             nameItemTextBox.ReadOnly = false;
             costItemTextBox.ReadOnly = false;
-            Change = true;
         }
 
         /// <summary>
@@ -248,12 +226,14 @@ namespace OOP.View.Tabs
         /// </summary>
         private void CloseFields()
         {
+            categoryComboBox.Enabled = false;
             saveButton.Visible = false;
             cancelButton.Visible = false;
             descriptionItemTextBox.ReadOnly = true;
             nameItemTextBox.ReadOnly = true;
             costItemTextBox.ReadOnly = true;
-            Change = false;
+            ChangeMode = false;
+            AddMode = false;
         }
 
         /// <summary>
@@ -270,22 +250,51 @@ namespace OOP.View.Tabs
         /// </summary>
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            CloseFields();
-            var index = itemListBox.SelectedIndex;
-            if (costItemTextBox.BackColor == Color.White &&
-                nameItemTextBox.BackColor == Color.White &&
-                descriptionItemTextBox.BackColor == Color.White)
+            if (AddMode)
             {
-                itemListBox.Items.Insert(index, Items[index].Name);
-                itemListBox.Items.RemoveAt(index + 1);
-                MessageBox.Show("Данные успешно сохранены.");
+                try
+                {
+                    //Получение данных с формы.
+                    var name = nameItemTextBox.Text;
+                    var description = descriptionItemTextBox.Text;
+                    var cost = decimal.Parse(costItemTextBox.Text);
+                    var category = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
+                        categoryComboBox.SelectedItem.ToString());
+
+                    //Добавление объекта в список.
+                    Items.Add(new Model.Item(
+                        name,
+                        description,
+                        cost,
+                        category));
+                    itemListBox.Items.Add(Items.Last().Name);
+
+                }
+                catch
+                {
+                    MessageBox.Show("Введите верные значения.");
+                }
             }
-            else
+            else if (ChangeMode)
             {
-                MessageBox.Show("Мы не можем сохранить такие данные.");
+                var index = itemListBox.SelectedIndex;
+                if (costItemTextBox.BackColor == Color.White &&
+                    nameItemTextBox.BackColor == Color.White &&
+                    descriptionItemTextBox.BackColor == Color.White)
+                {
+                    copyItem.CopyInformation(Items[index]);
+                    itemListBox.Items.Insert(index, Items[index].Name);
+                    itemListBox.Items.RemoveAt(index + 1);
+                    MessageBox.Show("Данные успешно сохранены.");
+                }
+                else
+                {
+                    MessageBox.Show("Мы не можем сохранить такие данные.");
+                }
+                itemListBox.SelectedIndex = -1;
             }
-            itemListBox.SelectedIndex = -1;
             ClearFields();
+            CloseFields();
         }
 
         /// <summary>
@@ -293,16 +302,17 @@ namespace OOP.View.Tabs
         /// </summary>
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            CloseFields();
-            var index = itemListBox.SelectedIndex;
-            copyItem.CopyInformation(Items[index]);
-            MessageBox.Show("Изменения не были сохранены");
-            itemListBox.SelectedIndex = -1;
+            if (ChangeMode)
+            {
+                MessageBox.Show("Изменения не были сохранены");
+                itemListBox.SelectedIndex = -1;
+            }
             ClearFields();
+            CloseFields();
         }
 
         /// <summary>
-        /// Очишает поля.
+        /// Очищает поля.
         /// </summary>
         private void ClearFields()
         {

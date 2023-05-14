@@ -20,7 +20,7 @@ namespace OOP.View
         public CustomerTab _customerTab;
 
         /// <summary>
-        /// Хранит преедан пользователь или нет.
+        /// Хранит передан пользователь или нет.
         /// </summary>
         private bool _currentCustomer = false;
 
@@ -35,6 +35,8 @@ namespace OOP.View
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Model.Address Address{ get; set; }
+
+        private Model.Address Checher { get; set; } = new Model.Address();
 
         /// <summary>
         /// Метод заполняет поля адреса.
@@ -207,6 +209,33 @@ namespace OOP.View
         {
             _currentCustomer = true;
             _index = index;
+        }
+
+        /// <summary>
+        /// Очищает поля адреса.
+        /// </summary>
+        public void ClearFieldAddress()
+        {
+            postIndexTextBox.Text = string.Empty;
+            countryTextBox.Text = string.Empty;
+            cityTextBox.Text = string.Empty;
+            streetTextBox.Text = string.Empty;
+            buildingTextBox.Text = string.Empty;
+            apartmentTextBox.Text = string.Empty;
+        }
+
+        /// <summary>
+        /// Проверяет, все ли поля адреса белые(Значит валидация прошла успешно).
+        /// </summary>
+        /// <returns>True - все поля белые, иначе False.</returns>
+        public bool IsColorWhite()
+        {
+            return (postIndexTextBox.BackColor == Color.White &&
+                countryTextBox.BackColor == Color.White &&
+                cityTextBox.BackColor == Color.White &&
+                streetTextBox.BackColor == Color.White &&
+                buildingTextBox.BackColor == Color.White &&
+                apartmentTextBox.BackColor == Color.White);
         }
     }
 }

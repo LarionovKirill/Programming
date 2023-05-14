@@ -55,12 +55,20 @@ namespace OOP.Model
 		/// </summary>
 		public List<Order> Orders { get; set; }
 
+		public void CopyInformation(Customer customer)
+		{
+			customer.Address = this.Address;
+			customer.Cart = this.Cart;
+			customer.FullName = this.FullName;
+			customer.Orders = this.Orders;
+			customer.Id = this.Id;
+		}
+
 		/// <summary>
 		/// Конструктор без параметров.
 		/// </summary>
 		public Customer()
 		{
-			this.Id = Services.IdGenerator.GetNextCustomerID();
 			Address = new Address();
 			this.Cart = new Cart();
 			this.Orders = new List<Order>();

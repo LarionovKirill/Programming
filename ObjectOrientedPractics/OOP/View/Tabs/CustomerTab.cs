@@ -19,6 +19,18 @@ namespace OOP.View
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Model.Customer> Customers{get;set;}
 
+        /// <summary>
+        /// Показатель режима изменения.
+        /// </summary>
+        private bool ChangeMode { get; set; } = false;
+
+        /// <summary>
+        /// Показатель режима добавления.
+        /// </summary>
+        private bool AddMode { get; set; } = false;
+
+        private Model.Customer Copy { get; set; } = new Model.Customer(); 
+
         public CustomerTab()
         {
             InitializeComponent();
@@ -50,6 +62,10 @@ namespace OOP.View
                 FillFieldsOfCustomer(Customers[index]);
                 addressControl.GetCustomer(index);
                 addressControl.FillAddress(Customers[index].Address);
+                if (ChangeMode == true)
+                {
+                    CloseFields();
+                }
             }
         }
 
@@ -68,7 +84,11 @@ namespace OOP.View
         /// </summary>
         private void AddCustomerButton_Click(object sender, EventArgs e)
         {
-            try
+            AddMode = true;
+            ClearFields();
+            customerListBox.SelectedIndex = -1;
+            OpenFields();
+            /*try
             {
                 Model.Address currentAddress = GetAddress();
                 if (currentAddress == null)
@@ -91,12 +111,11 @@ namespace OOP.View
                 {
                     addressControl.GetCustomer(index);
                 }
-
             }
             catch
             {
                 MessageBox.Show("Введите верные значения.");
-            }
+            }*/
         }
 
         /// <summary>
@@ -120,11 +139,7 @@ namespace OOP.View
         {
             try
             {
-                if (customerListBox.SelectedIndex >= 0)
-                {
-                    var index = customerListBox.SelectedIndex;
-                    Customers[index].FullName = fullNameTextBox.Text;
-                }
+                Copy.FullName = fullNameTextBox.Text;
                 fullNameTextBox.BackColor = Color.White;
             }
             catch
@@ -140,6 +155,131 @@ namespace OOP.View
         private Model.Address GetAddress()
         {
             return addressControl.Address;
+        }
+
+
+        /// <summary>
+        /// Дает возможность изменить данные.
+        /// </summary>
+        private void ChangeButton_Click(object sender, EventArgs e)
+        {
+            if (customerListBox.SelectedIndex >= 0)
+            {
+                var index = customerListBox.SelectedIndex;
+                OpenFields();
+                ToCopyItem(Customers[index]);
+                ChangeMode = true;
+            }
+            else
+            {
+                MessageBox.Show("Выберите пользователя.");
+            }
+        }
+
+        /// <summary>
+        /// Открывает поля.
+        /// </summary>
+        private void OpenFields()
+        {
+            saveButton.Visible = true;
+            cancelButton.Visible = true;
+            fullNameTextBox.ReadOnly = false;
+            addressControl.Enabled = true;
+        }
+
+        /// <summary>
+        /// Закрывает поля.
+        /// </summary>
+        private void CloseFields()
+        {
+            saveButton.Visible = false;
+            cancelButton.Visible = false;
+            fullNameTextBox.ReadOnly = true;
+            addressControl.Enabled = false;
+            ChangeMode = false;
+            AddMode = false;
+        }
+
+        /// <summary>
+        /// Метод копии класса товара.
+        /// </summary>
+        /// <param name="customer">Источник данных.</param>
+        private void ToCopyItem(Model.Customer customer)
+        {
+            customer.CopyInformation(Copy);
+        }
+
+        /// <summary>
+        /// Кнопка сохраняет изменения.
+        /// </summary>
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            if (AddMode)
+            {
+                try
+                {
+                    Model.Address currentAddress = GetAddress();
+                    if (currentAddress == null)
+                    {
+                        MessageBox.Show("Введите верные значения.");
+                        return;
+                    }
+                    Customers.Add(new Model.Customer(
+                        fullNameTextBox.Text,
+                        currentAddress.Index,
+                        currentAddress.Building,
+                        currentAddress.City,
+                        currentAddress.Country,
+                        currentAddress.Street,
+                        currentAddress.Apartment));
+
+                    customerListBox.Items.Add(Customers.Last().FullName);
+                }
+                catch
+                {
+                    MessageBox.Show("Введите верные значения.");
+                }
+            }
+            else if (ChangeMode)
+            {
+                var index = customerListBox.SelectedIndex;
+                if (fullNameTextBox.BackColor == Color.White &&
+                    addressControl.IsColorWhite())
+                {
+                    Copy.CopyInformation(Customers[index]);
+                    customerListBox.Items.Insert(index, Customers[index].FullName);
+                    customerListBox.Items.RemoveAt(index + 1);
+                    MessageBox.Show("Данные успешно сохранены.");
+                }
+                else
+                {
+                    MessageBox.Show("Мы не можем сохранить такие данные.");
+                }
+                customerListBox.SelectedIndex = -1;
+                ClearFields();
+            }
+            CloseFields();
+        }
+
+        /// <summary>
+        /// Кнопка отменяет изменения.
+        /// </summary>
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            CloseFields();
+            MessageBox.Show("Изменения не были сохранены");
+            customerListBox.SelectedIndex = -1;
+            ClearFields();
+        }
+
+        /// <summary>
+        /// Очишает поля.
+        /// </summary>
+        private void ClearFields()
+        {
+            fullNameTextBox.Text = string.Empty;
+            idCustomerTextBox.Text = string.Empty;
+            addressControl.ClearFieldAddress();
         }
     }
 }
