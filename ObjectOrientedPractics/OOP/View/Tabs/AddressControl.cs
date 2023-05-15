@@ -25,18 +25,13 @@ namespace OOP.View
         private bool _currentCustomer = false;
 
         /// <summary>
-        /// Хранит индекс переданного пользователя.
-        /// </summary>
-        private int _index;
-
-        /// <summary>
         /// Свойство адреса.
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Model.Address Address{ get; set; }
 
-        private Model.Address Checher { get; set; } = new Model.Address();
+        private Model.Address Checker { get; set; } = new Model.Address();
 
         /// <summary>
         /// Метод заполняет поля адреса.
@@ -68,11 +63,14 @@ namespace OOP.View
                 {
                     Address = new Model.Address();
                 }
-                Address.Index = int.Parse(postIndexTextBox.Text);
-                postIndexTextBox.BackColor = Color.White;
-                if (_currentCustomer)
+                if (postIndexTextBox.Text != string.Empty)
                 {
-                    _customerTab.Customers[_index].Address.Index = Address.Index;
+                    Address.Index = int.Parse(postIndexTextBox.Text);
+                    postIndexTextBox.BackColor = Color.White;
+                    if (_currentCustomer)
+                    {
+                        _customerTab.Copy.Address.Index = Address.Index;
+                    }
                 }
             }
             catch
@@ -96,7 +94,7 @@ namespace OOP.View
                 countryTextBox.BackColor = Color.White;
                 if (_currentCustomer)
                 {
-                    _customerTab.Customers[_index].Address.Country = Address.Country;
+                    _customerTab.Copy.Address.Country = Address.Country;
                 }
             }
             catch
@@ -120,7 +118,7 @@ namespace OOP.View
                 cityTextBox.BackColor = Color.White;
                 if (_currentCustomer)
                 {
-                    _customerTab.Customers[_index].Address.City = Address.City;
+                    _customerTab.Copy.Address.City = Address.City;
                 }
             }
             catch
@@ -144,7 +142,7 @@ namespace OOP.View
                 streetTextBox.BackColor = Color.White;
                 if (_currentCustomer)
                 {
-                    _customerTab.Customers[_index].Address.Street = Address.Street;
+                    _customerTab.Copy.Address.Street = Address.Street;
                 }
             }
             catch
@@ -168,7 +166,7 @@ namespace OOP.View
                 buildingTextBox.BackColor = Color.White;
                 if (_currentCustomer)
                 {
-                    _customerTab.Customers[_index].Address.Building = Address.Building;
+                    _customerTab.Copy.Address.Building = Address.Building;
                 }
             }
             catch
@@ -192,7 +190,7 @@ namespace OOP.View
                 apartmentTextBox.BackColor = Color.White;
                 if (_currentCustomer)
                 {
-                    _customerTab.Customers[_index].Address.Apartment = Address.Apartment;
+                    _customerTab.Copy.Address.Apartment = Address.Apartment;
                 }
             }
             catch
@@ -208,7 +206,14 @@ namespace OOP.View
         public void GetCustomer(int index)
         {
             _currentCustomer = true;
-            _index = index;
+        }
+
+        /// <summary>
+        /// Удаляет пользователя.
+        /// </summary>
+        public void DeleteCustomer()
+        {
+            _currentCustomer = false;
         }
 
         /// <summary>

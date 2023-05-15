@@ -55,9 +55,18 @@ namespace OOP.Model
 		/// </summary>
 		public List<Order> Orders { get; set; }
 
+		/// <summary>
+		/// Копирует информацию в переданный класс.
+		/// </summary>
+		/// <param name="customer">Класс, в котором нужно поменять информацию.</param>
 		public void CopyInformation(Customer customer)
 		{
-			customer.Address = this.Address;
+			customer.Address.Apartment = this.Address.Apartment;
+			customer.Address.Building = this.Address.Building;
+			customer.Address.City = this.Address.City;
+			customer.Address.Country = this.Address.Country;
+			customer.Address.Index = this.Address.Index;
+			customer.Address.Street = this.Address.Street;
 			customer.Cart = this.Cart;
 			customer.FullName = this.FullName;
 			customer.Orders = this.Orders;

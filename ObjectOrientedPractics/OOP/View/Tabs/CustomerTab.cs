@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace OOP.View
 {
+    /// <summary>
+    /// Логика пользовательского объекта.
+    /// </summary>
     public partial class CustomerTab : UserControl
     {
         /// <summary>
@@ -29,7 +32,7 @@ namespace OOP.View
         /// </summary>
         private bool AddMode { get; set; } = false;
 
-        private Model.Customer Copy { get; set; } = new Model.Customer(); 
+        public Model.Customer Copy { get; set; } = new Model.Customer(); 
 
         public CustomerTab()
         {
@@ -88,34 +91,6 @@ namespace OOP.View
             ClearFields();
             customerListBox.SelectedIndex = -1;
             OpenFields();
-            /*try
-            {
-                Model.Address currentAddress = GetAddress();
-                if (currentAddress == null)
-                {
-                    MessageBox.Show("Введите верные значения.");
-                    return;
-                }
-                Customers.Add(new Model.Customer(
-                    fullNameTextBox.Text,
-                    currentAddress.Index,
-                    currentAddress.Building,
-                    currentAddress.City,
-                    currentAddress.Country,
-                    currentAddress.Street,
-                    currentAddress.Apartment));
-
-                customerListBox.Items.Add(Customers.Last().FullName);
-                var index = customerListBox.SelectedIndex;
-                if (index >= 0)
-                {
-                    addressControl.GetCustomer(index);
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Введите верные значения.");
-            }*/
         }
 
         /// <summary>
@@ -167,7 +142,7 @@ namespace OOP.View
             {
                 var index = customerListBox.SelectedIndex;
                 OpenFields();
-                ToCopyItem(Customers[index]);
+                Customers[index].CopyInformation(Copy);
                 ChangeMode = true;
             }
             else
@@ -201,27 +176,21 @@ namespace OOP.View
         }
 
         /// <summary>
-        /// Метод копии класса товара.
-        /// </summary>
-        /// <param name="customer">Источник данных.</param>
-        private void ToCopyItem(Model.Customer customer)
-        {
-            customer.CopyInformation(Copy);
-        }
-
-        /// <summary>
         /// Кнопка сохраняет изменения.
         /// </summary>
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            addressControl.DeleteCustomer();
             if (AddMode)
             {
                 try
                 {
                     Model.Address currentAddress = GetAddress();
-                    if (currentAddress == null)
+                    if (currentAddress == null || !addressControl.IsColorWhite())
                     {
                         MessageBox.Show("Введите верные значения.");
+                        ClearFields();
+                        CloseFields();
                         return;
                     }
                     Customers.Add(new Model.Customer(
@@ -247,8 +216,10 @@ namespace OOP.View
                     addressControl.IsColorWhite())
                 {
                     Copy.CopyInformation(Customers[index]);
+                    addressControl.DeleteCustomer();
                     customerListBox.Items.Insert(index, Customers[index].FullName);
                     customerListBox.Items.RemoveAt(index + 1);
+                    ClearFields();
                     MessageBox.Show("Данные успешно сохранены.");
                 }
                 else
@@ -256,7 +227,6 @@ namespace OOP.View
                     MessageBox.Show("Мы не можем сохранить такие данные.");
                 }
                 customerListBox.SelectedIndex = -1;
-                ClearFields();
             }
             CloseFields();
         }
@@ -267,9 +237,10 @@ namespace OOP.View
         private void CancelButton_Click(object sender, EventArgs e)
         {
             CloseFields();
+            ClearFields();
+            addressControl.DeleteCustomer();
             MessageBox.Show("Изменения не были сохранены");
             customerListBox.SelectedIndex = -1;
-            ClearFields();
         }
 
         /// <summary>
