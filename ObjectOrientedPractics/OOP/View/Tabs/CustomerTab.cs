@@ -32,6 +32,9 @@ namespace OOP.View
         /// </summary>
         private bool AddMode { get; set; } = false;
 
+        /// <summary>
+        /// Копия пользователя.
+        /// </summary>
         public Model.Customer Copy { get; set; } = new Model.Customer(); 
 
         public CustomerTab()
