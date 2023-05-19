@@ -35,6 +35,8 @@ namespace OOP.View
         /// <summary>
         /// Копия пользователя.
         /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Model.Customer Copy { get; set; } = new Model.Customer(); 
 
         public CustomerTab()
@@ -142,6 +144,9 @@ namespace OOP.View
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void IsPriorityCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
 
         /// <summary>
         /// Дает возможность изменить данные.
@@ -151,9 +156,6 @@ namespace OOP.View
             if (customerListBox.SelectedIndex >= 0)
             {
                 var index = customerListBox.SelectedIndex;
-                Customers[index].IsPriority = isPriorityCheckBox.Checked;
-            }
-        }
                 OpenFields();
                 Customers[index].CopyInformation(Copy);
                 ChangeMode = true;

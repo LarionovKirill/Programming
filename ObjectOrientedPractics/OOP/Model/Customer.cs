@@ -21,6 +21,8 @@ namespace OOP.Model
 		/// <summary>
 		/// Свойство поля _id.
 		/// </summary>
+		[Browsable(false)]
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public int Id { get; private set; }
 
 		/// <summary>
@@ -44,21 +46,29 @@ namespace OOP.Model
 		/// <summary>
 		/// Свойство для адреса доставки.
 		/// </summary>
+		[Browsable(false)]
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public Address Address { get; set; }
 
 		/// <summary>
 		/// Свойство для корзины.
 		/// </summary>
+		[Browsable(false)]
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public Cart Cart { get; set; }
 
 		/// <summary>
 		/// Свойство для списка заказов.
 		/// </summary>
+		[Browsable(false)]
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public List<Order> Orders { get; set; }
 
 		/// <summary>
 		/// Свойство хранящее показатель приоритетного заказа.
 		/// </summary>
+		[Browsable(false)]
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public bool IsPriority { get; set; } = false;
 		/// Копирует информацию в переданный класс.
 		/// </summary>

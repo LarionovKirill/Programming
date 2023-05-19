@@ -54,7 +54,7 @@ namespace OOP.View.Tabs
                 var name = nameItemTextBox.Text;
                 var description = descriptionItemTextBox.Text;
                 var cost = decimal .Parse(costItemTextBox.Text);
-                var category = (Model.Category)Enum.Parse(typeof(Model.Category),
+                var category = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
                     categoryComboBox.SelectedItem.ToString());
                
                 //Добавление объекта в список.

@@ -49,8 +49,7 @@ namespace OOP.View
             // 
             this.selectedCustomerLabel.AutoSize = true;
             this.selectedCustomerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.selectedCustomerLabel.Location = new System.Drawing.Point(284, 8);
-            this.selectedCustomerLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.selectedCustomerLabel.Location = new System.Drawing.Point(379, 10);
             this.selectedCustomerLabel.Name = "selectedCustomerLabel";
             this.selectedCustomerLabel.Size = new System.Drawing.Size(117, 13);
             this.selectedCustomerLabel.TabIndex = 36;
@@ -60,8 +59,7 @@ namespace OOP.View
             // 
             this.customersLabel.AutoSize = true;
             this.customersLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.customersLabel.Location = new System.Drawing.Point(8, 8);
-            this.customersLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.customersLabel.Location = new System.Drawing.Point(11, 10);
             this.customersLabel.Name = "customersLabel";
             this.customersLabel.Size = new System.Drawing.Size(69, 13);
             this.customersLabel.TabIndex = 35;
@@ -70,20 +68,18 @@ namespace OOP.View
             // fullNameLabel
             // 
             this.fullNameLabel.AutoSize = true;
-            this.fullNameLabel.Location = new System.Drawing.Point(284, 66);
-            this.fullNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.fullNameLabel.Location = new System.Drawing.Point(379, 81);
             this.fullNameLabel.Name = "fullNameLabel";
-            this.fullNameLabel.Size = new System.Drawing.Size(57, 13);
+            this.fullNameLabel.Size = new System.Drawing.Size(48, 16);
             this.fullNameLabel.TabIndex = 33;
-            this.fullNameLabel.Text = "Full Name:";
+            this.fullNameLabel.Text = "Name:";
             // 
             // idLabel
             // 
             this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(284, 37);
-            this.idLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.idLabel.Location = new System.Drawing.Point(379, 46);
             this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(21, 13);
+            this.idLabel.Size = new System.Drawing.Size(24, 16);
             this.idLabel.TabIndex = 32;
             this.idLabel.Text = "ID:";
             // 
@@ -92,11 +88,11 @@ namespace OOP.View
             this.idCustomerTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.idCustomerTextBox.Location = new System.Drawing.Point(310, 33);
-            this.idCustomerTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.idCustomerTextBox.Location = new System.Drawing.Point(433, 43);
+            this.idCustomerTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.idCustomerTextBox.Name = "idCustomerTextBox";
             this.idCustomerTextBox.ReadOnly = true;
-            this.idCustomerTextBox.Size = new System.Drawing.Size(102, 20);
+            this.idCustomerTextBox.Size = new System.Drawing.Size(135, 22);
             this.idCustomerTextBox.TabIndex = 31;
             // 
             // fullNameTextBox
@@ -104,21 +100,21 @@ namespace OOP.View
             this.fullNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.fullNameTextBox.Location = new System.Drawing.Point(310, 63);
-            this.fullNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.fullNameTextBox.Location = new System.Drawing.Point(433, 78);
+            this.fullNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fullNameTextBox.Name = "fullNameTextBox";
             this.fullNameTextBox.ReadOnly = true;
-            this.fullNameTextBox.Size = new System.Drawing.Size(227, 20);
+            this.fullNameTextBox.Size = new System.Drawing.Size(301, 22);
             this.fullNameTextBox.TabIndex = 30;
             this.fullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
             // 
             // removeCustomerButton
             // 
             this.removeCustomerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.removeCustomerButton.Location = new System.Drawing.Point(152, 396);
-            this.removeCustomerButton.Margin = new System.Windows.Forms.Padding(2);
+            this.removeCustomerButton.Location = new System.Drawing.Point(251, 528);
+            this.removeCustomerButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.removeCustomerButton.Name = "removeCustomerButton";
-            this.removeCustomerButton.Size = new System.Drawing.Size(76, 44);
+            this.removeCustomerButton.Size = new System.Drawing.Size(101, 54);
             this.removeCustomerButton.TabIndex = 28;
             this.removeCustomerButton.Text = "Remove";
             this.removeCustomerButton.UseVisualStyleBackColor = true;
@@ -127,10 +123,10 @@ namespace OOP.View
             // addCustomerButton
             // 
             this.addCustomerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addCustomerButton.Location = new System.Drawing.Point(10, 396);
-            this.addCustomerButton.Margin = new System.Windows.Forms.Padding(2);
+            this.addCustomerButton.Location = new System.Drawing.Point(13, 528);
+            this.addCustomerButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addCustomerButton.Name = "addCustomerButton";
-            this.addCustomerButton.Size = new System.Drawing.Size(76, 44);
+            this.addCustomerButton.Size = new System.Drawing.Size(101, 54);
             this.addCustomerButton.TabIndex = 27;
             this.addCustomerButton.Text = "Add";
             this.addCustomerButton.UseVisualStyleBackColor = true;
@@ -141,20 +137,21 @@ namespace OOP.View
             this.customerListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.customerListBox.FormattingEnabled = true;
-            this.customerListBox.Location = new System.Drawing.Point(10, 24);
-            this.customerListBox.Margin = new System.Windows.Forms.Padding(2);
+            this.customerListBox.ItemHeight = 16;
+            this.customerListBox.Location = new System.Drawing.Point(13, 30);
+            this.customerListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.customerListBox.Name = "customerListBox";
-            this.customerListBox.Size = new System.Drawing.Size(255, 394);
+            this.customerListBox.Size = new System.Drawing.Size(339, 484);
             this.customerListBox.TabIndex = 26;
             this.customerListBox.SelectedIndexChanged += new System.EventHandler(this.CustomerListBox_SelectedIndexChanged);
             // 
             // changeButton
             // 
             this.changeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.changeButton.Location = new System.Drawing.Point(100, 429);
-            this.changeButton.Margin = new System.Windows.Forms.Padding(2);
+            this.changeButton.Location = new System.Drawing.Point(133, 528);
+            this.changeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.changeButton.Name = "changeButton";
-            this.changeButton.Size = new System.Drawing.Size(75, 44);
+            this.changeButton.Size = new System.Drawing.Size(100, 54);
             this.changeButton.TabIndex = 38;
             this.changeButton.Text = "Change";
             this.changeButton.UseVisualStyleBackColor = true;
@@ -163,10 +160,10 @@ namespace OOP.View
             // saveButton
             // 
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.saveButton.Location = new System.Drawing.Point(287, 429);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(2);
+            this.saveButton.Location = new System.Drawing.Point(383, 528);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(75, 44);
+            this.saveButton.Size = new System.Drawing.Size(100, 54);
             this.saveButton.TabIndex = 39;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -176,10 +173,10 @@ namespace OOP.View
             // cancelButton
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelButton.Location = new System.Drawing.Point(608, 429);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
+            this.cancelButton.Location = new System.Drawing.Point(811, 528);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 44);
+            this.cancelButton.Size = new System.Drawing.Size(100, 54);
             this.cancelButton.TabIndex = 40;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -191,18 +188,19 @@ namespace OOP.View
             this.addressControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.addressControl.Location = new System.Drawing.Point(240, 120);
-            this.addressControl.Margin = new System.Windows.Forms.Padding(2);
+            this.addressControl.Location = new System.Drawing.Point(356, 147);
+            this.addressControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addressControl.Name = "addressControl";
-            this.addressControl.Size = new System.Drawing.Size(439, 198);
+            this.addressControl.Size = new System.Drawing.Size(585, 244);
             this.addressControl.TabIndex = 37;
             // 
             // isPriorityCheckBox
             // 
             this.isPriorityCheckBox.AutoSize = true;
-            this.isPriorityCheckBox.Location = new System.Drawing.Point(310, 98);
+            this.isPriorityCheckBox.Location = new System.Drawing.Point(382, 121);
+            this.isPriorityCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.isPriorityCheckBox.Name = "isPriorityCheckBox";
-            this.isPriorityCheckBox.Size = new System.Drawing.Size(65, 17);
+            this.isPriorityCheckBox.Size = new System.Drawing.Size(78, 20);
             this.isPriorityCheckBox.TabIndex = 39;
             this.isPriorityCheckBox.Text = "IsPriority";
             this.isPriorityCheckBox.UseVisualStyleBackColor = true;
@@ -210,7 +208,7 @@ namespace OOP.View
             // 
             // CustomerTab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.isPriorityCheckBox);
             this.Controls.Add(this.cancelButton);
@@ -226,9 +224,9 @@ namespace OOP.View
             this.Controls.Add(this.removeCustomerButton);
             this.Controls.Add(this.addCustomerButton);
             this.Controls.Add(this.customerListBox);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CustomerTab";
-            this.Size = new System.Drawing.Size(708, 483);
+            this.Size = new System.Drawing.Size(944, 594);
             this.ResumeLayout(false);
             this.PerformLayout();
 
