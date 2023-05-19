@@ -51,7 +51,10 @@ namespace OOP.View.Tabs
         public void UpdateInformation()
         {
             informationTable.Rows.Clear();
-            Orders.Clear();
+            if (Orders != null)
+            {
+                Orders.Clear();
+            }
             foreach (var customer in Customers)
             {
                 foreach (var order in customer.Orders)

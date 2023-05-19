@@ -25,6 +25,7 @@ namespace OOP.Model
             get
             {
                 decimal sum = 0.0m;
+                var sum = 0.0m;
                 if (ListOfGoods == null || ListOfGoods.Count == 0)
                     return sum;
                 else

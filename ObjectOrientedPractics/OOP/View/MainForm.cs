@@ -43,7 +43,6 @@ namespace OOP
             itemsTab.UpdateInformation();
             Store.Customers = Services.CustomerGenerator.GenerateListOfCustomers();
             customerTab2.Customers = Store.Customers;
-            ordersTab1.Customers = Store.Customers;
             customerTab2.UpdateInformation();
             cartsTab.Customers = Store.Customers;
             cartsTab.Items = Store.Items;

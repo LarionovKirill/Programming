@@ -60,13 +60,28 @@ namespace OOP.Model
 		/// Свойство хранящее показатель приоритетного заказа.
 		/// </summary>
 		public bool IsPriority { get; set; } = false;
+		/// Копирует информацию в переданный класс.
+		/// </summary>
+		/// <param name="customer">Класс, в котором нужно поменять информацию.</param>
+		public void CopyInformation(Customer customer)
+		{
+			customer.Address.Apartment = this.Address.Apartment;
+			customer.Address.Building = this.Address.Building;
+			customer.Address.City = this.Address.City;
+			customer.Address.Country = this.Address.Country;
+			customer.Address.Index = this.Address.Index;
+			customer.Address.Street = this.Address.Street;
+			customer.Cart = this.Cart;
+			customer.FullName = this.FullName;
+			customer.Orders = this.Orders;
+			customer.Id = this.Id;
+		}
 
 		/// <summary>
 		/// Конструктор без параметров.
 		/// </summary>
 		public Customer()
 		{
-			this.Id = Services.IdGenerator.GetNextCustomerID();
 			Address = new Address();
 			this.Cart = new Cart();
 			this.Orders = new List<Order>();

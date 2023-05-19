@@ -25,7 +25,7 @@ namespace OOP.Model
 		/// <summary>
 		/// Цена товара.
 		/// </summary>
-		private decimal  _cost;
+		private decimal _cost;
 
 		/// <summary>
 		/// Свойство для поля _id.
@@ -73,7 +73,7 @@ namespace OOP.Model
 		/// <summary>
 		/// Свойство для поля _cost.
 		/// </summary>
-		public decimal  Cost
+		public decimal Cost
 		{
 			set
 			{
@@ -93,7 +93,19 @@ namespace OOP.Model
 		/// <summary>
 		/// Свойство категории товаров.
 		/// </summary>
-		public Category Category { get; set; }
+		public ItemCategory ItemCategory { get; set; }
+
+		/// <summary>
+		/// Копирует информацию из вызващего класса.
+		/// </summary>
+		public void CopyInformation(Item item)
+		{
+			item.Id = this.Id;
+			item.Info = this.Info;
+			item.ItemCategory = this.ItemCategory;
+			item.Name = this.Name;
+			item.Cost = this.Cost;
+		}
 			
 
 		/// <summary>
@@ -101,7 +113,7 @@ namespace OOP.Model
 		/// </summary>
 		public Item()
 		{
-			this.Id = Services.IdGenerator.GetNextItemID();
+
 		}
 
 		/// <summary>
@@ -111,13 +123,13 @@ namespace OOP.Model
 		/// <param name="info">Информация о товаре.</param>
 		/// <param name="cost">Цена товара.</param>
 		/// <param name="category">Категория товара.</param>
-		public Item(string name, string info, decimal  cost, Category category)
+		public Item(string name, string info, decimal  cost, ItemCategory category)
 		{
 			this.Info = info;
 			this.Name = name;
 			this.Cost = cost;
 			this.Id = Services.IdGenerator.GetNextItemID();
-			this.Category = category;
+			this.ItemCategory = category;
 		}
 	}
 }

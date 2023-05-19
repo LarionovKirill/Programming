@@ -13,27 +13,28 @@ namespace OOP.View.Tabs
     public partial class ItemsTab : UserControl
     {
         /// <summary>
-        /// Список товаров.
-        /// </summary>
-        private List<Model.Item> _items;
-
-        /// <summary>
         /// Свойство поля _items.
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<Model.Item> Items
-        {
-            get
-            {
-                return _items;
-            }
-            set 
-            {
-                _items = value;
-            }
-        }
-           
+        public List<Model.Item> Items { get; set; }
+
+        /// <summary>
+        /// Флаг режима изменения.
+        /// </summary>
+        private bool ChangeMode { get; set; } = false;
+
+
+        /// <summary>
+        /// Флаг режима добавления.
+        /// </summary>
+        private bool AddMode { get; set; } = false;
+
+        /// <summary>
+        /// Копия товара.
+        /// </summary>
+        private Model.Item copyItem { get; set; } = new Model.Item();
+            
         /// <summary>
         /// Метод создающий компоненты формы.
         /// </summary>
@@ -68,6 +69,10 @@ namespace OOP.View.Tabs
             {
                 MessageBox.Show("Введите верные значения.");
             }
+            AddMode = true;
+            ClearFields();
+            itemListBox.SelectedIndex = -1;
+            OpenFields();
         }
 
         /// <summary>
@@ -116,6 +121,7 @@ namespace OOP.View.Tabs
                     0,
                     100000,
                     "costItemTextBox");
+                copyItem.Cost = decimal.Parse(costItemTextBox.Text);
                 costItemTextBox.BackColor = Color.White;
             }
             catch
@@ -131,10 +137,7 @@ namespace OOP.View.Tabs
         {
             try
             {
-                Services.ValueValidator.AssertStringOnLength(
-                    nameItemTextBox.Text,
-                    200,
-                    "costItemTextBox");
+                copyItem.Name = nameItemTextBox.Text;
                 nameItemTextBox.BackColor = Color.White;
             }
             catch
@@ -150,10 +153,7 @@ namespace OOP.View.Tabs
         {
             try
             {
-                Services.ValueValidator.AssertStringOnLength(
-                    descriptionItemTextBox.Text,
-                    1000,
-                    "DescriptionItemTextBox");
+                copyItem.Info = descriptionItemTextBox.Text;
                 descriptionItemTextBox.BackColor = Color.White;
             }
             catch
@@ -171,6 +171,10 @@ namespace OOP.View.Tabs
             {
                 var index = itemListBox.SelectedIndex;
                 FillingInTheProductField(Items[index]);
+                if (ChangeMode == true)
+                {
+                    CloseFields();
+                }
             }
         }
 
@@ -183,7 +187,7 @@ namespace OOP.View.Tabs
             nameItemTextBox.Text = current.Name;
             descriptionItemTextBox.Text = current.Info;
             costItemTextBox.Text = current.Cost.ToString();
-            categoryComboBox.SelectedItem = current.Category;
+            categoryComboBox.SelectedItem = current.ItemCategory;
         }
 
         /// <summary>
@@ -191,7 +195,7 @@ namespace OOP.View.Tabs
         /// </summary>
         private void ItemsTab_Load(object sender, EventArgs e)
         {
-            var contents = Enum.GetValues(typeof(Model.Category));
+            var contents = Enum.GetValues(typeof(Model.ItemCategory));
             foreach (var items in contents)
             {
                 categoryComboBox.Items.Add(items);
@@ -207,9 +211,142 @@ namespace OOP.View.Tabs
             if (itemListBox.SelectedIndex >= 0)
             {
                 var index = itemListBox.SelectedIndex;
-                Items[index].Category = (Model.Category)Enum.Parse(typeof(Model.Category),
+                Items[index].ItemCategory = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
                     categoryComboBox.SelectedItem.ToString());
             }
+        }
+
+        /// <summary>
+        /// Дает возможность изменить данные.
+        /// </summary>
+        private void ChangeButton_Click(object sender, EventArgs e)
+        {
+            if (itemListBox.SelectedIndex >= 0)
+            {
+                ChangeMode = true;
+                var index = itemListBox.SelectedIndex;
+                OpenFields();
+                ToCopyItem(Items[index]);
+            }
+            else
+            {
+                MessageBox.Show("Выберите товар.");
+            }
+        }
+
+        /// <summary>
+        /// Открывает поля.
+        /// </summary>
+        private void OpenFields()
+        {
+            categoryComboBox.Enabled = true;
+            saveButton.Visible = true;
+            cancelButton.Visible = true;
+            descriptionItemTextBox.ReadOnly = false;
+            nameItemTextBox.ReadOnly = false;
+            costItemTextBox.ReadOnly = false;
+        }
+
+        /// <summary>
+        /// Закрывает поля.
+        /// </summary>
+        private void CloseFields()
+        {
+            categoryComboBox.Enabled = false;
+            saveButton.Visible = false;
+            cancelButton.Visible = false;
+            descriptionItemTextBox.ReadOnly = true;
+            nameItemTextBox.ReadOnly = true;
+            costItemTextBox.ReadOnly = true;
+            ChangeMode = false;
+            AddMode = false;
+        }
+
+        /// <summary>
+        /// Метод копии класса товара.
+        /// </summary>
+        /// <param name="item"></param>
+        private void ToCopyItem(Model.Item item)
+        {
+            item.CopyInformation(copyItem);
+        }
+
+        /// <summary>
+        /// Кнопка сохраняет изменения.
+        /// </summary>
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            if (AddMode)
+            {
+                try
+                {
+                    //Получение данных с формы.
+                    var name = nameItemTextBox.Text;
+                    var description = descriptionItemTextBox.Text;
+                    var cost = decimal.Parse(costItemTextBox.Text);
+                    var category = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
+                        categoryComboBox.SelectedItem.ToString());
+
+                    //Добавление объекта в список.
+                    Items.Add(new Model.Item(
+                        name,
+                        description,
+                        cost,
+                        category));
+                    itemListBox.Items.Add(Items.Last().Name);
+
+                }
+                catch
+                {
+                    MessageBox.Show("Введите верные значения.");
+                }
+            }
+            else if (ChangeMode)
+            {
+                var index = itemListBox.SelectedIndex;
+                if (costItemTextBox.BackColor == Color.White &&
+                    nameItemTextBox.BackColor == Color.White &&
+                    descriptionItemTextBox.BackColor == Color.White)
+                {
+                    copyItem.CopyInformation(Items[index]);
+                    itemListBox.Items.Insert(index, Items[index].Name);
+                    itemListBox.Items.RemoveAt(index + 1);
+                    MessageBox.Show("Данные успешно сохранены.");
+                }
+                else
+                {
+                    MessageBox.Show("Мы не можем сохранить такие данные.");
+                }
+                itemListBox.SelectedIndex = -1;
+            }
+            ClearFields();
+            CloseFields();
+        }
+
+        /// <summary>
+        /// Кнопка отменяет изменения.
+        /// </summary>
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            if (ChangeMode)
+            {
+                MessageBox.Show("Изменения не были сохранены");
+                itemListBox.SelectedIndex = -1;
+            }
+            ClearFields();
+            CloseFields();
+        }
+
+        /// <summary>
+        /// Очищает поля.
+        /// </summary>
+        private void ClearFields()
+        {
+            nameItemTextBox.Text = string.Empty;
+            costItemTextBox.Text = string.Empty;
+            descriptionItemTextBox.Text = string.Empty;
+            idItemTextBox.Text = string.Empty;
+            categoryComboBox.SelectedItem = string.Empty;
         }
     }
 }

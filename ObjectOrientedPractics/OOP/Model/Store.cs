@@ -12,7 +12,6 @@ namespace OOP.Model
     [Serializable]
     public class Store
     {
-
         /// <summary>
         /// Свойство списка _items.
         /// </summary>
