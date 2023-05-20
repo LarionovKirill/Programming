@@ -54,5 +54,18 @@ namespace OOP.Services
                 throw new ArgumentException(propertyName);
             }
         }
+
+        /// <summary>
+        /// Метод проверяет, является ли значение положительным.
+        /// </summary>
+        /// <param name="value">Значение.</param>
+        /// <param name="propertyName">Свойство, вызвавшое метод.</param>
+        public static void AssertPositiveValue(int value, string propertyName)
+        {
+            if (value < 0)
+            {
+                throw new ArgumentException(propertyName);
+            }
+        }
     }
 }
