@@ -141,11 +141,20 @@ namespace OOP.View
         /// <summary>
         /// Изменяет значение приоритета пользователя.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void IsPriorityCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (customerListBox.SelectedIndex >= 0)
+            {
+                var index = customerListBox.SelectedIndex;
+                if (isPriorityCheckBox.Checked)
+                {
+                    Customers[index].IsPriority = true;
+                }
+                else
+                {
+                    Customers[index].IsPriority = false;
+                }
+            }
         }
 
         /// <summary>
