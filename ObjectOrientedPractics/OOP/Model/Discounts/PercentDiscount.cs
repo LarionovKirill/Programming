@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using OOP.Model.Enums;
 
-namespace OOP.Model
+namespace OOP.Model.Discounts
 {
     /// <summary>
     /// Класс категорной скидки.
     /// </summary>
-    class PercentDiscount
+    public class PercentDiscount: IDiscount
     {
         /// <summary>
         /// Текущая скидка.

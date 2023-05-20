@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using OOP.Model.Enums;
 
 namespace OOP.View.Tabs
 {
@@ -54,7 +52,7 @@ namespace OOP.View.Tabs
                 var name = nameItemTextBox.Text;
                 var description = descriptionItemTextBox.Text;
                 var cost = decimal .Parse(costItemTextBox.Text);
-                var category = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
+                var category = (ItemCategory)Enum.Parse(typeof(ItemCategory),
                     categoryComboBox.SelectedItem.ToString());
                
                 //Добавление объекта в список.
@@ -195,7 +193,7 @@ namespace OOP.View.Tabs
         /// </summary>
         private void ItemsTab_Load(object sender, EventArgs e)
         {
-            var contents = Enum.GetValues(typeof(Model.ItemCategory));
+            var contents = Enum.GetValues(typeof(ItemCategory));
             foreach (var items in contents)
             {
                 categoryComboBox.Items.Add(items);
@@ -211,7 +209,7 @@ namespace OOP.View.Tabs
             if (itemListBox.SelectedIndex >= 0)
             {
                 var index = itemListBox.SelectedIndex;
-                Items[index].ItemCategory = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
+                Items[index].ItemCategory = (ItemCategory)Enum.Parse(typeof(ItemCategory),
                     categoryComboBox.SelectedItem.ToString());
             }
         }
@@ -284,7 +282,7 @@ namespace OOP.View.Tabs
                     var name = nameItemTextBox.Text;
                     var description = descriptionItemTextBox.Text;
                     var cost = decimal.Parse(costItemTextBox.Text);
-                    var category = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
+                    var category = (ItemCategory)Enum.Parse(typeof(ItemCategory),
                         categoryComboBox.SelectedItem.ToString());
 
                     //Добавление объекта в список.

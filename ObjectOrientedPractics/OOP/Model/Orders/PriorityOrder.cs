@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OOP.Model.Enums;
 
-namespace OOP.Model
+namespace OOP.Model.Orders
 {
     /// <summary>
     /// Класс хранит приоритетные заказы.

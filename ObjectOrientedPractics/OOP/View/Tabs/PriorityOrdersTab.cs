@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using OOP.Model.Orders;
+using OOP.Model.Enums;
 
 namespace OOP.View.Tabs
 {
@@ -20,7 +17,7 @@ namespace OOP.View.Tabs
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        private Model.PriorityOrder PriorityOrder { get; set; }
+        private PriorityOrder PriorityOrder { get; set; }
 
         /// <summary>
         /// Словарь, хранящий перечисление и их значение.
@@ -57,7 +54,7 @@ namespace OOP.View.Tabs
         private void PriorityOrdersTab_Load(object sender, EventArgs e)
         {
             FillFields();
-            var statuses = Enum.GetValues(typeof(Model.OrderStatus));
+            var statuses = Enum.GetValues(typeof(OrderStatus));
             foreach (var item in statuses)
             {
                 statusComboBox.Items.Add(item);

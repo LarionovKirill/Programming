@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using OOP.Model;
 
 namespace OOP.Services
 {
@@ -11,10 +8,10 @@ namespace OOP.Services
     /// </summary>
     static class CustomerGenerator
     {
-        public static List<Model.Customer> GenerateListOfCustomers()
+        public static List<Customer> GenerateListOfCustomers()
         {
-            List<Model.Customer> _customers = new List<Model.Customer>();
-            _customers.Add(new Model.Customer(
+            List<Customer> _customers = new List<Customer>();
+            _customers.Add(new Customer(
                 "Иванов Иван Иванович",
                 121212,
                 "10",
@@ -22,7 +19,7 @@ namespace OOP.Services
                 "Russia",
                 "Lenina",
                 "12"));
-            _customers.Add(new Model.Customer(
+            _customers.Add(new Customer(
                 "Петров Петр Павлович",
                 321656,
                 "85",
@@ -30,7 +27,7 @@ namespace OOP.Services
                 "Russia",
                 "Fedorova",
                 "19"));
-            _customers.Add(new Model.Customer(
+            _customers.Add(new Customer(
                 "Денисов Михаил Степанович",
                 628654,
                 "124",
@@ -38,7 +35,7 @@ namespace OOP.Services
                 "Russia",
                 "Lenina",
                 "35"));
-            _customers.Add(new Model.Customer(
+            _customers.Add(new Customer(
                 "Федосеев Артём Артурович",
                 458863,
                 "99",
@@ -46,7 +43,7 @@ namespace OOP.Services
                 "Russia",
                 "Cvetochnaya ",
                 "36"));
-            _customers.Add(new Model.Customer(
+            _customers.Add(new Customer(
                 "Головин Вадим Егорович",
                 983302,
                 "203",

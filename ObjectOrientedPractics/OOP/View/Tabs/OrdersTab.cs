@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using OOP.Model.Orders;
+using OOP.Model.Enums;
 
 namespace OOP.View.Tabs
 {
@@ -27,7 +24,7 @@ namespace OOP.View.Tabs
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<Model.Order> Orders { get; set; } = new List<Model.Order>();
+        public List<Order> Orders { get; set; } = new List<Order>();
 
         public ordersTab()
         {
@@ -74,7 +71,7 @@ namespace OOP.View.Tabs
         /// <summary>
         /// Заполянет поля обычного заказа.
         /// </summary>
-        private void FillBasicOrder(Model.Order order)
+        private void FillBasicOrder(Order order)
         {
             idTextBox.Text = order.Id.ToString();
             creationTextBox.Text = order.DateOfCreate.ToString("dd.MM.yyyy");
@@ -92,7 +89,7 @@ namespace OOP.View.Tabs
         /// <summary>
         /// Заполянет поля обычного заказа.
         /// </summary>
-        private void FillPriorityOrder(Model.PriorityOrder order)
+        private void FillPriorityOrder(PriorityOrder order)
         {
             idTextBox.Text = order.Id.ToString();
             creationTextBox.Text = order.DateOfCreate.ToString("dd.MM.yyyy");
@@ -119,14 +116,14 @@ namespace OOP.View.Tabs
             if (index >= 0)
             {
                 ordersItemsListBox.Items.Clear();
-                if (Orders[index].GetType() == typeof(Model.Order))
+                if (Orders[index].GetType() == typeof(Order))
                 {
                     FillBasicOrder(Orders[index]);
                     priorityPanel.Visible = false;
                 }
-                else if (Orders[index].GetType() == typeof(Model.PriorityOrder))
+                else if (Orders[index].GetType() == typeof(PriorityOrder))
                 {
-                    FillPriorityOrder((Model.PriorityOrder)Orders[index]);
+                    FillPriorityOrder((PriorityOrder)Orders[index]);
                     priorityPanel.Visible = true;
                 }
             }
@@ -137,7 +134,7 @@ namespace OOP.View.Tabs
         /// </summary>
         private void OrdersTab_Load(object sender, EventArgs e)
         {
-            var values = Enum.GetValues(typeof(Model.OrderStatus));
+            var values = Enum.GetValues(typeof(OrderStatus));
             foreach (var status in values)
             {
                 statusComboBox.Items.Add(status);
@@ -162,7 +159,7 @@ namespace OOP.View.Tabs
                 var index = informationTable.CurrentRow.Index;
                 if (index >= 0)
                 {
-                    Orders[index].OrderStatus = (Model.OrderStatus)Enum.Parse(typeof(Model.OrderStatus),
+                    Orders[index].OrderStatus = (OrderStatus)Enum.Parse(typeof(OrderStatus),
                         statusComboBox.SelectedItem.ToString());
                 }
             }
@@ -178,9 +175,9 @@ namespace OOP.View.Tabs
                 var index = informationTable.CurrentRow.Index;
                 if (index >= 0)
                 {
-                    if (Orders[index].GetType() == typeof(Model.PriorityOrder))
+                    if (Orders[index].GetType() == typeof(PriorityOrder))
                     {
-                        var order = (Model.PriorityOrder)Orders[index];
+                        var order = (PriorityOrder)Orders[index];
                         var dict = Services.EnumGetter.GetDeliveryTime();
                         foreach (var time in dict)
                         {

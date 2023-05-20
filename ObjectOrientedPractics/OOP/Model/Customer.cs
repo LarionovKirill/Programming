@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OOP.Model.Discounts;
+using OOP.Model.Orders;
+
 
 namespace OOP.Model
 {
@@ -88,6 +88,11 @@ namespace OOP.Model
 		}
 
 		/// <summary>
+		/// Хранит список скидок пользователя.
+		/// </summary>
+		public List<IDiscount> Discounts { get; set; }
+
+		/// <summary>
 		/// Конструктор без параметров.
 		/// </summary>
 		public Customer()
@@ -95,6 +100,8 @@ namespace OOP.Model
 			Address = new Address();
 			this.Cart = new Cart();
 			this.Orders = new List<Order>();
+			this.Discounts = new List<IDiscount>();
+			this.Discounts.Add(new PointsDiscount());
 		}
 
 
@@ -122,6 +129,8 @@ namespace OOP.Model
 			this.Address = new Address(Postindex, country, city, street, building, apartment);
 			this.Cart = new Cart();
 			this.Orders = new List<Order>();
+			this.Discounts = new List<IDiscount>();
+			this.Discounts.Add(new PointsDiscount());
 		}
 	}
 }

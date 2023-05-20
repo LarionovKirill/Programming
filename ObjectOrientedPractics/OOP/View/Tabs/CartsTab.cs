@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using OOP.Model.Orders;
+using OOP.Model.Enums;
 
 namespace OOP.View.Tabs
 {
@@ -122,9 +119,9 @@ namespace OOP.View.Tabs
             {
                 if (CurrentCustomer.IsPriority)
                 {
-                    Model.PriorityOrder newOrder = new Model.PriorityOrder(
+                    PriorityOrder newOrder = new PriorityOrder(
                         CurrentCustomer.Address,
-                        Model.OrderStatus.New,
+                        OrderStatus.New,
                         DateTime.Now
                         ) ;
                     newOrder.Items.AddRange(CurrentCustomer.Cart.ListOfGoods);
@@ -135,10 +132,10 @@ namespace OOP.View.Tabs
                 }
                 else
                 {
-                    Model.Order newOrder = new Model.Order(
+                    Order newOrder = new Order(
                         DateTime.Now,
                         CurrentCustomer.Address,
-                        Model.OrderStatus.New);
+                        OrderStatus.New);
                     newOrder.Items.AddRange(CurrentCustomer.Cart.ListOfGoods);
                     CurrentCustomer.Orders.Add(newOrder);
                     CurrentCustomer.Cart.ListOfGoods.Clear();

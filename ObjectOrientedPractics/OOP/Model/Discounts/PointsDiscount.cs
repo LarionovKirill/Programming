@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOP.Model
+namespace OOP.Model.Discounts
 {
-    class PointsDiscount
+    public class PointsDiscount : IDiscount
     {
         /// <summary>
         /// Хранит баллы пользователя.

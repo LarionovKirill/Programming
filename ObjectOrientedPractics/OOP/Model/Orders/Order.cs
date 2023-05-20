@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OOP.Model.Enums;
 
-namespace OOP.Model
+namespace OOP.Model.Orders
 {
     /// <summary>
     /// Класс заказа.
@@ -31,6 +29,15 @@ namespace OOP.Model
         /// Свойство для адреса доставки.
         /// </summary>
         public Address Address { get; set; }
+
+        public decimal DiscountAmount
+        {
+            get;
+            set
+            {
+
+            }
+        }
 
         /// <summary>
         /// Свойство для общей стоимости заказа. 
