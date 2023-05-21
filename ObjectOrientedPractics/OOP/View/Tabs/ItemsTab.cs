@@ -10,33 +10,31 @@ using System.Windows.Forms;
 
 namespace OOP.View.Tabs
 {
-    /// <summary>
-    /// Пользовательский интерфейс пользовательского окна.
-    /// </summary>
     public partial class ItemsTab : UserControl
     {
-        /// <summary>
-        /// Список товаров.
-        /// </summary>
-        private List<Model.Item> _items;
-
         /// <summary>
         /// Свойство поля _items.
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<Model.Item> Items
-        {
-            get
-            {
-                return _items;
-            }
-            set
-            {
-                _items = value;
-            }
-        }
+        public List<Model.Item> Items { get; set; }
 
+        /// <summary>
+        /// Флаг режима изменения.
+        /// </summary>
+        private bool ChangeMode { get; set; } = false;
+
+
+        /// <summary>
+        /// Флаг режима добавления.
+        /// </summary>
+        private bool AddMode { get; set; } = false;
+
+        /// <summary>
+        /// Копия товара.
+        /// </summary>
+        private Model.Item copyItem { get; set; } = new Model.Item();
+            
         /// <summary>
         /// Метод создающий компоненты формы.
         /// </summary>
@@ -50,28 +48,26 @@ namespace OOP.View.Tabs
         /// </summary>
         private void AddItemButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                //Получение данных с формы.
-                var name = nameItemTextBox.Text;
-                var description = descriptionItemTextBox.Text;
-                var category = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
-                    categoryComboBox.SelectedItem.ToString());
-                var cost = decimal.Parse(costItemTextBox.Text);
+            AddMode = true;
+            ClearFields();
+            itemListBox.SelectedIndex = -1;
+            OpenFields();
+        }
 
-                //Добавление объекта в список.
-                Items.Add(new Model.Item(
-                    name,
-                    description,
-                    cost,
-                    category));
-                itemListBox.Items.Add($"Товар : {Items.Last().Id}");
-            }
-            catch
+        /// <summary>
+        /// Обновляет информацию при запуске приложения.
+        /// </summary>
+        public void UpdateInformation()
+        {
+            if (Items != null)
             {
-                MessageBox.Show("Введите верные значения.");
+                foreach (var items in Items)
+                {
+                    itemListBox.Items.Add(items.Name);
+                }
             }
         }
+
 
         /// <summary>
         /// Удаляет товар из списка.
@@ -99,18 +95,7 @@ namespace OOP.View.Tabs
             }
             try
             {
-                if (itemListBox.SelectedIndex >= 0)
-                {
-                    var index = itemListBox.SelectedIndex;
-                    Items[index].Cost = decimal.Parse(costItemTextBox.Text);
-                }
-                else
-                {
-                    Services.ValueValidator.AssertValueInRange(decimal.Parse(costItemTextBox.Text),
-                        0,
-                        100000,
-                        "СostItemTextBox_TextChanged");
-                }
+                copyItem.Cost = decimal.Parse(costItemTextBox.Text);
                 costItemTextBox.BackColor = Color.White;
             }
             catch
@@ -126,17 +111,7 @@ namespace OOP.View.Tabs
         {
             try
             {
-                if (itemListBox.SelectedIndex >= 0)
-                {
-                    var index = itemListBox.SelectedIndex;
-                    Items[index].Name = nameItemTextBox.Text;
-                }
-                else
-                {
-                    Services.ValueValidator.AssertStringOnLength(descriptionItemTextBox.Text,
-                        500,
-                        "DescriptionItemTextBox_TextChanged");
-                }
+                copyItem.Name = nameItemTextBox.Text;
                 nameItemTextBox.BackColor = Color.White;
             }
             catch
@@ -152,17 +127,7 @@ namespace OOP.View.Tabs
         {
             try
             {
-                if (itemListBox.SelectedIndex >= 0)
-                {
-                    var index = itemListBox.SelectedIndex;
-                    Items[index].Info = descriptionItemTextBox.Text;
-                }
-                else
-                {
-                    Services.ValueValidator.AssertStringOnLength(descriptionItemTextBox.Text,
-                        500,
-                        "DescriptionItemTextBox_TextChanged");
-                }
+                copyItem.Info = descriptionItemTextBox.Text;
                 descriptionItemTextBox.BackColor = Color.White;
             }
             catch
@@ -180,6 +145,10 @@ namespace OOP.View.Tabs
             {
                 var index = itemListBox.SelectedIndex;
                 FillingInTheProductField(Items[index]);
+                if (ChangeMode == true)
+                {
+                    CloseFields();
+                }
             }
         }
 
@@ -219,6 +188,139 @@ namespace OOP.View.Tabs
                 Items[index].ItemCategory = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
                     categoryComboBox.SelectedItem.ToString());
             }
+        }
+
+        /// <summary>
+        /// Дает возможность изменить данные.
+        /// </summary>
+        private void ChangeButton_Click(object sender, EventArgs e)
+        {
+            if (itemListBox.SelectedIndex >= 0)
+            {
+                ChangeMode = true;
+                var index = itemListBox.SelectedIndex;
+                OpenFields();
+                ToCopyItem(Items[index]);
+            }
+            else
+            {
+                MessageBox.Show("Выберите товар.");
+            }
+        }
+
+        /// <summary>
+        /// Открывает поля.
+        /// </summary>
+        private void OpenFields()
+        {
+            categoryComboBox.Enabled = true;
+            saveButton.Visible = true;
+            cancelButton.Visible = true;
+            descriptionItemTextBox.ReadOnly = false;
+            nameItemTextBox.ReadOnly = false;
+            costItemTextBox.ReadOnly = false;
+        }
+
+        /// <summary>
+        /// Закрывает поля.
+        /// </summary>
+        private void CloseFields()
+        {
+            categoryComboBox.Enabled = false;
+            saveButton.Visible = false;
+            cancelButton.Visible = false;
+            descriptionItemTextBox.ReadOnly = true;
+            nameItemTextBox.ReadOnly = true;
+            costItemTextBox.ReadOnly = true;
+            ChangeMode = false;
+            AddMode = false;
+        }
+
+        /// <summary>
+        /// Метод копии класса товара.
+        /// </summary>
+        /// <param name="item"></param>
+        private void ToCopyItem(Model.Item item)
+        {
+            item.CopyInformation(copyItem);
+        }
+
+        /// <summary>
+        /// Кнопка сохраняет изменения.
+        /// </summary>
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            if (AddMode)
+            {
+                try
+                {
+                    //Получение данных с формы.
+                    var name = nameItemTextBox.Text;
+                    var description = descriptionItemTextBox.Text;
+                    var cost = decimal.Parse(costItemTextBox.Text);
+                    var category = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
+                        categoryComboBox.SelectedItem.ToString());
+
+                    //Добавление объекта в список.
+                    Items.Add(new Model.Item(
+                        name,
+                        description,
+                        cost,
+                        category));
+                    itemListBox.Items.Add(Items.Last().Name);
+
+                }
+                catch
+                {
+                    MessageBox.Show("Введите верные значения.");
+                }
+            }
+            else if (ChangeMode)
+            {
+                var index = itemListBox.SelectedIndex;
+                if (costItemTextBox.BackColor == Color.White &&
+                    nameItemTextBox.BackColor == Color.White &&
+                    descriptionItemTextBox.BackColor == Color.White)
+                {
+                    copyItem.CopyInformation(Items[index]);
+                    itemListBox.Items.Insert(index, Items[index].Name);
+                    itemListBox.Items.RemoveAt(index + 1);
+                    MessageBox.Show("Данные успешно сохранены.");
+                }
+                else
+                {
+                    MessageBox.Show("Мы не можем сохранить такие данные.");
+                }
+                itemListBox.SelectedIndex = -1;
+            }
+            ClearFields();
+            CloseFields();
+        }
+
+        /// <summary>
+        /// Кнопка отменяет изменения.
+        /// </summary>
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            if (ChangeMode)
+            {
+                MessageBox.Show("Изменения не были сохранены");
+                itemListBox.SelectedIndex = -1;
+            }
+            ClearFields();
+            CloseFields();
+        }
+
+        /// <summary>
+        /// Очищает поля.
+        /// </summary>
+        private void ClearFields()
+        {
+            nameItemTextBox.Text = string.Empty;
+            costItemTextBox.Text = string.Empty;
+            descriptionItemTextBox.Text = string.Empty;
+            idItemTextBox.Text = string.Empty;
+            categoryComboBox.SelectedItem = string.Empty;
         }
     }
 }

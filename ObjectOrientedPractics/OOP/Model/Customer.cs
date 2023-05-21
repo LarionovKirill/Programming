@@ -18,11 +18,6 @@ namespace OOP.Model
 		private string _fullName;
 
 		/// <summary>
-		/// Хранит адрес доставки.
-		/// </summary>
-		private Address _address;
-
-		/// <summary>
 		/// Свойство поля _id.
 		/// </summary>
 		public int Id { get; private set; }
@@ -48,16 +43,34 @@ namespace OOP.Model
 		/// <summary>
 		/// Свойство для адреса доставки.
 		/// </summary>
-		public Address Address
+		public Address Address { get; set; }
+
+		/// <summary>
+		/// Свойство для корзины.
+		/// </summary>
+		public Cart Cart { get; set; }
+
+		/// <summary>
+		/// Свойство для списка заказов.
+		/// </summary>
+		public List<Order> Orders { get; set; }
+
+		/// <summary>
+		/// Копирует информацию в переданный класс.
+		/// </summary>
+		/// <param name="customer">Класс, в котором нужно поменять информацию.</param>
+		public void CopyInformation(Customer customer)
 		{
-			get
-			{
-				return _address;
-			}
-			set
-			{
-				_address = value;
-			}
+			customer.Address.Apartment = this.Address.Apartment;
+			customer.Address.Building = this.Address.Building;
+			customer.Address.City = this.Address.City;
+			customer.Address.Country = this.Address.Country;
+			customer.Address.Index = this.Address.Index;
+			customer.Address.Street = this.Address.Street;
+			customer.Cart = this.Cart;
+			customer.FullName = this.FullName;
+			customer.Orders = this.Orders;
+			customer.Id = this.Id;
 		}
 
 		/// <summary>
@@ -65,17 +78,25 @@ namespace OOP.Model
 		/// </summary>
 		public Customer()
 		{
-			this.Id = Services.IdGenerator.GetNextCustomerID();
 			Address = new Address();
+			this.Cart = new Cart();
+			this.Orders = new List<Order>();
 		}
+
 
 		/// <summary>
 		/// Конструктор класса с параметрами.
 		/// </summary>
-		/// <param name="fullName"> Имя пользователя.</param>
+		/// <param name="fullName">Имя пользователя.</param>
+		/// <param name="Postindex">Почтовый индекс.</param>
+		/// <param name="building">Номер дома.</param>
+		/// <param name="city">Город.</param>
+		/// <param name="country">Страна.</param>
+		/// <param name="street">Улица.</param>
+		/// <param name="apartment">Квартира.</param>
 		public Customer(
 			string fullName,
-			int index,
+			int Postindex,
 			string building,
 			string city,
 			string country,
@@ -84,7 +105,9 @@ namespace OOP.Model
 		{
 			this.Id = Services.IdGenerator.GetNextCustomerID();
 			this.FullName = fullName;
-			this.Address = new Address(index, country, city, street, building, apartment);
+			this.Address = new Address(Postindex, country, city, street, building, apartment);
+			this.Cart = new Cart();
+			this.Orders = new List<Order>();
 		}
 	}
 }

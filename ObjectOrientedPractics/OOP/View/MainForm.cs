@@ -32,12 +32,38 @@ namespace OOP
             }
         }
 
-
+        /// <summary>
+        /// Метод, который запускается при запуске приложения.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
-            itemsTab1.Items = Store.Items;
+            Store.Items = Services.ItemGeneretor.GenerateListOfItems();
+            itemsTab2.Items = Store.Items;
+            itemsTab2.UpdateInformation();
+            Store.Customers = Services.CustomerGenerator.GenerateListOfCustomers();
             customerTab2.Customers = Store.Customers;
+            customerTab2.UpdateInformation();
+            cartsTab.Customers = Store.Customers;
+            cartsTab.Items = Store.Items;
+        }
+
+        /// <summary>
+        /// Обрабочик перехода на форму корзины
+        /// </summary>
+        private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl.SelectedIndex == 2)
+            {
+                cartsTab.Customers = Store.Customers;
+                cartsTab.Items = Store.Items;
+                cartsTab.RefreshData();
+            }
+            else if (tabControl.SelectedIndex == 3)
+            {
+                ordersTab1.Customers = Store.Customers;
+                ordersTab1.UpdateInformation();
+            }
         }
     }
 }

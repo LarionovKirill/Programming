@@ -12,9 +12,7 @@ using System.Windows.Forms;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.IO;
-using System.Web;
-using System.Reflection;
-using System.Web.Script.Serialization;
+
 
 namespace PersonalTask.View
 {
@@ -23,10 +21,10 @@ namespace PersonalTask.View
         /// <summary>
         /// Список авиаперелетов.
         /// </summary>
-        private List<Model.AirTravel> _airTravels = new List<Model.AirTravel>();
+        List<Model.AirTravel> _airTravels = new List<Model.AirTravel>();
         
         /// <summary>
-        /// Свойство поля AirTravels.
+        /// Свойство поля _airTravels.
         /// </summary>
         private List<Model.AirTravel> AirTravels
         {
@@ -46,12 +44,12 @@ namespace PersonalTask.View
         public UserInterface()
         {
             InitializeComponent();
+            Deserialize();
         }
 
         /// <summary>
         /// Сериализация данных.
         /// Реализация взята из: https://learn.microsoft.com/ru-ru/dotnet/standard/serialization/system-text-json/how-to?pivots=dotnet-core-3-1
-        /// Получение пути к папке взято здесь : https://translated.turbopages.org/proxy_u/en-ru.ru.03d73794-6448958e-0645cc54-74722d776562/https/stackoverflow.com/questions/50828926/how-to-get-the-solution-path-in-c-sharp
         /// </summary>
         private void Serialize()
         {
@@ -63,43 +61,21 @@ namespace PersonalTask.View
         /// <summary>
         /// Десериализация данных.
         /// Реализация взята из: https://learn.microsoft.com/ru-ru/dotnet/standard/serialization/system-text-json/how-to?pivots=dotnet-core-3-1
-        /// Реализация взятия из папки ресурсов и его конвертирования: https://stackoverflow.com/questions/20765204/parse-byte-array-to-json-with-json-net
         /// </summary>
         private void Deserialize()
         {
-            try
+
+            var path = "AirTravels.json";
+            var jsonString = File.ReadAllText(path);
+            if (jsonString != string.Empty)
             {
-                var path = "AirTravels.json";
-                var jsonString = File.ReadAllText(path);
-                if (jsonString != string.Empty)
+                var takedInformation = JsonSerializer.Deserialize<List<Model.AirTravel>>(jsonString);
+                foreach (var items in takedInformation)
                 {
-                    var takedInformation = JsonSerializer.Deserialize<List<Model.AirTravel>>(jsonString);
-                    foreach (var items in takedInformation)
+                    if (items != null)
                     {
-                        if (items != null)
-                        {
-                            AirTravels.Add(items);
-                            airTravelsListBox.Items.Add(CreateStringForList(AirTravels.Last()));
-                        }
-                    }
-                }
-            }
-            catch
-            {
-                FileInfo file = new FileInfo("AirTravels.json");
-                file.Create();
-                var path = "AirTravels.json";
-                var jsonString = File.ReadAllText(path);
-                if (jsonString != string.Empty)
-                {
-                    var takedInformation = JsonSerializer.Deserialize<List<Model.AirTravel>>(jsonString);
-                    foreach (var items in takedInformation)
-                    {
-                        if (items != null)
-                        {
-                            AirTravels.Add(items);
-                            airTravelsListBox.Items.Add(CreateStringForList(AirTravels.Last()));
-                        }
+                        AirTravels.Add(items);
+                        airTravelsListBox.Items.Add(CreateStringForList(AirTravels.Last()));
                     }
                 }
             }
@@ -110,7 +86,7 @@ namespace PersonalTask.View
         /// </summary>
         private void UserInterface_Load(object sender, EventArgs e)
         {
-            Deserialize();
+
         }
 
         /// <summary>
@@ -179,31 +155,19 @@ namespace PersonalTask.View
             {
                 addForm.typeOfFlightComboBox.Items.Add(item);
             }
-            addForm.typeOfFlightComboBox.SelectedIndex = 0;
             addForm.ShowDialog();
             if (addForm.DialogResult == DialogResult.Yes)
             {
                 try
                 {
-                    //Сбор информации в локальные переменные.
-                    var departure = addForm.departureTextBox.Text;
-                    var destination = addForm.destinationTextBox.Text;
-                    var departureTime = addForm.departureTime.Value;
-                    var flightTime = int.Parse(addForm.flightTimeTextBox.Text);
-                    var typeOfFlight = (Model.FlightType)Enum.Parse(typeof(Model.FlightType),
-                    addForm.typeOfFlightComboBox.SelectedItem.ToString());
-
-                    //Добавление перелета в список.
-                    AirTravels.Add(new Model.AirTravel(
-                    departure,
-                    destination,
-                    departureTime,
-                    flightTime,
-                    typeOfFlight));
-                    
-                    //Добавление перелета в ListBox.
-                    airTravelsListBox.Items.Add(CreateStringForList(AirTravels.Last()));
-
+                    _airTravels.Add(new Model.AirTravel(
+                    addForm.departureTextBox.Text,
+                    addForm.destinationTextBox.Text,
+                    addForm.departureTime.Value,
+                    int.Parse(addForm.flightTimeTextBox.Text),
+                    (Model.FlightType)Enum.Parse(typeof(Model.FlightType),
+                    addForm.typeOfFlightComboBox.SelectedItem.ToString())));
+                    airTravelsListBox.Items.Add(CreateStringForList(_airTravels.Last()));
                     SortData();
                     Serialize();
                     addForm.Close();
@@ -240,7 +204,7 @@ namespace PersonalTask.View
             int index = airTravelsListBox.SelectedIndex;
             airTravelsListBox.SelectedIndex = index - 1;
             airTravelsListBox.Items.RemoveAt(index);
-            AirTravels.RemoveAt(index);
+            _airTravels.RemoveAt(index);
             Serialize();
         }
 
@@ -252,7 +216,7 @@ namespace PersonalTask.View
             if (airTravelsListBox.SelectedIndex >= 0)
             {
                 int index = airTravelsListBox.SelectedIndex;
-                ToFillInformationAboutAirTravel(AirTravels[index]);
+                ToFillInformationAboutAirTravel(_airTravels[index]);
             }
         }
 
@@ -324,15 +288,15 @@ namespace PersonalTask.View
         /// </summary>
         private void SortData()
         {
-            int itearation = AirTravels.Count;
+            int itearation = _airTravels.Count;
             for (int i = 0; i < itearation; i++)
             {
                 for (int j = 0; j < itearation - 1 - i; j++)
                 {
-                    if (AirTravels[j].DepartureTime > AirTravels[j + 1].DepartureTime)
+                    if (_airTravels[j].DepartureTime > _airTravels[j + 1].DepartureTime)
                     {
-                        (AirTravels[j], AirTravels[j + 1]) = 
-                            (AirTravels[j + 1], AirTravels[j]);
+                        (_airTravels[j], _airTravels[j + 1]) = 
+                            (_airTravels[j + 1], _airTravels[j]);
                         (airTravelsListBox.Items[j], airTravelsListBox.Items[j + 1]) =
                             (airTravelsListBox.Items[j + 1], airTravelsListBox.Items[j]);
                     }

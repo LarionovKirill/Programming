@@ -9,6 +9,7 @@ namespace OOP.Model
 	/// <summary>
 	/// Класс товар.
 	/// </summary>
+	[Serializable]
 	public class Item
 	{
 		/// <summary>
@@ -95,11 +96,24 @@ namespace OOP.Model
 		public ItemCategory ItemCategory { get; set; }
 
 		/// <summary>
+		/// Копирует информацию из вызващего класса.
+		/// </summary>
+		public void CopyInformation(Item item)
+		{
+			item.Id = this.Id;
+			item.Info = this.Info;
+			item.ItemCategory = this.ItemCategory;
+			item.Name = this.Name;
+			item.Cost = this.Cost;
+		}
+			
+
+		/// <summary>
 		/// Конструктор без параметров.
 		/// </summary>
 		public Item()
 		{
-			this.Id = Services.IdGenerator.GetNextItemID();
+
 		}
 
 		/// <summary>
@@ -109,7 +123,7 @@ namespace OOP.Model
 		/// <param name="info">Информация о товаре.</param>
 		/// <param name="cost">Цена товара.</param>
 		/// <param name="category">Категория товара.</param>
-		public Item(string name, string info, decimal cost, ItemCategory category)
+		public Item(string name, string info, decimal  cost, ItemCategory category)
 		{
 			this.Info = info;
 			this.Name = name;

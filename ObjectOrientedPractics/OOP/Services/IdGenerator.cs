@@ -22,6 +22,11 @@ namespace OOP.Services
         static private int _idCustomer = 0;
 
         /// <summary>
+        /// Id заказа.
+        /// </summary>
+        static private int _idOrder = 0;
+
+        /// <summary>
         /// Метод Id товара.
         /// </summary>
         /// <returns> Возвращает Id товара.</returns>
@@ -39,6 +44,16 @@ namespace OOP.Services
         {
             _idCustomer += 1;
             return _idCustomer;
+        }
+
+        /// <summary>
+        /// Метод ID заказа.
+        /// </summary>
+        /// <returns> Возвращает Id заказа.</returns>
+        public static int GetNextOrderID()
+        {
+            _idOrder += 1;
+            return _idOrder;
         }
     }
 }

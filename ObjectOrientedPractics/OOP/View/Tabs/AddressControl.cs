@@ -15,37 +15,23 @@ namespace OOP.View
         /// <summary>
         /// Копия формы для передачи данных
         /// </summary>
-        public CustomerTab CustomerTab { get; set; }
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public CustomerTab _customerTab;
 
         /// <summary>
-        /// Хранит преедан пользователь или нет.
+        /// Хранит передан пользователь или нет.
         /// </summary>
-        private bool CurrentCustomer { get; set; } = false;
-
-        /// <summary>
-        /// Хранит индекс переданного пользователя.
-        /// </summary>
-        private int Index { get; set; }
-
-        /// <summary>
-        /// Aдрес пользователя.
-        /// </summary>
-        private Model.Address _address = new Model.Address();
+        private bool _currentCustomer = false;
 
         /// <summary>
         /// Свойство адреса.
         /// </summary>
-        public Model.Address Address
-        {
-            get
-            {
-                return _address;
-            }
-            set
-            {
-                _address = value;
-            }
-        }
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Model.Address Address{ get; set; }
+
+        private Model.Address Checker { get; set; } = new Model.Address();
 
         /// <summary>
         /// Метод заполняет поля адреса.
@@ -73,11 +59,18 @@ namespace OOP.View
         {
             try
             {
-                Address.Index = int.Parse(postIndexTextBox.Text);
-                postIndexTextBox.BackColor = Color.White;
-                if (CurrentCustomer)
+                if (Address == null)
                 {
-                    CustomerTab.Customers[Index].Address.Index = Address.Index;
+                    Address = new Model.Address();
+                }
+                if (postIndexTextBox.Text != string.Empty)
+                {
+                    Address.Index = int.Parse(postIndexTextBox.Text);
+                    postIndexTextBox.BackColor = Color.White;
+                    if (_currentCustomer)
+                    {
+                        _customerTab.Copy.Address.Index = Address.Index;
+                    }
                 }
             }
             catch
@@ -93,11 +86,15 @@ namespace OOP.View
         {
             try
             {
+                if (Address == null)
+                {
+                    Address = new Model.Address();
+                }
                 Address.Country = countryTextBox.Text;
                 countryTextBox.BackColor = Color.White;
-                if (CurrentCustomer)
+                if (_currentCustomer)
                 {
-                    CustomerTab.Customers[Index].Address.Country = Address.Country;
+                    _customerTab.Copy.Address.Country = Address.Country;
                 }
             }
             catch
@@ -113,11 +110,15 @@ namespace OOP.View
         {
             try
             {
+                if (Address == null)
+                {
+                    Address = new Model.Address();
+                }
                 Address.City = cityTextBox.Text;
                 cityTextBox.BackColor = Color.White;
-                if (CurrentCustomer)
+                if (_currentCustomer)
                 {
-                    CustomerTab.Customers[Index].Address.City = Address.City;
+                    _customerTab.Copy.Address.City = Address.City;
                 }
             }
             catch
@@ -133,11 +134,15 @@ namespace OOP.View
         {
             try
             {
+                if (Address == null)
+                {
+                    Address = new Model.Address();
+                }
                 Address.Street = streetTextBox.Text;
                 streetTextBox.BackColor = Color.White;
-                if (CurrentCustomer)
+                if (_currentCustomer)
                 {
-                    CustomerTab.Customers[Index].Address.Street = Address.Street;
+                    _customerTab.Copy.Address.Street = Address.Street;
                 }
             }
             catch
@@ -153,11 +158,15 @@ namespace OOP.View
         {
             try
             {
+                if (Address == null)
+                {
+                    Address = new Model.Address();
+                }
                 Address.Building = buildingTextBox.Text;
                 buildingTextBox.BackColor = Color.White;
-                if (CurrentCustomer)
+                if (_currentCustomer)
                 {
-                    CustomerTab.Customers[Index].Address.Building = Address.Building;
+                    _customerTab.Copy.Address.Building = Address.Building;
                 }
             }
             catch
@@ -173,11 +182,15 @@ namespace OOP.View
         {
             try
             {
+                if (Address == null)
+                {
+                    Address = new Model.Address();
+                }
                 Address.Apartment = apartmentTextBox.Text;
                 apartmentTextBox.BackColor = Color.White;
-                if (CurrentCustomer)
+                if (_currentCustomer)
                 {
-                    CustomerTab.Customers[Index].Address.Apartment = Address.Apartment;
+                    _customerTab.Copy.Address.Apartment = Address.Apartment;
                 }
             }
             catch
@@ -189,11 +202,45 @@ namespace OOP.View
         /// <summary>
         /// Получение объекта, которого выбрали в другом элемента.
         /// </summary>
-        /// <param name="current">Выбранный пользователь с другого элемента.</param>
+        /// <param name="index">Индекс выбранного пользователя с другого элемента.</param>
         public void GetCustomer(int index)
         {
-            CurrentCustomer = true;
-            Index = index;
+            _currentCustomer = true;
+        }
+
+        /// <summary>
+        /// Удаляет пользователя.
+        /// </summary>
+        public void DeleteCustomer()
+        {
+            _currentCustomer = false;
+        }
+
+        /// <summary>
+        /// Очищает поля адреса.
+        /// </summary>
+        public void ClearFieldAddress()
+        {
+            postIndexTextBox.Text = string.Empty;
+            countryTextBox.Text = string.Empty;
+            cityTextBox.Text = string.Empty;
+            streetTextBox.Text = string.Empty;
+            buildingTextBox.Text = string.Empty;
+            apartmentTextBox.Text = string.Empty;
+        }
+
+        /// <summary>
+        /// Проверяет, все ли поля адреса белые(Значит валидация прошла успешно).
+        /// </summary>
+        /// <returns>True - все поля белые, иначе False.</returns>
+        public bool IsColorWhite()
+        {
+            return (postIndexTextBox.BackColor == Color.White &&
+                countryTextBox.BackColor == Color.White &&
+                cityTextBox.BackColor == Color.White &&
+                streetTextBox.BackColor == Color.White &&
+                buildingTextBox.BackColor == Color.White &&
+                apartmentTextBox.BackColor == Color.White);
         }
     }
 }

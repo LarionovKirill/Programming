@@ -9,47 +9,18 @@ namespace OOP.Model
     /// <summary>
     /// Класс магазина, который хранит товары и пользователей.
     /// </summary>
+    [Serializable]
     public class Store
     {
         /// <summary>
-        /// Списое товаров.
-        /// </summary>
-        private List<Item> _items;
-
-        /// <summary>
-        /// Список пользователей.
-        /// </summary>
-        private List<Customer> _customres;
-
-        /// <summary>
         /// Свойство списка _items.
         /// </summary>
-        public List<Item> Items
-        {
-            set
-            {
-                _items = value;
-            }
-            get
-            {
-                return _items;
-            }
-        }
+        public List<Item> Items { get; set; }
 
         /// <summary>
         /// Свойство списка _customers.
         /// </summary>
-        public List<Customer> Customers
-        {
-            get
-            {
-                return _customres;
-            }
-            set
-            {
-                _customres = value;
-            }
-        }
+        public List<Customer> Customers { get; set; }
 
         /// <summary>
         /// Конструктор класса Store без параметров.

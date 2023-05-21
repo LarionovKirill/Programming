@@ -98,7 +98,6 @@ namespace PersonalTask.View
             // 
             // flightTimeTextBox
             // 
-            this.flightTimeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.flightTimeTextBox.Location = new System.Drawing.Point(149, 191);
             this.flightTimeTextBox.Name = "flightTimeTextBox";
             this.flightTimeTextBox.ReadOnly = true;

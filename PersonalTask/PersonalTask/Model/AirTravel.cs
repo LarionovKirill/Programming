@@ -49,10 +49,10 @@ namespace PersonalTask.Model
             }
             set
             {
-                Services.ColissionManager.AssertOnLengthOfString(
+                PersonalTask.Services.ColissionManager.AssertOnLengthOfString(
                     value,
                     100,
-                    nameof(Departure));
+                    "Длина строки не должна превышать 100 символов.");
                 _departure = value;
             }
         }
@@ -69,10 +69,10 @@ namespace PersonalTask.Model
             }
             set
             {
-                Services.ColissionManager.AssertOnLengthOfString(
+                PersonalTask.Services.ColissionManager.AssertOnLengthOfString(
                     value,
                     100,
-                    nameof(Destination));
+                    "Длина строки не должна превышать 100 символов.");
                 _destination = value;
             }
         }
@@ -84,9 +84,10 @@ namespace PersonalTask.Model
         {
             set
             {
-                Services.ColissionManager.AssertDepartureTime(
+                PersonalTask.Services.ColissionManager.AssertDepartureTime(
                     value,
-                    nameof(DepartureTime));
+                    "Указанная дата не может быть установлена."
+                    );
                 _departureTime = value;
             }
             get
@@ -102,10 +103,11 @@ namespace PersonalTask.Model
         {
             set
             {
-                Services.ColissionManager.AssertFlightTime(
+                PersonalTask.Services.ColissionManager.AssertFlightTime(
                     value,
                     1000,
-                    nameof(FlightTime));
+                    "Неверно указано время полета."
+                    );
                 _flightTime = value;
             }
             get
@@ -121,9 +123,9 @@ namespace PersonalTask.Model
         {
             set
             {
-                Services.ColissionManager.IsValueInEnum(
+                PersonalTask.Services.ColissionManager.IsValueInEnum(
                     value,
-                    nameof(FlightType));
+                    "Это не может быть типом перелета.");
                 _flightType = value;
             }
             get
