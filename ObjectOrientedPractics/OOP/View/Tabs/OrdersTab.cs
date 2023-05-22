@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using OOP.Model;
 
 namespace OOP.View.Tabs
 {
@@ -74,7 +70,7 @@ namespace OOP.View.Tabs
         /// <summary>
         /// Заполянет поля обычного заказа.
         /// </summary>
-        private void FillBasicOrder(Model.Order order)
+        private void FillOrder(Model.Order order)
         {
             idTextBox.Text = order.Id.ToString();
             creationTextBox.Text = order.DateOfCreate.ToString("dd.MM.yyyy");
@@ -86,29 +82,14 @@ namespace OOP.View.Tabs
                 ordersItemsListBox.Items.Add(items.Name);
             }
             costLabel.Text = order.FullCost.ToString();
-        }
 
-
-        /// <summary>
-        /// Заполянет поля обычного заказа.
-        /// </summary>
-        private void FillPriorityOrder(Model.PriorityOrder order)
-        {
-            idTextBox.Text = order.Id.ToString();
-            creationTextBox.Text = order.DateOfCreate.ToString("dd.MM.yyyy");
-            statusComboBox.SelectedItem = order.OrderStatus;
-            var currentAddress = order.Address;
-            addressControl.FillAddress(currentAddress);
-            foreach (var items in order.Items)
+            if (order.GetType() == typeof(PriorityOrder))
             {
-                ordersItemsListBox.Items.Add(items.Name);
-            }
-            costLabel.Text = order.FullCost.ToString();
-            var dict = Services.EnumGetter.GetDeliveryTime();
-            deliveryTimeComboBox.SelectedItem = dict[order.DeliveryTime];
+                var dict = Services.EnumGetter.GetDeliveryTime();
+                var priority = (PriorityOrder)order;
+                deliveryTimeComboBox.SelectedItem = dict[priority.DeliveryTime];
+            }    
         }
-
-
 
         /// <summary>
         /// Метод заполняет поля формы при нажатии элемента таблицы.
@@ -121,12 +102,12 @@ namespace OOP.View.Tabs
                 ordersItemsListBox.Items.Clear();
                 if (Orders[index].GetType() == typeof(Model.Order))
                 {
-                    FillBasicOrder(Orders[index]);
+                    FillOrder(Orders[index]);
                     priorityPanel.Visible = false;
                 }
                 else if (Orders[index].GetType() == typeof(Model.PriorityOrder))
                 {
-                    FillPriorityOrder((Model.PriorityOrder)Orders[index]);
+                    FillOrder(Orders[index]);
                     priorityPanel.Visible = true;
                 }
             }

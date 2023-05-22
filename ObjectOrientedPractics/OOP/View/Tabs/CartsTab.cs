@@ -68,8 +68,11 @@ namespace OOP.View.Tabs
         /// </summary>
         public void RefreshData() 
         {
+            //Очистка поля.
             itemsListBox.Items.Clear();
             customerComboBox.Items.Clear();
+
+            //Заполнение полей обновленными значениями.
             foreach (var customer in Customers)
             {
                 customerComboBox.Items.Add(customer.FullName);
