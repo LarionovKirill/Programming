@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using OOP.Model.Enums;
+using OOP.Model.Discounts;
 
 namespace OOP.View
 {
@@ -20,7 +19,7 @@ namespace OOP.View
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<Model.Customer> Customers{get;set;}
+        public List<Model.Customer> Customers { get; set; }
 
         /// <summary>
         /// Показатель режима изменения.
@@ -37,7 +36,7 @@ namespace OOP.View
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public Model.Customer Copy { get; set; } = new Model.Customer(); 
+        public Model.Customer Copy { get; set; } = new Model.Customer();
 
         public CustomerTab()
         {
@@ -52,7 +51,7 @@ namespace OOP.View
         {
             if (Customers != null)
             {
-                foreach(var customers in Customers)
+                foreach (var customers in Customers)
                 {
                     customerListBox.Items.Add(customers.FullName);
                 }
@@ -70,6 +69,7 @@ namespace OOP.View
                 FillFieldsOfCustomer(Customers[index]);
                 addressControl.GetCustomer(index);
                 addressControl.FillAddress(Customers[index].Address);
+                FillDiscounts(Customers[index]);
                 if (ChangeMode == true)
                 {
                     CloseFields();
@@ -145,7 +145,18 @@ namespace OOP.View
         /// <param name="e"></param>
         private void IsPriorityCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (customerListBox.SelectedIndex >= 0)
+            {
+                var index = customerListBox.SelectedIndex;
+                if (isPriorityCheckBox.Checked)
+                {
+                    Customers[index].IsPriority = true;
+                }
+                else
+                {
+                    Customers[index].IsPriority = false;
+                }
+            }
         }
 
         /// <summary>
@@ -266,6 +277,87 @@ namespace OOP.View
             fullNameTextBox.Text = string.Empty;
             idCustomerTextBox.Text = string.Empty;
             addressControl.ClearFieldAddress();
+        }
+
+        /// <summary>
+        /// Заполняет listbox скидками пользователя.
+        /// </summary>
+        /// <param name="currentCustomer">Переданный пользователь.</param>
+        private void FillDiscounts(Model.Customer currentCustomer)            
+        {
+            discountListBox.Items.Clear();
+            foreach (var discounts in currentCustomer.Discounts)
+            {
+                discountListBox.Items.Add(discounts.Info);
+            }
+        }
+
+        /// <summary>
+        /// Метод переводит на форму с добавлением формы.
+        /// </summary>
+        private void AddDiscountButton_Click(object sender, EventArgs e)
+        {
+            if (customerListBox.SelectedIndex >= 0)
+            {
+                var index = customerListBox.SelectedIndex;
+                Forms.AddDiscountForm form = new Forms.AddDiscountForm();
+                form.ShowDialog();
+                if (form.DialogResult == DialogResult.OK)
+                {
+                    var result = form.discountsComboBox.SelectedItem.ToString();
+                    foreach (var checkCategory in Customers[index].Discounts)
+                    {
+                        if (checkCategory.GetType() == typeof(PercentDiscount))
+                        {
+                            var discount = (PercentDiscount)checkCategory;
+                            if (discount.DiscountItemCategory.ToString() == result)
+                            {
+                                MessageBox.Show("Данная скидка у вас уже имеется");
+                                return;
+                            }
+                        }
+                    }
+                    var category = Enum.GetValues(typeof(ItemCategory));
+                    foreach (var item in category)
+                    {
+                        if (result == item.ToString())
+                        {
+                            Customers[index].Discounts.Add(new PercentDiscount((ItemCategory)item));
+                            FillDiscounts(Customers[index]);
+                            return;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Вы не выбрали пользователя.");
+            }
+        }
+
+        /// <summary>
+        /// Удаляет скидку из списка товаров.
+        /// </summary>
+        private void RemoveDiscountButton_Click(object sender, EventArgs e)
+        {
+            if (discountListBox.SelectedIndex>=0 && customerListBox.SelectedIndex>=0)
+            {
+                if (discountListBox.SelectedIndex == 0)
+                {
+                    MessageBox.Show("Накопительная скидка обязательна. Ее нельзя удалить.");
+                }
+                else
+                {
+                    var indexCustomer = customerListBox.SelectedIndex;
+                    var indexDiscount = discountListBox.SelectedIndex;
+                    Customers[indexCustomer].Discounts.RemoveAt(indexDiscount);
+                    FillDiscounts(Customers[indexCustomer]);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Вы не выбрали скидку или пользователя");
+            }
         }
     }
 }

@@ -70,6 +70,12 @@ namespace OOP.Model
 		[Browsable(false)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public bool IsPriority { get; set; } = false;
+
+		/// <summary>
+		/// Хранит список скидок пользователя.
+		/// </summary>
+		public List<IDiscount> Discounts { get; set; }
+
 		/// Копирует информацию в переданный класс.
 		/// </summary>
 		/// <param name="customer">Класс, в котором нужно поменять информацию.</param>
@@ -85,12 +91,8 @@ namespace OOP.Model
 			customer.FullName = this.FullName;
 			customer.Orders = this.Orders;
 			customer.Id = this.Id;
+			customer.Discounts = this.Discounts;
 		}
-
-		/// <summary>
-		/// Хранит список скидок пользователя.
-		/// </summary>
-		public List<IDiscount> Discounts { get; set; }
 
 		/// <summary>
 		/// Конструктор без параметров.

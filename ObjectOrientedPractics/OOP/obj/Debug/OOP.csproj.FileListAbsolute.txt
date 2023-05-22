@@ -14,3 +14,4 @@ C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\ObjectOriente
 C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\ObjectOrientedPractics\OOP\obj\Debug\OOP.View.Tabs.CartsTab.resources
 C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\ObjectOrientedPractics\OOP\obj\Debug\OOP.View.Tabs.ordersTab.resources
 C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\ObjectOrientedPractics\OOP\obj\Debug\OOP.View.Tabs.PriorityOrdersTab.resources
+C:\Users\lari-\OneDrive\Рабочий стол\ГПО\Programming\ObjectOrientedPractics\OOP\obj\Debug\OOP.View.Forms.AddDiscountForm.resources

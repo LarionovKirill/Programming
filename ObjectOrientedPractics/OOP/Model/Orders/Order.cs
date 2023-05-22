@@ -30,19 +30,12 @@ namespace OOP.Model.Orders
         /// </summary>
         public Address Address { get; set; }
 
-        public decimal DiscountAmount
-        {
-            get;
-            set
-            {
-
-            }
-        }
+        public decimal DiscountAmount { get; set; }
 
         /// <summary>
         /// Свойство для общей стоимости заказа. 
         /// </summary>
-        public decimal  FullCost 
+        public decimal FullCost 
         {
             get
             {
@@ -59,6 +52,17 @@ namespace OOP.Model.Orders
                     }
                     return sum;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Возвращает итоговую стоимость.
+        /// </summary>
+        public decimal Total
+        {
+            get 
+            {
+                return this.FullCost - this.DiscountAmount;
             }
         }
 

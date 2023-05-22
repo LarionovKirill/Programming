@@ -120,5 +120,14 @@ namespace OOP.Model.Discounts
         {
             
         }
+
+        /// <summary>
+        /// Конструктор с параметрами.
+        /// </summary>
+        /// <param name="discountCategory">Категория скидочных товаров.</param>
+        public PercentDiscount(ItemCategory discountCategory)
+        {
+            this.DiscountItemCategory = discountCategory;
+        }
     }
 }

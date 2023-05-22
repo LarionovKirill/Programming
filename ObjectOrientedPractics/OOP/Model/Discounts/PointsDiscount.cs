@@ -13,7 +13,6 @@ namespace OOP.Model.Discounts
         /// </summary>
         private int _points;
 
-
         /// <summary>
         /// Свойство баллов пользователя.
         /// </summary>
@@ -92,7 +91,7 @@ namespace OOP.Model.Discounts
         {
             get
             {
-                return $"Накопительная - {Points}";
+                return $"Накопительная - {Points} балл(ов)";
             }
         }
 

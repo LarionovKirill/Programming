@@ -62,6 +62,12 @@
     <Compile Include="Services\IdGenerator.cs" />
     <Compile Include="Services\ItemGenerator.cs" />
     <Compile Include="Services\OrderGenerator.cs" />
+    <Compile Include="View\Forms\AddDiscountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\AddDiscountForm.Designer.cs">
+      <DependentUpon>AddDiscountForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Tabs\AddressControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -118,6 +124,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Forms\AddDiscountForm.resx">
+      <DependentUpon>AddDiscountForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Tabs\AddressControl.resx">
       <DependentUpon>AddressControl.cs</DependentUpon>
     </EmbeddedResource>
