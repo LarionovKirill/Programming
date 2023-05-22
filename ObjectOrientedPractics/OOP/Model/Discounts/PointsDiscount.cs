@@ -36,7 +36,7 @@ namespace OOP.Model.Discounts
 
         /// <summary>
         /// Принимает на вход список продуктов и возвращает размер скидки, доступной для этого
-        /// списка продуктов с текущим количеством баллов
+        /// списка продуктов с текущим количеством баллов.
         /// </summary>
         /// <param name="items">Список продуктов.</param>
         /// <returns></returns>
@@ -80,6 +80,7 @@ namespace OOP.Model.Discounts
             {
                 sum += item.Cost;
             }
+            sum -= Discount;
             Points += (int)(sum * 0.1m);
         }
 

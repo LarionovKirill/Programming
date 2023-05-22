@@ -78,10 +78,12 @@ namespace OOP.View.Tabs
             statusComboBox.SelectedItem = order.OrderStatus;
             var currentAddress = order.Address;
             addressControl.FillAddress(currentAddress);
+
             foreach (var items in order.Items)
             {
                 ordersItemsListBox.Items.Add(items.Name);
             }
+
             costLabel.Text = order.FullCost.ToString();
         }
 
@@ -96,10 +98,12 @@ namespace OOP.View.Tabs
             statusComboBox.SelectedItem = order.OrderStatus;
             var currentAddress = order.Address;
             addressControl.FillAddress(currentAddress);
+
             foreach (var items in order.Items)
             {
                 ordersItemsListBox.Items.Add(items.Name);
             }
+
             costLabel.Text = order.FullCost.ToString();
             var dict = Services.EnumGetter.GetDeliveryTime();
             deliveryTimeComboBox.SelectedItem = dict[order.DeliveryTime];

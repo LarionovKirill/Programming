@@ -223,6 +223,9 @@ namespace OOP.View
             // 
             // discountListBox
             // 
+            this.discountListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.discountListBox.FormattingEnabled = true;
             this.discountListBox.Location = new System.Drawing.Point(286, 303);
             this.discountListBox.Name = "discountListBox";
@@ -231,6 +234,7 @@ namespace OOP.View
             // 
             // addDiscountButton
             // 
+            this.addDiscountButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addDiscountButton.Location = new System.Drawing.Point(561, 303);
             this.addDiscountButton.Name = "addDiscountButton";
             this.addDiscountButton.Size = new System.Drawing.Size(85, 36);
@@ -241,6 +245,7 @@ namespace OOP.View
             // 
             // removeDiscountButton
             // 
+            this.removeDiscountButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.removeDiscountButton.Location = new System.Drawing.Point(561, 362);
             this.removeDiscountButton.Name = "removeDiscountButton";
             this.removeDiscountButton.Size = new System.Drawing.Size(85, 36);

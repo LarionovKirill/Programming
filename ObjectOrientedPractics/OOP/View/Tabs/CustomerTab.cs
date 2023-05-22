@@ -270,7 +270,7 @@ namespace OOP.View
         }
 
         /// <summary>
-        /// Очишает поля.
+        /// Очищает поля.
         /// </summary>
         private void ClearFields()
         {
@@ -357,6 +357,17 @@ namespace OOP.View
             else
             {
                 MessageBox.Show("Вы не выбрали скидку или пользователя");
+            }
+        }
+
+        /// <summary>
+        /// Заполняет поля при переходе из другого окна.
+        /// </summary>
+        public void Fill()
+        {
+            if (customerListBox.SelectedIndex >= 0)
+            {
+                FillDiscounts(Customers[customerListBox.SelectedIndex]);
             }
         }
     }

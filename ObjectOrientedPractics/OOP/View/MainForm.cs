@@ -64,6 +64,10 @@ namespace OOP
                 ordersTab1.Customers = Store.Customers;
                 ordersTab1.UpdateInformation();
             }
+            else if (tabControl.SelectedIndex == 1)
+            {
+                customerTab2.Fill();
+            }
         }
     }
 }

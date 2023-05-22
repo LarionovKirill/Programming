@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using OOP.Model.Orders;
 using OOP.Model.Enums;
+using OOP.Model.Discounts;
 
 namespace OOP.View.Tabs
 {
@@ -48,6 +49,7 @@ namespace OOP.View.Tabs
             cartListBox.Items.Clear();
             if (selectedIndex >= 0)
             {
+                FillDiscounts(Customers[selectedIndex]);
                 CurrentCustomer = Customers[selectedIndex];
                 if (CurrentCustomer.Cart.ListOfGoods != null)
                 {
@@ -57,6 +59,8 @@ namespace OOP.View.Tabs
                     }
                 }
                 amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+                CalculateDiscountCost();
+                CalculateTotalCost();
             }
         }
 
@@ -89,6 +93,8 @@ namespace OOP.View.Tabs
                 CurrentCustomer.Cart.ListOfGoods.Add(Items[selectedItem]);
                 cartListBox.Items.Add(itemsListBox.SelectedItem);
                 amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+                CalculateDiscountCost();
+                CalculateTotalCost();
             }
             else
             {
@@ -107,6 +113,8 @@ namespace OOP.View.Tabs
                 CurrentCustomer.Cart.ListOfGoods.RemoveAt(selectedIndexInCart);
                 cartListBox.Items.RemoveAt(selectedIndexInCart);
                 amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+                CalculateDiscountCost();
+                CalculateTotalCost();
             }
         }
 
@@ -122,13 +130,20 @@ namespace OOP.View.Tabs
                     PriorityOrder newOrder = new PriorityOrder(
                         CurrentCustomer.Address,
                         OrderStatus.New,
-                        DateTime.Now
-                        ) ;
+                        DateTime.Now);
                     newOrder.Items.AddRange(CurrentCustomer.Cart.ListOfGoods);
                     CurrentCustomer.Orders.Add(newOrder);
+                    if (CurrentCustomer.Discounts.GetType() == typeof(PointsDiscount))
+                    {
+                        var indexDiscount = CurrentCustomer.Discounts.Count;
+                        var temp = (PointsDiscount)CurrentCustomer.Discounts[indexDiscount-1];
+                        temp.Discount = decimal.Parse(discountCostLabel.Text);
+                    }
                     CurrentCustomer.Cart.ListOfGoods.Clear();
                     cartListBox.Items.Clear();
                     amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+                    customerComboBox.SelectedIndex = 0;
+                    FillDiscounts(Customers[0]);
                 }
                 else
                 {
@@ -138,9 +153,22 @@ namespace OOP.View.Tabs
                         OrderStatus.New);
                     newOrder.Items.AddRange(CurrentCustomer.Cart.ListOfGoods);
                     CurrentCustomer.Orders.Add(newOrder);
+                    foreach (var discount in CurrentCustomer.Discounts)
+                    {
+                        if (discount.GetType() == typeof(PointsDiscount))
+                        {
+                            var temp = (PointsDiscount)discount;
+                            temp.Discount = decimal.Parse(discountCostLabel.Text);
+                        }
+                        discount.Update(CurrentCustomer.Cart.ListOfGoods);
+                    }
                     CurrentCustomer.Cart.ListOfGoods.Clear();
                     cartListBox.Items.Clear();
                     amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+                    CalculateDiscountCost();
+                    CalculateTotalCost();
+                    customerComboBox.SelectedIndex = 0;
+                    FillDiscounts(Customers[0]);
                 }
             }
             else
@@ -160,6 +188,45 @@ namespace OOP.View.Tabs
                 cartListBox.Items.Clear();
                 amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
             }
+        }
+
+        /// <summary>
+        /// Заполняет listbox скидками пользователя.
+        /// </summary>
+        /// <param name="currentCustomer">Переданный пользователь.</param>
+        private void FillDiscounts(Model.Customer currentCustomer)
+        {
+            var a = 0;
+            discountsCheckedListBox.Items.Clear();
+            foreach (var discounts in currentCustomer.Discounts)
+            {
+                discountsCheckedListBox.Items.Add(discounts.Info);
+                discountsCheckedListBox.SetItemChecked(a, true);
+                a++;
+            }
+        }
+
+        /// <summary>
+        /// Метод считает скидку.
+        /// </summary>
+        private void CalculateDiscountCost()
+        {
+            decimal sale = 0;
+            for (int i = 0; i < CurrentCustomer.Discounts.Count; i++)
+            {
+                sale += CurrentCustomer.Discounts[i].Apply(CurrentCustomer.Cart.ListOfGoods);
+            }
+            discountCostLabel.Text = sale.ToString();
+        }
+
+        /// <summary>
+        /// Метод считает итоговую стоимость.
+        /// </summary>
+        private void CalculateTotalCost()
+        {
+            var sale = decimal.Parse(discountCostLabel.Text);
+            var price = decimal.Parse(amountPriceLabel.Text);
+            totalCostLabel.Text = (price - sale).ToString();
         }
     }
 }

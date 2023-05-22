@@ -30,6 +30,9 @@ namespace OOP.Model.Orders
         /// </summary>
         public Address Address { get; set; }
 
+        /// <summary>
+        /// Размер примененной скидки.
+        /// </summary>
         public decimal DiscountAmount { get; set; }
 
         /// <summary>

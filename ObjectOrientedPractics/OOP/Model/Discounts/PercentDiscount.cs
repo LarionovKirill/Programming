@@ -69,7 +69,7 @@ namespace OOP.Model.Discounts
                     sum += item.Cost;
                 }
             }
-            return sum;
+            return sum * _currentDiscount / 100;
         }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace OOP.Model.Discounts
         public decimal Apply(List<Item> items)
         {
             var sale = Calculate(items);
-            return sale* _currentDiscount/100;
+            return sale;
         }
 
         /// <summary>
@@ -89,7 +89,16 @@ namespace OOP.Model.Discounts
         /// <param name="items">Список товаров.</param>
         public void Update(List<Item> items)
         {
-            var sum = Calculate(items);
+            var sum = 0m;
+            var sale = Apply(items);
+            foreach (var item in items)
+            {
+                if (item.ItemCategory == DiscountItemCategory)
+                {
+                    sum += item.Cost;
+                }
+            }
+            sum -= sale;
             AmountSpent += sum;
             if ((int)AmountSpent / 1000 >= 11)
             {
