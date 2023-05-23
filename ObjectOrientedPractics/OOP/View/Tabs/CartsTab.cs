@@ -128,10 +128,11 @@ namespace OOP.View.Tabs
                     Model.PriorityOrder newOrder = new Model.PriorityOrder(
                         CurrentCustomer.Address,
                         Model.OrderStatus.New,
-                        DateTime.Now
-                        ) ;
+                        DateTime.Now);
                     newOrder.Items.AddRange(CurrentCustomer.Cart.ListOfGoods);
                     CurrentCustomer.Orders.Add(newOrder);
+                    
+                    //Очищение корзины.
                     CurrentCustomer.Cart.ListOfGoods.Clear();
                     cartListBox.Items.Clear();
                     amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
@@ -144,6 +145,8 @@ namespace OOP.View.Tabs
                         Model.OrderStatus.New);
                     newOrder.Items.AddRange(CurrentCustomer.Cart.ListOfGoods);
                     CurrentCustomer.Orders.Add(newOrder);
+
+                    //Очищение корзины.
                     CurrentCustomer.Cart.ListOfGoods.Clear();
                     cartListBox.Items.Clear();
                     amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();

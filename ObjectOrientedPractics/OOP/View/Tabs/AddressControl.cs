@@ -31,8 +31,6 @@ namespace OOP.View
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Model.Address Address{ get; set;}
 
-        private Model.Address Checker { get; set; } = new Model.Address();
-
         /// <summary>
         /// Метод заполняет поля адреса.
         /// </summary>

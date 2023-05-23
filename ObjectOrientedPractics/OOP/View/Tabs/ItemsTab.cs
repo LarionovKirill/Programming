@@ -24,7 +24,6 @@ namespace OOP.View.Tabs
         /// </summary>
         private bool _changeMode { get; set; } = false;
 
-
         /// <summary>
         /// Флаг режима добавления.
         /// </summary>
@@ -69,6 +68,7 @@ namespace OOP.View.Tabs
             {
                 MessageBox.Show("Введите верные значения.");
             }
+            //Блокировка полей для ввода.
             _addMode = true;
             ClearFields();
             itemListBox.SelectedIndex = -1;
@@ -116,11 +116,6 @@ namespace OOP.View.Tabs
             }
             try
             {
-                Services.ValueValidator.AssertValueInRange(
-                    decimal .Parse(costItemTextBox.Text),
-                    0,
-                    100000,
-                    "costItemTextBox");
                 _copyItem.Cost = decimal.Parse(costItemTextBox.Text);
                 costItemTextBox.BackColor = Color.White;
             }
