@@ -156,24 +156,21 @@ namespace OOP.View.Tabs
         /// </summary>
         private void DeliveryTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (informationTable.CurrentRow != null)
+            if (informationTable.CurrentRow == null)
             {
-                var index = informationTable.CurrentRow.Index;
-                if (index >= 0 && Orders[index].GetType() == typeof(PriorityOrder))
-                {
-                    var order = (PriorityOrder)Orders[index];
-                    var dict = Services.EnumGetter.GetDeliveryTime();
-                    foreach (var time in dict)
-                    {
-                        if (time.Value == deliveryTimeComboBox.SelectedItem.ToString())
-                        {
-                            order.DeliveryTime = time.Key;
-                            break;
-                        }
-                    }
-                    Orders[index] = order;
-                }
+                return;
             }
+
+            var index = informationTable.CurrentRow.Index;
+            if (index <= 0 || Orders[index].GetType() != typeof(PriorityOrder))
+            {
+                return;
+            }
+
+            var order = (PriorityOrder)Orders[index];
+            var timeIndex = deliveryTimeComboBox.SelectedIndex;
+            order.DeliveryTime = (DeliveryTime)timeIndex;
+            Orders[index] = order;
         }
     }
 }
