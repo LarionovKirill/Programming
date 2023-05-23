@@ -77,6 +77,7 @@ namespace OOP.View.Tabs
             statusComboBox.SelectedItem = order.OrderStatus;
             var currentAddress = order.Address;
             addressControl.FillAddress(currentAddress);
+
             foreach (var items in order.Items)
             {
                 ordersItemsListBox.Items.Add(items.Name);
@@ -100,12 +101,12 @@ namespace OOP.View.Tabs
             if (index >= 0)
             {
                 ordersItemsListBox.Items.Clear();
-                if (Orders[index].GetType() == typeof(Model.Order))
+                if (Orders[index].GetType() == typeof(Order))
                 {
                     FillOrder(Orders[index]);
                     priorityPanel.Visible = false;
                 }
-                else if (Orders[index].GetType() == typeof(Model.PriorityOrder))
+                else if (Orders[index].GetType() == typeof(PriorityOrder))
                 {
                     FillOrder(Orders[index]);
                     priorityPanel.Visible = true;
@@ -143,7 +144,7 @@ namespace OOP.View.Tabs
                 var index = informationTable.CurrentRow.Index;
                 if (index >= 0)
                 {
-                    Orders[index].OrderStatus = (Model.OrderStatus)Enum.Parse(typeof(Model.OrderStatus),
+                    Orders[index].OrderStatus = (OrderStatus)Enum.Parse(typeof(OrderStatus),
                         statusComboBox.SelectedItem.ToString());
                     UpdateInformation();
                 }
@@ -158,9 +159,9 @@ namespace OOP.View.Tabs
             if (informationTable.CurrentRow != null)
             {
                 var index = informationTable.CurrentRow.Index;
-                if (index >= 0 && Orders[index].GetType() == typeof(Model.PriorityOrder))
+                if (index >= 0 && Orders[index].GetType() == typeof(PriorityOrder))
                 {
-                    var order = (Model.PriorityOrder)Orders[index];
+                    var order = (PriorityOrder)Orders[index];
                     var dict = Services.EnumGetter.GetDeliveryTime();
                     foreach (var time in dict)
                     {
