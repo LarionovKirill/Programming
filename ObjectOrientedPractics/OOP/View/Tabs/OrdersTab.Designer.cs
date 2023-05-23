@@ -61,7 +61,7 @@ namespace OOP.View.Tabs
             // 
             this.selectedOrderLabel.AutoSize = true;
             this.selectedOrderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.selectedOrderLabel.Location = new System.Drawing.Point(334, 9);
+            this.selectedOrderLabel.Location = new System.Drawing.Point(443, 9);
             this.selectedOrderLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.selectedOrderLabel.Name = "selectedOrderLabel";
             this.selectedOrderLabel.Size = new System.Drawing.Size(113, 16);
@@ -71,7 +71,7 @@ namespace OOP.View.Tabs
             // idLabel
             // 
             this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(334, 29);
+            this.idLabel.Location = new System.Drawing.Point(443, 29);
             this.idLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.idLabel.Name = "idLabel";
             this.idLabel.Size = new System.Drawing.Size(21, 13);
@@ -81,7 +81,7 @@ namespace OOP.View.Tabs
             // createdLabel
             // 
             this.createdLabel.AutoSize = true;
-            this.createdLabel.Location = new System.Drawing.Point(334, 53);
+            this.createdLabel.Location = new System.Drawing.Point(443, 53);
             this.createdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.createdLabel.Name = "createdLabel";
             this.createdLabel.Size = new System.Drawing.Size(47, 13);
@@ -91,7 +91,7 @@ namespace OOP.View.Tabs
             // statusLabel
             // 
             this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(334, 77);
+            this.statusLabel.Location = new System.Drawing.Point(443, 77);
             this.statusLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(40, 13);
@@ -103,11 +103,11 @@ namespace OOP.View.Tabs
             this.idTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.idTextBox.Location = new System.Drawing.Point(391, 27);
-            this.idTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.idTextBox.Location = new System.Drawing.Point(500, 27);
+            this.idTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.ReadOnly = true;
-            this.idTextBox.Size = new System.Drawing.Size(113, 20);
+            this.idTextBox.Size = new System.Drawing.Size(195, 20);
             this.idTextBox.TabIndex = 5;
             // 
             // creationTextBox
@@ -115,11 +115,11 @@ namespace OOP.View.Tabs
             this.creationTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.creationTextBox.Location = new System.Drawing.Point(391, 50);
-            this.creationTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.creationTextBox.Location = new System.Drawing.Point(500, 50);
+            this.creationTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.creationTextBox.Name = "creationTextBox";
             this.creationTextBox.ReadOnly = true;
-            this.creationTextBox.Size = new System.Drawing.Size(113, 20);
+            this.creationTextBox.Size = new System.Drawing.Size(195, 20);
             this.creationTextBox.TabIndex = 6;
             // 
             // statusComboBox
@@ -128,10 +128,10 @@ namespace OOP.View.Tabs
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.statusComboBox.FormattingEnabled = true;
-            this.statusComboBox.Location = new System.Drawing.Point(391, 75);
-            this.statusComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.statusComboBox.Location = new System.Drawing.Point(500, 75);
+            this.statusComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.statusComboBox.Name = "statusComboBox";
-            this.statusComboBox.Size = new System.Drawing.Size(113, 21);
+            this.statusComboBox.Size = new System.Drawing.Size(195, 21);
             this.statusComboBox.TabIndex = 7;
             this.statusComboBox.SelectedIndexChanged += new System.EventHandler(this.StatusComboBox_SelectedIndexChanged);
             // 
@@ -153,7 +153,7 @@ namespace OOP.View.Tabs
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ordersItemsLabel.AutoSize = true;
             this.ordersItemsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ordersItemsLabel.Location = new System.Drawing.Point(324, 268);
+            this.ordersItemsLabel.Location = new System.Drawing.Point(443, 272);
             this.ordersItemsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ordersItemsLabel.Name = "ordersItemsLabel";
             this.ordersItemsLabel.Size = new System.Drawing.Size(96, 16);
@@ -166,10 +166,10 @@ namespace OOP.View.Tabs
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ordersItemsListBox.FormattingEnabled = true;
-            this.ordersItemsListBox.Location = new System.Drawing.Point(327, 290);
-            this.ordersItemsListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ordersItemsListBox.Location = new System.Drawing.Point(446, 290);
+            this.ordersItemsListBox.Margin = new System.Windows.Forms.Padding(2);
             this.ordersItemsListBox.Name = "ordersItemsListBox";
-            this.ordersItemsListBox.Size = new System.Drawing.Size(437, 121);
+            this.ordersItemsListBox.Size = new System.Drawing.Size(439, 173);
             this.ordersItemsListBox.TabIndex = 10;
             // 
             // amountLabel
@@ -177,7 +177,7 @@ namespace OOP.View.Tabs
             this.amountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.amountLabel.AutoSize = true;
             this.amountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.amountLabel.Location = new System.Drawing.Point(692, 413);
+            this.amountLabel.Location = new System.Drawing.Point(813, 473);
             this.amountLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.amountLabel.Name = "amountLabel";
             this.amountLabel.Size = new System.Drawing.Size(63, 16);
@@ -189,7 +189,7 @@ namespace OOP.View.Tabs
             this.costLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.costLabel.AutoSize = true;
             this.costLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.costLabel.Location = new System.Drawing.Point(695, 433);
+            this.costLabel.Location = new System.Drawing.Point(816, 493);
             this.costLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.costLabel.Name = "costLabel";
             this.costLabel.Size = new System.Drawing.Size(60, 24);
@@ -211,12 +211,12 @@ namespace OOP.View.Tabs
             this.Cost,
             this.Status});
             this.informationTable.Location = new System.Drawing.Point(11, 24);
-            this.informationTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.informationTable.Margin = new System.Windows.Forms.Padding(2);
             this.informationTable.MultiSelect = false;
             this.informationTable.Name = "informationTable";
             this.informationTable.RowHeadersWidth = 51;
             this.informationTable.RowTemplate.Height = 24;
-            this.informationTable.Size = new System.Drawing.Size(309, 477);
+            this.informationTable.Size = new System.Drawing.Size(428, 537);
             this.informationTable.TabIndex = 13;
             this.informationTable.SelectionChanged += new System.EventHandler(this.InformationTable_SelectionChanged);
             // 
@@ -282,9 +282,9 @@ namespace OOP.View.Tabs
             | System.Windows.Forms.AnchorStyles.Right)));
             this.deliveryTimeComboBox.FormattingEnabled = true;
             this.deliveryTimeComboBox.Location = new System.Drawing.Point(91, 22);
-            this.deliveryTimeComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deliveryTimeComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.deliveryTimeComboBox.Name = "deliveryTimeComboBox";
-            this.deliveryTimeComboBox.Size = new System.Drawing.Size(113, 21);
+            this.deliveryTimeComboBox.Size = new System.Drawing.Size(86, 21);
             this.deliveryTimeComboBox.TabIndex = 17;
             this.deliveryTimeComboBox.SelectedIndexChanged += new System.EventHandler(this.DeliveryTimeComboBox_SelectedIndexChanged);
             // 
@@ -294,19 +294,19 @@ namespace OOP.View.Tabs
             this.priorityPanel.Controls.Add(this.label1);
             this.priorityPanel.Controls.Add(this.deliveryTimeComboBox);
             this.priorityPanel.Controls.Add(this.label2);
-            this.priorityPanel.Location = new System.Drawing.Point(515, 5);
+            this.priorityPanel.Location = new System.Drawing.Point(699, 5);
             this.priorityPanel.Name = "priorityPanel";
-            this.priorityPanel.Size = new System.Drawing.Size(248, 96);
+            this.priorityPanel.Size = new System.Drawing.Size(185, 96);
             this.priorityPanel.TabIndex = 18;
             // 
             // addressControl
             // 
             this.addressControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.addressControl.Location = new System.Drawing.Point(324, 106);
+            this.addressControl.Location = new System.Drawing.Point(446, 106);
             this.addressControl.Margin = new System.Windows.Forms.Padding(2);
             this.addressControl.Name = "addressControl";
-            this.addressControl.Size = new System.Drawing.Size(439, 165);
+            this.addressControl.Size = new System.Drawing.Size(438, 165);
             this.addressControl.TabIndex = 19;
             // 
             // ordersTab
@@ -328,9 +328,9 @@ namespace OOP.View.Tabs
             this.Controls.Add(this.createdLabel);
             this.Controls.Add(this.idLabel);
             this.Controls.Add(this.selectedOrderLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ordersTab";
-            this.Size = new System.Drawing.Size(775, 515);
+            this.Size = new System.Drawing.Size(896, 575);
             this.Load += new System.EventHandler(this.OrdersTab_Load);
             ((System.ComponentModel.ISupportInitialize)(this.informationTable)).EndInit();
             this.priorityPanel.ResumeLayout(false);
