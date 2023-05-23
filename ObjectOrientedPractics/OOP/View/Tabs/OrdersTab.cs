@@ -145,6 +145,7 @@ namespace OOP.View.Tabs
                 {
                     Orders[index].OrderStatus = (Model.OrderStatus)Enum.Parse(typeof(Model.OrderStatus),
                         statusComboBox.SelectedItem.ToString());
+                    UpdateInformation();
                 }
             }
         }

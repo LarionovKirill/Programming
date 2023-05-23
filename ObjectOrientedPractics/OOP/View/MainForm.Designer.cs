@@ -31,15 +31,15 @@ namespace OOP
         {
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.orderPanel = new System.Windows.Forms.Panel();
-            this.ordersTab1 = new OOP.View.Tabs.ordersTab();
             this.cartsTabPage = new System.Windows.Forms.TabPage();
-            this.cartsTab = new OOP.View.Tabs.CartsTab();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.customerTab2 = new OOP.View.CustomerTab();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.itemsTabPage = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.itemsTab1 = new OOP.View.Tabs.ItemsTab();
+            this.customerTab2 = new OOP.View.CustomerTab();
+            this.cartsTab = new OOP.View.Tabs.CartsTab();
+            this.ordersTab1 = new OOP.View.Tabs.ordersTab();
             this.customerTab1 = new OOP.View.CustomerTab();
             this.itemsTab = new OOP.View.Tabs.ItemsTab();
             this.tabPage2.SuspendLayout();
@@ -58,7 +58,7 @@ namespace OOP
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(1085, 703);
+            this.tabPage2.Size = new System.Drawing.Size(1182, 674);
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "Orders";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -70,17 +70,8 @@ namespace OOP
             this.orderPanel.Location = new System.Drawing.Point(2, 2);
             this.orderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.orderPanel.Name = "orderPanel";
-            this.orderPanel.Size = new System.Drawing.Size(1081, 699);
+            this.orderPanel.Size = new System.Drawing.Size(1178, 670);
             this.orderPanel.TabIndex = 0;
-            // 
-            // ordersTab1
-            // 
-            this.ordersTab1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ordersTab1.Location = new System.Drawing.Point(0, 0);
-            this.ordersTab1.Margin = new System.Windows.Forms.Padding(2);
-            this.ordersTab1.Name = "ordersTab1";
-            this.ordersTab1.Size = new System.Drawing.Size(1081, 699);
-            this.ordersTab1.TabIndex = 0;
             // 
             // cartsTabPage
             // 
@@ -89,18 +80,10 @@ namespace OOP
             this.cartsTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.cartsTabPage.Name = "cartsTabPage";
             this.cartsTabPage.Padding = new System.Windows.Forms.Padding(2);
-            this.cartsTabPage.Size = new System.Drawing.Size(1085, 703);
+            this.cartsTabPage.Size = new System.Drawing.Size(1182, 674);
             this.cartsTabPage.TabIndex = 2;
             this.cartsTabPage.Text = "Carts";
             this.cartsTabPage.UseVisualStyleBackColor = true;
-            // 
-            // cartsTab
-            // 
-            this.cartsTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cartsTab.Location = new System.Drawing.Point(2, 2);
-            this.cartsTab.Name = "cartsTab";
-            this.cartsTab.Size = new System.Drawing.Size(1081, 699);
-            this.cartsTab.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -109,19 +92,10 @@ namespace OOP
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(1085, 703);
+            this.tabPage1.Size = new System.Drawing.Size(1182, 674);
             this.tabPage1.TabIndex = 1;
             this.tabPage1.Text = "Customer";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // customerTab2
-            // 
-            this.customerTab2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customerTab2.Location = new System.Drawing.Point(2, 2);
-            this.customerTab2.Margin = new System.Windows.Forms.Padding(2);
-            this.customerTab2.Name = "customerTab2";
-            this.customerTab2.Size = new System.Drawing.Size(1081, 699);
-            this.customerTab2.TabIndex = 0;
             // 
             // tabControl
             // 
@@ -134,7 +108,7 @@ namespace OOP
             this.tabControl.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1093, 729);
+            this.tabControl.Size = new System.Drawing.Size(1190, 700);
             this.tabControl.TabIndex = 0;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.TabControl_SelectedIndexChanged);
             // 
@@ -145,7 +119,7 @@ namespace OOP
             this.itemsTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.itemsTabPage.Name = "itemsTabPage";
             this.itemsTabPage.Padding = new System.Windows.Forms.Padding(2);
-            this.itemsTabPage.Size = new System.Drawing.Size(1085, 703);
+            this.itemsTabPage.Size = new System.Drawing.Size(1182, 674);
             this.itemsTabPage.TabIndex = 0;
             this.itemsTabPage.Text = "Items";
             this.itemsTabPage.UseVisualStyleBackColor = true;
@@ -156,7 +130,7 @@ namespace OOP
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1081, 699);
+            this.panel1.Size = new System.Drawing.Size(1178, 670);
             this.panel1.TabIndex = 0;
             // 
             // itemsTab1
@@ -165,8 +139,34 @@ namespace OOP
             this.itemsTab1.Location = new System.Drawing.Point(0, 0);
             this.itemsTab1.Margin = new System.Windows.Forms.Padding(2);
             this.itemsTab1.Name = "itemsTab1";
-            this.itemsTab1.Size = new System.Drawing.Size(1081, 699);
+            this.itemsTab1.Size = new System.Drawing.Size(1178, 670);
             this.itemsTab1.TabIndex = 0;
+            // 
+            // customerTab2
+            // 
+            this.customerTab2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.customerTab2.Location = new System.Drawing.Point(2, 2);
+            this.customerTab2.Margin = new System.Windows.Forms.Padding(2);
+            this.customerTab2.Name = "customerTab2";
+            this.customerTab2.Size = new System.Drawing.Size(1178, 670);
+            this.customerTab2.TabIndex = 0;
+            // 
+            // cartsTab
+            // 
+            this.cartsTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cartsTab.Location = new System.Drawing.Point(2, 2);
+            this.cartsTab.Name = "cartsTab";
+            this.cartsTab.Size = new System.Drawing.Size(1178, 670);
+            this.cartsTab.TabIndex = 0;
+            // 
+            // ordersTab1
+            // 
+            this.ordersTab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ordersTab1.Location = new System.Drawing.Point(0, 0);
+            this.ordersTab1.Margin = new System.Windows.Forms.Padding(2);
+            this.ordersTab1.Name = "ordersTab1";
+            this.ordersTab1.Size = new System.Drawing.Size(1178, 670);
+            this.ordersTab1.TabIndex = 0;
             // 
             // customerTab1
             // 
@@ -191,7 +191,7 @@ namespace OOP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1093, 729);
+            this.ClientSize = new System.Drawing.Size(1190, 700);
             this.Controls.Add(this.tabControl);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
