@@ -147,7 +147,10 @@ namespace OOP.View.Tabs
                 {
                     Orders[index].OrderStatus = (OrderStatus)Enum.Parse(typeof(OrderStatus),
                         statusComboBox.SelectedItem.ToString());
-                    UpdateInformation();
+
+                    DataGridViewCell cell = new DataGridViewTextBoxCell();
+                    cell.Value = Orders[index].OrderStatus.ToString();
+                    informationTable[5, index] = cell;
                 }
             }
         }

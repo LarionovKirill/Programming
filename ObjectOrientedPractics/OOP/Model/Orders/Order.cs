@@ -59,17 +59,6 @@ namespace OOP.Model.Orders
         }
 
         /// <summary>
-        /// Возвращает итоговую стоимость.
-        /// </summary>
-        public decimal Total
-        {
-            get 
-            {
-                return this.FullCost - this.DiscountAmount;
-            }
-        }
-
-        /// <summary>
         /// Тип заказа.
         /// </summary>
         public OrderStatus OrderStatus { get; set; }

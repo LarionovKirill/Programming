@@ -134,23 +134,7 @@ namespace OOP.View.Tabs
                         CurrentCustomer.Address,
                         OrderStatus.New,
                         DateTime.Now);
-                    newOrder.Items.AddRange(CurrentCustomer.Cart.ListOfGoods);
-                    CurrentCustomer.Orders.Add(newOrder);
-                    if (CurrentCustomer.Discounts.GetType() == typeof(PointsDiscount))
-                    {
-                        var indexDiscount = CurrentCustomer.Discounts.Count;
-                        var temp = (PointsDiscount)CurrentCustomer.Discounts[indexDiscount-1];
-                        temp.Discount = decimal.Parse(discountCostLabel.Text);
-                    }
-                    newOrder.Items.AddRange(CurrentCustomer.Cart.ListOfGoods);
-                    CurrentCustomer.Orders.Add(newOrder);
-                    
-                    //Очищение корзины.
-                    CurrentCustomer.Cart.ListOfGoods.Clear();
-                    cartListBox.Items.Clear();
-                    amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
-                    customerComboBox.SelectedIndex = 0;
-                    FillDiscounts(Customers[0]);
+                    AddPointsToCustomer(newOrder);
                 }
                 else
                 {
@@ -158,26 +142,7 @@ namespace OOP.View.Tabs
                         DateTime.Now,
                         CurrentCustomer.Address,
                         OrderStatus.New);
-                    newOrder.Items.AddRange(CurrentCustomer.Cart.ListOfGoods);
-                    CurrentCustomer.Orders.Add(newOrder);
-                    foreach (var discount in CurrentCustomer.Discounts)
-                    {
-                        if (discount.GetType() == typeof(PointsDiscount))
-                        {
-                            var temp = (PointsDiscount)discount;
-                            temp.Discount = decimal.Parse(discountCostLabel.Text);
-                        }
-                        discount.Update(CurrentCustomer.Cart.ListOfGoods);
-                    }
-
-                    //Очищение корзины.
-                    CurrentCustomer.Cart.ListOfGoods.Clear();
-                    cartListBox.Items.Clear();
-                    amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
-                    CalculateDiscountCost();
-                    CalculateTotalCost();
-                    customerComboBox.SelectedIndex = 0;
-                    FillDiscounts(Customers[0]);
+                    AddPointsToCustomer(newOrder);
                 }
             }
             else
@@ -196,6 +161,7 @@ namespace OOP.View.Tabs
                 CurrentCustomer.Cart.ListOfGoods.Clear();
                 cartListBox.Items.Clear();
                 amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+                CalculateTotalCost();
             }
         }
 
@@ -236,6 +202,34 @@ namespace OOP.View.Tabs
             var sale = decimal.Parse(discountCostLabel.Text);
             var price = decimal.Parse(amountPriceLabel.Text);
             totalCostLabel.Text = (price - sale).ToString();
+        }
+
+        /// <summary>
+        /// Метод обрабатывает заказ и начисляет скидку пользователю.
+        /// </summary>
+        /// <param name="newOrder">Созданный заказ.</param>
+        private void AddPointsToCustomer(Order newOrder)
+        {
+            newOrder.Items.AddRange(CurrentCustomer.Cart.ListOfGoods);
+            CurrentCustomer.Orders.Add(newOrder);
+            foreach (var discount in CurrentCustomer.Discounts)
+            {
+                if (discount.GetType() == typeof(PointsDiscount))
+                {
+                    var temp = (PointsDiscount)discount;
+                    temp.Discount = decimal.Parse(discountCostLabel.Text);
+                }
+                discount.Update(CurrentCustomer.Cart.ListOfGoods);
+            }
+
+            //Очищение корзины.
+            CurrentCustomer.Cart.ListOfGoods.Clear();
+            cartListBox.Items.Clear();
+            CalculateDiscountCost();
+            amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+            customerComboBox.SelectedIndex = -1;
+            discountsCheckedListBox.Items.Clear();
+            CalculateTotalCost();
         }
     }
 }
