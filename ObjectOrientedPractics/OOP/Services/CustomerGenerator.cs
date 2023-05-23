@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using OOP.Model;
 
 namespace OOP.Services
@@ -11,36 +12,36 @@ namespace OOP.Services
         /// <summary>
         /// Список имен для генерации.
         /// </summary>
-        private static List<string> _names = new List<string>()
+        private static List<string> NAMES = new List<string>()
         {"Иван","Петр","Михаил","Артём","Вадим","Николай","Евгений","Александр","Данил" };
 
         /// <summary>
         /// Список фамилий для генерации.
         /// </summary>
-        private static List<string> _surnames = new List<string>()
+        private static List<string> SURNAMES = new List<string>()
         {"Попов","Петров","Сидоров","Денисов","Головин","Федосеев","Назаров","Лебедев","Фомин" };
 
         /// <summary>
         /// Список отчеств для генерации.
         /// </summary>
-        private static List<string> _patronymic = new List<string>()
+        private static List<string> PATRONYMIC = new List<string>()
         {"Евгеньевич","Кириллович","Андреевич","Владимирович","Егорович","Степанович"};
 
         /// <summary>
         /// Генератор случайных чисел.
         /// </summary>
-        private static Random _random = new Random();
+        private static Random RANDOM = new Random();
 
         /// <summary>
         /// Список городов для генерации.
         /// </summary>
-        private static List<string> _cities = new List<string>()
+        private static List<string> CITIES = new List<string>()
         {"Moskow","Tver","Surgut","Tomsk","Novosibirsk","Saratov","Kazan","Ekaterinburg"};
 
         /// <summary>
         /// Список городов для генерации.
         /// </summary>
-        private static List<string> _streets = new List<string>()
+        private static List<string> STREETS = new List<string>()
         {"Lenina","Gogola","Fedorova","Cvetochnaya","Mohovaya","Svetlaya","Azina","Nosova"};
 
 
@@ -54,14 +55,14 @@ namespace OOP.Services
             for (int i = 0; i < 5; i++)
             {
                 customers.Add(new Model.Customer(
-                    $"{_surnames[_random.Next(0, 9)]} {_names[_random.Next(0, 9)]} " +
-                    $"{_patronymic[_random.Next(0, 6)]}",
-                    _random.Next(100000, 1000000),
-                    _random.Next(1, 200).ToString(),
-                    _cities[_random.Next(0, 8)].ToString(),
+                    $"{SURNAMES[RANDOM.Next(0, 9)]} {NAMES[RANDOM.Next(0, 9)]} " +
+                    $"{PATRONYMIC[RANDOM.Next(0, 6)]}",
+                    RANDOM.Next(100000, 1000000),
+                    RANDOM.Next(1, 200).ToString(),
+                    CITIES[RANDOM.Next(0, 8)].ToString(),
                     "Russia",
-                    _streets[_random.Next(0, 8)].ToString(),
-                    _random.Next(1, 200).ToString()));
+                    STREETS[RANDOM.Next(0, 8)].ToString(),
+                    RANDOM.Next(1, 200).ToString()));
             }
             return customers;
         }

@@ -55,7 +55,6 @@ namespace OOP.View.Tabs
             this.creationTextBox = new System.Windows.Forms.TextBox();
             this.statusComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.informationTable)).BeginInit();
@@ -63,161 +62,15 @@ namespace OOP.View.Tabs
             this.SuspendLayout();
             // 
             // splitContainer1
-            //
-            this.selectedOrderLabel.AutoSize = true;
-            this.selectedOrderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.selectedOrderLabel.Location = new System.Drawing.Point(334, 9);
-            this.selectedOrderLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.selectedOrderLabel.Name = "selectedOrderLabel";
-            this.selectedOrderLabel.Size = new System.Drawing.Size(113, 16);
-            this.selectedOrderLabel.TabIndex = 1;
-            this.selectedOrderLabel.Text = "Selected Order";
+            // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
-            // splitContainer1.Panel1
-            //
-            this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(334, 29);
-            this.idLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(21, 13);
-            this.idLabel.TabIndex = 2;
-            this.idLabel.Text = "ID:";
-            this.splitContainer1.Panel1.Controls.Add(this.informationTable);
-            this.splitContainer1.Panel1.Controls.Add(this.ordersLabel);
-            // 
             // splitContainer1.Panel2
-            //
-            this.createdLabel.AutoSize = true;
-            this.createdLabel.Location = new System.Drawing.Point(334, 53);
-            this.createdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.createdLabel.Name = "createdLabel";
-            this.createdLabel.Size = new System.Drawing.Size(47, 13);
-            this.createdLabel.TabIndex = 3;
-            this.createdLabel.Text = "Created:";
             // 
-            // statusLabel
-            // 
-            this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(334, 77);
-            this.statusLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(40, 13);
-            this.statusLabel.TabIndex = 4;
-            this.statusLabel.Text = "Status:";
-            // 
-            // idTextBox
-            // 
-            this.idTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.idTextBox.Location = new System.Drawing.Point(391, 27);
-            this.idTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.ReadOnly = true;
-            this.idTextBox.Size = new System.Drawing.Size(113, 20);
-            this.idTextBox.TabIndex = 5;
-            // 
-            // creationTextBox
-            // 
-            this.creationTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.creationTextBox.Location = new System.Drawing.Point(391, 50);
-            this.creationTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.creationTextBox.Name = "creationTextBox";
-            this.creationTextBox.ReadOnly = true;
-            this.creationTextBox.Size = new System.Drawing.Size(113, 20);
-            this.creationTextBox.TabIndex = 6;
-            // 
-            // statusComboBox
-            // 
-            this.statusComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.statusComboBox.FormattingEnabled = true;
-            this.statusComboBox.Location = new System.Drawing.Point(391, 75);
-            this.statusComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.statusComboBox.Name = "statusComboBox";
-            this.statusComboBox.Size = new System.Drawing.Size(113, 21);
-            this.statusComboBox.TabIndex = 7;
-            this.statusComboBox.SelectedIndexChanged += new System.EventHandler(this.StatusComboBox_SelectedIndexChanged);
-            // 
-            // ordersLabel
-            // 
-            this.ordersLabel.AutoSize = true;
-            this.ordersLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ordersLabel.Location = new System.Drawing.Point(9, 9);
-            this.ordersLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.ordersLabel.Name = "ordersLabel";
-            this.ordersLabel.Size = new System.Drawing.Size(55, 16);
-            this.ordersLabel.TabIndex = 8;
-            this.ordersLabel.Text = "Orders";
-            // 
-            // ordersItemsLabel
-            // 
-            this.ordersItemsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ordersItemsLabel.AutoSize = true;
-            this.ordersItemsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ordersItemsLabel.Location = new System.Drawing.Point(324, 268);
-            this.ordersItemsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.ordersItemsLabel.Name = "ordersItemsLabel";
-            this.ordersItemsLabel.Size = new System.Drawing.Size(96, 16);
-            this.ordersItemsLabel.TabIndex = 9;
-            this.ordersItemsLabel.Text = "Orders Items";
-            // 
-            // ordersItemsListBox
-            // 
-            this.ordersItemsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ordersItemsListBox.FormattingEnabled = true;
-            this.ordersItemsListBox.Location = new System.Drawing.Point(327, 290);
-            this.ordersItemsListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.ordersItemsListBox.Name = "ordersItemsListBox";
-            this.ordersItemsListBox.Size = new System.Drawing.Size(437, 121);
-            this.ordersItemsListBox.TabIndex = 10;
-            // 
-            // amountLabel
-            // 
-            this.amountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.amountLabel.AutoSize = true;
-            this.amountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.amountLabel.Location = new System.Drawing.Point(692, 413);
-            this.amountLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.amountLabel.Name = "amountLabel";
-            this.amountLabel.Size = new System.Drawing.Size(63, 16);
-            this.amountLabel.TabIndex = 11;
-            this.amountLabel.Text = "Amount:";
-            // 
-            // costLabel
-            // 
-            this.costLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.costLabel.AutoSize = true;
-            this.costLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.costLabel.Location = new System.Drawing.Point(695, 433);
-            this.costLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.costLabel.Name = "costLabel";
-            this.costLabel.Size = new System.Drawing.Size(60, 24);
-            this.costLabel.TabIndex = 12;
-            this.costLabel.Text = "00,00";
             this.splitContainer1.Panel2.Controls.Add(this.addressControl);
-            this.splitContainer1.Panel2.Controls.Add(this.ordersItemsListBox);
             this.splitContainer1.Panel2.Controls.Add(this.priorityPanel);
-            this.splitContainer1.Panel2.Controls.Add(this.selectedOrderLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.idLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.costLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.createdLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.amountLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.statusLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.idTextBox);
-            this.splitContainer1.Panel2.Controls.Add(this.ordersItemsLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.creationTextBox);
-            this.splitContainer1.Panel2.Controls.Add(this.statusComboBox);
             this.splitContainer1.Size = new System.Drawing.Size(1047, 648);
             this.splitContainer1.SplitterDistance = 536;
             this.splitContainer1.TabIndex = 0;
@@ -284,15 +137,7 @@ namespace OOP.View.Tabs
             this.Status.ReadOnly = true;
             // 
             // ordersLabel
-            //
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(13, 4);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 16);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Priority Options";
+            // 
             this.ordersLabel.AutoSize = true;
             this.ordersLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ordersLabel.Location = new System.Drawing.Point(-1, 10);
@@ -303,34 +148,20 @@ namespace OOP.View.Tabs
             this.ordersLabel.Text = "Orders";
             // 
             // addressControl
-            //
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 25);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 13);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Delivery Time:";
+            // 
             this.addressControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.addressControl.Location = new System.Drawing.Point(14, 107);
+            this.addressControl.Location = new System.Drawing.Point(2, 124);
             this.addressControl.Margin = new System.Windows.Forms.Padding(2);
             this.addressControl.Name = "addressControl";
-            this.addressControl.Size = new System.Drawing.Size(479, 165);
-            this.addressControl.TabIndex = 47;
+            this.addressControl.Size = new System.Drawing.Size(494, 165);
+            this.addressControl.TabIndex = 19;
             // 
             // ordersItemsListBox
             // 
             this.ordersItemsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.deliveryTimeComboBox.FormattingEnabled = true;
-            this.deliveryTimeComboBox.Location = new System.Drawing.Point(91, 22);
-            this.deliveryTimeComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.deliveryTimeComboBox.Name = "deliveryTimeComboBox";
-            this.deliveryTimeComboBox.Size = new System.Drawing.Size(113, 21);
-            this.deliveryTimeComboBox.TabIndex = 17;
-            this.deliveryTimeComboBox.SelectedIndexChanged += new System.EventHandler(this.DeliveryTimeComboBox_SelectedIndexChanged);
             this.ordersItemsListBox.FormattingEnabled = true;
             this.ordersItemsListBox.Location = new System.Drawing.Point(14, 291);
             this.ordersItemsListBox.Margin = new System.Windows.Forms.Padding(2);
@@ -344,7 +175,7 @@ namespace OOP.View.Tabs
             this.priorityPanel.Controls.Add(this.label1);
             this.priorityPanel.Controls.Add(this.deliveryTimeComboBox);
             this.priorityPanel.Controls.Add(this.label2);
-            this.priorityPanel.Location = new System.Drawing.Point(286, 6);
+            this.priorityPanel.Location = new System.Drawing.Point(297, 10);
             this.priorityPanel.Name = "priorityPanel";
             this.priorityPanel.Size = new System.Drawing.Size(207, 96);
             this.priorityPanel.TabIndex = 46;
@@ -365,11 +196,6 @@ namespace OOP.View.Tabs
             this.deliveryTimeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.addressControl.Location = new System.Drawing.Point(324, 106);
-            this.addressControl.Margin = new System.Windows.Forms.Padding(2);
-            this.addressControl.Name = "addressControl";
-            this.addressControl.Size = new System.Drawing.Size(440, 165);
-            this.addressControl.TabIndex = 19;
             this.deliveryTimeComboBox.FormattingEnabled = true;
             this.deliveryTimeComboBox.Location = new System.Drawing.Point(91, 22);
             this.deliveryTimeComboBox.Margin = new System.Windows.Forms.Padding(2);
@@ -508,8 +334,6 @@ namespace OOP.View.Tabs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.addressControl);
-            this.Controls.Add(this.priorityPanel);
             this.Controls.Add(this.informationTable);
             this.Controls.Add(this.costLabel);
             this.Controls.Add(this.amountLabel);
@@ -523,24 +347,19 @@ namespace OOP.View.Tabs
             this.Controls.Add(this.createdLabel);
             this.Controls.Add(this.idLabel);
             this.Controls.Add(this.selectedOrderLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "ordersTab";
-            this.Size = new System.Drawing.Size(775, 515);
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ordersTab";
             this.Size = new System.Drawing.Size(1047, 648);
             this.Load += new System.EventHandler(this.OrdersTab_Load);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.informationTable)).EndInit();
             this.priorityPanel.ResumeLayout(false);
             this.priorityPanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

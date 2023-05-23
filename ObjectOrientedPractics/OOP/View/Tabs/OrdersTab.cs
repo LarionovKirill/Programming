@@ -71,7 +71,7 @@ namespace OOP.View.Tabs
         /// <summary>
         /// Заполянет поля обычного заказа.
         /// </summary>
-        private void FillOrder(Model.Order order)
+        private void FillOrder(Order order)
         {
             idTextBox.Text = order.Id.ToString();
             creationTextBox.Text = order.DateOfCreate.ToString("dd.MM.yyyy");

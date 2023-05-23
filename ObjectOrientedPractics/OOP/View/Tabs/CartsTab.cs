@@ -142,8 +142,6 @@ namespace OOP.View.Tabs
                         var temp = (PointsDiscount)CurrentCustomer.Discounts[indexDiscount-1];
                         temp.Discount = decimal.Parse(discountCostLabel.Text);
                     }
-                        Model.OrderStatus.New,
-                        DateTime.Now);
                     newOrder.Items.AddRange(CurrentCustomer.Cart.ListOfGoods);
                     CurrentCustomer.Orders.Add(newOrder);
                     
