@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace OOP.Services
 {
     /// <summary>
-    /// Класс помогает в передвчи перечисления.
+    /// Класс помогает в передаче перечисления.
     /// </summary>
     static class EnumGetter
     {

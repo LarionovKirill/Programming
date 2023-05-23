@@ -158,22 +158,19 @@ namespace OOP.View.Tabs
             if (informationTable.CurrentRow != null)
             {
                 var index = informationTable.CurrentRow.Index;
-                if (index >= 0)
+                if (index >= 0 && Orders[index].GetType() == typeof(Model.PriorityOrder))
                 {
-                    if (Orders[index].GetType() == typeof(Model.PriorityOrder))
+                    var order = (Model.PriorityOrder)Orders[index];
+                    var dict = Services.EnumGetter.GetDeliveryTime();
+                    foreach (var time in dict)
                     {
-                        var order = (Model.PriorityOrder)Orders[index];
-                        var dict = Services.EnumGetter.GetDeliveryTime();
-                        foreach (var time in dict)
+                        if (time.Value == deliveryTimeComboBox.SelectedItem.ToString())
                         {
-                            if (time.Value == deliveryTimeComboBox.SelectedItem.ToString())
-                            {
-                                order.DeliveryTime = time.Key;
-                                break;
-                            }
+                            order.DeliveryTime = time.Key;
+                            break;
                         }
-                        Orders[index] = order;
                     }
+                    Orders[index] = order;
                 }
             }
         }
