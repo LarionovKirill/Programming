@@ -39,11 +39,14 @@ namespace OOP
         {
             InitializeComponent();
             Store.Items = Services.ItemGenerator.GenerateListOfItems();
-            itemsTab.Items = Store.Items;
-            itemsTab.UpdateInformation();
+
+            itemsTab1.Items = Store.Items;
+            itemsTab1.UpdateInformation();
+
             Store.Customers = Services.CustomerGenerator.GenerateListOfCustomers();
             customerTab2.Customers = Store.Customers;
             customerTab2.UpdateInformation();
+
             cartsTab.Customers = Store.Customers;
             cartsTab.Items = Store.Items;
         }

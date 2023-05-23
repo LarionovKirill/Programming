@@ -69,8 +69,11 @@ namespace OOP.View.Tabs
         /// </summary>
         public void RefreshData() 
         {
+            //Очистка поля.
             itemsListBox.Items.Clear();
             customerComboBox.Items.Clear();
+
+            //Заполнение полей обновленными значениями.
             foreach (var customer in Customers)
             {
                 customerComboBox.Items.Add(customer.FullName);
@@ -139,6 +142,12 @@ namespace OOP.View.Tabs
                         var temp = (PointsDiscount)CurrentCustomer.Discounts[indexDiscount-1];
                         temp.Discount = decimal.Parse(discountCostLabel.Text);
                     }
+                        Model.OrderStatus.New,
+                        DateTime.Now);
+                    newOrder.Items.AddRange(CurrentCustomer.Cart.ListOfGoods);
+                    CurrentCustomer.Orders.Add(newOrder);
+                    
+                    //Очищение корзины.
                     CurrentCustomer.Cart.ListOfGoods.Clear();
                     cartListBox.Items.Clear();
                     amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
@@ -162,6 +171,8 @@ namespace OOP.View.Tabs
                         }
                         discount.Update(CurrentCustomer.Cart.ListOfGoods);
                     }
+
+                    //Очищение корзины.
                     CurrentCustomer.Cart.ListOfGoods.Clear();
                     cartListBox.Items.Clear();
                     amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();

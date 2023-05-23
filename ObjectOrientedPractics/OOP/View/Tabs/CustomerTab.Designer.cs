@@ -253,7 +253,7 @@ namespace OOP.View
             this.removeDiscountButton.Text = "Remove";
             this.removeDiscountButton.UseVisualStyleBackColor = true;
             this.removeDiscountButton.Click += new System.EventHandler(this.RemoveDiscountButton_Click);
-            // 
+            //
             // CustomerTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

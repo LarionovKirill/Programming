@@ -71,7 +71,7 @@ namespace OOP.View.Tabs
         /// <summary>
         /// Заполянет поля обычного заказа.
         /// </summary>
-        private void FillBasicOrder(Order order)
+        private void FillOrder(Model.Order order)
         {
             idTextBox.Text = order.Id.ToString();
             creationTextBox.Text = order.DateOfCreate.ToString("dd.MM.yyyy");
@@ -83,33 +83,15 @@ namespace OOP.View.Tabs
             {
                 ordersItemsListBox.Items.Add(items.Name);
             }
-
             costLabel.Text = order.FullCost.ToString();
-        }
 
-
-        /// <summary>
-        /// Заполянет поля обычного заказа.
-        /// </summary>
-        private void FillPriorityOrder(PriorityOrder order)
-        {
-            idTextBox.Text = order.Id.ToString();
-            creationTextBox.Text = order.DateOfCreate.ToString("dd.MM.yyyy");
-            statusComboBox.SelectedItem = order.OrderStatus;
-            var currentAddress = order.Address;
-            addressControl.FillAddress(currentAddress);
-
-            foreach (var items in order.Items)
+            if (order.GetType() == typeof(PriorityOrder))
             {
-                ordersItemsListBox.Items.Add(items.Name);
+                var dict = Services.EnumGetter.GetDeliveryTime();
+                var priority = (PriorityOrder)order;
+                deliveryTimeComboBox.SelectedItem = dict[priority.DeliveryTime];
             }
-
-            costLabel.Text = order.FullCost.ToString();
-            var dict = Services.EnumGetter.GetDeliveryTime();
-            deliveryTimeComboBox.SelectedItem = dict[order.DeliveryTime];
         }
-
-
 
         /// <summary>
         /// Метод заполняет поля формы при нажатии элемента таблицы.
@@ -122,12 +104,12 @@ namespace OOP.View.Tabs
                 ordersItemsListBox.Items.Clear();
                 if (Orders[index].GetType() == typeof(Order))
                 {
-                    FillBasicOrder(Orders[index]);
+                    FillOrder(Orders[index]);
                     priorityPanel.Visible = false;
                 }
                 else if (Orders[index].GetType() == typeof(PriorityOrder))
                 {
-                    FillPriorityOrder((PriorityOrder)Orders[index]);
+                    FillOrder(Orders[index]);
                     priorityPanel.Visible = true;
                 }
             }
@@ -165,6 +147,7 @@ namespace OOP.View.Tabs
                 {
                     Orders[index].OrderStatus = (OrderStatus)Enum.Parse(typeof(OrderStatus),
                         statusComboBox.SelectedItem.ToString());
+                    UpdateInformation();
                 }
             }
         }
@@ -177,22 +160,19 @@ namespace OOP.View.Tabs
             if (informationTable.CurrentRow != null)
             {
                 var index = informationTable.CurrentRow.Index;
-                if (index >= 0)
+                if (index >= 0 && Orders[index].GetType() == typeof(PriorityOrder))
                 {
-                    if (Orders[index].GetType() == typeof(PriorityOrder))
+                    var order = (PriorityOrder)Orders[index];
+                    var dict = Services.EnumGetter.GetDeliveryTime();
+                    foreach (var time in dict)
                     {
-                        var order = (PriorityOrder)Orders[index];
-                        var dict = Services.EnumGetter.GetDeliveryTime();
-                        foreach (var time in dict)
+                        if (time.Value == deliveryTimeComboBox.SelectedItem.ToString())
                         {
-                            if (time.Value == deliveryTimeComboBox.SelectedItem.ToString())
-                            {
-                                order.DeliveryTime = time.Key;
-                                break;
-                            }
+                            order.DeliveryTime = time.Key;
+                            break;
                         }
-                        Orders[index] = order;
                     }
+                    Orders[index] = order;
                 }
             }
         }
