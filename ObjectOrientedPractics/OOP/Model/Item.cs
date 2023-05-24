@@ -7,7 +7,7 @@ namespace OOP.Model
 	/// Класс товар.
 	/// </summary>
 	[Serializable]
-	public class Item
+	public class Item :ICloneable, IEquatable<Item>
 	{
 		/// <summary>
 		/// Название товара.
@@ -103,12 +103,64 @@ namespace OOP.Model
 			item.Name = this.Name;
 			item.Cost = this.Cost;
 		}
-			
 
 		/// <summary>
-		/// Конструктор без параметров.
+		/// Реализация копирования от стандартного интерфейса ICloneable.
 		/// </summary>
-		public Item()
+		/// <returns>Возвращает копию объекта класса <see cref="Item"/>.</returns>
+		public object Clone()
+		{
+			return new Item(this.Name,this.Info,this.Cost, this.ItemCategory); 
+		}
+
+		/// <summary>
+		/// Перегрузка метода Equals.
+		/// </summary>
+		/// <param name="other">Сравниваемый объект.</param>
+		/// <returns>True, если равны названия, тип товара и цена, иначе false.</returns>
+		public override bool Equals(object other)
+        {
+			//Проверка на наличие объекта.
+			if (other == null)
+			{
+				return false;
+			}
+
+			//Проверка на один тип.
+			if (other.GetType() != typeof(Item))
+			{
+				return false;
+			}
+
+			//Проверка на одинаковые ссылки.
+			if (object.ReferenceEquals(this, other))
+			{
+				return true;
+			}
+
+			var item2 = (Item)other;
+			return (item2.Name == this.Name && 
+				item2.ItemCategory == this.ItemCategory &&
+				item2.Cost == this.Cost);
+		}
+
+
+		/// <summary>
+		/// Перегрузка метода Equals.
+		/// </summary>
+		/// <param name="other">Сравниваемый объект тип Item</param>
+		/// <returns>True, если равны названия, тип товара и цена, иначе false.</returns>
+		public bool Equals(Item other)
+		{
+			return (other.Name == this.Name &&
+				other.ItemCategory == this.ItemCategory &&
+				other.Cost == this.Cost);
+		}
+
+        /// <summary>
+        /// Конструктор без параметров.
+        /// </summary>
+        public Item()
 		{
 
 		}
