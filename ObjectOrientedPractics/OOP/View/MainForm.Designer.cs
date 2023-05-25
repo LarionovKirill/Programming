@@ -40,8 +40,10 @@ namespace OOP
             this.itemsTabPage = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.itemsTab1 = new OOP.View.Tabs.ItemsTab();
+            this.testPage = new System.Windows.Forms.TabPage();
             this.customerTab1 = new OOP.View.CustomerTab();
             this.itemsTab = new OOP.View.Tabs.ItemsTab();
+            this.testControl1 = new OOP.View.Tabs.TestControl();
             this.tabPage2.SuspendLayout();
             this.orderPanel.SuspendLayout();
             this.cartsTabPage.SuspendLayout();
@@ -49,6 +51,7 @@ namespace OOP
             this.tabControl.SuspendLayout();
             this.itemsTabPage.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.testPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -79,7 +82,7 @@ namespace OOP
             this.ordersTab1.Location = new System.Drawing.Point(0, 0);
             this.ordersTab1.Margin = new System.Windows.Forms.Padding(2);
             this.ordersTab1.Name = "ordersTab1";
-            this.ordersTab1.Size = new System.Drawing.Size(1022, 694);
+            this.ordersTab1.Size = new System.Drawing.Size(1178, 670);
             this.ordersTab1.TabIndex = 0;
             // 
             // cartsTabPage
@@ -99,7 +102,7 @@ namespace OOP
             this.cartsTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cartsTab.Location = new System.Drawing.Point(2, 2);
             this.cartsTab.Name = "cartsTab";
-            this.cartsTab.Size = new System.Drawing.Size(1022, 694);
+            this.cartsTab.Size = new System.Drawing.Size(1178, 670);
             this.cartsTab.TabIndex = 0;
             // 
             // tabPage1
@@ -120,7 +123,7 @@ namespace OOP
             this.customerTab2.Location = new System.Drawing.Point(2, 2);
             this.customerTab2.Margin = new System.Windows.Forms.Padding(2);
             this.customerTab2.Name = "customerTab2";
-            this.customerTab2.Size = new System.Drawing.Size(1022, 694);
+            this.customerTab2.Size = new System.Drawing.Size(1178, 670);
             this.customerTab2.TabIndex = 0;
             // 
             // tabControl
@@ -129,6 +132,7 @@ namespace OOP
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.cartsTabPage);
             this.tabControl.Controls.Add(this.tabPage2);
+            this.tabControl.Controls.Add(this.testPage);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Margin = new System.Windows.Forms.Padding(2);
@@ -167,7 +171,18 @@ namespace OOP
             this.itemsTab1.Name = "itemsTab1";
             this.itemsTab1.Size = new System.Drawing.Size(1178, 670);
             this.itemsTab1.TabIndex = 0;
-            //
+            // 
+            // testPage
+            // 
+            this.testPage.Controls.Add(this.testControl1);
+            this.testPage.Location = new System.Drawing.Point(4, 22);
+            this.testPage.Name = "testPage";
+            this.testPage.Padding = new System.Windows.Forms.Padding(3);
+            this.testPage.Size = new System.Drawing.Size(1182, 674);
+            this.testPage.TabIndex = 4;
+            this.testPage.Text = "TestPage";
+            this.testPage.UseVisualStyleBackColor = true;
+            // 
             // customerTab1
             // 
             this.customerTab1.BackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -187,6 +202,14 @@ namespace OOP
             this.itemsTab.Size = new System.Drawing.Size(1083, 635);
             this.itemsTab.TabIndex = 0;
             // 
+            // testControl1
+            // 
+            this.testControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.testControl1.Location = new System.Drawing.Point(3, 3);
+            this.testControl1.Name = "testControl1";
+            this.testControl1.Size = new System.Drawing.Size(1176, 668);
+            this.testControl1.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,6 +226,7 @@ namespace OOP
             this.tabControl.ResumeLayout(false);
             this.itemsTabPage.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.testPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -221,6 +245,8 @@ namespace OOP
         private View.Tabs.CartsTab cartsTab;
         private View.Tabs.ItemsTab itemsTab1;
         private View.CustomerTab customerTab2;
+        private System.Windows.Forms.TabPage testPage;
+        private View.Tabs.TestControl testControl1;
     }
 }
 

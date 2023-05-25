@@ -168,6 +168,7 @@
     <Content Include="Diagrams\Uml лаба 3.jpg" />
     <Content Include="Diagrams\Uml лаба 4.jpg" />
     <Content Include="Diagrams\Uml лаба 5.jpg" />
+    <Content Include="Diagrams\UML лаба 6.jpg" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
