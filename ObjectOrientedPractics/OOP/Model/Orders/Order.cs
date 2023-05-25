@@ -8,7 +8,7 @@ namespace OOP.Model.Orders
     /// Класс заказа.
     /// </summary>
     [Serializable]
-    public class Order
+    public class Order: IEquatable<Order>
     {
         /// <summary>
         /// Свойство id заказа.
@@ -63,6 +63,15 @@ namespace OOP.Model.Orders
         /// </summary>
         public OrderStatus OrderStatus { get; set; }
 
+        /// <summary>
+        /// Перегрузка метода Equals.
+        /// </summary>
+        /// <param name="other">Сравниваемый объект.</param>
+        /// <returns>True, если одинаковый адрес и статус заказа, иначе False.</returns>
+        public bool Equals(Order other)
+        {
+            return (this.Address == other.Address && this.OrderStatus == other.OrderStatus);
+        }
 
         /// <summary>
         /// Конструктор без параметров.

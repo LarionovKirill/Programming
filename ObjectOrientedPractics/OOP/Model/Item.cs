@@ -7,7 +7,7 @@ namespace OOP.Model
 	/// Класс товар.
 	/// </summary>
 	[Serializable]
-	public class Item :ICloneable, IEquatable<Item>
+	public class Item :ICloneable, IEquatable<Item>, IComparable<Item>
 	{
 		/// <summary>
 		/// Название товара.
@@ -157,6 +157,30 @@ namespace OOP.Model
 				other.Cost == this.Cost);
 		}
 
+		/// <summary>
+		/// Реализует сравнение классов <see cref="Item"/> по стоимости.
+		/// </summary>
+		/// <param name="other">Сравниваемый объект.</param>
+		/// <returns>Метод должен возвращать 0, если стоимости равны; 1, если стоимость исходного объекта
+		/// больше передаваемого в метод; и -1, если стоимость исходного объекта меньше 
+		/// передаваемого в метод.
+		/// </returns>
+		public int CompareTo(Item other)
+        {
+			if (this.Cost == other.Cost)
+			{
+				return 0;
+			}
+			else if (this.Cost < other.Cost)
+			{
+				return -1;
+			}
+			else
+			{
+				return 1;
+			}
+        }
+
         /// <summary>
         /// Конструктор без параметров.
         /// </summary>
@@ -172,7 +196,7 @@ namespace OOP.Model
 		/// <param name="info">Информация о товаре.</param>
 		/// <param name="cost">Цена товара.</param>
 		/// <param name="category">Категория товара.</param>
-		public Item(string name, string info, decimal  cost, ItemCategory category)
+		public Item(string name, string info, decimal cost, ItemCategory category)
 		{
 			this.Info = info;
 			this.Name = name;

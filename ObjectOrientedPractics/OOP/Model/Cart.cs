@@ -10,7 +10,7 @@ namespace OOP.Model
     /// Описывает корзину товаров.
     /// </summary>
     [Serializable]
-    public class Cart: ICloneable, IEquatable<Cart>
+    public class Cart: ICloneable
     {
         /// <summary>
         /// Свойство списка товаров.
@@ -47,73 +47,6 @@ namespace OOP.Model
             return new Cart().ListOfGoods = this.ListOfGoods;
         }
 
-        /// <summary>
-        /// Перегрузка метода Equals.
-        /// </summary>
-        /// <param name="other">Сравниваемый объект.</param>
-        /// <returns>True, если равны, иначе false.</returns>
-        public override bool Equals(object other)
-        {
-            //Проверка на наличие объекта.
-            if (other == null)
-            {
-                return false;
-            }
-
-            //Проверка на один тип.
-            if (other.GetType() != typeof(Cart))
-            {
-                return false;
-            }
-
-            //Проверка на одинаковые ссылки.
-            if (object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-
-            //Проверка каждого элемента в списке.
-            var cart2 = (Cart)other;
-            if (cart2.ListOfGoods.Count == this.ListOfGoods.Count)
-            {
-                for (int i = 0; i < this.ListOfGoods.Count; i++)
-                {
-                    if (cart2.ListOfGoods[i] != this.ListOfGoods[i])
-                    {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// Перегрузка метода Equals.
-        /// </summary>
-        /// <param name="other">Сравниваемый объект типа Cart.</param>
-        /// <returns>True, если все товары совпадают, иначе False.</returns>
-        public bool Equals(Cart other)
-        {
-            if (other.ListOfGoods.Count == this.ListOfGoods.Count)
-            {
-                for (int i = 0; i < this.ListOfGoods.Count; i++)
-                {
-                    if (other.ListOfGoods[i] != this.ListOfGoods[i])
-                    {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
         /// <summary>
         /// Конструктор класса корзины.

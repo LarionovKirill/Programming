@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using OOP.Model.Enums;
 
 namespace OOP.Model.Discounts
@@ -6,7 +7,7 @@ namespace OOP.Model.Discounts
     /// <summary>
     /// Класс категорной скидки.
     /// </summary>
-    public class PercentDiscount: IDiscount
+    public class PercentDiscount: IDiscount, IComparable<PercentDiscount>
     {
         /// <summary>
         /// Текущая скидка.
@@ -119,6 +120,30 @@ namespace OOP.Model.Discounts
             get
             {
                 return $"Процентная «{DiscountItemCategory}» - {CurrentDiscount}%";
+            }
+        }
+
+        /// <summary>
+		/// Реализует сравнение классов <see cref="PercentDiscount"/> по размеру скидки.
+		/// </summary>
+		/// <param name="other">Сравниваемый объект.</param>
+		/// <returns>Метод должен возвращать 0, если скидки равны; 1, если скидка исходного объекта
+		/// больше передаваемого в метод; и -1, если скидка исходного объекта меньше 
+		/// передаваемого в метод.
+		/// </returns>
+        public int CompareTo(PercentDiscount other)
+        {
+            if (this.CurrentDiscount == other.CurrentDiscount)
+            {
+                return 0;
+            }
+            else if (this.CurrentDiscount < other.CurrentDiscount)
+            {
+                return -1;
+            }
+            else
+            {
+                return 1;
             }
         }
 
