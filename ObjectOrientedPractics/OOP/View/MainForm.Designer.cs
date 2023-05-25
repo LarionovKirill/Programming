@@ -40,9 +40,6 @@ namespace OOP
             this.itemsTabPage = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.itemsTab1 = new OOP.View.Tabs.ItemsTab();
-            this.customerTab2 = new OOP.View.CustomerTab();
-            this.cartsTab = new OOP.View.Tabs.CartsTab();
-            this.ordersTab1 = new OOP.View.Tabs.ordersTab();
             this.customerTab1 = new OOP.View.CustomerTab();
             this.itemsTab = new OOP.View.Tabs.ItemsTab();
             this.tabPage2.SuspendLayout();
@@ -170,32 +167,6 @@ namespace OOP
             this.itemsTab1.Name = "itemsTab1";
             this.itemsTab1.Size = new System.Drawing.Size(1178, 670);
             this.itemsTab1.TabIndex = 0;
-            // 
-            // customerTab2
-            // 
-            this.customerTab2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customerTab2.Location = new System.Drawing.Point(2, 2);
-            this.customerTab2.Margin = new System.Windows.Forms.Padding(2);
-            this.customerTab2.Name = "customerTab2";
-            this.customerTab2.Size = new System.Drawing.Size(1178, 670);
-            this.customerTab2.TabIndex = 0;
-            // 
-            // cartsTab
-            // 
-            this.cartsTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cartsTab.Location = new System.Drawing.Point(2, 2);
-            this.cartsTab.Name = "cartsTab";
-            this.cartsTab.Size = new System.Drawing.Size(1178, 670);
-            this.cartsTab.TabIndex = 0;
-            // 
-            // ordersTab1
-            // 
-            this.ordersTab1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ordersTab1.Location = new System.Drawing.Point(0, 0);
-            this.ordersTab1.Margin = new System.Windows.Forms.Padding(2);
-            this.ordersTab1.Name = "ordersTab1";
-            this.ordersTab1.Size = new System.Drawing.Size(1178, 670);
-            this.ordersTab1.TabIndex = 0;
             //
             // customerTab1
             // 
