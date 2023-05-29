@@ -171,13 +171,13 @@ namespace OOP.View.Tabs
         /// <param name="currentCustomer">Переданный пользователь.</param>
         private void FillDiscounts(Model.Customer currentCustomer)
         {
-            var a = 0;
+            var discountsCounter = 0;
             discountsCheckedListBox.Items.Clear();
             foreach (var discounts in currentCustomer.Discounts)
             {
                 discountsCheckedListBox.Items.Add(discounts.Info);
-                discountsCheckedListBox.SetItemChecked(a, true);
-                a++;
+                discountsCheckedListBox.SetItemChecked(discountsCounter, true);
+                discountsCounter++;
             }
         }
 
