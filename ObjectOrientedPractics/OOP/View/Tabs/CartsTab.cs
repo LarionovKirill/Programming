@@ -59,7 +59,6 @@ namespace OOP.View.Tabs
                     }
                 }
                 amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
-                CalculateDiscountCost();
                 CalculateTotalCost();
             }
         }
@@ -96,7 +95,6 @@ namespace OOP.View.Tabs
                 CurrentCustomer.Cart.ListOfGoods.Add(Items[selectedItem]);
                 cartListBox.Items.Add(itemsListBox.SelectedItem);
                 amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
-                CalculateDiscountCost();
                 CalculateTotalCost();
             }
             else
@@ -116,7 +114,6 @@ namespace OOP.View.Tabs
                 CurrentCustomer.Cart.ListOfGoods.RemoveAt(selectedIndexInCart);
                 cartListBox.Items.RemoveAt(selectedIndexInCart);
                 amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
-                CalculateDiscountCost();
                 CalculateTotalCost();
             }
         }
@@ -161,7 +158,7 @@ namespace OOP.View.Tabs
                 CurrentCustomer.Cart.ListOfGoods.Clear();
                 cartListBox.Items.Clear();
                 amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
-                CalculateTotalCost();
+                ClearCost();
             }
         }
 
@@ -182,16 +179,23 @@ namespace OOP.View.Tabs
         }
 
         /// <summary>
-        /// Метод считает скидку.
+        /// Метод считает скидку выбранную пользователем.
         /// </summary>
-        private void CalculateDiscountCost()
+        /// <returns>Размер скидки.</returns>
+        private decimal CalculateDiscountCost()
         {
             decimal sale = 0;
+            var discounts = discountsCheckedListBox.CheckedItems;
             for (int i = 0; i < CurrentCustomer.Discounts.Count; i++)
             {
-                sale += CurrentCustomer.Discounts[i].Apply(CurrentCustomer.Cart.ListOfGoods);
+                if (discounts.Contains(CurrentCustomer.Discounts[i].Info))
+                {
+                    sale += 
+                        CurrentCustomer.Discounts[i].Calculate(CurrentCustomer.Cart.ListOfGoods);
+                }
             }
             discountCostLabel.Text = sale.ToString();
+            return sale;
         }
 
         /// <summary>
@@ -199,8 +203,8 @@ namespace OOP.View.Tabs
         /// </summary>
         private void CalculateTotalCost()
         {
-            var sale = decimal.Parse(discountCostLabel.Text);
-            var price = decimal.Parse(amountPriceLabel.Text);
+            var sale = CalculateDiscountCost();
+            var price = CurrentCustomer.Cart.Amount;
             totalCostLabel.Text = (price - sale).ToString();
         }
 
@@ -211,25 +215,46 @@ namespace OOP.View.Tabs
         private void AddPointsToCustomer(Order newOrder)
         {
             newOrder.Items.AddRange(CurrentCustomer.Cart.ListOfGoods);
+            newOrder.DiscountAmount = newOrder.FullCost - CalculateDiscountCost();
             CurrentCustomer.Orders.Add(newOrder);
             foreach (var discount in CurrentCustomer.Discounts)
             {
-                if (discount.GetType() == typeof(PointsDiscount))
+                if (typeof(PointsDiscount) == discount.GetType())
                 {
-                    var temp = (PointsDiscount)discount;
-                    temp.Discount = decimal.Parse(discountCostLabel.Text);
+                    var tempDiscount = (PointsDiscount)discount;
+                    tempDiscount.Discount = decimal.Parse(discountCostLabel.Text);
+                    tempDiscount.Update(CurrentCustomer.Cart.ListOfGoods);
                 }
-                discount.Update(CurrentCustomer.Cart.ListOfGoods);
+                else
+                {
+                    discount.Update(CurrentCustomer.Cart.ListOfGoods);
+                }
             }
 
             //Очищение корзины.
             CurrentCustomer.Cart.ListOfGoods.Clear();
             cartListBox.Items.Clear();
-            CalculateDiscountCost();
             amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
             customerComboBox.SelectedIndex = -1;
             discountsCheckedListBox.Items.Clear();
+            ClearCost();
+        }
+
+        /// <summary>
+        /// Метод обрабатывает нажатие скидки и меняет стоимость заказа.
+        /// </summary>
+        private void DiscountsCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
             CalculateTotalCost();
+        }
+
+        /// <summary>
+        /// Очищает стоимость корзины.
+        /// </summary>
+        private void ClearCost()
+        {
+            totalCostLabel.Text = 0.0m.ToString();
+            discountCostLabel.Text = 0.0m.ToString();
         }
     }
 }
