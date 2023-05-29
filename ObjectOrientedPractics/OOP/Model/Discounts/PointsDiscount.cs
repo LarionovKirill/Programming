@@ -38,6 +38,14 @@ namespace OOP.Model.Discounts
         public decimal Discount { get; set; }
 
         /// <summary>
+        /// Конструктор без параметров.
+        /// </summary>
+        public PointsDiscount()
+        {
+
+        }
+
+        /// <summary>
         /// Принимает на вход список продуктов и возвращает размер скидки, доступной для этого
         /// списка продуктов с текущим количеством баллов.
         /// </summary>
@@ -91,20 +99,12 @@ namespace OOP.Model.Discounts
         /// Строковое поле информации о скидке.
         /// Предоставляет информацию в виде: название скидки - кол-во баллов.
         /// </summary>
-        public string Info 
+        public string Info
         {
             get
             {
                 return $"Накопительная - {Points} балл(ов)";
             }
-        }
-
-        /// <summary>
-        /// Конструктор без параметров.
-        /// </summary>
-        public PointsDiscount()
-        {
-
         }
     }
 }

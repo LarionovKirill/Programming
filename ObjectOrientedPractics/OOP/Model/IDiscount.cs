@@ -32,6 +32,5 @@ namespace OOP.Model
         /// </summary>
         /// <param name="items">Список товаров.</param>
         void Update(List<Item> items);
-
     }
 }

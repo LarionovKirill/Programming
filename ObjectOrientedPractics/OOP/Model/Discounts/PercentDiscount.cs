@@ -48,11 +48,27 @@ namespace OOP.Model.Discounts
             }
         }
 
-
         /// <summary>
         /// Свойство категория товара.
         /// </summary>
         public ItemCategory DiscountItemCategory { get; set; }
+
+        /// <summary>
+        /// Конструктор без параметров.
+        /// </summary>
+        public PercentDiscount()
+        {
+            
+        }
+
+        /// <summary>
+        /// Конструктор с параметрами.
+        /// </summary>
+        /// <param name="discountCategory">Категория скидочных товаров.</param>
+        public PercentDiscount(ItemCategory discountCategory)
+        {
+            this.DiscountItemCategory = discountCategory;
+        }
 
 
         /// <summary>
@@ -122,23 +138,6 @@ namespace OOP.Model.Discounts
             {
                 return $"Процентная «{DiscountItemCategory}» - {CurrentDiscount}%";
             }
-        }
-
-        /// <summary>
-        /// Конструктор без параметров.
-        /// </summary>
-        public PercentDiscount()
-        {
-            
-        }
-
-        /// <summary>
-        /// Конструктор с параметрами.
-        /// </summary>
-        /// <param name="discountCategory">Категория скидочных товаров.</param>
-        public PercentDiscount(ItemCategory discountCategory)
-        {
-            this.DiscountItemCategory = discountCategory;
         }
     }
 }

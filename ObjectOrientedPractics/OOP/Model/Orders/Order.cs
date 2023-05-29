@@ -7,7 +7,6 @@ namespace OOP.Model.Orders
     /// <summary>
     /// Класс заказа.
     /// </summary>
-    [Serializable]
     public class Order
     {
         /// <summary>

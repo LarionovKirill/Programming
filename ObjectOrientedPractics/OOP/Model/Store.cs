@@ -9,7 +9,6 @@ namespace OOP.Model
     /// <summary>
     /// Класс магазина, который хранит товары и пользователей.
     /// </summary>
-    [Serializable]
     public class Store
     {
         /// <summary>
