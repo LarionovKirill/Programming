@@ -229,5 +229,7 @@ namespace OOP.Model
                 this.Street == other.Street &&
                 this.Building == other.Building);
         }
+
+
     }
 }

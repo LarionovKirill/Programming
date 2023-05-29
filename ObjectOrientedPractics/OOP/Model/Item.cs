@@ -129,18 +129,6 @@ namespace OOP.Model
 
 
 		/// <summary>
-		/// Копирует информацию из вызващего класса.
-		/// </summary>
-		public void CopyInformation(Item item)
-		{
-			item.Id = this.Id;
-			item.Info = this.Info;
-			item.ItemCategory = this.ItemCategory;
-			item.Name = this.Name;
-			item.Cost = this.Cost;
-		}
-
-		/// <summary>
 		/// Реализация копирования от стандартного интерфейса ICloneable.
 
 
