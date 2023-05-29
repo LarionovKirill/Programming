@@ -24,15 +24,7 @@ namespace OOP.View.Forms
             {
                 discountsComboBox.Items.Add(item);
             }
-        }
-
-        /// <summary>
-        /// Кнопка подтверждения выбора скидки.
-        /// </summary>
-
-        private void OkButton_Click(object sender, EventArgs e)
-        {
-
+            discountsComboBox.SelectedIndex = 0;
         }
     }
 }
