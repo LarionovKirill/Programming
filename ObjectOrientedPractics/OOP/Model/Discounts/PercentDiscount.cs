@@ -6,7 +6,7 @@ namespace OOP.Model.Discounts
     /// <summary>
     /// Класс категорной скидки.
     /// </summary>
-    public class PercentDiscount: IDiscount
+    public class PercentDiscount : IDiscount
     {
         /// <summary>
         /// Текущая скидка.
