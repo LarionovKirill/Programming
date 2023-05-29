@@ -47,6 +47,8 @@ namespace OOP.Model.Discounts
                 _amountSpent = value;
             }
         }
+
+
         /// <summary>
         /// Свойство категория товара.
         /// </summary>
