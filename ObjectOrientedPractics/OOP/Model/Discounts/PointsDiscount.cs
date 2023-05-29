@@ -39,7 +39,7 @@ namespace OOP.Model.Discounts
         /// списка продуктов с текущим количеством баллов.
         /// </summary>
         /// <param name="items">Список продуктов.</param>
-        /// <returns></returns>
+        /// <returns>Возвращает скидку на товар учитывая количество баллов у пользователя.</returns>
         public decimal Calculate(List<Item> items)
         {
             var sum = 0m;
@@ -61,7 +61,7 @@ namespace OOP.Model.Discounts
         /// Применяет скидку к тoварам.
         /// </summary>
         /// <param name="items">Список товаров.</param>
-        /// <returns></returns>
+        /// <returns>Считает скидку и списывает баллы у пользователя.</returns>
         public decimal Apply(List<Item> items)
         {
             var sale = Calculate(items);
