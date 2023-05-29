@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace OOP.Model.Discounts
 {
+    /// <summary>
+    /// Класс накопительной скидки (Хранит баллы пользователя). 
+    /// </summary>
     public class PointsDiscount : IDiscount, IComparable<PointsDiscount>
     {
         /// <summary>
@@ -35,11 +38,19 @@ namespace OOP.Model.Discounts
         public decimal Discount { get; set; }
 
         /// <summary>
+        /// Конструктор без параметров.
+        /// </summary>
+        public PointsDiscount()
+        {
+
+        }
+
+        /// <summary>
         /// Принимает на вход список продуктов и возвращает размер скидки, доступной для этого
         /// списка продуктов с текущим количеством баллов.
         /// </summary>
         /// <param name="items">Список продуктов.</param>
-        /// <returns></returns>
+        /// <returns>Возвращает скидку на товар учитывая количество баллов у пользователя.</returns>
         public decimal Calculate(List<Item> items)
         {
             var sum = 0m;
@@ -61,7 +72,7 @@ namespace OOP.Model.Discounts
         /// Применяет скидку к тoварам.
         /// </summary>
         /// <param name="items">Список товаров.</param>
-        /// <returns></returns>
+        /// <returns>Считает скидку и списывает баллы у пользователя.</returns>
         public decimal Apply(List<Item> items)
         {
             var sale = Calculate(items);
@@ -112,20 +123,12 @@ namespace OOP.Model.Discounts
         /// Строковое поле информации о скидке.
         /// Предоставляет информацию в виде: название скидки - кол-во баллов.
         /// </summary>
-        public string Info 
+        public string Info
         {
             get
             {
                 return $"Накопительная - {Points} балл(ов)";
             }
-        }
-
-        /// <summary>
-        /// Конструктор без параметров.
-        /// </summary>
-        public PointsDiscount()
-        {
-
         }
     }
 }

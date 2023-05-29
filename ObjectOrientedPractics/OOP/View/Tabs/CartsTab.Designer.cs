@@ -187,6 +187,7 @@ namespace OOP.View.Tabs
             this.discountsCheckedListBox.Name = "discountsCheckedListBox";
             this.discountsCheckedListBox.Size = new System.Drawing.Size(216, 135);
             this.discountsCheckedListBox.TabIndex = 13;
+            this.discountsCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.DiscountsCheckedListBox_SelectedIndexChanged);
             // 
             // discountsLabel
             // 

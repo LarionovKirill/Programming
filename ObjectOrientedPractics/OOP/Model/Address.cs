@@ -9,8 +9,7 @@ namespace OOP.Model
     /// <summary>
     /// Класс хранит информацию об адресе пользователя.
     /// </summary>
-    [Serializable]
-    public class Address: ICloneable, IEquatable<Address>
+    public class Address : ICloneable, IEquatable<Address>
     {
         /// <summary>
         /// Почтовый индекс пользователя.
@@ -139,65 +138,6 @@ namespace OOP.Model
         }
 
         /// <summary>
-        /// Реализация копирования от стандартного интерфейса ICloneable.
-        /// </summary>
-        /// <returns>Возвращает копию объекта класса <see cref="Address"/>.</returns>
-        public object Clone()
-        {
-            return new Address(
-                this.Index, 
-                this.Country, 
-                this.City, 
-                this.Street, 
-                this.Building, 
-                this.Apartment);
-        }
-
-        /// <summary>
-        /// Перегрузка метода Equals.
-        /// </summary>
-        /// <param name="other">Сравниваемый объект.</param>
-        /// <returns>True, если равны, иначе false.</returns>
-        public override bool Equals(object other)
-        {
-            //Проверка на наличие объекта.
-            if (other == null)
-            {
-                return false;
-            }
-
-            //Проверка на один тип.
-            if (other.GetType() != typeof(Address))
-            {
-                return false;
-            }
-
-            //Проверка на одинаковые ссылки.
-            if (object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-
-            var address2 = (Address)other;
-
-            return (this.Index == address2.Index && 
-                this.Street == address2.Street &&
-                this.Building == address2.Building);
-        }
-
-        /// <summary>
-        /// Перегрузка метода Equals.
-        /// </summary>
-        /// <param name="other">Сравниваемый объект типа Address.</param>
-        /// <returns>True, если равны индекс, улица и здание, иначе False.</returns>
-        public bool Equals(Address other)
-        {
-            return (this.Index == other.Index &&
-                this.Street == other.Street &&
-                this.Building == other.Building);
-        }
-
-        /// <summary>
         /// Конструктор без параметров.
         /// </summary>
         public Address()
@@ -228,6 +168,66 @@ namespace OOP.Model
             this.Street = street;
             this.Building = building;
             this.Apartment = apartment;
+        }
+
+
+        /// <summary>
+        /// Реализация копирования от стандартного интерфейса ICloneable.
+        /// </summary>
+        /// <returns>Возвращает копию объекта класса <see cref="Address"/>.</returns>
+        public object Clone()
+        {
+            return new Address(
+                this.Index,
+                this.Country,
+                this.City,
+                this.Street,
+                this.Building,
+                this.Apartment);
+        }
+
+        /// <summary>
+        /// Перегрузка метода Equals.
+        /// </summary>
+        /// <param name="other">Сравниваемый объект.</param>
+        /// <returns>True, если равны, иначе false.</returns>
+        public override bool Equals(object other)
+        {
+            //Проверка на наличие объекта.
+            if (other == null)
+            {
+                return false;
+            }
+
+            //Проверка на один тип.
+            if (other.GetType() != typeof(Address))
+            {
+                return false;
+            }
+
+            //Проверка на одинаковые ссылки.
+            if (object.ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            var address2 = (Address)other;
+
+            return (this.Index == address2.Index &&
+                this.Street == address2.Street &&
+                this.Building == address2.Building);
+        }
+
+        /// <summary>
+        /// Перегрузка метода Equals.
+        /// </summary>
+        /// <param name="other">Сравниваемый объект типа Address.</param>
+        /// <returns>True, если равны индекс, улица и здание, иначе False.</returns>
+        public bool Equals(Address other)
+        {
+            return (this.Index == other.Index &&
+                this.Street == other.Street &&
+                this.Building == other.Building);
         }
     }
 }

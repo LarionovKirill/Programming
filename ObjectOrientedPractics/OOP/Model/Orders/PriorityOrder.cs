@@ -8,7 +8,6 @@ namespace OOP.Model.Orders
     /// Наследуется от класса
     /// <see cref="Order"></see>
     /// </summary>
-    [Serializable]
     public class PriorityOrder : Order
     {
         /// <summary>

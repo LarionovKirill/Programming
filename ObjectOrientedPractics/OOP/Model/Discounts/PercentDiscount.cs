@@ -7,7 +7,7 @@ namespace OOP.Model.Discounts
     /// <summary>
     /// Класс категорной скидки.
     /// </summary>
-    public class PercentDiscount: IDiscount, IComparable<PercentDiscount>
+    public class PercentDiscount : IDiscount, IComparable<PercentDiscount>
     {
         /// <summary>
         /// Текущая скидка.
@@ -48,6 +48,7 @@ namespace OOP.Model.Discounts
                 _amountSpent = value;
             }
         }
+
         /// <summary>
         /// Свойство категория товара.
         /// </summary>
@@ -55,11 +56,65 @@ namespace OOP.Model.Discounts
 
 
         /// <summary>
+        /// Строковое поле информации о скидке.
+        /// Предоставляет информацию в виде: название скидки - кол-во баллов.
+        /// </summary>
+        public string Info
+        {
+            get
+            {
+                return $"Процентная «{DiscountItemCategory}» - {CurrentDiscount}%";
+            }
+        }
+
+        /// <summary>
+        /// Конструктор без параметров.
+        /// </summary>
+        public PercentDiscount()
+        {
+            
+        }
+
+        /// <summary>
+        /// Конструктор с параметрами.
+        /// </summary>
+        /// <param name="discountCategory">Категория скидочных товаров.</param>
+        public PercentDiscount(ItemCategory discountCategory)
+        {
+            this.DiscountItemCategory = discountCategory;
+        }
+
+        /// <summary>
+		/// Реализует сравнение классов <see cref="PercentDiscount"/> по размеру скидки.
+		/// </summary>
+		/// <param name="other">Сравниваемый объект.</param>
+		/// <returns>Метод должен возвращать 0, если скидки равны; 1, если скидка исходного объекта
+		/// больше передаваемого в метод; и -1, если скидка исходного объекта меньше 
+		/// передаваемого в метод.
+		/// </returns>
+        public int CompareTo(PercentDiscount other)
+        {
+            if (this.CurrentDiscount == other.CurrentDiscount)
+            {
+                return 0;
+            }
+            else if (this.CurrentDiscount < other.CurrentDiscount)
+            {
+                return -1;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+
+
+        /// <summary>
         /// Принимает на вход список продуктов и возвращает размер скидки, доступной для этого
         /// списка продуктов по определенной категории.
         /// </summary>
         /// <param name="items">Список продуктов.</param>
-        /// <returns></returns>
+        /// <returns>Размер скидки на выбранный тип товара.</returns>
         public decimal Calculate(List<Item> items)
         {
             var sum = 0m;
@@ -77,7 +132,7 @@ namespace OOP.Model.Discounts
         /// Применяет скидку к тoварам.
         /// </summary>
         /// <param name="items">Список товаров.</param>
-        /// <returns></returns>
+        /// <returns>Возвращает скидку на тип товара.</returns>
         public decimal Apply(List<Item> items)
         {
             var sale = Calculate(items);
@@ -109,59 +164,6 @@ namespace OOP.Model.Discounts
             {
                 CurrentDiscount = ((int)AmountSpent / 1000) + 1;
             }
-        }
-
-        /// <summary>
-        /// Строковое поле информации о скидке.
-        /// Предоставляет информацию в виде: название скидки - кол-во баллов.
-        /// </summary>
-        public string Info
-        {
-            get
-            {
-                return $"Процентная «{DiscountItemCategory}» - {CurrentDiscount}%";
-            }
-        }
-
-        /// <summary>
-		/// Реализует сравнение классов <see cref="PercentDiscount"/> по размеру скидки.
-		/// </summary>
-		/// <param name="other">Сравниваемый объект.</param>
-		/// <returns>Метод должен возвращать 0, если скидки равны; 1, если скидка исходного объекта
-		/// больше передаваемого в метод; и -1, если скидка исходного объекта меньше 
-		/// передаваемого в метод.
-		/// </returns>
-        public int CompareTo(PercentDiscount other)
-        {
-            if (this.CurrentDiscount == other.CurrentDiscount)
-            {
-                return 0;
-            }
-            else if (this.CurrentDiscount < other.CurrentDiscount)
-            {
-                return -1;
-            }
-            else
-            {
-                return 1;
-            }
-        }
-
-        /// <summary>
-        /// Конструктор без параметров.
-        /// </summary>
-        public PercentDiscount()
-        {
-            
-        }
-
-        /// <summary>
-        /// Конструктор с параметрами.
-        /// </summary>
-        /// <param name="discountCategory">Категория скидочных товаров.</param>
-        public PercentDiscount(ItemCategory discountCategory)
-        {
-            this.DiscountItemCategory = discountCategory;
         }
     }
 }

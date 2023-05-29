@@ -10,7 +10,6 @@ namespace OOP.Model
 	/// <summary>
 	/// Класс хранит пользователя
 	/// </summary>
-	[Serializable]
 	public class Customer
 	{
 		/// <summary>
@@ -76,24 +75,6 @@ namespace OOP.Model
 		/// </summary>
 		public List<IDiscount> Discounts { get; set; }
 
-		/// Копирует информацию в переданный класс.
-		/// </summary>
-		/// <param name="customer">Класс, в котором нужно поменять информацию.</param>
-		public void CopyInformation(Customer customer)
-		{
-			customer.Address.Apartment = this.Address.Apartment;
-			customer.Address.Building = this.Address.Building;
-			customer.Address.City = this.Address.City;
-			customer.Address.Country = this.Address.Country;
-			customer.Address.Index = this.Address.Index;
-			customer.Address.Street = this.Address.Street;
-			customer.Cart = this.Cart;
-			customer.FullName = this.FullName;
-			customer.Orders = this.Orders;
-			customer.Id = this.Id;
-			customer.Discounts = this.Discounts;
-		}
-
 		/// <summary>
 		/// Конструктор без параметров.
 		/// </summary>
@@ -134,5 +115,24 @@ namespace OOP.Model
 			this.Discounts = new List<IDiscount>();
 			this.Discounts.Add(new PointsDiscount());
 		}
+
+		/// Копирует информацию в переданный класс.
+		/// </summary>
+		/// <param name="customer">Класс, в котором нужно поменять информацию.</param>
+		public void CopyInformation(Customer customer)
+		{
+			customer.Address.Apartment = this.Address.Apartment;
+			customer.Address.Building = this.Address.Building;
+			customer.Address.City = this.Address.City;
+			customer.Address.Country = this.Address.Country;
+			customer.Address.Index = this.Address.Index;
+			customer.Address.Street = this.Address.Street;
+			customer.Cart = this.Cart;
+			customer.FullName = this.FullName;
+			customer.Orders = this.Orders;
+			customer.Id = this.Id;
+			customer.Discounts = this.Discounts;
+		}
+
 	}
 }

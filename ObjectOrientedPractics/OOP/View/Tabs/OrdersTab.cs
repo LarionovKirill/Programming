@@ -63,7 +63,7 @@ namespace OOP.View.Tabs
                         order.DateOfCreate.ToString("dd.MM.yyyy"),
                         customer.FullName,
                         GetFormatAddress(order.Address),
-                        order.FullCost,
+                        order.DiscountAmount,
                         order.OrderStatus);
                 }
             }
@@ -84,7 +84,7 @@ namespace OOP.View.Tabs
             {
                 ordersItemsListBox.Items.Add(items.Name);
             }
-            costLabel.Text = order.FullCost.ToString();
+            costLabel.Text = order.DiscountAmount.ToString();
 
             if (order.GetType() == typeof(PriorityOrder))
             {

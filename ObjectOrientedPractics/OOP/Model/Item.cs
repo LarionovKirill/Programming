@@ -6,8 +6,7 @@ namespace OOP.Model
 	/// <summary>
 	/// Класс товар.
 	/// </summary>
-	[Serializable]
-	public class Item :ICloneable, IEquatable<Item>, IComparable<Item>
+	public class Item : ICloneable, IEquatable<Item>, IComparable<Item>
 	{
 		/// <summary>
 		/// Название товара.
@@ -92,6 +91,43 @@ namespace OOP.Model
 		/// </summary>
 		public ItemCategory ItemCategory { get; set; }
 
+        /// <summary>
+        /// Конструктор без параметров.
+        /// </summary>
+        public Item()
+		{
+
+		}
+
+		/// <summary>
+		/// Конструктор с параметрами.
+		/// </summary>
+		/// <param name="name">Имя товара.</param>
+		/// <param name="info">Информация о товаре.</param>
+		/// <param name="cost">Цена товара.</param>
+		/// <param name="category">Категория товара.</param>
+		public Item(string name, string info, decimal cost, ItemCategory category)
+		{
+			this.Info = info;
+			this.Name = name;
+			this.Cost = cost;
+			this.Id = Services.IdGenerator.GetNextItemID();
+			this.ItemCategory = category;
+		}
+
+		/// <summary>
+		/// Копирует информацию из вызващего класса.
+		/// </summary>
+		public void CopyInformation(Item item)
+		{
+			item.Id = this.Id;
+			item.Info = this.Info;
+			item.ItemCategory = this.ItemCategory;
+			item.Name = this.Name;
+			item.Cost = this.Cost;
+		}
+
+
 		/// <summary>
 		/// Копирует информацию из вызващего класса.
 		/// </summary>
@@ -106,11 +142,15 @@ namespace OOP.Model
 
 		/// <summary>
 		/// Реализация копирования от стандартного интерфейса ICloneable.
+
+
+
+		/// Конструктор без параметров.
 		/// </summary>
 		/// <returns>Возвращает копию объекта класса <see cref="Item"/>.</returns>
 		public object Clone()
 		{
-			return new Item(this.Name,this.Info,this.Cost, this.ItemCategory); 
+			return new Item(this.Name,this.Info,this.Cost, this.ItemCategory);
 		}
 
 		/// <summary>
@@ -139,7 +179,7 @@ namespace OOP.Model
 			}
 
 			var item2 = (Item)other;
-			return (item2.Name == this.Name && 
+			return (item2.Name == this.Name &&
 				item2.ItemCategory == this.ItemCategory &&
 				item2.Cost == this.Cost);
 		}
@@ -162,7 +202,7 @@ namespace OOP.Model
 		/// </summary>
 		/// <param name="other">Сравниваемый объект.</param>
 		/// <returns>Метод должен возвращать 0, если стоимости равны; 1, если стоимость исходного объекта
-		/// больше передаваемого в метод; и -1, если стоимость исходного объекта меньше 
+		/// больше передаваемого в метод; и -1, если стоимость исходного объекта меньше
 		/// передаваемого в метод.
 		/// </returns>
 		public int CompareTo(Item other)
@@ -180,29 +220,5 @@ namespace OOP.Model
 				return 1;
 			}
         }
-
-        /// <summary>
-        /// Конструктор без параметров.
-        /// </summary>
-        public Item()
-		{
-
-		}
-
-		/// <summary>
-		/// Конструктор с параметрами.
-		/// </summary>
-		/// <param name="name">Имя товара.</param>
-		/// <param name="info">Информация о товаре.</param>
-		/// <param name="cost">Цена товара.</param>
-		/// <param name="category">Категория товара.</param>
-		public Item(string name, string info, decimal cost, ItemCategory category)
-		{
-			this.Info = info;
-			this.Name = name;
-			this.Cost = cost;
-			this.Id = Services.IdGenerator.GetNextItemID();
-			this.ItemCategory = category;
-		}
 	}
 }

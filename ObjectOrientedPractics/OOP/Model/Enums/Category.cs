@@ -9,7 +9,6 @@ namespace OOP.Model.Enums
     /// <summary>
     /// Перечисление, содержащее категории товаров.
     /// </summary>
-    [Serializable]
     public enum ItemCategory
     {
         Clothes,

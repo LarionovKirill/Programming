@@ -57,6 +57,7 @@ namespace OOP.View.Forms
             // 
             // discountsComboBox
             // 
+            this.discountsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.discountsComboBox.FormattingEnabled = true;
             this.discountsComboBox.Location = new System.Drawing.Point(70, 45);
             this.discountsComboBox.Name = "discountsComboBox";
@@ -72,7 +73,6 @@ namespace OOP.View.Forms
             this.okButton.TabIndex = 3;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // cancelButton
             // 

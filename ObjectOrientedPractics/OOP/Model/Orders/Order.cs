@@ -7,8 +7,7 @@ namespace OOP.Model.Orders
     /// <summary>
     /// Класс заказа.
     /// </summary>
-    [Serializable]
-    public class Order: IEquatable<Order>
+    public class Order : IEquatable<Order>
     {
         /// <summary>
         /// Свойство id заказа.
