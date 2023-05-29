@@ -130,10 +130,6 @@ namespace OOP.Model
 
 		/// <summary>
 		/// Реализация копирования от стандартного интерфейса ICloneable.
-
-
-
-		/// Конструктор без параметров.
 		/// </summary>
 		/// <returns>Возвращает копию объекта класса <see cref="Item"/>.</returns>
 		public object Clone()
