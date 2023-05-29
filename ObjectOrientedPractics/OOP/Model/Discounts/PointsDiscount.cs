@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace OOP.Model.Discounts
 {
+    /// <summary>
+    /// Класс накопительной скидки (Хранит баллы пользователя). 
+    /// </summary>
     public class PointsDiscount : IDiscount
     {
         /// <summary>
