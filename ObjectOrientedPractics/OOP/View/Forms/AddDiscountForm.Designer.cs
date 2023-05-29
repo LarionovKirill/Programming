@@ -57,6 +57,7 @@ namespace OOP.View.Forms
             // 
             // discountsComboBox
             // 
+            this.discountsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.discountsComboBox.FormattingEnabled = true;
             this.discountsComboBox.Location = new System.Drawing.Point(70, 45);
             this.discountsComboBox.Name = "discountsComboBox";
