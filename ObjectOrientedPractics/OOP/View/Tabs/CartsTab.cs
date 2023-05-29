@@ -68,8 +68,11 @@ namespace OOP.View.Tabs
         /// </summary>
         public void RefreshData() 
         {
+            //Очистка поля.
             itemsListBox.Items.Clear();
             customerComboBox.Items.Clear();
+
+            //Заполнение полей обновленными значениями.
             foreach (var customer in Customers)
             {
                 customerComboBox.Items.Add(customer.FullName);
@@ -120,16 +123,34 @@ namespace OOP.View.Tabs
         {
             if (CurrentCustomer != null && cartListBox.Items.Count > 0)
             {
-                DateTime time = DateTime.Now;
-                Model.Order newOrder = new Model.Order(
-                    time.Date,
-                    CurrentCustomer.Address,
-                    Model.OrderStatus.New);
-                newOrder.Items.AddRange(CurrentCustomer.Cart.ListOfGoods);
-                CurrentCustomer.Orders.Add(newOrder);
-                CurrentCustomer.Cart.ListOfGoods.Clear();
-                cartListBox.Items.Clear();
-                amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+                if (CurrentCustomer.IsPriority)
+                {
+                    Model.PriorityOrder newOrder = new Model.PriorityOrder(
+                        CurrentCustomer.Address,
+                        Model.OrderStatus.New,
+                        DateTime.Now);
+                    newOrder.Items.AddRange(CurrentCustomer.Cart.ListOfGoods);
+                    CurrentCustomer.Orders.Add(newOrder);
+                    
+                    //Очищение корзины.
+                    CurrentCustomer.Cart.ListOfGoods.Clear();
+                    cartListBox.Items.Clear();
+                    amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+                }
+                else
+                {
+                    Model.Order newOrder = new Model.Order(
+                        DateTime.Now,
+                        CurrentCustomer.Address,
+                        Model.OrderStatus.New);
+                    newOrder.Items.AddRange(CurrentCustomer.Cart.ListOfGoods);
+                    CurrentCustomer.Orders.Add(newOrder);
+
+                    //Очищение корзины.
+                    CurrentCustomer.Cart.ListOfGoods.Clear();
+                    cartListBox.Items.Clear();
+                    amountPriceLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+                }
             }
             else
             {

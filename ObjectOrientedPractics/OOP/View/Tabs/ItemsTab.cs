@@ -22,18 +22,17 @@ namespace OOP.View.Tabs
         /// <summary>
         /// Флаг режима изменения.
         /// </summary>
-        private bool ChangeMode { get; set; } = false;
-
+        private bool _changeMode { get; set; } = false;
 
         /// <summary>
         /// Флаг режима добавления.
         /// </summary>
-        private bool AddMode { get; set; } = false;
+        private bool _addMode { get; set; } = false;
 
         /// <summary>
         /// Копия товара.
         /// </summary>
-        private Model.Item copyItem { get; set; } = new Model.Item();
+        private Model.Item _copyItem { get; set; } = new Model.Item();
             
         /// <summary>
         /// Метод создающий компоненты формы.
@@ -48,7 +47,29 @@ namespace OOP.View.Tabs
         /// </summary>
         private void AddItemButton_Click(object sender, EventArgs e)
         {
-            AddMode = true;
+            try
+            {
+                //Получение данных с формы.
+                var name = nameItemTextBox.Text;
+                var description = descriptionItemTextBox.Text;
+                var cost = decimal .Parse(costItemTextBox.Text);
+                var category = (Model.ItemCategory)Enum.Parse(typeof(Model.ItemCategory),
+                    categoryComboBox.SelectedItem.ToString());
+               
+                //Добавление объекта в список.
+                Items.Add(new Model.Item(
+                    name,
+                    description,
+                    cost,
+                    category));
+                itemListBox.Items.Add($"Товар : {Items.Last().Id}");
+            }
+            catch
+            {
+                MessageBox.Show("Введите верные значения.");
+            }
+            //Блокировка полей для ввода.
+            _addMode = true;
             ClearFields();
             itemListBox.SelectedIndex = -1;
             OpenFields();
@@ -95,7 +116,7 @@ namespace OOP.View.Tabs
             }
             try
             {
-                copyItem.Cost = decimal.Parse(costItemTextBox.Text);
+                _copyItem.Cost = decimal.Parse(costItemTextBox.Text);
                 costItemTextBox.BackColor = Color.White;
             }
             catch
@@ -111,7 +132,7 @@ namespace OOP.View.Tabs
         {
             try
             {
-                copyItem.Name = nameItemTextBox.Text;
+                _copyItem.Name = nameItemTextBox.Text;
                 nameItemTextBox.BackColor = Color.White;
             }
             catch
@@ -127,7 +148,7 @@ namespace OOP.View.Tabs
         {
             try
             {
-                copyItem.Info = descriptionItemTextBox.Text;
+                _copyItem.Info = descriptionItemTextBox.Text;
                 descriptionItemTextBox.BackColor = Color.White;
             }
             catch
@@ -145,7 +166,7 @@ namespace OOP.View.Tabs
             {
                 var index = itemListBox.SelectedIndex;
                 FillingInTheProductField(Items[index]);
-                if (ChangeMode == true)
+                if (_changeMode == true)
                 {
                     CloseFields();
                 }
@@ -197,7 +218,7 @@ namespace OOP.View.Tabs
         {
             if (itemListBox.SelectedIndex >= 0)
             {
-                ChangeMode = true;
+                _changeMode = true;
                 var index = itemListBox.SelectedIndex;
                 OpenFields();
                 ToCopyItem(Items[index]);
@@ -232,8 +253,8 @@ namespace OOP.View.Tabs
             descriptionItemTextBox.ReadOnly = true;
             nameItemTextBox.ReadOnly = true;
             costItemTextBox.ReadOnly = true;
-            ChangeMode = false;
-            AddMode = false;
+            _changeMode = false;
+            _addMode = false;
         }
 
         /// <summary>
@@ -242,7 +263,7 @@ namespace OOP.View.Tabs
         /// <param name="item"></param>
         private void ToCopyItem(Model.Item item)
         {
-            item.CopyInformation(copyItem);
+            item.CopyInformation(_copyItem);
         }
 
         /// <summary>
@@ -250,7 +271,7 @@ namespace OOP.View.Tabs
         /// </summary>
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (AddMode)
+            if (_addMode)
             {
                 try
                 {
@@ -275,14 +296,14 @@ namespace OOP.View.Tabs
                     MessageBox.Show("Введите верные значения.");
                 }
             }
-            else if (ChangeMode)
+            else if (_changeMode)
             {
                 var index = itemListBox.SelectedIndex;
                 if (costItemTextBox.BackColor == Color.White &&
                     nameItemTextBox.BackColor == Color.White &&
                     descriptionItemTextBox.BackColor == Color.White)
                 {
-                    copyItem.CopyInformation(Items[index]);
+                    _copyItem.CopyInformation(Items[index]);
                     itemListBox.Items.Insert(index, Items[index].Name);
                     itemListBox.Items.RemoveAt(index + 1);
                     MessageBox.Show("Данные успешно сохранены.");
@@ -302,7 +323,7 @@ namespace OOP.View.Tabs
         /// </summary>
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            if (ChangeMode)
+            if (_changeMode)
             {
                 MessageBox.Show("Изменения не были сохранены");
                 itemListBox.SelectedIndex = -1;

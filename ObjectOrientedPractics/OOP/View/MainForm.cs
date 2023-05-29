@@ -38,12 +38,15 @@ namespace OOP
         public MainForm()
         {
             InitializeComponent();
-            Store.Items = Services.ItemGeneretor.GenerateListOfItems();
-            itemsTab2.Items = Store.Items;
-            itemsTab2.UpdateInformation();
+            Store.Items = Services.ItemGenerator.GenerateListOfItems();
+
+            itemsTab1.Items = Store.Items;
+            itemsTab1.UpdateInformation();
+
             Store.Customers = Services.CustomerGenerator.GenerateListOfCustomers();
             customerTab2.Customers = Store.Customers;
             customerTab2.UpdateInformation();
+
             cartsTab.Customers = Store.Customers;
             cartsTab.Items = Store.Items;
         }

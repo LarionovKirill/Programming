@@ -35,6 +35,8 @@ namespace OOP.View
         /// <summary>
         /// Копия пользователя.
         /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Model.Customer Copy { get; set; } = new Model.Customer(); 
 
         public CustomerTab()
@@ -83,6 +85,7 @@ namespace OOP.View
         {
             idCustomerTextBox.Text = current.Id.ToString();
             fullNameTextBox.Text = current.FullName;
+            isPriorityCheckBox.Checked = current.IsPriority;
         }
 
         /// <summary>
@@ -135,6 +138,24 @@ namespace OOP.View
             return addressControl.Address;
         }
 
+        /// <summary>
+        /// Изменяет значение приоритета пользователя.
+        /// </summary>
+        private void IsPriorityCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (customerListBox.SelectedIndex >= 0)
+            {
+                var index = customerListBox.SelectedIndex;
+                if (isPriorityCheckBox.Checked)
+                {
+                    Customers[index].IsPriority = true;
+                }
+                else
+                {
+                    Customers[index].IsPriority = false;
+                }
+            }
+        }
 
         /// <summary>
         /// Дает возможность изменить данные.

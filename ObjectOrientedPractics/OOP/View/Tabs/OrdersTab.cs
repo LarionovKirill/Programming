@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using OOP.Model;
 
 namespace OOP.View.Tabs
 {
@@ -72,6 +68,31 @@ namespace OOP.View.Tabs
         }
 
         /// <summary>
+        /// Заполянет поля обычного заказа.
+        /// </summary>
+        private void FillOrder(Model.Order order)
+        {
+            idTextBox.Text = order.Id.ToString();
+            creationTextBox.Text = order.DateOfCreate.ToString("dd.MM.yyyy");
+            statusComboBox.SelectedItem = order.OrderStatus;
+            var currentAddress = order.Address;
+            addressControl.FillAddress(currentAddress);
+
+            foreach (var items in order.Items)
+            {
+                ordersItemsListBox.Items.Add(items.Name);
+            }
+            costLabel.Text = order.FullCost.ToString();
+
+            if (order.GetType() == typeof(PriorityOrder))
+            {
+                var dict = Services.EnumGetter.GetDeliveryTime();
+                var priority = (PriorityOrder)order;
+                deliveryTimeComboBox.SelectedItem = dict[priority.DeliveryTime];
+            }    
+        }
+
+        /// <summary>
         /// Метод заполняет поля формы при нажатии элемента таблицы.
         /// </summary>
         private void InformationTable_SelectionChanged(object sender, EventArgs e)
@@ -80,16 +101,16 @@ namespace OOP.View.Tabs
             if (index >= 0)
             {
                 ordersItemsListBox.Items.Clear();
-                idTextBox.Text = Orders[index].Id.ToString();
-                creationTextBox.Text = Orders[index].DateOfCreate.ToString("dd.MM.yyyy");
-                statusComboBox.SelectedItem = Orders[index].OrderStatus;
-                var currentAddress = Orders[index].Address;
-                addressControl.FillAddress(currentAddress);
-                foreach (var items in Orders[index].Items)
+                if (Orders[index].GetType() == typeof(Order))
                 {
-                    ordersItemsListBox.Items.Add(items.Name);
+                    FillOrder(Orders[index]);
+                    priorityPanel.Visible = false;
                 }
-                costLabel.Text = Orders[index].FullCost.ToString();
+                else if (Orders[index].GetType() == typeof(PriorityOrder))
+                {
+                    FillOrder(Orders[index]);
+                    priorityPanel.Visible = true;
+                }
             }
         }
 
@@ -104,6 +125,13 @@ namespace OOP.View.Tabs
                 statusComboBox.Items.Add(status);
             }
             statusComboBox.SelectedIndex = 0;
+
+            var TimeDelivery = Services.EnumGetter.GetDeliveryTime();
+
+            foreach (var item in TimeDelivery)
+            {
+                deliveryTimeComboBox.Items.Add(item.Value);
+            }
         }
 
         /// <summary>
@@ -116,10 +144,33 @@ namespace OOP.View.Tabs
                 var index = informationTable.CurrentRow.Index;
                 if (index >= 0)
                 {
-                    Orders[index].OrderStatus = (Model.OrderStatus)Enum.Parse(typeof(Model.OrderStatus),
+                    Orders[index].OrderStatus = (OrderStatus)Enum.Parse(typeof(OrderStatus),
                         statusComboBox.SelectedItem.ToString());
+                    UpdateInformation();
                 }
             }
+        }
+
+        /// <summary>
+        /// Изменяет время доставки заказа.
+        /// </summary>
+        private void DeliveryTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (informationTable.CurrentRow == null)
+            {
+                return;
+            }
+
+            var index = informationTable.CurrentRow.Index;
+            if (index <= 0 || Orders[index].GetType() != typeof(PriorityOrder))
+            {
+                return;
+            }
+
+            var order = (PriorityOrder)Orders[index];
+            var timeIndex = deliveryTimeComboBox.SelectedIndex;
+            order.DeliveryTime = (DeliveryTime)timeIndex;
+            Orders[index] = order;
         }
     }
 }
