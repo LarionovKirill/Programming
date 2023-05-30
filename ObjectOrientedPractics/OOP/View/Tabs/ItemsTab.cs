@@ -74,7 +74,6 @@ namespace OOP.View.Tabs
             }
         }
 
-
         /// <summary>
         /// Удаляет товар из списка.
         /// </summary>
@@ -182,6 +181,23 @@ namespace OOP.View.Tabs
                 categoryComboBox.Items.Add(items);
             }
             categoryComboBox.SelectedIndex = 0;
+
+            //Заполнение списка сортировок товаров.
+            string[] sortingName = new string[4]
+            {
+                "None",
+                "Cost(Ascending)",
+                "Cost(descending)",
+                "Name"
+            };
+
+            for (int i = 0; i < sortingName.Length; i++)
+            {
+                sortingComboBox.Items.Add(sortingName[i]);
+            }
+            sortingComboBox.SelectedIndex = 0;
+
+            //Передача данных.
             DisplayedItems = Items;
         }
 
@@ -350,6 +366,14 @@ namespace OOP.View.Tabs
                 DisplayedItems =  DataTools.FilteringItem(Items, findingTextBox.Text, comparing);
                 UpdateInformation(DisplayedItems);
             }
+        }
+
+        /// <summary>
+        /// Метод сортирует товары по выбранным категориям.
+        /// </summary>
+        private void SortingComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

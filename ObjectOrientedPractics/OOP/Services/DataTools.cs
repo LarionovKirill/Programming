@@ -54,6 +54,41 @@ namespace OOP.Services
         }
 
         /// <summary>
+        /// Метод сравнивает 2 товара по цене.
+        /// </summary>
+        /// <param name="item1">Первый товар.</param>
+        /// <param name="item2">Второй товар.</param>
+        /// <returns>True, если первый больше.</returns>
+        public static bool CompareAscending(Item item1, Item item2)
+        {
+            return item1.Cost > item2.Cost;
+        }
+
+        /// <summary>
+        /// Метод сравнивает 2 товара по цене.
+        /// </summary>
+        /// <param name="item1">Первый товар.</param>
+        /// <param name="item2">Второй товар.</param>
+        /// <returns>True, если второй больше.</returns>
+        public static bool CompareDescending(Item item1, Item item2)
+        {
+            return item1.Cost < item2.Cost;
+        }
+
+
+        /// <summary>
+        /// Метод сравнивает 2 товара по имени.
+        /// Для сортировки по лексикографическому правилу.
+        /// </summary>
+        /// <param name="item1">Первый товар.</param>
+        /// <param name="item2">Второй товар.</param>
+        /// <returns>True, если второй товар должен стоять раньше по лексикографическому правилу.</returns>
+        public static bool CompareName(Item item1, Item item2)
+        {
+            return item1.Cost < item2.Cost;
+        }
+
+        /// <summary>
         /// Метод принимает список товаров и возвращает товары стоимостью более 5000.
         /// </summary>
         /// <param name="items">Исходный список.</param>
@@ -71,6 +106,29 @@ namespace OOP.Services
                 }
             }
             return filteringList;
+        }
+
+        /// <summary>
+        /// Метод сортирует товары по определенному делегату.
+        /// </summary>
+        /// <param name="items">Список товаров.</param>
+        /// <param name="compare">Делегат сортировки.</param>
+        /// <returns>Отсортированный список.</returns>
+        public static List<Item> SortItems(List<Item> items,Func<Item, Item, bool> compare)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                for (int j = 0; j < items.Count - 1 - i; j++)
+                {
+                    if (compare(items[j], items[j + 1]))
+                    {
+                        var tempItem = items[j];
+                        items[j] = items[j + 1];
+                        items[j + 1] = tempItem;
+                    }
+                }
+            }
+            return items;
         }
     }
 }

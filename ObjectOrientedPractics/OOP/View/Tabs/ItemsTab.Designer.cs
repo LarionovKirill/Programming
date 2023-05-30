@@ -49,6 +49,8 @@ namespace OOP.View.Tabs
             this.cancelButton = new System.Windows.Forms.Button();
             this.findLabel = new System.Windows.Forms.Label();
             this.findingTextBox = new System.Windows.Forms.TextBox();
+            this.orderByLabel = new System.Windows.Forms.Label();
+            this.sortingComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // itemListBox
@@ -59,7 +61,7 @@ namespace OOP.View.Tabs
             this.itemListBox.Location = new System.Drawing.Point(9, 63);
             this.itemListBox.Margin = new System.Windows.Forms.Padding(2);
             this.itemListBox.Name = "itemListBox";
-            this.itemListBox.Size = new System.Drawing.Size(270, 407);
+            this.itemListBox.Size = new System.Drawing.Size(270, 381);
             this.itemListBox.TabIndex = 0;
             this.itemListBox.SelectedIndexChanged += new System.EventHandler(this.ItemListBox_SelectedIndexChanged);
             // 
@@ -85,7 +87,7 @@ namespace OOP.View.Tabs
             this.descriptionItemTextBox.Multiline = true;
             this.descriptionItemTextBox.Name = "descriptionItemTextBox";
             this.descriptionItemTextBox.ReadOnly = true;
-            this.descriptionItemTextBox.Size = new System.Drawing.Size(348, 189);
+            this.descriptionItemTextBox.Size = new System.Drawing.Size(348, 181);
             this.descriptionItemTextBox.TabIndex = 3;
             this.descriptionItemTextBox.TextChanged += new System.EventHandler(this.DescriptionItemTextBox_TextChanged);
             // 
@@ -288,10 +290,33 @@ namespace OOP.View.Tabs
             this.findingTextBox.TabIndex = 19;
             this.findingTextBox.TextChanged += new System.EventHandler(this.FindingTextBox_TextChanged);
             // 
+            // orderByLabel
+            // 
+            this.orderByLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.orderByLabel.AutoSize = true;
+            this.orderByLabel.Location = new System.Drawing.Point(7, 456);
+            this.orderByLabel.Name = "orderByLabel";
+            this.orderByLabel.Size = new System.Drawing.Size(50, 13);
+            this.orderByLabel.TabIndex = 20;
+            this.orderByLabel.Text = "Order by:";
+            // 
+            // sortingComboBox
+            // 
+            this.sortingComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.sortingComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sortingComboBox.FormattingEnabled = true;
+            this.sortingComboBox.Location = new System.Drawing.Point(63, 453);
+            this.sortingComboBox.Name = "sortingComboBox";
+            this.sortingComboBox.Size = new System.Drawing.Size(214, 21);
+            this.sortingComboBox.TabIndex = 21;
+            this.sortingComboBox.SelectedIndexChanged += new System.EventHandler(this.SortingComboBox_SelectedIndexChanged);
+            // 
             // ItemsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.sortingComboBox);
+            this.Controls.Add(this.orderByLabel);
             this.Controls.Add(this.findingTextBox);
             this.Controls.Add(this.findLabel);
             this.Controls.Add(this.cancelButton);
@@ -343,5 +368,7 @@ namespace OOP.View.Tabs
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Label findLabel;
         private System.Windows.Forms.TextBox findingTextBox;
+        private System.Windows.Forms.Label orderByLabel;
+        private System.Windows.Forms.ComboBox sortingComboBox;
     }
 }
