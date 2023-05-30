@@ -346,7 +346,7 @@ namespace OOP.View.Tabs
             }
             else
             {
-                CompareValues comparing  = DataTools.FindItemName;
+                Func<Item, object, bool> comparing  = DataTools.FindItemName;
                 DisplayedItems =  DataTools.FilteringItem(Items, findingTextBox.Text, comparing);
                 UpdateInformation(DisplayedItems);
             }
