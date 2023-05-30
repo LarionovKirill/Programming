@@ -18,7 +18,7 @@ namespace OOP.Services
     /// <summary>
     /// Сервисный класс обработки данных товара.
     /// </summary>
-    static class DataTools
+    public static class DataTools
     {
         /// <summary>
         /// Метод проверяет, что цена товара больше переданного числа.
