@@ -85,7 +85,14 @@ namespace OOP.Services
         /// <returns>True, если второй товар должен стоять раньше по лексикографическому правилу.</returns>
         public static bool CompareName(Item item1, Item item2)
         {
-            return item1.Cost < item2.Cost;
+            if (string.Compare(item1.Name, item2.Name) < 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            } 
         }
 
         /// <summary>

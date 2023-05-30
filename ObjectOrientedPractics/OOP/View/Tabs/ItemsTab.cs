@@ -37,7 +37,12 @@ namespace OOP.View.Tabs
         /// <summary>
         /// Свойство товаров, отображаемых в ListBox.
         /// </summary>
-        List<Item> DisplayedItems { get; set; } = new List<Item>();
+        private List<Item> DisplayedItems { get; set; } = new List<Item>();
+
+        /// <summary>
+        /// Свойство словаря сортировок.
+        /// </summary>
+        private Dictionary<string, Func<Item, Item, bool>> SortingName { get; set; }
 
         /// <summary>
         /// Метод создающий компоненты формы.
@@ -175,6 +180,9 @@ namespace OOP.View.Tabs
         /// </summary>
         private void ItemsTab_Load(object sender, EventArgs e)
         {
+            //Передача данных.
+            DisplayedItems = Items;
+
             var contents = Enum.GetValues(typeof(ItemCategory));
             foreach (var items in contents)
             {
@@ -183,22 +191,20 @@ namespace OOP.View.Tabs
             categoryComboBox.SelectedIndex = 0;
 
             //Заполнение списка сортировок товаров.
-            string[] sortingName = new string[4]
-            {
-                "None",
-                "Cost(Ascending)",
-                "Cost(descending)",
-                "Name"
-            };
+            SortingName = new Dictionary<string, Func<Item, Item, bool>>
+                {
+                    ["Name"] = Services.DataTools.CompareName,
+                    ["Cost(Ascending)"] = Services.DataTools.CompareAscending,
+                    ["Cost(descending)"] = Services.DataTools.CompareDescending,
+                };
 
-            for (int i = 0; i < sortingName.Length; i++)
+            foreach (var sort in SortingName)
             {
-                sortingComboBox.Items.Add(sortingName[i]);
+                sortingComboBox.Items.Add(sort.Key);
             }
-            sortingComboBox.SelectedIndex = 0;
 
-            //Передача данных.
-            DisplayedItems = Items;
+            sortingComboBox.SelectedIndex = 0;
+            CallSort(SortingName, "Name");
         }
 
         /// <summary>
@@ -373,7 +379,21 @@ namespace OOP.View.Tabs
         /// </summary>
         private void SortingComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var typeOfSort = sortingComboBox.SelectedItem.ToString();
+            CallSort(SortingName, typeOfSort);
+        }
 
+        /// <summary>
+        /// Метод вызывает сортировку по выбранному типу.
+        /// </summary>
+        /// <param name="dict">Словарь с сортировками и методами.</param>
+        /// <param name="key">Ключ словаря.</param>
+        private void CallSort(Dictionary<string, Func<Item, Item, bool>> dict, string key)
+        {
+            itemListBox.Items.Clear();
+            Func<Item, Item, bool> sort = dict[key];
+            DisplayedItems = DataTools.SortItems(DisplayedItems, sort);
+            UpdateInformation(DisplayedItems);
         }
     }
 }
