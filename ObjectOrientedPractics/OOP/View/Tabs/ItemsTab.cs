@@ -45,6 +45,7 @@ namespace OOP.View.Tabs
         public ItemsTab()
         {
             InitializeComponent();
+            DisplayedItems = Items;
         }
 
         /// <summary>
@@ -52,28 +53,7 @@ namespace OOP.View.Tabs
         /// </summary>
         private void AddItemButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                //Получение данных с формы.
-                var name = nameItemTextBox.Text;
-                var description = descriptionItemTextBox.Text;
-                var cost = decimal .Parse(costItemTextBox.Text);
-                var category = (ItemCategory)Enum.Parse(typeof(ItemCategory),
-                    categoryComboBox.SelectedItem.ToString());
-               
-                //Добавление объекта в список.
-                Items.Add(new Model.Item(
-                    name,
-                    description,
-                    cost,
-                    category));
-                itemListBox.Items.Add($"Товар : {Items.Last().Id}");
-            }
-            catch
-            {
-                MessageBox.Show("Введите верные значения.");
-            }
-            //Блокировка полей для ввода.
+            //Разблокировка полей для ввода.
             AddMode = true;
             ClearFields();
             itemListBox.SelectedIndex = -1;
@@ -227,6 +207,7 @@ namespace OOP.View.Tabs
                 var index = itemListBox.SelectedIndex;
                 OpenFields();
                 ToCopyItem(Items[index]);
+                findingTextBox.Text = string.Empty;
             }
             else
             {
