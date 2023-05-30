@@ -45,7 +45,6 @@ namespace OOP.View.Tabs
         public ItemsTab()
         {
             InitializeComponent();
-            DisplayedItems = Items;
         }
 
         /// <summary>
@@ -58,6 +57,7 @@ namespace OOP.View.Tabs
             ClearFields();
             itemListBox.SelectedIndex = -1;
             OpenFields();
+            findingTextBox.Text = string.Empty;
         }
 
         /// <summary>
@@ -86,6 +86,7 @@ namespace OOP.View.Tabs
                 Items.RemoveAt(index);
                 itemListBox.Items.RemoveAt(index);
                 itemListBox.SelectedIndex = 0;
+                DisplayedItems = Items;
             }
         }
 
@@ -150,7 +151,7 @@ namespace OOP.View.Tabs
             if (itemListBox.SelectedIndex >= 0)
             {
                 var index = itemListBox.SelectedIndex;
-                FillingInTheProductField(Items[index]);
+                FillingInTheProductField(DisplayedItems[index]);
                 if (ChangeMode == true)
                 {
                     CloseFields();
@@ -181,6 +182,7 @@ namespace OOP.View.Tabs
                 categoryComboBox.Items.Add(items);
             }
             categoryComboBox.SelectedIndex = 0;
+            DisplayedItems = Items;
         }
 
         /// <summary>
@@ -191,7 +193,7 @@ namespace OOP.View.Tabs
             if (itemListBox.SelectedIndex >= 0)
             {
                 var index = itemListBox.SelectedIndex;
-                Items[index].ItemCategory = (ItemCategory)Enum.Parse(typeof(ItemCategory),
+                DisplayedItems[index].ItemCategory = (ItemCategory)Enum.Parse(typeof(ItemCategory),
                     categoryComboBox.SelectedItem.ToString());
             }
         }
@@ -206,8 +208,7 @@ namespace OOP.View.Tabs
                 ChangeMode = true;
                 var index = itemListBox.SelectedIndex;
                 OpenFields();
-                ToCopyItem(Items[index]);
-                findingTextBox.Text = string.Empty;
+                ToCopyItem(DisplayedItems[index]);
             }
             else
             {
@@ -275,6 +276,7 @@ namespace OOP.View.Tabs
                         cost,
                         category));
                     itemListBox.Items.Add(Items.Last().Name);
+                    DisplayedItems = Items;
 
                 }
                 catch
@@ -290,7 +292,7 @@ namespace OOP.View.Tabs
                     descriptionItemTextBox.BackColor == Color.White)
                 {
                     CopyItem.CopyInformation(Items[index]);
-                    itemListBox.Items.Insert(index, Items[index].Name);
+                    itemListBox.Items.Insert(index, DisplayedItems[index].Name);
                     itemListBox.Items.RemoveAt(index + 1);
                     MessageBox.Show("Данные успешно сохранены.");
                 }
@@ -328,6 +330,7 @@ namespace OOP.View.Tabs
             descriptionItemTextBox.Text = string.Empty;
             idItemTextBox.Text = string.Empty;
             categoryComboBox.SelectedItem = string.Empty;
+            findingTextBox.Text = string.Empty;
         }
 
         /// <summary>
@@ -336,6 +339,7 @@ namespace OOP.View.Tabs
         private void FindingTextBox_TextChanged(object sender, EventArgs e)
         {
             itemListBox.Items.Clear();
+            DisplayedItems = Items;
             if (findingTextBox.Text == string.Empty)
             {
                 UpdateInformation(Items);
