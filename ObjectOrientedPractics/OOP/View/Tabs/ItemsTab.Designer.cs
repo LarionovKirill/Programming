@@ -47,6 +47,8 @@ namespace OOP.View.Tabs
             this.changeButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.findLabel = new System.Windows.Forms.Label();
+            this.findingTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // itemListBox
@@ -54,10 +56,10 @@ namespace OOP.View.Tabs
             this.itemListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.itemListBox.FormattingEnabled = true;
-            this.itemListBox.Location = new System.Drawing.Point(9, 24);
-            this.itemListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.itemListBox.Location = new System.Drawing.Point(9, 63);
+            this.itemListBox.Margin = new System.Windows.Forms.Padding(2);
             this.itemListBox.Name = "itemListBox";
-            this.itemListBox.Size = new System.Drawing.Size(270, 446);
+            this.itemListBox.Size = new System.Drawing.Size(270, 407);
             this.itemListBox.TabIndex = 0;
             this.itemListBox.SelectedIndexChanged += new System.EventHandler(this.ItemListBox_SelectedIndexChanged);
             // 
@@ -65,7 +67,7 @@ namespace OOP.View.Tabs
             // 
             this.addItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addItemButton.Location = new System.Drawing.Point(10, 481);
-            this.addItemButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addItemButton.Margin = new System.Windows.Forms.Padding(2);
             this.addItemButton.Name = "addItemButton";
             this.addItemButton.Size = new System.Drawing.Size(86, 44);
             this.addItemButton.TabIndex = 1;
@@ -79,7 +81,7 @@ namespace OOP.View.Tabs
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.descriptionItemTextBox.Location = new System.Drawing.Point(296, 274);
-            this.descriptionItemTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.descriptionItemTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.descriptionItemTextBox.Multiline = true;
             this.descriptionItemTextBox.Name = "descriptionItemTextBox";
             this.descriptionItemTextBox.ReadOnly = true;
@@ -92,7 +94,7 @@ namespace OOP.View.Tabs
             this.nameItemTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nameItemTextBox.Location = new System.Drawing.Point(297, 156);
-            this.nameItemTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nameItemTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nameItemTextBox.Multiline = true;
             this.nameItemTextBox.Name = "nameItemTextBox";
             this.nameItemTextBox.ReadOnly = true;
@@ -106,7 +108,7 @@ namespace OOP.View.Tabs
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.costItemTextBox.Location = new System.Drawing.Point(349, 68);
-            this.costItemTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.costItemTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.costItemTextBox.Name = "costItemTextBox";
             this.costItemTextBox.ReadOnly = true;
             this.costItemTextBox.Size = new System.Drawing.Size(104, 20);
@@ -119,7 +121,7 @@ namespace OOP.View.Tabs
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.idItemTextBox.Location = new System.Drawing.Point(349, 37);
-            this.idItemTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.idItemTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.idItemTextBox.Name = "idItemTextBox";
             this.idItemTextBox.ReadOnly = true;
             this.idItemTextBox.Size = new System.Drawing.Size(104, 20);
@@ -197,7 +199,7 @@ namespace OOP.View.Tabs
             // 
             this.removeItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.removeItemButton.Location = new System.Drawing.Point(191, 481);
-            this.removeItemButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.removeItemButton.Margin = new System.Windows.Forms.Padding(2);
             this.removeItemButton.Name = "removeItemButton";
             this.removeItemButton.Size = new System.Drawing.Size(86, 44);
             this.removeItemButton.TabIndex = 2;
@@ -225,7 +227,7 @@ namespace OOP.View.Tabs
             this.categoryComboBox.Enabled = false;
             this.categoryComboBox.FormattingEnabled = true;
             this.categoryComboBox.Location = new System.Drawing.Point(349, 95);
-            this.categoryComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.categoryComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(104, 21);
             this.categoryComboBox.TabIndex = 14;
@@ -235,7 +237,7 @@ namespace OOP.View.Tabs
             // 
             this.changeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.changeButton.Location = new System.Drawing.Point(100, 481);
-            this.changeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.changeButton.Margin = new System.Windows.Forms.Padding(2);
             this.changeButton.Name = "changeButton";
             this.changeButton.Size = new System.Drawing.Size(86, 44);
             this.changeButton.TabIndex = 15;
@@ -247,7 +249,7 @@ namespace OOP.View.Tabs
             // 
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.saveButton.Location = new System.Drawing.Point(297, 481);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(86, 44);
             this.saveButton.TabIndex = 16;
@@ -260,7 +262,7 @@ namespace OOP.View.Tabs
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelButton.Location = new System.Drawing.Point(557, 481);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(86, 44);
             this.cancelButton.TabIndex = 17;
@@ -269,10 +271,29 @@ namespace OOP.View.Tabs
             this.cancelButton.Visible = false;
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // findLabel
+            // 
+            this.findLabel.AutoSize = true;
+            this.findLabel.Location = new System.Drawing.Point(7, 37);
+            this.findLabel.Name = "findLabel";
+            this.findLabel.Size = new System.Drawing.Size(30, 13);
+            this.findLabel.TabIndex = 18;
+            this.findLabel.Text = "Find:";
+            // 
+            // findingTextBox
+            // 
+            this.findingTextBox.Location = new System.Drawing.Point(43, 34);
+            this.findingTextBox.Name = "findingTextBox";
+            this.findingTextBox.Size = new System.Drawing.Size(236, 20);
+            this.findingTextBox.TabIndex = 19;
+            this.findingTextBox.TextChanged += new System.EventHandler(this.FindingTextBox_TextChanged);
+            // 
             // ItemsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.findingTextBox);
+            this.Controls.Add(this.findLabel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.changeButton);
@@ -291,7 +312,7 @@ namespace OOP.View.Tabs
             this.Controls.Add(this.removeItemButton);
             this.Controls.Add(this.addItemButton);
             this.Controls.Add(this.itemListBox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ItemsTab";
             this.Size = new System.Drawing.Size(661, 535);
             this.Load += new System.EventHandler(this.ItemsTab_Load);
@@ -320,5 +341,7 @@ namespace OOP.View.Tabs
         private System.Windows.Forms.Button changeButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Label findLabel;
+        private System.Windows.Forms.TextBox findingTextBox;
     }
 }

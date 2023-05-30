@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using OOP.Model;
 using OOP.Model.Enums;
+using OOP.Services;
 
 namespace OOP.View.Tabs
 {
@@ -15,23 +17,28 @@ namespace OOP.View.Tabs
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<Model.Item> Items { get; set; }
+        public List<Item> Items { get; set; }
 
         /// <summary>
         /// Флаг режима изменения.
         /// </summary>
-        private bool _changeMode { get; set; } = false;
+        private bool ChangeMode { get; set; } = false;
 
         /// <summary>
         /// Флаг режима добавления.
         /// </summary>
-        private bool _addMode { get; set; } = false;
+        private bool AddMode { get; set; } = false;
 
         /// <summary>
         /// Копия товара.
         /// </summary>
-        private Model.Item _copyItem { get; set; } = new Model.Item();
-            
+        private Item CopyItem { get; set; } = new Item();
+
+        /// <summary>
+        /// Свойство товаров, отображаемых в ListBox.
+        /// </summary>
+        List<Item> DisplayedItems { get; set; } = new List<Item>();
+
         /// <summary>
         /// Метод создающий компоненты формы.
         /// </summary>
@@ -67,7 +74,7 @@ namespace OOP.View.Tabs
                 MessageBox.Show("Введите верные значения.");
             }
             //Блокировка полей для ввода.
-            _addMode = true;
+            AddMode = true;
             ClearFields();
             itemListBox.SelectedIndex = -1;
             OpenFields();
@@ -76,11 +83,11 @@ namespace OOP.View.Tabs
         /// <summary>
         /// Обновляет информацию при запуске приложения.
         /// </summary>
-        public void UpdateInformation()
+        public void UpdateInformation(List<Item> listItems)
         {
-            if (Items != null)
+            if (listItems != null)
             {
-                foreach (var items in Items)
+                foreach (var items in listItems)
                 {
                     itemListBox.Items.Add(items.Name);
                 }
@@ -114,7 +121,7 @@ namespace OOP.View.Tabs
             }
             try
             {
-                _copyItem.Cost = decimal.Parse(costItemTextBox.Text);
+                CopyItem.Cost = decimal.Parse(costItemTextBox.Text);
                 costItemTextBox.BackColor = Color.White;
             }
             catch
@@ -130,7 +137,7 @@ namespace OOP.View.Tabs
         {
             try
             {
-                _copyItem.Name = nameItemTextBox.Text;
+                CopyItem.Name = nameItemTextBox.Text;
                 nameItemTextBox.BackColor = Color.White;
             }
             catch
@@ -146,7 +153,7 @@ namespace OOP.View.Tabs
         {
             try
             {
-                _copyItem.Info = descriptionItemTextBox.Text;
+                CopyItem.Info = descriptionItemTextBox.Text;
                 descriptionItemTextBox.BackColor = Color.White;
             }
             catch
@@ -164,7 +171,7 @@ namespace OOP.View.Tabs
             {
                 var index = itemListBox.SelectedIndex;
                 FillingInTheProductField(Items[index]);
-                if (_changeMode == true)
+                if (ChangeMode == true)
                 {
                     CloseFields();
                 }
@@ -216,7 +223,7 @@ namespace OOP.View.Tabs
         {
             if (itemListBox.SelectedIndex >= 0)
             {
-                _changeMode = true;
+                ChangeMode = true;
                 var index = itemListBox.SelectedIndex;
                 OpenFields();
                 ToCopyItem(Items[index]);
@@ -251,8 +258,8 @@ namespace OOP.View.Tabs
             descriptionItemTextBox.ReadOnly = true;
             nameItemTextBox.ReadOnly = true;
             costItemTextBox.ReadOnly = true;
-            _changeMode = false;
-            _addMode = false;
+            ChangeMode = false;
+            AddMode = false;
         }
 
         /// <summary>
@@ -261,7 +268,7 @@ namespace OOP.View.Tabs
         /// <param name="item"></param>
         private void ToCopyItem(Model.Item item)
         {
-            item.CopyInformation(_copyItem);
+            item.CopyInformation(CopyItem);
         }
 
         /// <summary>
@@ -269,7 +276,7 @@ namespace OOP.View.Tabs
         /// </summary>
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (_addMode)
+            if (AddMode)
             {
                 try
                 {
@@ -294,14 +301,14 @@ namespace OOP.View.Tabs
                     MessageBox.Show("Введите верные значения.");
                 }
             }
-            else if (_changeMode)
+            else if (ChangeMode)
             {
                 var index = itemListBox.SelectedIndex;
                 if (costItemTextBox.BackColor == Color.White &&
                     nameItemTextBox.BackColor == Color.White &&
                     descriptionItemTextBox.BackColor == Color.White)
                 {
-                    _copyItem.CopyInformation(Items[index]);
+                    CopyItem.CopyInformation(Items[index]);
                     itemListBox.Items.Insert(index, Items[index].Name);
                     itemListBox.Items.RemoveAt(index + 1);
                     MessageBox.Show("Данные успешно сохранены.");
@@ -321,7 +328,7 @@ namespace OOP.View.Tabs
         /// </summary>
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            if (_changeMode)
+            if (ChangeMode)
             {
                 MessageBox.Show("Изменения не были сохранены");
                 itemListBox.SelectedIndex = -1;
@@ -340,6 +347,24 @@ namespace OOP.View.Tabs
             descriptionItemTextBox.Text = string.Empty;
             idItemTextBox.Text = string.Empty;
             categoryComboBox.SelectedItem = string.Empty;
+        }
+
+        /// <summary>
+        /// Метод оставляет товары c вписанной подстрокой.
+        /// </summary>
+        private void FindingTextBox_TextChanged(object sender, EventArgs e)
+        {
+            itemListBox.Items.Clear();
+            if (findingTextBox.Text == string.Empty)
+            {
+                UpdateInformation(Items);
+            }
+            else
+            {
+                CompareValues comparing  = DataTools.FindItemName;
+                DisplayedItems =  DataTools.FilteringItem(Items, findingTextBox.Text, comparing);
+                UpdateInformation(DisplayedItems);
+            }
         }
     }
 }
