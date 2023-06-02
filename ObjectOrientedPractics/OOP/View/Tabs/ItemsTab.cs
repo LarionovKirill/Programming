@@ -8,6 +8,9 @@ using OOP.Model.Enums;
 
 namespace OOP.View.Tabs
 {
+    /// <summary>
+    /// Класс интерфейса товаров.
+    /// </summary>
     public partial class ItemsTab : UserControl
     {
         /// <summary>
@@ -86,7 +89,6 @@ namespace OOP.View.Tabs
                 }
             }
         }
-
 
         /// <summary>
         /// Удаляет товар из списка.

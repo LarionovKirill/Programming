@@ -44,7 +44,6 @@ namespace OOP.Services
         private static List<string> STREETS = new List<string>()
         {"Lenina","Gogola","Fedorova","Cvetochnaya","Mohovaya","Svetlaya","Azina","Nosova"};
 
-
         /// <summary>
         /// Генератор случайных пользователей.
         /// </summary>
