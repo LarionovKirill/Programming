@@ -14,7 +14,6 @@ namespace OOP.Services
     /// <returns>True, если условия выполняются, иначе False.</returns>
     public delegate bool CompareValues(Item item, object parameter);
 
-
     /// <summary>
     /// Сервисный класс обработки данных товара.
     /// </summary>
@@ -75,7 +74,6 @@ namespace OOP.Services
             return item1.Cost < item2.Cost;
         }
 
-
         /// <summary>
         /// Метод сравнивает 2 товара по имени.
         /// Для сортировки по лексикографическому правилу.
@@ -100,7 +98,8 @@ namespace OOP.Services
         /// </summary>
         /// <param name="items">Исходный список.</param>
         /// <returns>Список с товарами, ценою больше 5000.</returns>
-        public static List<Item> FilteringItem(List<Item> items, 
+        public static List<Item> FilteringItem(
+            List<Item> items, 
             object parameter,
             Func<Item, object, bool> compare)
         {
