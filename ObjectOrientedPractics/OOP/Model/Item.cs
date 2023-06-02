@@ -91,10 +91,10 @@ namespace OOP.Model
 		/// </summary>
 		public ItemCategory ItemCategory { get; set; }
 
-        /// <summary>
-        /// Конструктор без параметров.
-        /// </summary>
-        public Item()
+		/// <summary>
+		/// Конструктор без параметров.
+		/// </summary>
+		public Item()
 		{
 
 		}
@@ -134,7 +134,7 @@ namespace OOP.Model
 		/// <returns>Возвращает копию объекта класса <see cref="Item"/>.</returns>
 		public object Clone()
 		{
-			return new Item(this.Name,this.Info,this.Cost, this.ItemCategory);
+			return new Item(this.Name, this.Info, this.Cost, this.ItemCategory);
 		}
 
 		/// <summary>
@@ -143,7 +143,7 @@ namespace OOP.Model
 		/// <param name="other">Сравниваемый объект.</param>
 		/// <returns>True, если равны названия, тип товара и цена, иначе false.</returns>
 		public override bool Equals(object other)
-        {
+		{
 			//Проверка на наличие объекта.
 			if (other == null)
 			{
@@ -176,7 +176,8 @@ namespace OOP.Model
 		/// <returns>True, если равны названия, тип товара и цена, иначе false.</returns>
 		public bool Equals(Item other)
 		{
-			return (other.Name == this.Name &&
+			return (
+				other.Name == this.Name &&
 				other.ItemCategory == this.ItemCategory &&
 				other.Cost == this.Cost);
 		}
@@ -190,7 +191,7 @@ namespace OOP.Model
 		/// передаваемого в метод.
 		/// </returns>
 		public int CompareTo(Item other)
-        {
+		{
 			if (this.Cost == other.Cost)
 			{
 				return 0;
@@ -203,6 +204,6 @@ namespace OOP.Model
 			{
 				return 1;
 			}
-        }
+		}
 	}
 }

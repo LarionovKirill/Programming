@@ -170,7 +170,6 @@ namespace OOP.Model
             this.Apartment = apartment;
         }
 
-
         /// <summary>
         /// Реализация копирования от стандартного интерфейса ICloneable.
         /// </summary>
@@ -229,7 +228,5 @@ namespace OOP.Model
                 this.Street == other.Street &&
                 this.Building == other.Building);
         }
-
-
     }
 }
