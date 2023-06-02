@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace OOP
 {
+    /// <summary>
+    /// Класс главной формы.
+    /// </summary>
     public partial class MainForm : Form
     {
         /// <summary>

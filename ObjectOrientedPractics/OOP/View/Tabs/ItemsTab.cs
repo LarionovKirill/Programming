@@ -10,6 +10,9 @@ using OOP.Services;
 
 namespace OOP.View.Tabs
 {
+    /// <summary>
+    /// Класс интерфейса товаров.
+    /// </summary>
     public partial class ItemsTab : UserControl
     {
         /// <summary>

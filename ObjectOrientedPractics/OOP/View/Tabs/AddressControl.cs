@@ -44,7 +44,6 @@ namespace OOP.View
             streetTextBox.Text = address.Street;
         }
 
-
         public AddressControl()
         {
             InitializeComponent();
@@ -233,7 +232,8 @@ namespace OOP.View
         /// <returns>True - все поля белые, иначе False.</returns>
         public bool IsColorWhite()
         {
-            return (postIndexTextBox.BackColor == Color.White &&
+            return (
+                postIndexTextBox.BackColor == Color.White &&
                 countryTextBox.BackColor == Color.White &&
                 cityTextBox.BackColor == Color.White &&
                 streetTextBox.BackColor == Color.White &&

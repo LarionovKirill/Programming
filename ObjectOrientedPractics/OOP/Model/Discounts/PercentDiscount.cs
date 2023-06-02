@@ -54,7 +54,6 @@ namespace OOP.Model.Discounts
         /// </summary>
         public ItemCategory DiscountItemCategory { get; set; }
 
-
         /// <summary>
         /// Строковое поле информации о скидке.
         /// Предоставляет информацию в виде: название скидки - кол-во баллов.
@@ -72,7 +71,7 @@ namespace OOP.Model.Discounts
         /// </summary>
         public PercentDiscount()
         {
-            
+
         }
 
         /// <summary>
@@ -107,7 +106,6 @@ namespace OOP.Model.Discounts
                 return 1;
             }
         }
-
 
         /// <summary>
         /// Принимает на вход список продуктов и возвращает размер скидки, доступной для этого

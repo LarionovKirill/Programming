@@ -45,15 +45,15 @@ namespace OOP.Model
             ListOfGoods = new List<Item>();
         }
 
-
         /// <summary>
         /// Реализация копирования от стандартного интерфейса ICloneable.
         /// </summary>
         /// <returns>Возвращает копию объекта класса <see cref="Cart"/>.</returns>
         public object Clone()
         {
-            return new Cart().ListOfGoods = this.ListOfGoods;
+            Cart cloneCart = new Cart();
+            cloneCart.ListOfGoods = this.ListOfGoods;
+            return cloneCart;
         }
-
     }
 }
