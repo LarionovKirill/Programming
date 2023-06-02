@@ -255,5 +255,5 @@ namespace OOP.View.Tabs
             totalCostLabel.Text = 0.0m.ToString();
             discountCostLabel.Text = 0.0m.ToString();
         }
-    }
+	}
 }
