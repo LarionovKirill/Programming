@@ -163,7 +163,8 @@ namespace OOP.Model
 			}
 
 			var item2 = (Item)other;
-			return (item2.Name == this.Name &&
+			return (
+				item2.Name == this.Name &&
 				item2.ItemCategory == this.ItemCategory &&
 				item2.Cost == this.Cost);
 		}

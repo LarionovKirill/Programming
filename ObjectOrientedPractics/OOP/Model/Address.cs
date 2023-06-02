@@ -212,7 +212,8 @@ namespace OOP.Model
 
             var address2 = (Address)other;
 
-            return (this.Index == address2.Index &&
+            return (
+                this.Index == address2.Index &&
                 this.Street == address2.Street &&
                 this.Building == address2.Building);
         }
@@ -224,7 +225,8 @@ namespace OOP.Model
         /// <returns>True, если равны индекс, улица и здание, иначе False.</returns>
         public bool Equals(Address other)
         {
-            return (this.Index == other.Index &&
+            return (
+                this.Index == other.Index &&
                 this.Street == other.Street &&
                 this.Building == other.Building);
         }
