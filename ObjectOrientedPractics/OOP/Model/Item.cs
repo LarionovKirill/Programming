@@ -1,5 +1,6 @@
 ﻿using System;
 using OOP.Model.Enums;
+using OOP.Model.EventsArgs;
 
 namespace OOP.Model
 {
@@ -35,11 +36,17 @@ namespace OOP.Model
 		{
 			set
 			{
-				Services.ValueValidator.AssertStringOnLength(
-					value,
-					200,
-					nameof(Name));
-				_name = value;
+				if (value != _name)
+				{
+					Services.ValueValidator.AssertStringOnLength(
+						value,
+						200,
+						nameof(Name));
+					_name = value;
+					ItemEventsArgs args = new ItemEventsArgs();
+					args.NewName = value;
+					this.NameChanged?.Invoke(this, args);
+				}
 			}
 			get
 			{
@@ -54,11 +61,17 @@ namespace OOP.Model
 		{
 			set
 			{
-				Services.ValueValidator.AssertStringOnLength(
-						value,
-						1000,
-						nameof(Info));
-				_info = value;
+				if (_info != value)
+				{
+					Services.ValueValidator.AssertStringOnLength(
+							value,
+							1000,
+							nameof(Info));
+					_info = value;
+					ItemEventsArgs args = new ItemEventsArgs();
+					args.NewInfo = value;
+					this.NameChanged?.Invoke(this, args);
+				}
 			}
 			get
 			{
@@ -73,12 +86,18 @@ namespace OOP.Model
 		{
 			set
 			{
-				Services.ValueValidator.AssertValueInRange(
+				if (_cost != value)
+				{
+					Services.ValueValidator.AssertValueInRange(
 					value,
 					0,
 					100000,
 					nameof(Cost));
-				_cost = value;
+					_cost = value;
+					ItemEventsArgs args = new ItemEventsArgs();
+					args.NewCost = value;
+					this.NameChanged?.Invoke(this, args);
+				}
 			}
 			get
 			{
@@ -114,6 +133,21 @@ namespace OOP.Model
 			this.Id = Services.IdGenerator.GetNextItemID();
 			this.ItemCategory = category;
 		}
+
+		/// <summary>
+		/// Событие изменения имени товара.
+		/// </summary>
+		public event EventHandler<ItemEventsArgs> NameChanged;
+
+		/// <summary>
+		/// Событие изменения цены товара.
+		/// </summary>
+		public event EventHandler<ItemEventsArgs> CostChanged;
+
+		/// <summary>
+		/// Событие изменения информации товара.
+		/// </summary>
+		public event EventHandler<ItemEventsArgs> InfoChanged;
 
 		/// <summary>
 		/// Копирует информацию из вызващего класса.

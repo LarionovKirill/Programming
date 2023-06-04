@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using TaskWith3FormsAndEvents.Model;
 
+
 namespace TaskWith3FormsAndEvents
 {
 	public partial class ContactForm : Form
@@ -54,10 +55,13 @@ namespace TaskWith3FormsAndEvents
 		/// </summary>
 		private void ChangePhoneText(object sender, EventArgs e)
 		{
-			if (sender is Contact)
+			if (e is ContactEventArgs)
 			{
-				var gettedContact = (Contact)sender;
-				phoneTextBox.Text = gettedContact.Phone;
+				// Я понял, что можно пойти 2 путями. Какой из них верный,
+				// наверное, смотреть по ситуации. 
+				//var gettedContact = (Contact)sender;
+				var gettedInfo = (ContactEventArgs)e;
+				phoneTextBox.Text = gettedInfo.NewPhone;
 			}
 		}
 
