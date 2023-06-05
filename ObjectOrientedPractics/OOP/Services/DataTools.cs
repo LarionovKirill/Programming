@@ -8,13 +8,6 @@ using OOP.Model.Enums;
 namespace OOP.Services
 {
     /// <summary>
-    /// Делегат, который учавствует в сравнении товара с каким - то его параметром.
-    /// </summary>
-    /// <param name="item">Переданный товар.</param>
-    /// <returns>True, если условия выполняются, иначе False.</returns>
-    public delegate bool CompareValues(Item item, object parameter);
-
-    /// <summary>
     /// Сервисный класс обработки данных товара.
     /// </summary>
     public static class DataTools
@@ -122,19 +115,26 @@ namespace OOP.Services
         /// <returns>Отсортированный список.</returns>
         public static List<Item> SortItems(List<Item> items, Func<Item, Item, bool> compare)
         {
-            for (int i = 0; i < items.Count; i++)
+            if (items != null && compare != null)
             {
-                for (int j = 0; j < items.Count - 1 - i; j++)
+                for (int i = 0; i < items.Count; i++)
                 {
-                    if (compare(items[j], items[j + 1]))
+                    for (int j = 0; j < items.Count - 1 - i; j++)
                     {
-                        var tempItem = items[j];
-                        items[j] = items[j + 1];
-                        items[j + 1] = tempItem;
+                        if (compare(items[j], items[j + 1]))
+                        {
+                            var tempItem = items[j];
+                            items[j] = items[j + 1];
+                            items[j + 1] = tempItem;
+                        }
                     }
                 }
+                return items;
             }
-            return items;
+            else
+            {
+                return new List<Item>();
+            }
         }
     }
 }
