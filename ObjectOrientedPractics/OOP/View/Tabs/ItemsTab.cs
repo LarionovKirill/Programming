@@ -55,7 +55,8 @@ namespace OOP.View.Tabs
         /// <summary>
         /// Свойство словаря сортировок.
         /// </summary>
-        private Dictionary<string, Func<Item, Item, bool>> SortingName { get; set; }
+        private Dictionary<string, Func<Item, Item, bool>> SortingName { get; set; } 
+            = new Dictionary<string, Func<Item, Item, bool>>();
 
         /// <summary>
         /// Метод создающий компоненты формы.
@@ -63,6 +64,7 @@ namespace OOP.View.Tabs
         public ItemsTab()
         {
             InitializeComponent();
+            DisplayedItems = Items;
         }
 
         /// <summary>
@@ -265,8 +267,9 @@ namespace OOP.View.Tabs
                 sortingComboBox.Items.Add(sort.Key);
             }
 
+            sort = SortingName["Name"];
             sortingComboBox.SelectedIndex = 0;
-            CallSort(SortingName, "Name");
+            //CallSort(SortingName, "Name");
         }
 
         /// <summary>
@@ -443,7 +446,7 @@ namespace OOP.View.Tabs
         private void SortingComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var typeOfSort = sortingComboBox.SelectedItem.ToString();
-            CallSort(SortingName, typeOfSort);
+            //CallSort(SortingName, typeOfSort);
         }
 
         /// <summary>

@@ -128,7 +128,7 @@ namespace OOP.Model
 		/// <summary>
 		/// Событие изменения имени товара.
 		/// </summary>
-		public event EventHandler<ItemEventsArgs> NameChanged;
+		public event EventHandler <ItemEventsArgs> NameChanged;
 
 		/// <summary>
 		/// Событие изменения цены товара.
