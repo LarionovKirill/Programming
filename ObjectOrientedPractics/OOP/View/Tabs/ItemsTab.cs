@@ -16,6 +16,11 @@ namespace OOP.View.Tabs
     public partial class ItemsTab : UserControl
     {
         /// <summary>
+        /// Делегат изменения товара.
+        /// </summary>
+        public delegate void ChangeItem();
+
+        /// <summary>
         /// Свойство поля _items.
         /// </summary>
         [Browsable(false)]
@@ -66,6 +71,7 @@ namespace OOP.View.Tabs
             itemListBox.SelectedIndex = -1;
             OpenFields();
             findingTextBox.Text = string.Empty;
+            ItemsChanged?.Invoke();
         }
 
         /// <summary>
@@ -104,6 +110,8 @@ namespace OOP.View.Tabs
 
                 itemListBox.SelectedIndex = 0;
                 DisplayedItems = Items;
+
+                ItemsChanged?.Invoke();
             }
         }
 
@@ -348,7 +356,7 @@ namespace OOP.View.Tabs
                         category));
                     itemListBox.Items.Add(Items.Last().Name);
                     DisplayedItems = Items;
-
+                    ItemsChanged?.Invoke();
                 }
                 catch
                 {
@@ -366,6 +374,7 @@ namespace OOP.View.Tabs
                     itemListBox.Items.Insert(index, DisplayedItems[index].Name);
                     itemListBox.Items.RemoveAt(index + 1);
                     MessageBox.Show("Данные успешно сохранены.");
+                    ItemsChanged?.Invoke();
                 }
                 else
                 {
@@ -444,5 +453,10 @@ namespace OOP.View.Tabs
             DisplayedItems = DataTools.SortItems(DisplayedItems, sort);
             UpdateInformation(DisplayedItems);
         }
+
+        /// <summary>
+        /// Свобытие изменения товара.
+        /// </summary>
+        public event ChangeItem ItemsChanged;
     }
 }

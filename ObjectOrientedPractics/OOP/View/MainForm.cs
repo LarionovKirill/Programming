@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using OOP.View.Tabs;
 
 namespace OOP
 {
@@ -52,6 +46,12 @@ namespace OOP
 
             cartsTab.Customers = Store.Customers;
             cartsTab.Items = Store.Items;
+
+            ordersTab1.Customers = Store.Customers;
+
+            itemsTab1.ItemsChanged += new ItemsTab.ChangeItem(cartsTab.RefreshData);
+            itemsTab1.ItemsChanged += new ItemsTab.ChangeItem(ordersTab1.UpdateInformation);
+            itemsTab1.ItemsChanged += new ItemsTab.ChangeItem(customerTab2.Fill);
         }
 
         /// <summary>
@@ -61,13 +61,10 @@ namespace OOP
         {
             if (tabControl.SelectedIndex == 2)
             {
-                cartsTab.Customers = Store.Customers;
-                cartsTab.Items = Store.Items;
                 cartsTab.RefreshData();
             }
             else if (tabControl.SelectedIndex == 3)
             {
-                ordersTab1.Customers = Store.Customers;
                 ordersTab1.UpdateInformation();
             }
             else if (tabControl.SelectedIndex == 1)
