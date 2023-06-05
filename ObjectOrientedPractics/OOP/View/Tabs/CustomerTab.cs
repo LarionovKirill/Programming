@@ -54,6 +54,9 @@ namespace OOP.View
                 foreach (var customers in Customers)
                 {
                     customerListBox.Items.Add(customers.FullName);
+
+                    AddressControl control = new AddressControl();
+                    customers.Address.AddressChanged += control.FillNewAddress;
                 }
             }
         }

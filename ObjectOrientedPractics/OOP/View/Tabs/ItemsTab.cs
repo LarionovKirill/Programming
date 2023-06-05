@@ -78,6 +78,10 @@ namespace OOP.View.Tabs
                 foreach (var items in listItems)
                 {
                     itemListBox.Items.Add(items.Name);
+
+                    items.NameChanged += SetItemName;
+                    items.CostChanged += SetItemCost;
+                    items.InfoChanged += SetItemDescription;
                 }
             }
         }
@@ -90,8 +94,14 @@ namespace OOP.View.Tabs
             if (itemListBox.SelectedIndex >= 0)
             {
                 var index = itemListBox.SelectedIndex;
+
+                Items[index].InfoChanged -= SetItemDescription;
+                Items[index].NameChanged -= SetItemName;
+                Items[index].CostChanged -= SetItemCost;
+
                 Items.RemoveAt(index);
                 itemListBox.Items.RemoveAt(index);
+
                 itemListBox.SelectedIndex = 0;
                 DisplayedItems = Items;
             }
@@ -119,6 +129,18 @@ namespace OOP.View.Tabs
         }
 
         /// <summary>
+        /// Метод заполняет поле стоимости при помощи события.
+        /// </summary>
+        private void SetItemCost(object sender, EventArgs e)
+        {
+           if (sender is Item)
+			{
+                var item = (Item)sender;
+                costItemTextBox.Text = item.Cost.ToString();
+			}
+        }
+
+        /// <summary>
         /// Проверяет изменения поля имени.
         /// </summary>
         private void NameItemTextBox_TextChanged(object sender, EventArgs e)
@@ -135,6 +157,18 @@ namespace OOP.View.Tabs
         }
 
         /// <summary>
+        /// Метод заполняет поле названия при помощи события.
+        /// </summary>
+        private void SetItemName(object sender, EventArgs e)
+        {
+            if (sender is Item)
+            {
+                var item = (Item)sender;
+                nameItemTextBox.Text = item.Name.ToString();
+            }
+        }
+
+        /// <summary>
         /// Проверяет изменения поля описания.
         /// </summary>
         private void DescriptionItemTextBox_TextChanged(object sender, EventArgs e)
@@ -147,6 +181,18 @@ namespace OOP.View.Tabs
             catch
             {
                 descriptionItemTextBox.BackColor = Color.Pink;
+            }
+        }
+
+        /// <summary>
+        /// Метод заполняет поле названия при помощи события.
+        /// </summary>
+        private void SetItemDescription (object sender, EventArgs e)
+        {
+            if (sender is Item)
+            {
+                var item = (Item)sender;
+                descriptionItemTextBox.Text = item.Info.ToString();
             }
         }
 

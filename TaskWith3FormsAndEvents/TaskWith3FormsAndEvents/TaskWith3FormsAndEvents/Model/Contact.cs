@@ -16,17 +16,17 @@ namespace TaskWith3FormsAndEvents.Model
 		/// <summary>
 		/// Событие изменения имени контакта.
 		/// </summary>
-		public event EventHandler<ContactEventArgs> PhoneNumberChanged;
+		public event EventHandler <ContactEventArgs> PhoneNumberChanged;
 
 		/// <summary>
 		/// Событие изменения имени контакта.
 		/// </summary>
-		public event EventHandler<ContactEventArgs> AddressChanged;
+		public event EventHandler <ContactEventArgs> AddressChanged;
 
 		/// <summary>
 		/// Имя пользователя в контактах.
 		/// </summary>
-		private string _fullName = string.Empty;
+		private string _fullName;
 		
 		/// <summary>
 		/// Номер контакта.
@@ -54,7 +54,7 @@ namespace TaskWith3FormsAndEvents.Model
 					var arg = new ContactEventArgs();
 					arg.NewName = value;
 					_fullName = value;
-					FullNameChanged.Invoke(this, arg);
+					FullNameChanged?.Invoke(this, arg);
 				}
 			}
 		}
@@ -75,7 +75,7 @@ namespace TaskWith3FormsAndEvents.Model
 					var arg = new ContactEventArgs();
 					arg.NewPhone = value;
 					_phoneNumber = value;
-					PhoneNumberChanged.Invoke(this, arg);
+					PhoneNumberChanged?.Invoke(this, arg);
 				}
 			}
 		}
@@ -96,7 +96,7 @@ namespace TaskWith3FormsAndEvents.Model
 					var arg = new ContactEventArgs();
 					arg.NewAddress = value;
 					_address = value;
-					AddressChanged.Invoke(this, arg);
+					AddressChanged?.Invoke(this, arg);
 				}
 			}
 		}

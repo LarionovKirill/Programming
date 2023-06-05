@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using OOP.Model.EventsArgs;
 
 namespace OOP.View
 {
@@ -31,6 +29,7 @@ namespace OOP.View
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Model.Address Address{ get; set;}
 
+
         /// <summary>
         /// Метод заполняет поля адреса.
         /// </summary>
@@ -42,6 +41,23 @@ namespace OOP.View
             apartmentTextBox.Text = address.Apartment;
             buildingTextBox.Text = address.Building;
             streetTextBox.Text = address.Street;
+        }
+
+        /// <summary>
+        /// Метод заполняет поля адреса.
+        /// </summary>
+        public void FillNewAddress(object sender, EventArgs e)
+        {
+            if (e is AddressEventsArgs)
+            {
+                var address = (AddressEventsArgs)e;
+                postIndexTextBox.Text = address.NewIndex.ToString();
+                countryTextBox.Text = address.NewCountry;
+                cityTextBox.Text = address.NewCity;
+                apartmentTextBox.Text = address.NewApartment;
+                buildingTextBox.Text = address.NewBuilding;
+                streetTextBox.Text = address.NewStreet;
+            }
         }
 
         public AddressControl()
@@ -59,6 +75,7 @@ namespace OOP.View
                 if (Address == null)
                 {
                     Address = new Model.Address();
+                    Address.AddressChanged += FillNewAddress;
                 }
                 if (postIndexTextBox.Text != string.Empty)
                 {
@@ -86,6 +103,7 @@ namespace OOP.View
                 if (Address == null)
                 {
                     Address = new Model.Address();
+                    Address.AddressChanged += FillNewAddress;
                 }
                 Address.Country = countryTextBox.Text;
                 countryTextBox.BackColor = Color.White;
@@ -110,6 +128,7 @@ namespace OOP.View
                 if (Address == null)
                 {
                     Address = new Model.Address();
+                    Address.AddressChanged += FillNewAddress;
                 }
                 Address.City = cityTextBox.Text;
                 cityTextBox.BackColor = Color.White;
@@ -134,6 +153,7 @@ namespace OOP.View
                 if (Address == null)
                 {
                     Address = new Model.Address();
+                    Address.AddressChanged += FillNewAddress;
                 }
                 Address.Street = streetTextBox.Text;
                 streetTextBox.BackColor = Color.White;
@@ -158,6 +178,7 @@ namespace OOP.View
                 if (Address == null)
                 {
                     Address = new Model.Address();
+                    Address.AddressChanged += FillNewAddress;
                 }
                 Address.Building = buildingTextBox.Text;
                 buildingTextBox.BackColor = Color.White;
@@ -182,6 +203,7 @@ namespace OOP.View
                 if (Address == null)
                 {
                     Address = new Model.Address();
+                    Address.AddressChanged += FillNewAddress;
                 }
                 Address.Apartment = apartmentTextBox.Text;
                 apartmentTextBox.BackColor = Color.White;

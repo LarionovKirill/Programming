@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OOP.Model.EventsArgs;
 
 namespace OOP.Model
 {
@@ -40,7 +37,7 @@ namespace OOP.Model
         /// Квартира пользователя.
         /// </summary>
         private string _apartment;
-        
+
         /// <summary>
         /// Свойство поля _index.
         /// </summary>
@@ -54,6 +51,14 @@ namespace OOP.Model
             {
                 Services.ValueValidator.AssertIndex(value, nameof(Index));
                 _index = value;
+                AddressEventsArgs arg = new AddressEventsArgs(
+                    Index,
+                    Country,
+                    City,
+                    Street,
+                    Building,
+                    Apartment);
+                AddressChanged?.Invoke(this, arg);
             }
         }
 
@@ -70,6 +75,14 @@ namespace OOP.Model
             {
                 Services.ValueValidator.AssertStringOnLength(value, 50, nameof(Country));
                 _country = value;
+                AddressEventsArgs arg = new AddressEventsArgs(
+                    Index,
+                    Country,
+                    City,
+                    Street,
+                    Building,
+                    Apartment);
+                AddressChanged?.Invoke(this, arg);
             }
         }
 
@@ -86,6 +99,14 @@ namespace OOP.Model
             {
                 Services.ValueValidator.AssertStringOnLength(value, 50, nameof(City));
                 _city = value;
+                AddressEventsArgs arg = new AddressEventsArgs(
+                    Index,
+                    Country,
+                    City,
+                    Street,
+                    Building,
+                    Apartment);
+                AddressChanged?.Invoke(this, arg);
             }
         }
 
@@ -102,6 +123,14 @@ namespace OOP.Model
             {
                 Services.ValueValidator.AssertStringOnLength(value, 100, nameof(Street));
                 _street = value;
+                AddressEventsArgs arg = new AddressEventsArgs(
+                    Index,
+                    Country,
+                    City,
+                    Street,
+                    Building,
+                    Apartment);
+                AddressChanged?.Invoke(this, arg);
             }
         }
 
@@ -118,6 +147,14 @@ namespace OOP.Model
             {
                 Services.ValueValidator.AssertStringOnLength(value, 10, nameof(Building));
                 _building = value;
+                AddressEventsArgs arg = new AddressEventsArgs(
+                    Index,
+                    Country,
+                    City,
+                    Street,
+                    Building,
+                    Apartment);
+                AddressChanged?.Invoke(this, arg);
             }
         }
 
@@ -134,6 +171,14 @@ namespace OOP.Model
             {
                 Services.ValueValidator.AssertStringOnLength(value, 10, nameof(Apartment));
                 _apartment = value;
+                AddressEventsArgs arg = new AddressEventsArgs(
+                    Index,
+                    Country,
+                    City,
+                    Street,
+                    Building,
+                    Apartment);
+                AddressChanged?.Invoke(this, arg);
             }
         }
 
@@ -169,6 +214,11 @@ namespace OOP.Model
             this.Building = building;
             this.Apartment = apartment;
         }
+
+        /// <summary>
+        /// Свойство изменения адреса доставки.
+        /// </summary>
+        public event EventHandler <AddressEventsArgs> AddressChanged;
 
         /// <summary>
         /// Реализация копирования от стандартного интерфейса ICloneable.

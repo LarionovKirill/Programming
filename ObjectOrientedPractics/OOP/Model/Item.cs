@@ -36,17 +36,14 @@ namespace OOP.Model
 		{
 			set
 			{
-				if (value != _name)
-				{
-					Services.ValueValidator.AssertStringOnLength(
-						value,
-						200,
-						nameof(Name));
-					_name = value;
-					ItemEventsArgs args = new ItemEventsArgs();
-					args.NewName = value;
-					this.NameChanged?.Invoke(this, args);
-				}
+				Services.ValueValidator.AssertStringOnLength(
+					value,
+					200,
+					nameof(Name));
+				_name = value;
+				ItemEventsArgs args = new ItemEventsArgs();
+				args.NewName = value;
+				this.NameChanged?.Invoke(this, args);
 			}
 			get
 			{
@@ -61,17 +58,14 @@ namespace OOP.Model
 		{
 			set
 			{
-				if (_info != value)
-				{
-					Services.ValueValidator.AssertStringOnLength(
-							value,
-							1000,
-							nameof(Info));
-					_info = value;
-					ItemEventsArgs args = new ItemEventsArgs();
-					args.NewInfo = value;
-					this.NameChanged?.Invoke(this, args);
-				}
+				Services.ValueValidator.AssertStringOnLength(
+						value,
+						1000,
+						nameof(Info));
+				_info = value;
+				ItemEventsArgs args = new ItemEventsArgs();
+				args.NewInfo = value;
+				this.InfoChanged?.Invoke(this, args);
 			}
 			get
 			{
@@ -86,18 +80,15 @@ namespace OOP.Model
 		{
 			set
 			{
-				if (_cost != value)
-				{
-					Services.ValueValidator.AssertValueInRange(
-					value,
-					0,
-					100000,
-					nameof(Cost));
-					_cost = value;
-					ItemEventsArgs args = new ItemEventsArgs();
-					args.NewCost = value;
-					this.NameChanged?.Invoke(this, args);
-				}
+				Services.ValueValidator.AssertValueInRange(
+				value,
+				0,
+				100000,
+				nameof(Cost));
+				_cost = value;
+				ItemEventsArgs args = new ItemEventsArgs();
+				args.NewCost = value;
+				this.CostChanged?.Invoke(this, args);
 			}
 			get
 			{
@@ -142,12 +133,12 @@ namespace OOP.Model
 		/// <summary>
 		/// Событие изменения цены товара.
 		/// </summary>
-		public event EventHandler<ItemEventsArgs> CostChanged;
+		public event EventHandler <ItemEventsArgs> CostChanged;
 
 		/// <summary>
 		/// Событие изменения информации товара.
 		/// </summary>
-		public event EventHandler<ItemEventsArgs> InfoChanged;
+		public event EventHandler <ItemEventsArgs> InfoChanged;
 
 		/// <summary>
 		/// Копирует информацию из вызващего класса.

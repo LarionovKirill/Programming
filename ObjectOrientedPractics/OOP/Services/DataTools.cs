@@ -120,7 +120,7 @@ namespace OOP.Services
         /// <param name="items">Список товаров.</param>
         /// <param name="compare">Делегат сортировки.</param>
         /// <returns>Отсортированный список.</returns>
-        public static List<Item> SortItems(List<Item> items,Func<Item, Item, bool> compare)
+        public static List<Item> SortItems(List<Item> items, Func<Item, Item, bool> compare)
         {
             for (int i = 0; i < items.Count; i++)
             {

@@ -1,10 +1,11 @@
-﻿
+﻿using System;
+
 namespace OOP.Model.EventsArgs
 {
 	/// <summary>
 	/// Класс хранит новые аргументы товара для передачи их в события.
 	/// </summary>
-	public class ItemEventsArgs
+	public class ItemEventsArgs : EventArgs
 	{
 		/// <summary>
 		/// Свойство нового имени товара.
@@ -20,5 +21,13 @@ namespace OOP.Model.EventsArgs
 		/// Свойство нового описания товара.
 		/// </summary>
 		public string NewInfo { get; set; }
+
+		/// <summary>
+		/// Конструктор класса без параметров.
+		/// </summary>
+		public ItemEventsArgs()
+		{
+			
+		}
 	}
 }
