@@ -16,6 +16,11 @@ namespace OOP.View.Tabs
     public partial class ItemsTab : UserControl
     {
         /// <summary>
+        /// Стандартный делегат Func для сортировки списка товаров.
+        /// </summary>
+        Func<Item, Item, bool> sort;
+
+        /// <summary>
         /// Делегат изменения товара.
         /// </summary>
         public delegate void ChangeItem();
@@ -449,7 +454,7 @@ namespace OOP.View.Tabs
         private void CallSort(Dictionary<string, Func<Item, Item, bool>> dict, string key)
         {
             itemListBox.Items.Clear();
-            Func<Item, Item, bool> sort = dict[key];
+            sort = dict[key];
             DisplayedItems = DataTools.SortItems(DisplayedItems, sort);
             UpdateInformation(DisplayedItems);
         }
