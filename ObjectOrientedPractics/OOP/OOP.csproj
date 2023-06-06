@@ -170,14 +170,11 @@
     <Content Include="Diagrams\Uml лаба 2.jpg" />
     <Content Include="Diagrams\Uml лаба 3.jpg" />
     <Content Include="Diagrams\Uml лаба 4.jpg" />
-    <Content Include="Diagrams\UML лаба 5 второй вариант.jpg" />
     <Content Include="Diagrams\Uml лаба 5.jpg" />
-    <Content Include="Diagrams\UMl лаба 6 второй вариант.jpg" />
     <Content Include="Diagrams\UML лаба 6.jpg" />
-    <Content Include="Diagrams\Uml лаба 7 первый варинт%28Смотри его%29.jpg" />
     <Content Include="Diagrams\UML лаба 7.jpg" />
-    <Content Include="Diagrams\Лаба 8.jpg" />
-    <Content Include="Diagrams\Общая%28Пробная%29.jpg" />
+    <Content Include="Diagrams\UML общая.jpg" />
+    <Content Include="Diagrams\UML Лаба 8.jpg" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
