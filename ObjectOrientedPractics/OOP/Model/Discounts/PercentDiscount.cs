@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using OOP.Model.Enums;
 
 namespace OOP.Model.Discounts
@@ -6,7 +7,7 @@ namespace OOP.Model.Discounts
     /// <summary>
     /// Класс категорной скидки.
     /// </summary>
-    public class PercentDiscount : IDiscount
+    public class PercentDiscount : IDiscount, IComparable<PercentDiscount>
     {
         /// <summary>
         /// Текущая скидка.
@@ -54,11 +55,23 @@ namespace OOP.Model.Discounts
         public ItemCategory DiscountItemCategory { get; set; }
 
         /// <summary>
+        /// Строковое поле информации о скидке.
+        /// Предоставляет информацию в виде: название скидки - кол-во баллов.
+        /// </summary>
+        public string Info
+        {
+            get
+            {
+                return $"Процентная «{DiscountItemCategory}» - {CurrentDiscount}%";
+            }
+        }
+
+        /// <summary>
         /// Конструктор без параметров.
         /// </summary>
         public PercentDiscount()
         {
-            
+
         }
 
         /// <summary>
@@ -70,6 +83,29 @@ namespace OOP.Model.Discounts
             this.DiscountItemCategory = discountCategory;
         }
 
+        /// <summary>
+		/// Реализует сравнение классов <see cref="PercentDiscount"/> по размеру скидки.
+		/// </summary>
+		/// <param name="other">Сравниваемый объект.</param>
+		/// <returns>Метод должен возвращать 0, если скидки равны; 1, если скидка исходного объекта
+		/// больше передаваемого в метод; и -1, если скидка исходного объекта меньше 
+		/// передаваемого в метод.
+		/// </returns>
+        public int CompareTo(PercentDiscount other)
+        {
+            if (this.CurrentDiscount == other.CurrentDiscount)
+            {
+                return 0;
+            }
+            else if (this.CurrentDiscount < other.CurrentDiscount)
+            {
+                return -1;
+            }
+            else
+            {
+                return 1;
+            }
+        }
 
         /// <summary>
         /// Принимает на вход список продуктов и возвращает размер скидки, доступной для этого
@@ -125,18 +161,6 @@ namespace OOP.Model.Discounts
             else
             {
                 CurrentDiscount = ((int)AmountSpent / 1000) + 1;
-            }
-        }
-
-        /// <summary>
-        /// Строковое поле информации о скидке.
-        /// Предоставляет информацию в виде: название скидки - кол-во баллов.
-        /// </summary>
-        public string Info
-        {
-            get
-            {
-                return $"Процентная «{DiscountItemCategory}» - {CurrentDiscount}%";
             }
         }
     }

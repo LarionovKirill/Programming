@@ -6,7 +6,7 @@ namespace OOP.Model
 	/// <summary>
 	/// Класс товар.
 	/// </summary>
-	public class Item
+	public class Item : ICloneable, IEquatable<Item>, IComparable<Item>
 	{
 		/// <summary>
 		/// Название товара.
@@ -106,7 +106,7 @@ namespace OOP.Model
 		/// <param name="info">Информация о товаре.</param>
 		/// <param name="cost">Цена товара.</param>
 		/// <param name="category">Категория товара.</param>
-		public Item(string name, string info, decimal  cost, ItemCategory category)
+		public Item(string name, string info, decimal cost, ItemCategory category)
 		{
 			this.Info = info;
 			this.Name = name;
@@ -125,6 +125,86 @@ namespace OOP.Model
 			item.ItemCategory = this.ItemCategory;
 			item.Name = this.Name;
 			item.Cost = this.Cost;
+		}
+
+
+		/// <summary>
+		/// Реализация копирования от стандартного интерфейса ICloneable.
+		/// </summary>
+		/// <returns>Возвращает копию объекта класса <see cref="Item"/>.</returns>
+		public object Clone()
+		{
+			return new Item(this.Name, this.Info, this.Cost, this.ItemCategory);
+		}
+
+		/// <summary>
+		/// Перегрузка метода Equals.
+		/// </summary>
+		/// <param name="other">Сравниваемый объект.</param>
+		/// <returns>True, если равны названия, тип товара и цена, иначе false.</returns>
+		public override bool Equals(object other)
+		{
+			//Проверка на наличие объекта.
+			if (other == null)
+			{
+				return false;
+			}
+
+			//Проверка на один тип.
+			if (other.GetType() != typeof(Item))
+			{
+				return false;
+			}
+
+			//Проверка на одинаковые ссылки.
+			if (object.ReferenceEquals(this, other))
+			{
+				return true;
+			}
+
+			var item2 = (Item)other;
+			return (
+				item2.Name == this.Name &&
+				item2.ItemCategory == this.ItemCategory &&
+				item2.Cost == this.Cost);
+		}
+
+
+		/// <summary>
+		/// Перегрузка метода Equals.
+		/// </summary>
+		/// <param name="other">Сравниваемый объект тип Item</param>
+		/// <returns>True, если равны названия, тип товара и цена, иначе false.</returns>
+		public bool Equals(Item other)
+		{
+			return (
+				other.Name == this.Name &&
+				other.ItemCategory == this.ItemCategory &&
+				other.Cost == this.Cost);
+		}
+
+		/// <summary>
+		/// Реализует сравнение классов <see cref="Item"/> по стоимости.
+		/// </summary>
+		/// <param name="other">Сравниваемый объект.</param>
+		/// <returns>Метод должен возвращать 0, если стоимости равны; 1, если стоимость исходного объекта
+		/// больше передаваемого в метод; и -1, если стоимость исходного объекта меньше
+		/// передаваемого в метод.
+		/// </returns>
+		public int CompareTo(Item other)
+		{
+			if (this.Cost == other.Cost)
+			{
+				return 0;
+			}
+			else if (this.Cost < other.Cost)
+			{
+				return -1;
+			}
+			else
+			{
+				return 1;
+			}
 		}
 	}
 }

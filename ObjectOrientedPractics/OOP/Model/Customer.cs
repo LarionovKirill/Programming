@@ -42,6 +42,7 @@ namespace OOP.Model
 				return _fullName;
 			}
 		}
+
 		/// <summary>
 		/// Свойство для адреса доставки.
 		/// </summary>
@@ -86,7 +87,6 @@ namespace OOP.Model
 			this.Discounts = new List<IDiscount>();
 			this.Discounts.Add(new PointsDiscount());
 		}
-
 
 		/// <summary>
 		/// Конструктор класса с параметрами.
@@ -133,6 +133,5 @@ namespace OOP.Model
 			customer.Id = this.Id;
 			customer.Discounts = this.Discounts;
 		}
-
 	}
 }

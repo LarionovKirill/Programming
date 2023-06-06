@@ -26,7 +26,6 @@ namespace OOP.View.Tabs
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         private Dictionary<Model.DeliveryTime, string> TimeDelivery { get; set; }
 
-
         /// <summary>
         /// Список товаров.
         /// </summary>

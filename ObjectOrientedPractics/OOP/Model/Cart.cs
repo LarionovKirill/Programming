@@ -9,7 +9,7 @@ namespace OOP.Model
     /// <summary>
     /// Описывает корзину товаров.
     /// </summary>
-    public class Cart
+    public class Cart : ICloneable
     {
         /// <summary>
         /// Свойство списка товаров.
@@ -36,12 +36,24 @@ namespace OOP.Model
                 }
             }
         }
+
         /// <summary>
         /// Конструктор класса корзины.
         /// </summary>
         public Cart()
         {
             ListOfGoods = new List<Item>();
+        }
+
+        /// <summary>
+        /// Реализация копирования от стандартного интерфейса ICloneable.
+        /// </summary>
+        /// <returns>Возвращает копию объекта класса <see cref="Cart"/>.</returns>
+        public object Clone()
+        {
+            Cart cloneCart = new Cart();
+            cloneCart.ListOfGoods = this.ListOfGoods;
+            return cloneCart;
         }
     }
 }

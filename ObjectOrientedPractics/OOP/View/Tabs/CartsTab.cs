@@ -34,7 +34,6 @@ namespace OOP.View.Tabs
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Model.Customer> Customers { get; set; }
 
-
         public CartsTab()
         {
             InitializeComponent();

@@ -9,7 +9,7 @@ namespace OOP.Model.Discounts
     /// <summary>
     /// Класс накопительной скидки (Хранит баллы пользователя). 
     /// </summary>
-    public class PointsDiscount : IDiscount
+    public class PointsDiscount : IDiscount, IComparable<PointsDiscount>
     {
         /// <summary>
         /// Хранит баллы пользователя.
@@ -93,6 +93,30 @@ namespace OOP.Model.Discounts
             }
             sum -= Discount;
             Points += (int)(sum * 0.1m);
+        }
+
+        /// <summary>
+		/// Реализует сравнение классов <see cref="PointsDiscount"/> по количеству баллов.
+		/// </summary>
+		/// <param name="other">Сравниваемый объект.</param>
+		/// <returns>Метод должен возвращать 0, если баллы равны; 1, если баллы исходного объекта
+		/// больше передаваемого в метод; и -1, если баллы исходного объекта меньше 
+		/// передаваемого в метод.
+		/// </returns>
+        public int CompareTo(PointsDiscount other)
+        {
+            if (this.Points == other.Points)
+            {
+                return 0;
+            }
+            else if (this.Points < other.Points)
+            {
+                return -1;
+            }
+            else
+            {
+                return 1;
+            }
         }
 
         /// <summary>
