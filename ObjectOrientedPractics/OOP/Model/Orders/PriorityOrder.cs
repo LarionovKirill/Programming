@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OOP.Model.Enums;
 
-namespace OOP.Model
+namespace OOP.Model.Orders
 {
     /// <summary>
     /// Класс хранит приоритетные заказы.
     /// Наследуется от класса
     /// <see cref="Order"></see>
     /// </summary>
-    [Serializable]
     public class PriorityOrder : Order
     {
         /// <summary>

@@ -31,8 +31,11 @@ namespace OOP
         {
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.orderPanel = new System.Windows.Forms.Panel();
+            this.ordersTab1 = new OOP.View.Tabs.ordersTab();
             this.cartsTabPage = new System.Windows.Forms.TabPage();
+            this.cartsTab = new OOP.View.Tabs.CartsTab();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.customerTab2 = new OOP.View.CustomerTab();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.itemsTabPage = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -73,6 +76,15 @@ namespace OOP
             this.orderPanel.Size = new System.Drawing.Size(1178, 670);
             this.orderPanel.TabIndex = 0;
             // 
+            // ordersTab1
+            // 
+            this.ordersTab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ordersTab1.Location = new System.Drawing.Point(0, 0);
+            this.ordersTab1.Margin = new System.Windows.Forms.Padding(2);
+            this.ordersTab1.Name = "ordersTab1";
+            this.ordersTab1.Size = new System.Drawing.Size(1022, 694);
+            this.ordersTab1.TabIndex = 0;
+            // 
             // cartsTabPage
             // 
             this.cartsTabPage.Controls.Add(this.cartsTab);
@@ -85,6 +97,14 @@ namespace OOP
             this.cartsTabPage.Text = "Carts";
             this.cartsTabPage.UseVisualStyleBackColor = true;
             // 
+            // cartsTab
+            // 
+            this.cartsTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cartsTab.Location = new System.Drawing.Point(2, 2);
+            this.cartsTab.Name = "cartsTab";
+            this.cartsTab.Size = new System.Drawing.Size(1022, 694);
+            this.cartsTab.TabIndex = 0;
+            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.customerTab2);
@@ -96,6 +116,15 @@ namespace OOP
             this.tabPage1.TabIndex = 1;
             this.tabPage1.Text = "Customer";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // customerTab2
+            // 
+            this.customerTab2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.customerTab2.Location = new System.Drawing.Point(2, 2);
+            this.customerTab2.Margin = new System.Windows.Forms.Padding(2);
+            this.customerTab2.Name = "customerTab2";
+            this.customerTab2.Size = new System.Drawing.Size(1022, 694);
+            this.customerTab2.TabIndex = 0;
             // 
             // tabControl
             // 
@@ -167,7 +196,7 @@ namespace OOP
             this.ordersTab1.Name = "ordersTab1";
             this.ordersTab1.Size = new System.Drawing.Size(1178, 670);
             this.ordersTab1.TabIndex = 0;
-            // 
+            //
             // customerTab1
             // 
             this.customerTab1.BackColor = System.Drawing.SystemColors.ActiveBorder;

@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OOP.Model.Enums;
 
-namespace OOP.Model
+namespace OOP.Model.Orders
 {
     /// <summary>
     /// Класс заказа.
     /// </summary>
-    [Serializable]
     public class Order
     {
         /// <summary>
@@ -33,9 +30,14 @@ namespace OOP.Model
         public Address Address { get; set; }
 
         /// <summary>
+        /// Размер примененной скидки.
+        /// </summary>
+        public decimal DiscountAmount { get; set; }
+
+        /// <summary>
         /// Свойство для общей стоимости заказа. 
         /// </summary>
-        public decimal  FullCost 
+        public decimal FullCost 
         {
             get
             {

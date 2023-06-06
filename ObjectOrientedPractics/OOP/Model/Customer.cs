@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OOP.Model.Discounts;
+using OOP.Model.Orders;
+
 
 namespace OOP.Model
 {
 	/// <summary>
 	/// Класс хранит пользователя
 	/// </summary>
-	[Serializable]
 	public class Customer
 	{
 		/// <summary>
@@ -70,22 +69,11 @@ namespace OOP.Model
 		[Browsable(false)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public bool IsPriority { get; set; } = false;
-		/// Копирует информацию в переданный класс.
+
+		/// <summary>
+		/// Хранит список скидок пользователя.
 		/// </summary>
-		/// <param name="customer">Класс, в котором нужно поменять информацию.</param>
-		public void CopyInformation(Customer customer)
-		{
-			customer.Address.Apartment = this.Address.Apartment;
-			customer.Address.Building = this.Address.Building;
-			customer.Address.City = this.Address.City;
-			customer.Address.Country = this.Address.Country;
-			customer.Address.Index = this.Address.Index;
-			customer.Address.Street = this.Address.Street;
-			customer.Cart = this.Cart;
-			customer.FullName = this.FullName;
-			customer.Orders = this.Orders;
-			customer.Id = this.Id;
-		}
+		public List<IDiscount> Discounts { get; set; }
 
 		/// <summary>
 		/// Конструктор без параметров.
@@ -95,6 +83,8 @@ namespace OOP.Model
 			Address = new Address();
 			this.Cart = new Cart();
 			this.Orders = new List<Order>();
+			this.Discounts = new List<IDiscount>();
+			this.Discounts.Add(new PointsDiscount());
 		}
 
 
@@ -122,6 +112,27 @@ namespace OOP.Model
 			this.Address = new Address(Postindex, country, city, street, building, apartment);
 			this.Cart = new Cart();
 			this.Orders = new List<Order>();
+			this.Discounts = new List<IDiscount>();
+			this.Discounts.Add(new PointsDiscount());
 		}
+
+		/// Копирует информацию в переданный класс.
+		/// </summary>
+		/// <param name="customer">Класс, в котором нужно поменять информацию.</param>
+		public void CopyInformation(Customer customer)
+		{
+			customer.Address.Apartment = this.Address.Apartment;
+			customer.Address.Building = this.Address.Building;
+			customer.Address.City = this.Address.City;
+			customer.Address.Country = this.Address.Country;
+			customer.Address.Index = this.Address.Index;
+			customer.Address.Street = this.Address.Street;
+			customer.Cart = this.Cart;
+			customer.FullName = this.FullName;
+			customer.Orders = this.Orders;
+			customer.Id = this.Id;
+			customer.Discounts = this.Discounts;
+		}
+
 	}
 }

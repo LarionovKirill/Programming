@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOP.Model
+namespace OOP.Model.Enums
 {
     /// <summary>
     /// Перечисление, содержащее категории товаров.
     /// </summary>
-    [Serializable]
     public enum ItemCategory
     {
         Clothes,

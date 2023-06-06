@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
+using OOP.Model.Orders;
+using OOP.Model.Enums;
 using OOP.Model;
 
 namespace OOP.View.Tabs
@@ -23,7 +25,7 @@ namespace OOP.View.Tabs
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<Model.Order> Orders { get; set; } = new List<Model.Order>();
+        public List<Order> Orders { get; set; } = new List<Order>();
 
         public ordersTab()
         {
@@ -61,7 +63,7 @@ namespace OOP.View.Tabs
                         order.DateOfCreate.ToString("dd.MM.yyyy"),
                         customer.FullName,
                         GetFormatAddress(order.Address),
-                        order.FullCost,
+                        order.DiscountAmount,
                         order.OrderStatus);
                 }
             }
@@ -70,7 +72,7 @@ namespace OOP.View.Tabs
         /// <summary>
         /// Заполянет поля обычного заказа.
         /// </summary>
-        private void FillOrder(Model.Order order)
+        private void FillOrder(Order order)
         {
             idTextBox.Text = order.Id.ToString();
             creationTextBox.Text = order.DateOfCreate.ToString("dd.MM.yyyy");
@@ -82,14 +84,14 @@ namespace OOP.View.Tabs
             {
                 ordersItemsListBox.Items.Add(items.Name);
             }
-            costLabel.Text = order.FullCost.ToString();
+            costLabel.Text = order.DiscountAmount.ToString();
 
             if (order.GetType() == typeof(PriorityOrder))
             {
                 var dict = Services.EnumGetter.GetDeliveryTime();
                 var priority = (PriorityOrder)order;
                 deliveryTimeComboBox.SelectedItem = dict[priority.DeliveryTime];
-            }    
+            }
         }
 
         /// <summary>
@@ -119,7 +121,7 @@ namespace OOP.View.Tabs
         /// </summary>
         private void OrdersTab_Load(object sender, EventArgs e)
         {
-            var values = Enum.GetValues(typeof(Model.OrderStatus));
+            var values = Enum.GetValues(typeof(OrderStatus));
             foreach (var status in values)
             {
                 statusComboBox.Items.Add(status);
@@ -146,7 +148,10 @@ namespace OOP.View.Tabs
                 {
                     Orders[index].OrderStatus = (OrderStatus)Enum.Parse(typeof(OrderStatus),
                         statusComboBox.SelectedItem.ToString());
-                    UpdateInformation();
+
+                    DataGridViewCell cell = new DataGridViewTextBoxCell();
+                    cell.Value = Orders[index].OrderStatus.ToString();
+                    informationTable[5, index] = cell;
                 }
             }
         }

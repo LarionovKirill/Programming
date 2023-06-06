@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OOP.Model.Enums;
 
 namespace OOP.Model
 {
 	/// <summary>
 	/// Класс товар.
 	/// </summary>
-	[Serializable]
 	public class Item
 	{
 		/// <summary>
@@ -96,19 +92,6 @@ namespace OOP.Model
 		public ItemCategory ItemCategory { get; set; }
 
 		/// <summary>
-		/// Копирует информацию из вызващего класса.
-		/// </summary>
-		public void CopyInformation(Item item)
-		{
-			item.Id = this.Id;
-			item.Info = this.Info;
-			item.ItemCategory = this.ItemCategory;
-			item.Name = this.Name;
-			item.Cost = this.Cost;
-		}
-			
-
-		/// <summary>
 		/// Конструктор без параметров.
 		/// </summary>
 		public Item()
@@ -130,6 +113,18 @@ namespace OOP.Model
 			this.Cost = cost;
 			this.Id = Services.IdGenerator.GetNextItemID();
 			this.ItemCategory = category;
+		}
+
+		/// <summary>
+		/// Копирует информацию из вызващего класса.
+		/// </summary>
+		public void CopyInformation(Item item)
+		{
+			item.Id = this.Id;
+			item.Info = this.Info;
+			item.ItemCategory = this.ItemCategory;
+			item.Name = this.Name;
+			item.Cost = this.Cost;
 		}
 	}
 }

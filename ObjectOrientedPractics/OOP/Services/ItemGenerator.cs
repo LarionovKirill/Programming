@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using OOP.Model.Enums;
 using OOP.Model;
 
 namespace OOP.Services
@@ -30,9 +31,9 @@ namespace OOP.Services
         /// Генерирует список товаров.
         /// </summary>
         /// <returns>Список товаров.</returns>
-        public static List<Model.Item> GenerateListOfItems()
+        public static List<Item> GenerateListOfItems()
         {
-            List <Model.Item> items = new List<Model.Item>();
+            List <Model.Item> items = new List<Item>();
             for (int i = 0; i < 8; i++)
             {
                 items.Add(new Item(
