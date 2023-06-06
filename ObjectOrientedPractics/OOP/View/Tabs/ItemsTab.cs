@@ -55,7 +55,7 @@ namespace OOP.View.Tabs
         /// <summary>
         /// Свойство словаря сортировок.
         /// </summary>
-        private Dictionary<string, Func<Item, Item, bool>> SortingName { get; set; } 
+        private Dictionary<string, Func<Item, Item, bool>> SortingName { get; set; }
             = new Dictionary<string, Func<Item, Item, bool>>();
 
         /// <summary>
@@ -148,11 +148,11 @@ namespace OOP.View.Tabs
         /// </summary>
         private void SetItemCost(object sender, EventArgs e)
         {
-           if (sender is Item)
-			{
+            if (sender is Item)
+            {
                 var item = (Item)sender;
                 costItemTextBox.Text = item.Cost.ToString();
-			}
+            }
         }
 
         /// <summary>
@@ -202,7 +202,7 @@ namespace OOP.View.Tabs
         /// <summary>
         /// Метод заполняет поле названия при помощи события.
         /// </summary>
-        private void SetItemDescription (object sender, EventArgs e)
+        private void SetItemDescription(object sender, EventArgs e)
         {
             if (sender is Item)
             {
@@ -256,11 +256,11 @@ namespace OOP.View.Tabs
 
             //Заполнение списка сортировок товаров.
             SortingName = new Dictionary<string, Func<Item, Item, bool>>
-                {
-                    ["Name"] = Services.DataTools.CompareName,
-                    ["Cost(Ascending)"] = Services.DataTools.CompareAscending,
-                    ["Cost(descending)"] = Services.DataTools.CompareDescending,
-                };
+            {
+                ["Name"] = Services.DataTools.CompareName,
+                ["Cost(Ascending)"] = Services.DataTools.CompareAscending,
+                ["Cost(descending)"] = Services.DataTools.CompareDescending,
+            };
 
             foreach (var sort in SortingName)
             {
@@ -432,8 +432,8 @@ namespace OOP.View.Tabs
             }
             else
             {
-                Func<Item, object, bool> comparing  = DataTools.FindItemName;
-                DisplayedItems =  DataTools.FilteringItem(Items, findingTextBox.Text, comparing);
+                Func<Item, object, bool> comparing = DataTools.FindItemName;
+                DisplayedItems = DataTools.FilteringItem(Items, findingTextBox.Text, comparing);
                 UpdateInformation(DisplayedItems);
             }
         }
@@ -456,7 +456,6 @@ namespace OOP.View.Tabs
         private void CallSort(Func<Item, Item, bool> sort)
         {
             itemListBox.Items.Clear();
-            //sort = dict[key];
             DisplayedItems = DataTools.SortItems(DisplayedItems, sort);
             UpdateInformation(DisplayedItems);
         }

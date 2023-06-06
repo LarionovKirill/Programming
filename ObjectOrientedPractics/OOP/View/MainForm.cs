@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using OOP.View.Tabs;
-using OOP.Services;
 
 namespace OOP
 {
@@ -73,5 +72,5 @@ namespace OOP
                 customerTab2.Fill();
             }
         }
-	}
+    }
 }

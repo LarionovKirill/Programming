@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOP.Model.Discounts
 {
@@ -96,13 +93,13 @@ namespace OOP.Model.Discounts
         }
 
         /// <summary>
-		/// Реализует сравнение классов <see cref="PointsDiscount"/> по количеству баллов.
-		/// </summary>
-		/// <param name="other">Сравниваемый объект.</param>
-		/// <returns>Метод должен возвращать 0, если баллы равны; 1, если баллы исходного объекта
-		/// больше передаваемого в метод; и -1, если баллы исходного объекта меньше 
-		/// передаваемого в метод.
-		/// </returns>
+        /// Реализует сравнение классов <see cref="PointsDiscount"/> по количеству баллов.
+        /// </summary>
+        /// <param name="other">Сравниваемый объект.</param>
+        /// <returns>Метод должен возвращать 0, если баллы равны; 1, если баллы исходного объекта
+        /// больше передаваемого в метод; и -1, если баллы исходного объекта меньше 
+        /// передаваемого в метод.
+        /// </returns>
         public int CompareTo(PointsDiscount other)
         {
             if (this.Points == other.Points)

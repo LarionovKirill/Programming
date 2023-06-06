@@ -10,7 +10,7 @@ namespace OOP.Model.EventsArgs
         /// <summary>
         /// Свойстов новой страны доставки.
         /// </summary>
-		public string NewCountry { get; set; }
+        public string NewCountry { get; set; }
 
         /// <summary>
         /// Свойство нового города доставки.
@@ -42,7 +42,7 @@ namespace OOP.Model.EventsArgs
         /// </summary>
         public AddressEventsArgs()
         {
-            
+
         }
 
         /// <summary>
