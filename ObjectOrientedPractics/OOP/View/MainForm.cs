@@ -44,7 +44,7 @@ namespace OOP
             Store.Items = Services.ItemGenerator.GenerateListOfItems();
 
             itemsTab1.Items = Store.Items;
-            itemsTab1.UpdateInformation();
+            itemsTab1.UpdateInformation(itemsTab1.Items);
 
             Store.Customers = Services.CustomerGenerator.GenerateListOfCustomers();
             customerTab2.Customers = Store.Customers;

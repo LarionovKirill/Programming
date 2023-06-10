@@ -58,6 +58,7 @@
     <Compile Include="Model\Orders\PriorityOrder.cs" />
     <Compile Include="Model\Store.cs" />
     <Compile Include="Services\CustomerGenerator.cs" />
+    <Compile Include="Services\DataTools.cs" />
     <Compile Include="Services\EnumGetter.cs" />
     <Compile Include="Services\IdGenerator.cs" />
     <Compile Include="Services\ItemGenerator.cs" />
@@ -172,6 +173,8 @@
     <Content Include="Diagrams\Uml лаба 5.jpg" />
     <Content Include="Diagrams\UMl лаба 6 второй вариант.jpg" />
     <Content Include="Diagrams\UML лаба 6.jpg" />
+    <Content Include="Diagrams\Uml лаба 7 первый варинт%28Смотри его%29.jpg" />
+    <Content Include="Diagrams\UML лаба 7.jpg" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
