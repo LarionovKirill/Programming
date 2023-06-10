@@ -16,6 +16,16 @@ namespace OOP.View.Tabs
     public partial class ItemsTab : UserControl
     {
         /// <summary>
+        /// Стандартный делегат Func для сортировки списка товаров.
+        /// </summary>
+        Func<Item, Item, bool> sort;
+
+        /// <summary>
+        /// Делегат изменения товара.
+        /// </summary>
+        public delegate void ChangeItem();
+
+        /// <summary>
         /// Свойство поля _items.
         /// </summary>
         [Browsable(false)]
@@ -46,6 +56,7 @@ namespace OOP.View.Tabs
         /// Свойство словаря сортировок.
         /// </summary>
         private Dictionary<string, Func<Item, Item, bool>> SortingName { get; set; }
+            = new Dictionary<string, Func<Item, Item, bool>>();
 
         /// <summary>
         /// Метод создающий компоненты формы.
@@ -53,6 +64,7 @@ namespace OOP.View.Tabs
         public ItemsTab()
         {
             InitializeComponent();
+            DisplayedItems = Items;
         }
 
         /// <summary>
@@ -66,6 +78,7 @@ namespace OOP.View.Tabs
             itemListBox.SelectedIndex = -1;
             OpenFields();
             findingTextBox.Text = string.Empty;
+            ItemsChanged?.Invoke();
         }
 
         /// <summary>
@@ -78,6 +91,10 @@ namespace OOP.View.Tabs
                 foreach (var items in listItems)
                 {
                     itemListBox.Items.Add(items.Name);
+
+                    items.NameChanged += SetItemName;
+                    items.CostChanged += SetItemCost;
+                    items.InfoChanged += SetItemDescription;
                 }
             }
         }
@@ -90,10 +107,18 @@ namespace OOP.View.Tabs
             if (itemListBox.SelectedIndex >= 0)
             {
                 var index = itemListBox.SelectedIndex;
+
+                Items[index].InfoChanged -= SetItemDescription;
+                Items[index].NameChanged -= SetItemName;
+                Items[index].CostChanged -= SetItemCost;
+
                 Items.RemoveAt(index);
                 itemListBox.Items.RemoveAt(index);
+
                 itemListBox.SelectedIndex = 0;
                 DisplayedItems = Items;
+
+                ItemsChanged?.Invoke();
             }
         }
 
@@ -119,6 +144,18 @@ namespace OOP.View.Tabs
         }
 
         /// <summary>
+        /// Метод заполняет поле стоимости при помощи события.
+        /// </summary>
+        private void SetItemCost(object sender, EventArgs e)
+        {
+            if (sender is Item)
+            {
+                var item = (Item)sender;
+                costItemTextBox.Text = item.Cost.ToString();
+            }
+        }
+
+        /// <summary>
         /// Проверяет изменения поля имени.
         /// </summary>
         private void NameItemTextBox_TextChanged(object sender, EventArgs e)
@@ -135,6 +172,18 @@ namespace OOP.View.Tabs
         }
 
         /// <summary>
+        /// Метод заполняет поле названия при помощи события.
+        /// </summary>
+        private void SetItemName(object sender, EventArgs e)
+        {
+            if (sender is Item)
+            {
+                var item = (Item)sender;
+                nameItemTextBox.Text = item.Name.ToString();
+            }
+        }
+
+        /// <summary>
         /// Проверяет изменения поля описания.
         /// </summary>
         private void DescriptionItemTextBox_TextChanged(object sender, EventArgs e)
@@ -147,6 +196,18 @@ namespace OOP.View.Tabs
             catch
             {
                 descriptionItemTextBox.BackColor = Color.Pink;
+            }
+        }
+
+        /// <summary>
+        /// Метод заполняет поле названия при помощи события.
+        /// </summary>
+        private void SetItemDescription(object sender, EventArgs e)
+        {
+            if (sender is Item)
+            {
+                var item = (Item)sender;
+                descriptionItemTextBox.Text = item.Info.ToString();
             }
         }
 
@@ -195,11 +256,11 @@ namespace OOP.View.Tabs
 
             //Заполнение списка сортировок товаров.
             SortingName = new Dictionary<string, Func<Item, Item, bool>>
-                {
-                    ["Name"] = Services.DataTools.CompareName,
-                    ["Cost(Ascending)"] = Services.DataTools.CompareAscending,
-                    ["Cost(descending)"] = Services.DataTools.CompareDescending,
-                };
+            {
+                ["Name"] = Services.DataTools.CompareName,
+                ["Cost(Ascending)"] = Services.DataTools.CompareAscending,
+                ["Cost(descending)"] = Services.DataTools.CompareDescending,
+            };
 
             foreach (var sort in SortingName)
             {
@@ -207,7 +268,6 @@ namespace OOP.View.Tabs
             }
 
             sortingComboBox.SelectedIndex = 0;
-            CallSort(SortingName, "Name");
         }
 
         /// <summary>
@@ -302,7 +362,7 @@ namespace OOP.View.Tabs
                         category));
                     itemListBox.Items.Add(Items.Last().Name);
                     DisplayedItems = Items;
-
+                    ItemsChanged?.Invoke();
                 }
                 catch
                 {
@@ -320,6 +380,7 @@ namespace OOP.View.Tabs
                     itemListBox.Items.Insert(index, DisplayedItems[index].Name);
                     itemListBox.Items.RemoveAt(index + 1);
                     MessageBox.Show("Данные успешно сохранены.");
+                    ItemsChanged?.Invoke();
                 }
                 else
                 {
@@ -371,8 +432,8 @@ namespace OOP.View.Tabs
             }
             else
             {
-                Func<Item, object, bool> comparing  = DataTools.FindItemName;
-                DisplayedItems =  DataTools.FilteringItem(Items, findingTextBox.Text, comparing);
+                Func<Item, object, bool> comparing = DataTools.FindItemName;
+                DisplayedItems = DataTools.FilteringItem(Items, findingTextBox.Text, comparing);
                 UpdateInformation(DisplayedItems);
             }
         }
@@ -383,7 +444,8 @@ namespace OOP.View.Tabs
         private void SortingComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var typeOfSort = sortingComboBox.SelectedItem.ToString();
-            CallSort(SortingName, typeOfSort);
+            sort = SortingName[typeOfSort];
+            CallSort(sort);
         }
 
         /// <summary>
@@ -391,12 +453,16 @@ namespace OOP.View.Tabs
         /// </summary>
         /// <param name="dict">Словарь с сортировками и методами.</param>
         /// <param name="key">Ключ словаря.</param>
-        private void CallSort(Dictionary<string, Func<Item, Item, bool>> dict, string key)
+        private void CallSort(Func<Item, Item, bool> sort)
         {
             itemListBox.Items.Clear();
-            Func<Item, Item, bool> sort = dict[key];
             DisplayedItems = DataTools.SortItems(DisplayedItems, sort);
             UpdateInformation(DisplayedItems);
         }
+
+        /// <summary>
+        /// Свобытие изменения товара.
+        /// </summary>
+        public event ChangeItem ItemsChanged;
     }
 }
